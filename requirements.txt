@@ -1,1 +1,7 @@
 pelican
+fabric
+Markdown
+IPython
+jupyter
+beautifulsoup4
+ghp-import
