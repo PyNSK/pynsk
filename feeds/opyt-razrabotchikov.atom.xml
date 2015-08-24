@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/opyt-razrabotchikov.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-13T08:00:00+06:00</updated><entry><title>Опыт разработчиков: "Перестаньте писать классы"</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./13/opyt-razrabotchikov-perestante-pisat-klassy/" rel="alternate"></link><updated>2015-08-13T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-13:posts/2015/авг./13/opyt-razrabotchikov-perestante-pisat-klassy/</id><summary type="html">&lt;p&gt;Признак того, что объект не должен быть классом — если в нём всего 2 метода, и один из них — инициализация, &lt;code&gt;__init__&lt;/code&gt;. Каждый раз видя это, подумайте: «наверное, мне нужна просто одна функция».&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/140581/"&gt;http://habrahabr.ru/post/140581/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/143620/"&gt;http://habrahabr.ru/post/143620/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry></feed>

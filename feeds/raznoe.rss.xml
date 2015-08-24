@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/raznoe.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 06 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Что такое PEP?</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./06/chto-takoe-pep/</link><description>&lt;p&gt;Развитие языка Python происходит согласно чётко регламентированному процессу создания, обсуждения, отбора и реализации документов PEP.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/raznoe.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 10 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Установка библиотек в Python</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./10/ustanovka-bibliotek-v-python/</link><description>&lt;p&gt;Репозиторий pypi содержит более 62к модулей. Такое количество готовых инструментов, в дополнение к богатой стандартной поставке, позволяет заметно упростить разработку новых проектов. Вот только новички сталкиваются с проблемой установки этих самых модулей. &lt;/p&gt;
+&lt;p&gt;Стандартным способом установки новых модулей является pip (и easy_install). pip &lt;a href="https://pip.pypa.io/en/latest/index.html"&gt;https://pip.pypa.io/en/latest/index.html&lt;/a&gt; это инструмент, который упрощает управление модулями.&lt;/p&gt;
+&lt;p&gt;Вы можете установить модуль, например numpy:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install numpy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Удалить, его же:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip unistall numpy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Можете получить список библиотеки уже установленных - &lt;code&gt;pip list&lt;/code&gt;
+Это не весь список команд, но и его достаточно для установки библиотек буквально в 1 команду.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 10 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-10:posts/2015/авг./10/ustanovka-bibliotek-v-python/</guid><category>pip</category><category>pypi</category></item><item><title>Что такое PEP?</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./06/chto-takoe-pep/</link><description>&lt;p&gt;Развитие языка Python происходит согласно чётко регламентированному процессу создания, обсуждения, отбора и реализации документов PEP.
 PEP - Python Enhancement Proposal - это предложения по развитию питона
 &lt;a href="https://www.python.org/dev/peps/"&gt;https://www.python.org/dev/peps/&lt;/a&gt;
 Процесс PEP является основным механизмом для предложения новых возможностей и для документирования проектных решений, которые прошли в Python.&lt;/p&gt;

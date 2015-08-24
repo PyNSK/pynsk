@@ -229,6 +229,33 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./11/testy-testy-testy-chto-takoe-fikstura-fixture/">Тесты тесты тесты: что такое фикстура (fixture)?</a></h2>
+
+                <div class="summary"><p>При написании тестов не редка ситуация, когда надо иметь фиксированное воспроизводимое много раз состояние программы. Например, такая-то кнопочка нажата, такой-то класс содержит такие-то значения.</p>
+<p>Чтобы не приходилось каждый раз вручную создавать подобное состояние программы используются fixture (фикстуры). 
+Фикстуры позволяют сохранить состояние системы в файл, а потом его от туда загрузить. </p>
+<p>По-мимо тестов, фикстуры применяются для создания начального состояния системы. Например ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./11/testy-testy-testy-chto-takoe-fikstura-fixture/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./11/testy-testy-testy-propuskaem-testy-v-pytest-po-usloviiu/">Тесты тесты тесты: пропускаем тесты в pytest по условию</a></h2>
+
+                <div class="summary"><p>Тесты не всегда универсальны. Например, в Windows надо дергать одну программу, в Linux другую. Чтобы реализовать такую логику в pytest можно воспользоваться - <code>skipif</code></p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nd">@pytest.mark.skipif</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">reason</span><span class="o">=</span><span class="s">&quot;requires python3.3&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_function</span><span class="p">():</span>
+<span class="o">...</span>
+</pre></div>
+
+
+<p>Вот такой пример демонстрирует как можно пропустить тест, если запуск происходит в Python версии ниже 3.3.</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./11/testy-testy-testy-propuskaem-testy-v-pytest-po-usloviiu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/авг./04/testy-testy-testy-modul-testirovaniia-pytest/">Тесты тесты тесты: модуль тестирования py.test</a></h2>
 
                 <div class="summary"><p>Наряду с входящими в стандартную поставку питона средствами для тестирования, существуют и альтернативные инструменты, например, py.test. <a href="http://pytest.org/">http://pytest.org/</a></p>
@@ -357,6 +384,11 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/opyt-razrabotchikov.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Опыт разработчиков
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/pishem-web-proekty.html">
                             <i class="fa fa-folder-open fa-lg"></i> Пишем web-проекты
                         </a>
@@ -384,6 +416,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/python-proekty.html">
                             <i class="fa fa-folder-open fa-lg"></i> Python проекты
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/python-v-igrakh.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Python в играх
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -423,16 +460,21 @@ unittest является частью стандартной поставки.<
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/aiohttp.html">
+                            aiohttp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/asyncio.html">
                             asyncio
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bait-kod.html">
                             байт-код
                         </a>
@@ -452,7 +494,17 @@ unittest является частью стандартной поставки.<
                             bottle
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/cython.html">
+                            cython
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
                         </a>
@@ -473,13 +525,23 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/fixture.html">
+                            fixture
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/gui.html">
                             GUI
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/hardcore.html">
+                            hardcore
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -492,7 +554,12 @@ unittest является частью стандартной поставки.<
                             if
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/interfeis.html">
                             интерфейс
                         </a>
@@ -518,8 +585,28 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/matplotlib.html">
+                            matplotlib
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/mechanize.html">
+                            mechanize
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/mock.html">
                             mock
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/opencv.html">
+                            opencv
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/optimizatsiia.html">
+                            оптимизация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -527,14 +614,19 @@ unittest является частью стандартной поставки.<
                             отчет
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pep.html">
                             pep
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pip.html">
+                            pip
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -545,6 +637,21 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/pycon.html">
                             pycon
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pygame.html">
+                            pygame
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pypi.html">
+                            pypi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -597,7 +704,7 @@ unittest является частью стандартной поставки.<
                             scandir
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
                         </a>
@@ -615,6 +722,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/standart.html">
                             стандарт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/standartnaia-biblioteka.html">
+                            стандартная библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -642,7 +754,7 @@ unittest является частью стандартной поставки.<
                             тест
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/testy.html">
                             тесты
                         </a>

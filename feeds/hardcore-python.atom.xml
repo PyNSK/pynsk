@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/hardcore-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-07-30T17:00:00+06:00</updated><entry><title>Python и real-time?</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/30/python-i-real-time/" rel="alternate"></link><updated>2015-07-30T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-30:posts/2015/июля/30/python-i-real-time/</id><summary type="html">&lt;p&gt;Возможно!&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/hardcore-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-16T18:00:00+06:00</updated><entry><title>Python hardcore: Cython</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./16/python-hardcore-cython/" rel="alternate"></link><updated>2015-08-16T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-16:posts/2015/авг./16/python-hardcore-cython/</id><summary type="html">&lt;p&gt;Cython — язык программирования, упрощающий написание модулей С/С++ кода для Python. Кроме стандартного синтаксиса Python, поддерживаются:&lt;/p&gt;
+&lt;p&gt;Прямой вызов функций и методов С/С++ из кода на Cython;
+Строгая типизация переменных, классов, атрибутов классов.&lt;/p&gt;
+&lt;p&gt;Код Cython преобразуется в С/С++ код для последующей компиляции и впоследствии может использоваться как расширение стандартного Python или как независимое приложение со встроенной библиотекой выполнения Cython.&lt;/p&gt;
+&lt;p&gt;Программирование на Cyhton не очень отличается от Python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cdef ackermann(int m, int n):
+....if m == 0:
+........return n + 1
+....elif n == 0:
+........return ackermann(m - 1, 1)
+....else:
+........return ackermann(m - 1, ackermann(m, n - 1))
+
+print(&amp;quot;Ackermann:&amp;quot;)
+print(ackermann(0, 3))
+print(ackermann(1, 4))
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Отличается в необходимости указывать типы переменных (это в основном).&lt;/p&gt;
+&lt;p&gt;Хорошее применение языка - связка с C/C++ кодом - оно происходит в разы быстрее, чем в CPython и PyPi. Скорость исполнения программы также выше (может достигать сотен раз).  &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cython.org/"&gt;http://cython.org/&lt;/a&gt;
+&lt;a href="https://www.wikiwand.com/ru/Cython"&gt;https://www.wikiwand.com/ru/Cython&lt;/a&gt;&lt;/p&gt;</summary><category term="cython"></category><category term="оптимизация"></category></entry><entry><title>Python оптимизации: сверхоптимизация кода на Python</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./13/python-optimizatsii-sverkhoptimizatsiia-koda-na-python/" rel="alternate"></link><updated>2015-08-13T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-13:posts/2015/авг./13/python-optimizatsii-sverkhoptimizatsiia-koda-na-python/</id><summary type="html">&lt;p&gt;&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=K3qL3NqZDcE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</summary><category term="hardcore"></category><category term="оптимизация"></category></entry><entry><title>Python и real-time?</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/30/python-i-real-time/" rel="alternate"></link><updated>2015-07-30T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-30:posts/2015/июля/30/python-i-real-time/</id><summary type="html">&lt;p&gt;Возможно!&lt;br /&gt;
 Рассказ "Управление памятью в real-time приложениях Python"  Антона Патрушева покажет как можно писать Python приложения с максимально быстрым откликом.
 &lt;a href="https://events.yandex.ru/lib/talks/2075/"&gt;https://events.yandex.ru/lib/talks/2075/&lt;/a&gt;&lt;/p&gt;</summary><category term="интерпретатор"></category><category term="real-time"></category></entry></feed>
