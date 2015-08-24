@@ -111,6 +111,11 @@ DISPLAY_TAGS_INLINE = True
 # когда напишу страницы, то включить обрабтно
 DISPLAY_PAGES_ON_MENU = False
 
+GOOGLE_ANALYTICS = 'UA-53909016-3'
+GITHUB_URL = 'https://github.com/WarmongeR1/pynsk'
+
+
+
 MENUITEMS = [
     ('Категории', '/categories.html'),
 ]
