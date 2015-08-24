@@ -68,6 +68,7 @@ SITEMAP = {
         "indexes": "daily",
         "pages": "monthly",
     }
+
 }
 
 PLUGIN_PATHS = [
@@ -104,6 +105,11 @@ RELATED_POSTS_TEXT = 'Новости по теме:'
 RELATED_POSTS_MAX = 10
 ABOUT_ME = True
 AVATAR = '/images/logo.png'
+DISPLAY_TAGS_INLINE = True
+
+# todo
+# когда напишу страницы, то включить обрабтно
+DISPLAY_PAGES_ON_MENU = False
 
 MENUITEMS = [
     ('Категории', '/categories.html'),
