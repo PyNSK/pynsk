@@ -32,9 +32,9 @@ AUTHOR_FEED_RSS = None
 
 # Social widget
 SOCIAL = (
-    ('twitter', 'https://twitter.com/py_nsk'),
-    ('facebook', 'https://www.facebook.com/PyNskCom'),
-    ('vk', 'https://vk.com/pynsk'),
+    ('vk', 'https://vk.com/pynsk', '<b>Группа в ВКонтакте</b>'),
+    ('twitter', 'https://twitter.com/py_nsk', 'В Twitter'),
+    ('facebook', 'https://www.facebook.com/PyNskCom', 'Группа в Facebook'),
 )
 
 DEFAULT_PAGINATION = 10
