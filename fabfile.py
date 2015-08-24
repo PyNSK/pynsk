@@ -86,6 +86,8 @@ def publish():
         delete=True,
         extra_opts='-c',
     )
+    with local('cd %s' % DEPLOY_PATH):
+        local('echo "pynsk.ru" > CNAME')
 
 def gh_pages():
     """Publish to GitHub Pages"""
