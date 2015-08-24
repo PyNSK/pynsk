@@ -96,7 +96,7 @@ TAGS_URL = 'tags.html'
 RELATED_POSTS_TEXT = 'Новости по теме:'
 RELATED_POSTS_MAX = 10
 ABOUT_ME = True
-AVATAR = 'images/logo.png'
+AVATAR = '/images/logo.png'
 
 MENUITEMS = [
     ('Категории', '/categories.html'),
