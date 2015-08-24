@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщесщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/misc.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2012-12-01T10:02:00+07:00</updated><entry><title>The second article</title><link href="http://pynsk.ru/the-second-article.html" rel="alternate"></link><updated>2012-12-01T10:02:00+07:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2012-12-01:the-second-article.html</id><summary type="html">&lt;p&gt;See below intra-site link examples in Markdown format.&lt;/p&gt;
-&lt;p&gt;&lt;a href="{filename}/article1.md"&gt;a link relative to content root&lt;/a&gt;
-&lt;a href="{filename}../article1.md"&gt;a link relative to current file&lt;/a&gt;&lt;/p&gt;</summary></entry></feed>
