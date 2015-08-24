@@ -90,7 +90,7 @@ PLUGINS = [
     'post_stats',
     'related_posts',
     'embedly_cards',
-    # 'pelican_youtube',
+    'pin_to_top',
 ]
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
