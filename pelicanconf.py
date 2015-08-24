@@ -10,19 +10,8 @@ PROJECT_DIR = os.path.normpath(
 def get_theme_path(theme_name):
     return os.path.join(PROJECT_DIR, 'themes', theme_name)
 
-
-themes = [
-    'aboutwilson',
-    'alchemy',
-    'elegant',
-    'foundation-default-colours',
-    'lazystrap',
-    'Nuja',
-    'pelican-bootstrap3',
-    'pelican-twitchy']
-
 AUTHOR = 'Alexander Sapronov'
-SITENAME = 'PyNSK - Новосибирское Python сообщесщество'
+SITENAME = 'PyNSK - Новосибирское Python сообщество'
 # SITEURL = 'http://pynsk.ru'
 SITEURL = ''
 
@@ -39,13 +28,7 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (
-    ('Pelican', 'http://getpelican.com/'),
-    ('Python.org', 'http://python.org/'),
-    ('Jinja2', 'http://jinja.pocoo.org/'),
-    ('You can modify those links in your config file', '#'),
-)
+
 
 # Social widget
 SOCIAL = (
@@ -58,6 +41,13 @@ DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
+
+DIRECT_TEMPLATES = (
+    ('index', 'tags', 'categories', 'authors', 'archives', 'search')
+)
+MARKUP = ('rst', 'markdown',)
+
+THEME = get_theme_path('pelican-bootstrap3')
 
 
 SITEMAP = {
@@ -89,11 +79,20 @@ PLUGINS = [
     'sitemap',
     # 'pelican_youtube',
     'optimize_images',
+    'tag_cloud',
 
 ]
+ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 
-DIRECT_TEMPLATES = (
-    ('index', 'tags', 'categories', 'authors', 'archives', 'search')
-)
-MARKUP = ('rst', 'markdown',)
-THEME = get_theme_path(themes[2])
+
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_TAGS_ON_SIDEBAR = True
+TAGS_URL = 'tags.html'
+
+
+
+MENUITEMS = [
+    ('Категории', '/categories.html')
+]
