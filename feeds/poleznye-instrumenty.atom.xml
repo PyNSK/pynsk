@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/poleznye-instrumenty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-07T08:00:00+06:00</updated><entry><title>Утилиты написанные на Python: youtube-dl</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./07/utility-napisannye-na-python-youtube-dl/" rel="alternate"></link><updated>2015-08-07T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-07:posts/2015/авг./07/utility-napisannye-na-python-youtube-dl/</id><summary type="html">&lt;p&gt;youtube-dl (https://github.com/rg3/youtube-dl/)
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/poleznye-instrumenty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-19T18:00:00+06:00</updated><entry><title>Полезные инструменты: gunicorn</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./19/poleznye-instrumenty-gunicorn/" rel="alternate"></link><updated>2015-08-19T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-19:posts/2015/авг./19/poleznye-instrumenty-gunicorn/</id><summary type="html">&lt;p&gt;Вот вы написали web-проект, теперь надо его опубликовать на хостинге (или у себя на машине) (задеплоить). Начинаете жадно мучать гугл странными запросами. &lt;/p&gt;
+&lt;p&gt;И вот наконец-то доходите до слов - uwsgi и gunicorn. Это серверы, которые с одной стороны предоставляют пользователям доступ к вашему проекту(сайтику), а с другой - общаются с вашим Python кодом. &lt;/p&gt;
+&lt;p&gt;Стоит сказать, что gunicorn это WSGI HTTP сервер, написанный на питоне и легкий в настройке. Среди заявленных возможностей:&lt;/p&gt;
+&lt;p&gt;поддержка WSGI, Django и Paster
+async, sync worker
+балансировка нагрузки через pre-fork и shared socket
+разные хуки для расширение возможностей
+Этот инструмент простой для понимания. Рекомендуем его использовать.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gunicorn.org/"&gt;http://gunicorn.org/&lt;/a&gt;&lt;/p&gt;</summary><category term="gunicorn"></category></entry><entry><title>Полезные инструменты: Pycharm</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./17/poleznye-instrumenty-pycharm/" rel="alternate"></link><updated>2015-08-17T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-17:posts/2015/авг./17/poleznye-instrumenty-pycharm/</id><summary type="html">&lt;p&gt;Pycharm - это IDE специализированная под Python разработку.&lt;/p&gt;
+&lt;p&gt;Возможности этого редактора кода захватывают:
+- Статический анализ кода, подсветка синтаксиса и ошибок.
+- Рефакторинг: переименование, извлечение метода, введение переменной, введение константы, подъём и спуск метода и т. д.
+- Инструменты для веб-разработки с использованием фреймворка Django
+- Встроенный отладчик для Python
+- Встроенные инструменты для юнит-тестирования
+- Поддержка систем контроля версий (Git, svn и другие)
+- По-мимо этого, Pycharm поддержку множество модулей, например, IPython встроен в редактор. &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.jetbrains.com/pycharm/"&gt;https://www.jetbrains.com/pycharm/&lt;/a&gt;&lt;/p&gt;</summary><category term="ide"></category><category term="pycharm"></category></entry><entry><title>Утилиты написанные на Python: youtube-dl</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./07/utility-napisannye-na-python-youtube-dl/" rel="alternate"></link><updated>2015-08-07T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-07:posts/2015/авг./07/utility-napisannye-na-python-youtube-dl/</id><summary type="html">&lt;p&gt;youtube-dl (https://github.com/rg3/youtube-dl/)
 - это очень популярный скрипт для выгрузки видео с сервиса Youtube (, Vimeo и других). Данная утилита позволяет очень легко выдернуть видео со страницы ютьюб. 
 Множество настроек позволяют в том числе выдернуть субтитры, узнать длительность видео и многие другие параметры.&lt;/p&gt;
 &lt;p&gt;Данную утилиту можно применить следующим образом: если у вас есть ряд каналов, которые вы смотрите регулярно, то часто задаетесь вопросом "Вышло новое видео или нет?".

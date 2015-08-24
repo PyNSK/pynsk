@@ -228,81 +228,52 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./16/python-hardcore-cython/">Python hardcore: Cython</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/">Hardcore Python: запускаем С код с помощью cffi</a></h2>
 
-                <div class="summary"><p>Cython — язык программирования, упрощающий написание модулей С/С++ кода для Python. Кроме стандартного синтаксиса Python, поддерживаются:</p>
-<p>Прямой вызов функций и методов С/С++ из кода на Cython;
-Строгая типизация переменных, классов, атрибутов классов.</p>
-<p>Код Cython преобразуется в С/С++ код для последующей компиляции и впоследствии может использоваться как расширение стандартного Python или как независимое приложение со встроенной библиотекой выполнения Cython ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./16/python-hardcore-cython/">more ...</a>
+                <div class="summary"><p>Самый популярный Python это CPython. Он настолько популярен, что когда говорят Python имеют ввиду именно каноническую реализацию - CPython.</p>
+<p>CPython, как можно понять из названия, имеет какое-то отношение к языку C.
+Из Python вы можете с помощью ctypes дергать С-шные функции.<br />
+Однако, этот механизм несколько медленный и не всегда удобный - бывает надо просто дернуть один кусок C-кода. Или надо только часть ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./16/python-i-asinkhronnye-zadachi/">Python и асинхронные задачи</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">Таинство стандартной библиотеки:  functools.singledispatch</a></h2>
 
-                <div class="summary"><p>Celery — распределенная очередь заданий
-И так, что же умеет Celery:</p>
-<ul>
-<li>Выполнять задания асинхронно или синхронно</li>
-<li>Выполнять периодические задания(умная замена crond)</li>
-<li>Выполнять отложенные задания</li>
-<li>Распределенное выполнение (может быть запущен на N серверах)</li>
-<li>В пределах одного worker'а возможно конкурентное выполнение нескольких задач(одновременно)</li>
-<li>Выполнять задание повторно, если вылез exception</li>
-<li>Ограничивать количество заданий в единицу времени(rate limit, для задания или ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./16/python-i-asinkhronnye-zadachi/">more ...</a>
+                <div class="summary"><p>Стандартная поставка Python полна возможностями. 
+Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.</p>
+<p>Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.</p>
+<p>Подробней о ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./15/risovanie-grafikov-na-python/">Рисование графиков на Python</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-plotly-plotly/">Полезные библиотеки: plot.ly (plotly)</a></h2>
 
-                <div class="summary"><p>Графики бывают совсем разные. Де-факто стандартом в питоне для построения графиков является matplotlib. Это такой комбайн, который умеет очень много, даже 3Д графики. </p>
-<p>Matplotlib написан и поддерживался в основном Джоном Хантером (англ. John Hunter) и распространяется на условиях BSD-подобной лицензии. Генерируемые в различных форматах изображения могут быть использованы в интерактивной графике, в научных публикациях, графическом интерфейсе пользователя, веб-приложениях, где требуется ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./15/risovanie-grafikov-na-python/">more ...</a>
+                <div class="summary"><p>Понятное представление информации - это вечная задача. Причем она свойственна всем.</p>
+<p>Хочется упомянуть графики. Вот собрали мы данные, задача была не простая, а теперь надо их представить. Графики бывают разных типов, их очень много. Даже если какой-то график сделали, а как поделиться? Можно скинуть картинку, да только придется потом с "линейкой" вычислять значения, а можно пойти по другому пути - https://plot ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-plotly-plotly/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./15/python-v-igrakh-pygame/">Python в играх: PyGame</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-numpy/">Полезные библиотеки: numpy</a></h2>
 
-                <div class="summary"><p>Pygame - это кроссплатформенная библиотека языка Python, предназначенная для написания компьютерных игр и мультимедиа приложений.</p>
-<p>Для знакомства с возможностями PyGame ссылки:</p>
-<ul>
-<li><a href="http://habrahabr.ru/post/130726/">http://habrahabr.ru/post/130726/</a></li>
-<li><a href="http://habrahabr.ru/post/130726/">http://habrahabr.ru/post/130726/</a></li>
-<li><a href="http://habrahabr.ru/post/164229/">http://habrahabr.ru/post/164229/</a></li>
-<li><a href="http://habrahabr.ru/post/193888/">http://habrahabr.ru/post/193888/</a></li>
-<li><a href="http://www.pygame.org/">http://www.pygame.org/</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./15/python-v-igrakh-pygame/">more ...</a>
+                <div class="summary"><p>NumPy — это библиотека языка Python, добавляющая поддержку больших многомерных массивов и матриц, вместе с большой библиотекой высокоуровневых (и очень быстрых) математических функций для операций с этими массивами.</p>
+<p>В чем же "фишка" NumPy вы можете спросить. </p>
+<p>Основным объектом NumPy является однородный многомерный массив (в numpy называется numpy.ndarray). Это многомерный массив элементов (обычно чисел), одного типа.</p>
+<p>Здесь можно подчеркнуть <em>одного типа ...</em></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-numpy/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./14/python-v-igrakh-gde-ispolzuetsia-python/">Python в играх: где используется Python?</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/">Внутренности Python: зачем нужен GIL(Global interpreter lock)</a></h2>
 
-                <div class="summary"><p>Сегодня вашему вниманию представляется статья и небольшая инфографика, которая покажет вам на конкретных примерах, что Python столь же эффективен в разработке игр, как и в других областях.</p>
-<p><a href="http://tproger.ru/articles/python-powered-games/">http://tproger.ru/articles/python-powered-games/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./14/python-v-igrakh-gde-ispolzuetsia-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./14/python-na-sluzhbe-naroda-ia-vykliuchil-dukhovku/">Python на службе народа: Я выключил духовку?</a></h2>
-
-                <div class="summary"><p>Программирование должно упрощать жизнь. Распознавание образов это интересная задача, но далеко не всегда надо обучать нейронную сеть, вычислять на видеокарте.</p>
-<p>OpenCV это библиотека компьютерного зрения. Которая ОЧЕНЬ много умеет чего. По ссылке вы сможете найти пример использование OpenCV для определения "Выключил ли я духовку?"</p>
-<p><a href="http://kazuar.github.io/light-detection-opencv/">http://kazuar.github.io/light-detection-opencv/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./14/python-na-sluzhbe-naroda-ia-vykliuchil-dukhovku/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./13/python-optimizatsii-sverkhoptimizatsiia-koda-na-python/">Python оптимизации: сверхоптимизация кода на Python</a></h2>
-
-                <div class="summary"><p><a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=K3qL3NqZDcE'></a>
+                <div class="summary"><p>Много хают GIL в Python, в этом видео вы узнаете насколько же он плох... или все-таки хорош?
+<a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=AWX4JnAnjBE'></a>
             <script>
             !function(a){
                 var b="embedly-platform",c="script";
@@ -310,46 +281,73 @@ PyNSK - Новосибирское Python сообщество            </a>
                     var d=a.createElement(c);
                     d.id=b;
                     d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
-                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
-                }(document);
-            </script>
-            </p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./13/python-optimizatsii-sverkhoptimizatsiia-koda-na-python/">more ...</a>
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d ...</script></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./13/opyt-razrabotchikov-perestante-pisat-klassy/">Опыт разработчиков: "Перестаньте писать классы"</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/">Python на службе народа: распознаем образы с помощью Raspberry Pi</a></h2>
 
-                <div class="summary"><p>Признак того, что объект не должен быть классом — если в нём всего 2 метода, и один из них — инициализация, <code>__init__</code>. Каждый раз видя это, подумайте: «наверное, мне нужна просто одна функция».</p>
-<ul>
-<li><a href="http://habrahabr.ru/post/140581/">http://habrahabr.ru/post/140581/</a></li>
-<li><a href="http://habrahabr.ru/post/143620/">http://habrahabr.ru/post/143620/</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./13/opyt-razrabotchikov-perestante-pisat-klassy/">more ...</a>
+                <div class="summary"><p>Raspberry Pi - это мини-компьютер, который имеет невысокую цену и при этом имеет богатые возможности.
+Применение мини-компьютеров широкое, например, можно сделать камеру для дома - можете реализовать программку, которая будет следить за вашим маленьким ребенком и посылать вам сигнал, когда ребенок проснулся.</p>
+<p><a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=vRHoQVZLvoM)
+[http://www.open-electronics.org/raspberry-pi-and-the-camera-pi-module-face-recognition-tutorial/](http://www ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./12/parsing-i-python-mechanize/">Парсинг и Python: mechanize</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./20/interesnye-kontseptsii-transdiusery/">Интересные концепции: Трансдьюсеры</a></h2>
 
-                <div class="summary"><p>Для сбора данных с Web-страниц в Python существует библиотека mechanize, автоматизирующая взаимодействие с Web-сайтами. Часто используемая совместно с ней библиотека Beautiful Soup помогает понять тот «почти-HTML» код, который обычно находится на Web-сайтах.</p>
-<p><a href="http://www.ibm.com/developerworks/ru/library/l-python-mechanize-beautiful-soup/">http://www.ibm.com/developerworks/ru/library/l-python-mechanize-beautiful-soup/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./12/parsing-i-python-mechanize/">more ...</a>
+                <div class="summary"><p>Трансдьюсеры — это попытка переосмыслить операции над коллекциями, найти в них общую идею и принцип, научиться совмещать вместе несколько операций для их дальнейшего переиспользования.</p>
+<p><a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=ANZOvcYPagU)
+[!embedlycard](https://www.youtube.com/watch?t=1080&v=VTEfb5ojOzA'></a>
+            <script>
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a ...</script></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/interesnye-kontseptsii-transdiusery/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/">Таинство стандартной библиотеки: примеры для asyncio - aiohttp</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">Таинство стандартной библиотеки: functools.partial</a></h2>
 
-                <div class="summary"><p>Asyncio - это модуль содержащий инфраструктуру пригодную для написания асинхронных сетевых приложений. Благодаря концепции сопрограмм (coroutines), код асинхронного приложения прост для понимания и поддержки. </p>
-<p>Экосистема развивается не по дням, а по часам. Стоит обратить внимание на развитие этого направления современного Python</p>
-<ul>
-<li><a href="http://sysdev.me/python-asyncio/">http://sysdev.me/python-asyncio/</a></li>
-<li><a href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></li>
-<li><a href="https://docs.python.org/3/library/asyncio-dev.html">https://docs.python.org/3/library/asyncio-dev.html</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/">more ...</a>
+                <div class="summary"><p>Представим, написали мы функцию:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">super_function</span><span class="p">(</span><span class="n">server_name</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+<span class="o">....</span><span class="k">print</span><span class="p">(</span><span class="n">server_name</span><span class="p">)</span>
+<span class="o">...........</span>
+<span class="o">....</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Но вот беда, первый аргумент - имя сервера у вас уже есть. А второй, ip сервера, вы получите от пользователя, а функцию уже надо вызвать. Можно, конечно, дождаться когда будет два аргумента, тогда и запустить. А можно пойти по другому пути - воспользоваться механизмом каррирования - такое страшное слово. </p>
+<p>Каррирование - преобразование ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./19/poleznye-instrumenty-gunicorn/">Полезные инструменты: gunicorn</a></h2>
+
+                <div class="summary"><p>Вот вы написали web-проект, теперь надо его опубликовать на хостинге (или у себя на машине) (задеплоить). Начинаете жадно мучать гугл странными запросами. </p>
+<p>И вот наконец-то доходите до слов - uwsgi и gunicorn. Это серверы, которые с одной стороны предоставляют пользователям доступ к вашему проекту(сайтику), а с другой - общаются с вашим Python кодом. </p>
+<p>Стоит сказать, что gunicorn это WSGI HTTP сервер ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./19/poleznye-instrumenty-gunicorn/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./19/izvlechenie-informatsii-parsing-datvremeni/">Извлечение информации: парсинг дат/времени</a></h2>
+
+                <div class="summary"><p>Извлечение информации из текста/web-страниц сопряжено с эвристиками. 
+Одна из проблем, с которой сталкиваются разработчики - как парсить даты. Даты можно написать 100 и одним способом:
+tomorrow, а еще 4/4/80 или March 5th, 1980. И какой код писать, чтобы понять эти даты?</p>
+<p>К счастью, код уже написан - <a href="https://github.com/bear/parsedatetime">https://github.com/bear/parsedatetime</a></p>
+<p>Данная библиотека позволяет спарсить время в самых ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./19/izvlechenie-informatsii-parsing-datvremeni/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -368,6 +366,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                             href="http://pynsk.ru/author/alexander-sapronov5.html">5</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/author/alexander-sapronov6.html">6</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/author/alexander-sapronov7.html">7</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/author/alexander-sapronov2.html">&raquo;</a></li>
         </ul>
@@ -407,6 +407,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/hardcore-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Hardcore Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/interesnye-kontseptsii.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Интересные концепции
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -462,6 +467,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/sintaksis-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Синтаксис Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/staticheskaia-tipizatsiia-v-python.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Статическая типизация в Python
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -531,6 +541,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/cython.html">
                             cython
                         </a>
@@ -561,6 +576,16 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/functools.html">
+                            functools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gil.html">
+                            GIL
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
                         </a>
@@ -571,6 +596,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gunicorn.html">
+                            gunicorn
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
                         </a>
@@ -578,6 +608,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/http.html">
                             http
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -631,6 +666,16 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nose.html">
+                            nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/numpy.html">
+                            numpy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/opencv.html">
                             opencv
                         </a>
@@ -645,7 +690,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             отчет
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
                         </a>
@@ -661,8 +706,18 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycharm.html">
+                            pycharm
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -693,6 +748,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/r.html">
                             R
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/raspberry-pi.html">
+                            raspberry pi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -788,6 +848,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/testy.html">
                             тесты
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
+                            типы данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

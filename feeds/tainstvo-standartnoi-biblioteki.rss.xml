@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 12 Aug 2015 08:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: примеры для asyncio - aiohttp</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/</link><description>&lt;p&gt;Asyncio - это модуль содержащий инфраструктуру пригодную для написания асинхронных сетевых приложений. Благодаря концепции сопрограмм (coroutines), код асинхронного приложения прост для понимания и поддержки. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 23 Aug 2015 10:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: functools.singledispatch</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</link><description>&lt;p&gt;Стандартная поставка Python полна возможностями. 
+Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.&lt;/p&gt;
+&lt;p&gt;Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.&lt;/p&gt;
+&lt;p&gt;Подробней о этом механизме по ссылке - &lt;a href="https://www.python.org/dev/peps/pep-0443/"&gt;https://www.python.org/dev/peps/pep-0443/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</guid><category>functools</category></item><item><title>Таинство стандартной библиотеки: functools.partial</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./20/tainstvo-standartnoi-biblioteki-functoolspartial/</link><description>&lt;p&gt;Представим, написали мы функцию:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...........&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="n"&gt;run_server&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Но вот беда, первый аргумент - имя сервера у вас уже есть. А второй, ip сервера, вы получите от пользователя, а функцию уже надо вызвать. Можно, конечно, дождаться когда будет два аргумента, тогда и запустить. А можно пойти по другому пути - воспользоваться механизмом каррирования - такое страшное слово. &lt;/p&gt;
+&lt;p&gt;Каррирование - преобразование функции от (предположим) двух аргументов в функцию от первого аргумента, возвращающую функцию, результат вызова которой со вторым агрументом эквивалентен вызову первоначальной функции с упомянутыми аргументами.&lt;/p&gt;
+&lt;p&gt;Мощный механизм, который нам и поможет. Пишем&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;
+
+&lt;span class="n"&gt;my_func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;My super server&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="n"&gt;host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;127.0.0.1&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://docs.python.org/3.4/library/functools.html"&gt;https://docs.python.org/3.4/library/functools.html&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 20 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-20:posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/</guid><category>functools</category></item><item><title>Таинство стандартной библиотеки: примеры для asyncio - aiohttp</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/</link><description>&lt;p&gt;Asyncio - это модуль содержащий инфраструктуру пригодную для написания асинхронных сетевых приложений. Благодаря концепции сопрограмм (coroutines), код асинхронного приложения прост для понимания и поддержки. &lt;/p&gt;
 &lt;p&gt;Экосистема развивается не по дням, а по часам. Стоит обратить внимание на развитие этого направления современного Python&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://sysdev.me/python-asyncio/"&gt;http://sysdev.me/python-asyncio/&lt;/a&gt;&lt;/li&gt;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/staticheskaia-tipizatsiia-v-python.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 18 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Статическая типизация в Python: сила опциональной типизации</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/</link><description>&lt;p&gt;Не секрет, что Python (CPython) - динамически типизируемый язык (все типы выясняются во время выполнения программы). Это как дар так и проклятие. С одной стороны - можно быстрее писать программы, с другой - тяжелее найти ошибки. При этом, если была бы статическая типизация - уже на этапе компиляции мы знали бы где мы затупили с типами.&lt;/p&gt;
+&lt;p&gt;В этом видео рассказывается, как же можно использовать опциональную статическую типизацию в Python
+&lt;a class='embedly-card' data-card-chrome='0' href='https://www.youtube.com/watch?v=NdX0-FnypjE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 18 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-18:posts/2015/авг./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/</guid></item></channel></rss>

@@ -229,6 +229,34 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">Таинство стандартной библиотеки:  functools.singledispatch</a></h2>
+
+                <div class="summary"><p>Стандартная поставка Python полна возможностями. 
+Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.</p>
+<p>Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.</p>
+<p>Подробней о ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">Таинство стандартной библиотеки: functools.partial</a></h2>
+
+                <div class="summary"><p>Представим, написали мы функцию:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">super_function</span><span class="p">(</span><span class="n">server_name</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
+<span class="o">....</span><span class="k">print</span><span class="p">(</span><span class="n">server_name</span><span class="p">)</span>
+<span class="o">...........</span>
+<span class="o">....</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Но вот беда, первый аргумент - имя сервера у вас уже есть. А второй, ip сервера, вы получите от пользователя, а функцию уже надо вызвать. Можно, конечно, дождаться когда будет два аргумента, тогда и запустить. А можно пойти по другому пути - воспользоваться механизмом каррирования - такое страшное слово. </p>
+<p>Каррирование - преобразование ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/авг./12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/">Таинство стандартной библиотеки: примеры для asyncio - aiohttp</a></h2>
 
                 <div class="summary"><p>Asyncio - это модуль содержащий инфраструктуру пригодную для написания асинхронных сетевых приложений. Благодаря концепции сопрограмм (coroutines), код асинхронного приложения прост для понимания и поддержки. </p>
@@ -361,6 +389,11 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/interesnye-kontseptsii.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Интересные концепции
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/izvlechenie-informatsii.html">
                             <i class="fa fa-folder-open fa-lg"></i> Извлечение информации
                         </a>
@@ -413,6 +446,11 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/sintaksis-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Синтаксис Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/staticheskaia-tipizatsiia-v-python.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Статическая типизация в Python
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -482,6 +520,11 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/cython.html">
                             cython
                         </a>
@@ -512,6 +555,16 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/functools.html">
+                            functools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gil.html">
+                            GIL
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
                         </a>
@@ -522,6 +575,11 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gunicorn.html">
+                            gunicorn
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
                         </a>
@@ -529,6 +587,11 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/http.html">
                             http
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -582,6 +645,16 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nose.html">
+                            nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/numpy.html">
+                            numpy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/opencv.html">
                             opencv
                         </a>
@@ -596,7 +669,7 @@ Python предоставляет без малого 68 встроенных ф
                             отчет
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
                         </a>
@@ -612,8 +685,18 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycharm.html">
+                            pycharm
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -644,6 +727,11 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/r.html">
                             R
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/raspberry-pi.html">
+                            raspberry pi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -739,6 +827,11 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/testy.html">
                             тесты
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
+                            типы данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

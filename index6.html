@@ -228,79 +228,114 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/22/django-db-mailer-batareika-dlia-otpravki-email/">Django DB Mailer - батарейка для отправки email</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/29/parsing-s-pomoshchiu-asyncio/">Парсинг с помощью asyncio</a></h2>
 
-                <div class="summary"><p>В подавляющем большинстве проектов используется отправка сообщений на почтовые адреса клиентов/админов/отделов. На сколько утомительно каждый раз создавать шаблоны на файловой системе, задавать сигналы, использовать часто дублирующийся код для рендеринга и отправки.</p>
-<p>В конечном итоге встают задачи о фоновой отправке, об изменениях отправителя, приоритизации, повторной отправке сообщения в случае неудачи, частом редактировании по просьбе клиента/маркетологов, прикреплению к письму ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/22/django-db-mailer-batareika-dlia-otpravki-email/">more ...</a>
+                <div class="summary"><p>Парсинг сайтов это вечная задача. Сайтов много, данных много и все они разные.
+Для задач парсинга существует великое разнообразие инструментов.</p>
+<p>В Python 3-ей версии появился стандартный модуль для создания асинхронных программ. И грех не воспользоваться данной возможностью.</p>
+<p>Примером парсинга на asyncio может послужить эта статья 
+<a href="http://olegwock.net/blog/python/byistryiy-parsing-na-python-s-pomoshhyu-asyncio/">http://olegwock.net/blog/python/byistryiy-parsing-na-python-s-pomoshhyu-asyncio/</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/29/parsing-s-pomoshchiu-asyncio/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/22/requests/">requests</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/29/django-rest-api/">Django REST API</a></h2>
 
-                <div class="summary"><p>requests - <a href="http://docs.python-requests.org/en/latest/">http://docs.python-requests.org/en/latest/</a> - универсальный (для python2, python3) модуль для создание HTTP запросов.
-Данный модуль позволяет очень просто послать запрос, получить данные.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-<span class="mi">200</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;content-type&#39;</span><span class="p">]</span>
-<span class="s">&#39;application/json; charset=utf8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">encoding</span>
-<span class="s">&#39;utf-8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
-<span class="s">u&#39;{&quot;type&quot;:&quot;User&quot;...&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="p">{</span><span class="s">u&#39;private_gists&#39;</span><span class="p">:</span> <span class="mi">419</span><span class="p">,</span> <span class="s">u ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/22/requests/">more ...</a>
+                <div class="summary"><p>Пишите web приложения? Тогда для вас не является новостью, что без API далеко не уедешь. </p>
+<p>Для фреймворка django существует несколько способов создать API за пару минут, да еще и с документацией.</p>
+<p><a href="https://github.com/tomchristie/django-rest-framework">https://github.com/tomchristie/django-rest-framework</a>
+<a href="https://github.com/marcgibbons/django-rest-swagger">https://github.com/marcgibbons/django-rest-swagger</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/29/django-rest-api/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/">unittest - основной инструмент тестирования</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/28/klassy-i-funktsii/">Классы и функции</a></h2>
 
-                <div class="summary"><p>Одним из основных инструментов для тестирования в Python - unittest</p>
-<p>Это стандартный модуль для реализации юнит-тестов на Python.
-Unittest это порт JUnit с Java, иными словами ООП стиль, что весьма удобно для тестирования и процедур, и классов.</p>
-<p>Возможностей в данном модуле довольно много: проверки (assert*), декораторы, позволяющие пропустить отдельный тест (@skip, @skipIf) или обозначить сломанные тесты (@expectedFailure)</p>
-<p>При написании тестов надо ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/">more ...</a>
+                <div class="summary"><p>До сих путаетесь между функциями, методами, классами и объектами? Пора разобраться в этом.
+Данная статья расскажет, что такое Bound и UnBound методы, как можно в динамике добавлять поля в объект, как перегружать методы.</p>
+<p><a href="http://0agr.ru/blog/2011/05/03/advanced-python-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D1%8B-%D0%B8-%D0%B8%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B/">http://0agr.ru/blog/2011/05/03/advanced-python-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-%D0%BA%D0%BB%D0 ...</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/28/klassy-i-funktsii/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/21/unittest/">unittest</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/">Имитация файловой системы с помощью mock</a></h2>
 
-                <div class="summary"><p>unittest - https://docs.python.org/3.5/library/unittest.html - фреймворк для написания юнит-тестов.
-unittest является частью стандартной поставки.</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/21/unittest/">more ...</a>
+                <div class="summary"><p>Вы пишите тесты? Тогда вам знаком модуль mock (в Python3 находится в unittest). Это модуль, который позволяет сделать имитацию объекта.</p>
+<p>Это необходимо, когда пишите тесты на свой код, а этот код использует множество долгих приготовлений: сходить в БД, разобрать данные еще что-то. Вот в этом случае вы можете провести имитацию всех этих долгих приготовлений и сконцентрироваться на написании тестов для ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/20/generatory-spiskov/">Генераторы списков</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/27/reguliarnye-vyrazheniia/">Регулярные выражения</a></h2>
 
-                <div class="summary"><p>Если вы использовали Python достаточно долго, вы должны были хотя бы слышать о понятии «list comprehensions». Это способ уместить цикл for, блок if и присваивание в одну строку.</p>
-<p>Генератор списков - яркий пример «синтаксического сахара». То есть конструкции, без которой легко можно обойтись, но с ней намного лучше :) Генераторы списков, как это не странно, предназначены для удобной обработки списков, к которой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/20/generatory-spiskov/">more ...</a>
+                <div class="summary"><p>Предположим, у нас есть задача - выдрать из крупного текстового файла (файла с логами) все IPv4 (адреса клиентов, например). Как это можно сделать?</p>
+<p>Хорошим инструментом для решения этой задачи являются регулярные выражения. Регулярное выражение — это последовательность символов, используемая для поиска и замены текста в строке или файле.<br />
+Возможно, вы уже встречались с записями типа:</p>
+<div class="highlight"><pre>&lt;([a-z]+)[^&gt;]*(?&lt;!/)&gt;
+</pre></div>
+
+
+<p>Большая вероятность, что это было регулярное ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/27/reguliarnye-vyrazheniia/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/20/pochemu-python-kliovyi/">Почему Python клёвый?</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/27/vstroennye-funktsii-python/">Встроенные функции Python</a></h2>
 
-                <div class="summary"><p>Видео с конференции PyCon
-В видео докладчик рассказал о плюсах Python. О тех самых преимуществах, которые не надо обходить стороной.
-<a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=GyP59P8h7uQ'></a>
-            <script>
-            !function(a){
-                var b="embedly-platform",c="script";
-                if(!a.getElementById(b)){
-                    var d=a.createElement(c);
-                    d.id=b;
-                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
-                    var e=document.getElementsByTagName(c)[0];e ...</script></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/20/pochemu-python-kliovyi/">more ...</a>
+                <div class="summary"><p>Стандартная библиотека Python отличается хорошей документацией и широким ассортиментом готовых решений.
+Python предоставляет без малого 68 встроенных функций: это получение модуля числа, бинарное и hex представления числа, различные преобразование типов, сложение, возведение в степень и многие другие.</p>
+<p><a href="https://docs.python.org/3.5/library/functions.html">https://docs.python.org/3.5/library/functions.html</a></p>
+<p>А вы знали, что в Python всё является объектом? Даже число</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">[</span><span class="s">&#39;__abs__ ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/27/vstroennye-funktsii-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir.</a></h2>
+
+                <div class="summary"><p>PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir. </p>
+<p>Функция scandir возвращает генератор, который содержит директории по пути.
+Польза scandir состоит в производительности. Теперь os.listdir и os.walk будут работать в 2-20 раз быстрее.</p>
+<p>Пример: функция, которая возвращает генератор с директориями начинающиеся с точки:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">subdirs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Yield directory names not starting with &#39;.&#39; under given path ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/25/tkinter/">Tkinter</a></h2>
+
+                <div class="summary"><p>Родным модулем для построения GUI интерфейсов для Python программ является Tkinter.
+Данная библиотека позволяет построить несложные интерфейсы. Tkinter есть на всех платформах где есть Python. В Python ветки 2.x.x при импорте модуля Tkinter, он пишется в большой буквы (иначе возникает ошибка). При импорте tkinter в версиях 3.x.x Питона имя модуля пишется с маленькой буквы.</p>
+<p>Данный курс ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/25/tkinter/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/25/interpretator-brainfuck-na-python/">Интерпретатор brainfuck на Python</a></h2>
+
+                <div class="summary"><p>Язык brainfuck для хранения данных использует ячейки (по-хорошему бесконечное число ячеек) и состоит всего из восьми команд, поэтому выучить его будет легко.
+В этой статье показан интерпретатор brainfuck на Python
+<a href="http://pythonworld.ru/primery-programm/interpretator-brainfuck.html">http://pythonworld.ru/primery-programm/interpretator-brainfuck.html</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/25/interpretator-brainfuck-na-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/июля/25/nabor-gui-bibliotek-dlia-python/">Набор GUI библиотек для Python</a></h2>
+
+                <div class="summary"><p>На странице Python-wiki представлен огромный список пакетов для создания GUI на Python
+<a href="https://wiki.python.org/moin/GuiProgramming">https://wiki.python.org/moin/GuiProgramming</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/25/nabor-gui-bibliotek-dlia-python/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -320,7 +355,10 @@ unittest является частью стандартной поставки.<
                             href="http://pynsk.ru/index5.html">5</a></li>
                     <li class="active"><a
                             href="http://pynsk.ru/index6.html">6</a></li>
-                <li class="next disabled"><a href="#">&raquo;</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index7.html">7</a></li>
+                <li class="next"><a
+                        href="http://pynsk.ru/index7.html">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -358,6 +396,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/hardcore-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Hardcore Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/interesnye-kontseptsii.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Интересные концепции
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -413,6 +456,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/sintaksis-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Синтаксис Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/staticheskaia-tipizatsiia-v-python.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Статическая типизация в Python
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -482,6 +530,11 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/cython.html">
                             cython
                         </a>
@@ -512,6 +565,16 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/functools.html">
+                            functools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gil.html">
+                            GIL
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
                         </a>
@@ -522,6 +585,11 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gunicorn.html">
+                            gunicorn
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
                         </a>
@@ -529,6 +597,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/http.html">
                             http
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -582,6 +655,16 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nose.html">
+                            nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/numpy.html">
+                            numpy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/opencv.html">
                             opencv
                         </a>
@@ -596,7 +679,7 @@ unittest является частью стандартной поставки.<
                             отчет
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
                         </a>
@@ -612,8 +695,18 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycharm.html">
+                            pycharm
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -644,6 +737,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/r.html">
                             R
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/raspberry-pi.html">
+                            raspberry pi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -739,6 +837,11 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/testy.html">
                             тесты
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
+                            типы данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

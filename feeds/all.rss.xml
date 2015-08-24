@@ -1,5 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 16 Aug 2015 18:00:00 +0600</lastBuildDate><item><title>Python hardcore: Cython</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./16/python-hardcore-cython/</link><description>&lt;p&gt;Cython — язык программирования, упрощающий написание модулей С/С++ кода для Python. Кроме стандартного синтаксиса Python, поддерживаются:&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 23 Aug 2015 18:00:00 +0600</lastBuildDate><item><title>Hardcore Python: запускаем С код с помощью cffi</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/</link><description>&lt;p&gt;Самый популярный Python это CPython. Он настолько популярен, что когда говорят Python имеют ввиду именно каноническую реализацию - CPython.&lt;/p&gt;
+&lt;p&gt;CPython, как можно понять из названия, имеет какое-то отношение к языку C.
+Из Python вы можете с помощью ctypes дергать С-шные функции.&lt;br /&gt;
+Однако, этот механизм несколько медленный и не всегда удобный - бывает надо просто дернуть один кусок C-кода. Или надо только часть от h-файла, или только кусок структуры.
+Вот в этом случае помогает - cffi.&lt;/p&gt;
+&lt;p&gt;Пример кода с использованием этой библиотеки:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;cffi&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;FFI&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ffi&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FFI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;ffi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cdef&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s"&gt;.......int printf(const char *format, ...);   // copy-pasted from the man page&lt;/span&gt;
+&lt;span class="s"&gt;.......&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ffi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                     &lt;span class="c"&gt;# loads the entire C namespace&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ffi&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;char[]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;         &lt;span class="c"&gt;# equivalent to C code: char arg[] = &amp;quot;world&amp;quot;;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hi there, &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;.&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;         &lt;span class="c"&gt;# call printf&lt;/span&gt;
+&lt;span class="n"&gt;hi&lt;/span&gt; &lt;span class="n"&gt;there&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="mi"&gt;17&lt;/span&gt;                                           &lt;span class="c"&gt;# this is the return value&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Эти многоточия в cdef это &lt;em&gt;реальный&lt;/em&gt; код, который надо писать.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://cffi.readthedocs.org/en/latest/"&gt;https://cffi.readthedocs.org/en/latest/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/cffi"&gt;https://pypi.python.org/pypi/cffi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/авг./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/</guid><category>cffi</category></item><item><title>Таинство стандартной библиотеки: functools.singledispatch</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</link><description>&lt;p&gt;Стандартная поставка Python полна возможностями. 
+Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.&lt;/p&gt;
+&lt;p&gt;Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.&lt;/p&gt;
+&lt;p&gt;Подробней о этом механизме по ссылке - &lt;a href="https://www.python.org/dev/peps/pep-0443/"&gt;https://www.python.org/dev/peps/pep-0443/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</guid><category>functools</category></item><item><title>Полезные библиотеки: plot.ly (plotly)</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./22/poleznye-biblioteki-plotly-plotly/</link><description>&lt;p&gt;Понятное представление информации - это вечная задача. Причем она свойственна всем.&lt;/p&gt;
+&lt;p&gt;Хочется упомянуть графики. Вот собрали мы данные, задача была не простая, а теперь надо их представить. Графики бывают разных типов, их очень много. Даже если какой-то график сделали, а как поделиться? Можно скинуть картинку, да только придется потом с "линейкой" вычислять значения, а можно пойти по другому пути - https://plot.ly/python/. &lt;/p&gt;
+&lt;p&gt;ploy.ly предоставляет возможно создать динамический график, например, &lt;a href="https://plot.ly/python/dashboard/"&gt;https://plot.ly/python/dashboard/&lt;/a&gt;&lt;br /&gt;
+plot.ly позволяет создавать самые разные графики, которые будут выглядеть как живые - можно будет методом тыка узнать значение графика в точке, покрутить, повертеть график.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sat, 22 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-22:posts/2015/авг./22/poleznye-biblioteki-plotly-plotly/</guid><category>график</category><category>plotly</category></item><item><title>Полезные библиотеки: numpy</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./22/poleznye-biblioteki-numpy/</link><description>&lt;p&gt;NumPy — это библиотека языка Python, добавляющая поддержку больших многомерных массивов и матриц, вместе с большой библиотекой высокоуровневых (и очень быстрых) математических функций для операций с этими массивами.&lt;/p&gt;
+&lt;p&gt;В чем же "фишка" NumPy вы можете спросить. &lt;/p&gt;
+&lt;p&gt;Основным объектом NumPy является однородный многомерный массив (в numpy называется numpy.ndarray). Это многомерный массив элементов (обычно чисел), одного типа.&lt;/p&gt;
+&lt;p&gt;Здесь можно подчеркнуть &lt;em&gt;одного типа&lt;/em&gt;. Эта существенная деталь позволяет заметно ускорить работу с такими объектами. Зная, что данный объект имеет только, скажем, целые числа, то не будут производится проверки типов. Плюс к этому - уменьшается общий объем памяти для хранения таких объектов.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pythonworld.ru/numpy/1.html"&gt;http://pythonworld.ru/numpy/1.html&lt;/a&gt;
+&lt;a href="http://www.numpy.org/"&gt;http://www.numpy.org/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sat, 22 Aug 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-22:posts/2015/авг./22/poleznye-biblioteki-numpy/</guid><category>numpy</category></item><item><title>Внутренности Python: зачем нужен GIL(Global interpreter lock)</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/</link><description>&lt;p&gt;Много хают GIL в Python, в этом видео вы узнаете насколько же он плох... или все-таки хорош?
+&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=AWX4JnAnjBE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 21 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-21:posts/2015/авг./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/</guid><category>GIL</category></item><item><title>Python на службе народа: распознаем образы с помощью Raspberry Pi</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/</link><description>&lt;p&gt;Raspberry Pi - это мини-компьютер, который имеет невысокую цену и при этом имеет богатые возможности.
+Применение мини-компьютеров широкое, например, можно сделать камеру для дома - можете реализовать программку, которая будет следить за вашим маленьким ребенком и посылать вам сигнал, когда ребенок проснулся.&lt;/p&gt;
+&lt;p&gt;&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=vRHoQVZLvoM)
+[http://www.open-electronics.org/raspberry-pi-and-the-camera-pi-module-face-recognition-tutorial/](http://www.open-electronics.org/raspberry-pi-and-the-camera-pi-module-face-recognition-tutorial/)
+[https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/](https://thinkrpi.wordpress.com/2013/05/22/opencv-and-camera-board-csi/'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 21 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-21:posts/2015/авг./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/</guid><category>raspberry pi</category></item><item><title>Интересные концепции: Трансдьюсеры</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./20/interesnye-kontseptsii-transdiusery/</link><description>&lt;p&gt;Трансдьюсеры — это попытка переосмыслить операции над коллекциями, найти в них общую идею и принцип, научиться совмещать вместе несколько операций для их дальнейшего переиспользования.&lt;/p&gt;
+&lt;p&gt;&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=ANZOvcYPagU)
+[!embedlycard](https://www.youtube.com/watch?t=1080&amp;v=VTEfb5ojOzA'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 20 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-20:posts/2015/авг./20/interesnye-kontseptsii-transdiusery/</guid></item><item><title>Таинство стандартной библиотеки: functools.partial</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./20/tainstvo-standartnoi-biblioteki-functoolspartial/</link><description>&lt;p&gt;Представим, написали мы функцию:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...........&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="n"&gt;run_server&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Но вот беда, первый аргумент - имя сервера у вас уже есть. А второй, ip сервера, вы получите от пользователя, а функцию уже надо вызвать. Можно, конечно, дождаться когда будет два аргумента, тогда и запустить. А можно пойти по другому пути - воспользоваться механизмом каррирования - такое страшное слово. &lt;/p&gt;
+&lt;p&gt;Каррирование - преобразование функции от (предположим) двух аргументов в функцию от первого аргумента, возвращающую функцию, результат вызова которой со вторым агрументом эквивалентен вызову первоначальной функции с упомянутыми аргументами.&lt;/p&gt;
+&lt;p&gt;Мощный механизм, который нам и поможет. Пишем&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;
+
+&lt;span class="n"&gt;my_func&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;partial&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;My super server&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="o"&gt;....&lt;/span&gt;
+&lt;span class="n"&gt;host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;127.0.0.1&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;my_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://docs.python.org/3.4/library/functools.html"&gt;https://docs.python.org/3.4/library/functools.html&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 20 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-20:posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/</guid><category>functools</category></item><item><title>Полезные инструменты: gunicorn</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./19/poleznye-instrumenty-gunicorn/</link><description>&lt;p&gt;Вот вы написали web-проект, теперь надо его опубликовать на хостинге (или у себя на машине) (задеплоить). Начинаете жадно мучать гугл странными запросами. &lt;/p&gt;
+&lt;p&gt;И вот наконец-то доходите до слов - uwsgi и gunicorn. Это серверы, которые с одной стороны предоставляют пользователям доступ к вашему проекту(сайтику), а с другой - общаются с вашим Python кодом. &lt;/p&gt;
+&lt;p&gt;Стоит сказать, что gunicorn это WSGI HTTP сервер, написанный на питоне и легкий в настройке. Среди заявленных возможностей:&lt;/p&gt;
+&lt;p&gt;поддержка WSGI, Django и Paster
+async, sync worker
+балансировка нагрузки через pre-fork и shared socket
+разные хуки для расширение возможностей
+Этот инструмент простой для понимания. Рекомендуем его использовать.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://gunicorn.org/"&gt;http://gunicorn.org/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 19 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-19:posts/2015/авг./19/poleznye-instrumenty-gunicorn/</guid><category>gunicorn</category></item><item><title>Извлечение информации: парсинг дат/времени</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./19/izvlechenie-informatsii-parsing-datvremeni/</link><description>&lt;p&gt;Извлечение информации из текста/web-страниц сопряжено с эвристиками. 
+Одна из проблем, с которой сталкиваются разработчики - как парсить даты. Даты можно написать 100 и одним способом:
+tomorrow, а еще 4/4/80 или March 5th, 1980. И какой код писать, чтобы понять эти даты?&lt;/p&gt;
+&lt;p&gt;К счастью, код уже написан - &lt;a href="https://github.com/bear/parsedatetime"&gt;https://github.com/bear/parsedatetime&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Данная библиотека позволяет спарсить время в самых различных форматах.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 19 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-19:posts/2015/авг./19/izvlechenie-informatsii-parsing-datvremeni/</guid><category>парсинг</category></item><item><title>Статическая типизация в Python: сила опциональной типизации</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/</link><description>&lt;p&gt;Не секрет, что Python (CPython) - динамически типизируемый язык (все типы выясняются во время выполнения программы). Это как дар так и проклятие. С одной стороны - можно быстрее писать программы, с другой - тяжелее найти ошибки. При этом, если была бы статическая типизация - уже на этапе компиляции мы знали бы где мы затупили с типами.&lt;/p&gt;
+&lt;p&gt;В этом видео рассказывается, как же можно использовать опциональную статическую типизацию в Python
+&lt;a class='embedly-card' data-card-chrome='0' href='https://www.youtube.com/watch?v=NdX0-FnypjE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 18 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-18:posts/2015/авг./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/</guid></item><item><title>Тесты тесты тесты: nose</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./18/testy-testy-testy-nose/</link><description>&lt;p&gt;nose — это инструмент для прогона тестов посредством unittest (и doctest, с ключом --with-doctest). Имеет также собственное API, использовать которое необязательно. 
+nose автоматически собирает тесты из файлов вида test_*, достаточно умен, чтобы заглянуть в папочку tests при наличии таковой, умеет измерять покрытие кода (code coverage) при помощи coverage.py (--with-coverage). Также можно запустить только тесты, которые отвалились в последний прогон (--failed).&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://nose.readthedocs.org/en/latest/"&gt;https://nose.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 18 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-18:posts/2015/авг./18/testy-testy-testy-nose/</guid><category>тест</category><category>nose</category></item><item><title>Полезные инструменты: Pycharm</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./17/poleznye-instrumenty-pycharm/</link><description>&lt;p&gt;Pycharm - это IDE специализированная под Python разработку.&lt;/p&gt;
+&lt;p&gt;Возможности этого редактора кода захватывают:
+- Статический анализ кода, подсветка синтаксиса и ошибок.
+- Рефакторинг: переименование, извлечение метода, введение переменной, введение константы, подъём и спуск метода и т. д.
+- Инструменты для веб-разработки с использованием фреймворка Django
+- Встроенный отладчик для Python
+- Встроенные инструменты для юнит-тестирования
+- Поддержка систем контроля версий (Git, svn и другие)
+- По-мимо этого, Pycharm поддержку множество модулей, например, IPython встроен в редактор. &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.jetbrains.com/pycharm/"&gt;https://www.jetbrains.com/pycharm/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 17 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-17:posts/2015/авг./17/poleznye-instrumenty-pycharm/</guid><category>ide</category><category>pycharm</category></item><item><title>Синтаксис Python: изменяемые и неизменяемые типы данных</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/</link><description>&lt;p&gt;Все типы данных в Python относятся к одной из 2-х категорий: изменяемые (mutable) и неизменяемые (unmutable). Многие из предопределённых типов данных Python — это типы неизменяемых объектов: числовые данные (int, float, complex), символьные строки (class 'str'), кортежи (tuple). Другие типы определены как изменяемые: списки (list), множества (set), словари (dict). Вновь определяемые пользователем типы (классы) могут быть определены как неизменяемые или изменяемые. Изменяемость объектов определённого типа является принципиально важной характеристикой, определяющей, может ли объект такого типа выступать в качестве ключа для словарей (dict) или нет.&lt;/p&gt;
+&lt;p&gt;Подробнее по ссылке - &lt;a href="https://www.ibm.com/developerworks/ru/library/l-python_details_02/"&gt;https://www.ibm.com/developerworks/ru/library/l-python_details_02/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 17 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-17:posts/2015/авг./17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/</guid><category>типы данных</category></item><item><title>Python hardcore: Cython</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./16/python-hardcore-cython/</link><description>&lt;p&gt;Cython — язык программирования, упрощающий написание модулей С/С++ кода для Python. Кроме стандартного синтаксиса Python, поддерживаются:&lt;/p&gt;
 &lt;p&gt;Прямой вызов функций и методов С/С++ из кода на Cython;
 Строгая типизация переменных, классов, атрибутов классов.&lt;/p&gt;
 &lt;p&gt;Код Cython преобразуется в С/С++ код для последующей компиляции и впоследствии может использоваться как расширение стандартного Python или как независимое приложение со встроенной библиотекой выполнения Cython.&lt;/p&gt;
