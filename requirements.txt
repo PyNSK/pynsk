@@ -6,3 +6,4 @@ jupyter
 beautifulsoup4
 ghp-import
 py_w3c
+embedly-cards

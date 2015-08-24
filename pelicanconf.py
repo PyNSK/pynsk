@@ -3,6 +3,8 @@
 from __future__ import unicode_literals
 import os
 
+from embedly_cards import EmbedlyCardExtension
+
 PROJECT_DIR = os.path.normpath(
     os.path.abspath(os.path.dirname(os.path.abspath(__file__))))
 
@@ -28,7 +30,11 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-
+SUMMARY_MAX_LENGTH = 60
+MD_EXTENSIONS = ['codehilite(css_class=highlight)',
+                 'extra',
+                 # ...
+                 EmbedlyCardExtension()]
 
 # Social widget
 SOCIAL = (
@@ -77,11 +83,12 @@ PLUGINS = [
     'liquid_tags.literal',
     'tipue_search',
     'sitemap',
-    # 'pelican_youtube',
     'optimize_images',
     'tag_cloud',
     'post_stats',
     'related_posts',
+    'embedly_cards',
+    # 'pelican_youtube',
 ]
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
