@@ -39,6 +39,7 @@ MD_EXTENSIONS = ['codehilite(css_class=highlight)',
 # Social widget
 SOCIAL = (
     ('vk', 'https://vk.com/pynsk', '<b>Группа в ВКонтакте</b>'),
+    ('slack', 'https://gitter.im/PyNSK/PyNSK', '<b>Наш Чат</b>'),
     ('twitter', 'https://twitter.com/py_nsk', 'В Twitter'),
     ('facebook', 'https://www.facebook.com/PyNskCom', 'Группа в Facebook'),
 )
