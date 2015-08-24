@@ -80,7 +80,7 @@ PLUGINS = [
     # 'pelican_youtube',
     'optimize_images',
     'tag_cloud',
-
+    'post_stats',
 ]
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
@@ -89,6 +89,8 @@ ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
 DISPLAY_TAGS_ON_SIDEBAR = True
+SHOW_ARTICLE_CATEGORY = True
+DISPLAY_ARTICLE_INFO_ON_INDEX = False
 TAGS_URL = 'tags.html'
 
 
