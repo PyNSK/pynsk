@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/python-na-sluzhbe-naroda.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 07 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Python как средство для определения "хорошо/плохо"</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/</link><description>&lt;p&gt;Информации очень много. Хорошо бы уметь ее фильтровать. Хочется упомянуть такое средство фильтрации как анализ тональности. Это даже не фильтрация, но можно применять как фильтр.&lt;/p&gt;
+&lt;p&gt;Sentiment analysis (по-русски, анализ тональности) — это область компьютерной лингвистики, которая занимается изучением мнений и эмоций в текстовых документах. &lt;/p&gt;
+&lt;p&gt;С помощью анализа тональности можно определить, что текст N интересный, а текст M неинтересный - причем это сделает компьютер за вас.&lt;/p&gt;
+&lt;p&gt;Для погружения в эту тему стоит почитать эти ссылки:
+- &lt;a href="http://habrahabr.ru/post/149605/"&gt;http://habrahabr.ru/post/149605/&lt;/a&gt;
+- &lt;a href="http://habrahabr.ru/post/263171/"&gt;http://habrahabr.ru/post/263171/&lt;/a&gt;
+- &lt;a href="http://habrahabr.ru/post/197890/"&gt;http://habrahabr.ru/post/197890/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 07 Aug 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-07:posts/2015/авг./07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/</guid></item></channel></rss>

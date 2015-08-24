@@ -1,5 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-02T18:00:00+06:00</updated><entry><title>Рисование svg графиков</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./02/risovanie-svg-grafikov/" rel="alternate"></link><updated>2015-08-02T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-02:posts/2015/авг./02/risovanie-svg-grafikov/</id><summary type="html">&lt;p&gt;Для рисования векторных графиков (svg) подойдет библиотека pygal - &lt;a href="http://pygal.org/"&gt;http://pygal.org/&lt;/a&gt; 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-09T18:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: collections</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./09/tainstvo-standartnoi-biblioteki-collections/" rel="alternate"></link><updated>2015-08-09T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-09:posts/2015/авг./09/tainstvo-standartnoi-biblioteki-collections/</id><summary type="html">&lt;p&gt;Модуль collections - предоставляет специализированные типы данных, на основе словарей, кортежей, множеств, списков. Этот модуль хорошо себя показывает при частой работе со словарями и списками. 
+Например, данный модуль предоставляет возможность посчитать n наиболее часто встречающихся элементов, в порядке убывания встречаемости. Есть в этом модуле и словарь, который помнит порядок ключей. А еще есть структура, которая позволяет создать объект ведущий себя как кортеж, с тем дополнением, что каждому элементу присваивается имя, по которому можно в дальнейшем получать доступ.&lt;/p&gt;
+&lt;p&gt;Заинтересовал? 
+Вот ссылки для дальнейшего погружения в тему:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/library/collections.html"&gt;https://docs.python.org/3.5/library/collections.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pythonworld.ru/moduli/modul-collections.html"&gt;http://pythonworld.ru/moduli/modul-collections.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Таинство стандартной библиотеки: datetime и calendar</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./09/tainstvo-standartnoi-biblioteki-datetime-i-calendar/" rel="alternate"></link><updated>2015-08-09T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-09:posts/2015/авг./09/tainstvo-standartnoi-biblioteki-datetime-i-calendar/</id><summary type="html">&lt;p&gt;Стандартная поставка Python содержит множество инструментов для решения задач. Например, для работы с датами отлично себя показывают datetime и calendar&lt;/p&gt;
+&lt;p&gt;Модуль datetime предоставляет классы для обработки времени и даты разными способами. Поддерживается и стандартный способ представления времени, однако больший упор сделан на простоту манипулирования датой, временем и их частями.&lt;/p&gt;
+&lt;p&gt;Модуль calendar позволяет напечатать себе календарик (а также содержит некоторые другие полезные функции для работы с календарями). &lt;/p&gt;
+&lt;p&gt;Возможности этих модулей обширны. Стоит их рассмотреть внимательно.
+Для этого приведем ссылки:&lt;/p&gt;
+&lt;p&gt;datetime:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/2/library/datetime.html"&gt;https://docs.python.org/2/library/datetime.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pythonworld.ru/moduli/modul-datetime.html"&gt;http://pythonworld.ru/moduli/modul-datetime.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pymotw.com/2/datetime/"&gt;http://pymotw.com/2/datetime/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;calendar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/2/library/calendar.html"&gt;https://docs.python.org/2/library/calendar.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pymotw.com/2/calendar/"&gt;http://pymotw.com/2/calendar/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Python и real-time web приложение</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./08/python-i-real-time-web-prilozhenie/" rel="alternate"></link><updated>2015-08-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-08:posts/2015/авг./08/python-i-real-time-web-prilozhenie/</id><summary type="html">&lt;p&gt;Далеко не всегда требуется тащить мощный Django или другой фреймворк. Бывает достаточно небольшого количества чистого Python кода и базы данных.
+Посмотрим, как имея всего эти 2 элемента написать приложение.
+&lt;a class='embedly-card' data-card-chrome='0' href='https://www.youtube.com/watch?v=PsorlkAF83s'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</summary></entry><entry><title>Python + GUI == PyQt</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./08/python-gui-pyqt/" rel="alternate"></link><updated>2015-08-08T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-08:posts/2015/авг./08/python-gui-pyqt/</id><summary type="html">&lt;p&gt;Qt - это инструментарий для разработки на C++, который предоставляет огромный спектр возможностей: от рисования GUI, до написания низкоуровневых серверов. 
+Часто Qt применяют для создания GUI, в том числе в интерактивном режиме - можно перемещать виджеты на формы.
+Qt имеет отличную докумементацию, а также имеет привязку для Python - PyQt и PySide. (вторая еще с Qt5 не умеет работать)&lt;/p&gt;
+&lt;p&gt;Используя PyQt можно нарисовать формочку в редакторе, а затем буквально одной строчкой начать писать логику.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://wiki.python.org/moin/PyQt"&gt;https://wiki.python.org/moin/PyQt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://wiki.python.su/Документации/ВведениеВСредуPyQt4"&gt;http://wiki.python.su/Документации/ВведениеВСредуPyQt4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Python как средство для определения "хорошо/плохо"</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/" rel="alternate"></link><updated>2015-08-07T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-07:posts/2015/авг./07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/</id><summary type="html">&lt;p&gt;Информации очень много. Хорошо бы уметь ее фильтровать. Хочется упомянуть такое средство фильтрации как анализ тональности. Это даже не фильтрация, но можно применять как фильтр.&lt;/p&gt;
+&lt;p&gt;Sentiment analysis (по-русски, анализ тональности) — это область компьютерной лингвистики, которая занимается изучением мнений и эмоций в текстовых документах. &lt;/p&gt;
+&lt;p&gt;С помощью анализа тональности можно определить, что текст N интересный, а текст M неинтересный - причем это сделает компьютер за вас.&lt;/p&gt;
+&lt;p&gt;Для погружения в эту тему стоит почитать эти ссылки:
+- &lt;a href="http://habrahabr.ru/post/149605/"&gt;http://habrahabr.ru/post/149605/&lt;/a&gt;
+- &lt;a href="http://habrahabr.ru/post/263171/"&gt;http://habrahabr.ru/post/263171/&lt;/a&gt;
+- &lt;a href="http://habrahabr.ru/post/197890/"&gt;http://habrahabr.ru/post/197890/&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>Утилиты написанные на Python: youtube-dl</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./07/utility-napisannye-na-python-youtube-dl/" rel="alternate"></link><updated>2015-08-07T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-07:posts/2015/авг./07/utility-napisannye-na-python-youtube-dl/</id><summary type="html">&lt;p&gt;youtube-dl (https://github.com/rg3/youtube-dl/)
+- это очень популярный скрипт для выгрузки видео с сервиса Youtube (, Vimeo и других). Данная утилита позволяет очень легко выдернуть видео со страницы ютьюб. 
+Множество настроек позволяют в том числе выдернуть субтитры, узнать длительность видео и многие другие параметры.&lt;/p&gt;
+&lt;p&gt;Данную утилиту можно применить следующим образом: если у вас есть ряд каналов, которые вы смотрите регулярно, то часто задаетесь вопросом "Вышло новое видео или нет?".
+Чтобы не тыкаться по 10 раз на дню на сайт (плюс к этому, "котики" могут отвлечь на несколько часов), вы можете соединить несколько сервисов вместе и новые видео будут автоматически попадать к вам на компьютер. &lt;/p&gt;</summary></entry><entry><title>Что такое PEP?</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./06/chto-takoe-pep/" rel="alternate"></link><updated>2015-08-06T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-06:posts/2015/авг./06/chto-takoe-pep/</id><summary type="html">&lt;p&gt;Развитие языка Python происходит согласно чётко регламентированному процессу создания, обсуждения, отбора и реализации документов PEP.
+PEP - Python Enhancement Proposal - это предложения по развитию питона
+&lt;a href="https://www.python.org/dev/peps/"&gt;https://www.python.org/dev/peps/&lt;/a&gt;
+Процесс PEP является основным механизмом для предложения новых возможностей и для документирования проектных решений, которые прошли в Python.&lt;/p&gt;
+&lt;p&gt;Самым известным PEP является PEP8 - это свод рекомендаций в оформлению кода. Рекомендации написаны кровью из глаз программистов.
+&lt;a href="https://www.python.org/dev/peps/pep-0008/"&gt;https://www.python.org/dev/peps/pep-0008/&lt;/a&gt;&lt;/p&gt;</summary><category term="pep"></category><category term="стандарт"></category></entry><entry><title>Python и базы данных: много баз - много модулей или один?</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./06/python-i-bazy-dannykh-mnogo-baz-mnogo-modulei-ili-odin/" rel="alternate"></link><updated>2015-08-06T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-06:posts/2015/авг./06/python-i-bazy-dannykh-mnogo-baz-mnogo-modulei-ili-odin/</id><summary type="html">&lt;p&gt;Без баз данных (БД) в современной разработке редко обходится. Питон не обделен и имеет множество модулей для работы с базами данных. Есть и специализированные, например, pymongo - модуль для MongoDB, есть и более обширные - sqlalchemy, PonyORB.&lt;/p&gt;
+&lt;p&gt;sqlalchemy - это &lt;a href="https://www.wikiwand.com/ru/ORM"&gt;ORM&lt;/a&gt; для различных БД. Если просто, то это инструмент, написать структуру данных и работать с ней, а "алхимия" будет самостоятельно сохранять/подгружать из БД данные.
+sqlalchemy умеет работать со всеми популярными реляционными БД.&lt;/p&gt;</summary><category term="sqlalchemy"></category><category term="БД"></category></entry><entry><title>Python и интересный парсинг сайтов</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./05/python-i-interesnyi-parsing-saitov/" rel="alternate"></link><updated>2015-08-05T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-05:posts/2015/авг./05/python-i-interesnyi-parsing-saitov/</id><summary type="html">&lt;p&gt;Излечение информации со страниц может быть интересным. Рекомендуем к просмотру видео
+&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=hj-8l3AejNc'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</summary></entry><entry><title>Bottle с Python</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./05/bottle-s-python/" rel="alternate"></link><updated>2015-08-05T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-05:posts/2015/авг./05/bottle-s-python/</id><summary type="html">&lt;p&gt;bottle - это веб-фреймворк для Python. Отличительной особенностью этого фреймворка является простота - исходный код занимает один файл. Несмотря на свою минималистичность, Bottle предоставляет довольно широкие возможности, которых на 100% хватает для мелких и средних проектов.
+Чтобы стартануть изучение достаточно написать:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;
+
+&lt;span class="nd"&gt;@route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/hello/&amp;lt;name&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;b&amp;gt;Hello {{name}}&amp;lt;/b&amp;gt;!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Это запустит web-приложение на 8080 порту, а по ссылке &lt;code&gt;http://127.0.0.1/hello/Alexander&lt;/code&gt; вы увидите Hello Alexander.
+Очень просто.&lt;/p&gt;
+&lt;p&gt;Дальнейшее изучение можно продолжить по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://bottlepy.org/docs/dev/index.html"&gt;http://bottlepy.org/docs/dev/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/221659/"&gt;http://habrahabr.ru/post/221659/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/250831/"&gt;http://habrahabr.ru/post/250831/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="bottle"></category><category term="web"></category></entry><entry><title>Тесты тесты тесты: модуль тестирования py.test</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./04/testy-testy-testy-modul-testirovaniia-pytest/" rel="alternate"></link><updated>2015-08-04T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-04:posts/2015/авг./04/testy-testy-testy-modul-testirovaniia-pytest/</id><summary type="html">&lt;p&gt;Наряду с входящими в стандартную поставку питона средствами для тестирования, существуют и альтернативные инструменты, например, py.test. &lt;a href="http://pytest.org/"&gt;http://pytest.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;py.test имеет множество расширений, которые значительно упрощают написание тестов.
+py.test имеет плагины для всех популярных web-фреймворков, с помощью плагинов позволяет кэшеировать результаты (успешных тестов), формировать отчеты в самых различных форматах.
+А также имеет очень простую систему расширения и вы можете буквально за день написать свой плагин.
+&lt;a class='embedly-card' data-card-chrome='0' href='http://pytest.org/latest/_static/pytest1.png'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</summary><category term="тест"></category><category term="unittest"></category></entry><entry><title>Тесты тесты тесты: создание читаемых отчетов</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./04/testy-testy-testy-sozdanie-chitaemykh-otchetov/" rel="alternate"></link><updated>2015-08-04T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-04:posts/2015/авг./04/testy-testy-testy-sozdanie-chitaemykh-otchetov/</id><summary type="html">&lt;p&gt;Тесты тесты тесты: создание читаемых отчетов&lt;/p&gt;
+&lt;p&gt;Когда в вашей программе очень много тестов, то возникают проблемы с чтением отчетов (что сломалось, что корректно отработало). Для создания читаемых отчетов можно порекомендовать allure-framework. О этом фреймворке можно узнать в видео:
+&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=d5SreR6dGnE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/allure-framework"&gt;https://github.com/allure-framework&lt;/a&gt;&lt;/p&gt;</summary><category term="тест"></category><category term="test"></category><category term="отчет"></category></entry><entry><title>Синтаксис Python: конструкция switch</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./03/sintaksis-python-konstruktsiia-switch/" rel="alternate"></link><updated>2015-08-03T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-03:posts/2015/авг./03/sintaksis-python-konstruktsiia-switch/</id><summary type="html">&lt;p&gt;Стоит упомянуть про конструкцию switch в Python. Такой конструкции в языке нет, однако, выкрутится можно. Часто рекомендуют писать множественные elif'ы, но можно сделать так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;switch_case&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;case&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;You entered &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;one&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;2&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;3&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;three&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;case&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;an out of range number&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Input a number between 1 and 3: &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;switch_case&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В этом примере мы создаем словарь, а затем получаем значение по нужному нам ключу.&lt;/p&gt;
+&lt;p&gt;Вот только этот подход не работает, когда значение switch'а вычисляется в динамике. (Например, если мы приветствуем/прощаемся какого-то пользователя). &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="p"&gt;}[&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В этом случае мы все также создаем словарь, но в качестве значений словаря прописываем функцию (в примере - lamdba функции). Затем получаем эту функцию словаря и вычисляем с аргументом.&lt;/p&gt;
+&lt;p&gt;Еще способы реализации switch-case в Python:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://code.activestate.com/recipes/410695/"&gt;Recipe 410692: Readable switch construction without lambdas or dictionaries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://code.activestate.com/recipes/410695/"&gt;Recipe 410695: Exception-based Switch-Case&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://code.activestate.com/recipes/181064/"&gt;Recipe 181064: Using a Dictionary in place of a ’switch’ statement&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Синтаксис Python: трехместное выражение if/else</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/" rel="alternate"></link><updated>2015-08-03T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-03:posts/2015/авг./03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/</id><summary type="html">&lt;p&gt;Сегодня хочется упомянуть о непонятной на первый взгляд конструкции - тернарная условная операция, или по-русски - трехместное выражение &lt;code&gt;if/else&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Представим, есть такой код:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;довольно короткая, но, тем не менее, занимает целых 4 строки. Специально для таких случаев и было придумано выражение &lt;code&gt;if/else&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;Z&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В данной инструкции интерпретатор выполнит выражение Y, если X истинно, в противном случае выполнится выражение Z.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;t&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;spam&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;f&amp;#39;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;t&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Синтаксис конструкции if-elif-else описан по ссылкам&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/tutorial/controlflow.html"&gt;https://docs.python.org/3/tutorial/controlflow.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pythonworld.ru/osnovy/instrukciya-if-elif-else-proverka-istinnosti-trexmestnoe-vyrazhenie-ifelse.html"&gt;http://pythonworld.ru/osnovy/instrukciya-if-elif-else-proverka-istinnosti-trexmestnoe-vyrazhenie-ifelse.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="if"></category><category term="синтаксис"></category></entry><entry><title>Рисование svg графиков</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./02/risovanie-svg-grafikov/" rel="alternate"></link><updated>2015-08-02T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-02:posts/2015/авг./02/risovanie-svg-grafikov/</id><summary type="html">&lt;p&gt;Для рисования векторных графиков (svg) подойдет библиотека pygal - &lt;a href="http://pygal.org/"&gt;http://pygal.org/&lt;/a&gt; 
 Данный модуль предоставляет широкий спектр возможностей, в частности можно нарисовать:&lt;/p&gt;
 &lt;p&gt;Столбчатые диаграммы
 Линейные диаграммы
@@ -138,8 +312,8 @@ unittest является частью стандартной поставки.&
 &lt;p&gt;&lt;code&gt;python
 [stmt for var in iterable if predicate]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;По-мимо генератора списка есть синтаксический сахар - генератор словарей.&lt;/p&gt;</summary><category term="синтаксис"></category><category term="syntax"></category><category term="list"></category></entry><entry><title>Почему Python клёвый?</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/20/pochemu-python-kliovyi/" rel="alternate"></link><updated>2015-07-20T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-20:posts/2015/июля/20/pochemu-python-kliovyi/</id><summary type="html">&lt;p&gt;Видео с конференции PyCon
-В видео докладчик рассказал о плюсах Python. О тех самых преимуществах, которые не надо обходить стороной.&lt;/p&gt;
-&lt;p&gt;&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=GyP59P8h7uQ'&gt;&lt;/a&gt;
+В видео докладчик рассказал о плюсах Python. О тех самых преимуществах, которые не надо обходить стороной.
+&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=GyP59P8h7uQ'&gt;&lt;/a&gt;
             &lt;script&gt;
             !function(a){
                 var b="embedly-platform",c="script";

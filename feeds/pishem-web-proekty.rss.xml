@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/pishem-web-proekty.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 29 Jul 2015 08:00:00 +0600</lastBuildDate><item><title>Django REST API</title><link>http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/29/django-rest-api/</link><description>&lt;p&gt;Пишите web приложения? Тогда для вас не является новостью, что без API далеко не уедешь. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/pishem-web-proekty.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 08 Aug 2015 18:00:00 +0600</lastBuildDate><item><title>Python и real-time web приложение</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./08/python-i-real-time-web-prilozhenie/</link><description>&lt;p&gt;Далеко не всегда требуется тащить мощный Django или другой фреймворк. Бывает достаточно небольшого количества чистого Python кода и базы данных.
+Посмотрим, как имея всего эти 2 элемента написать приложение.
+&lt;a class='embedly-card' data-card-chrome='0' href='https://www.youtube.com/watch?v=PsorlkAF83s'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sat, 08 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-08:posts/2015/авг./08/python-i-real-time-web-prilozhenie/</guid></item><item><title>Bottle с Python</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./05/bottle-s-python/</link><description>&lt;p&gt;bottle - это веб-фреймворк для Python. Отличительной особенностью этого фреймворка является простота - исходный код занимает один файл. Несмотря на свою минималистичность, Bottle предоставляет довольно широкие возможности, которых на 100% хватает для мелких и средних проектов.
+Чтобы стартануть изучение достаточно написать:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;
+
+&lt;span class="nd"&gt;@route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/hello/&amp;lt;name&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;b&amp;gt;Hello {{name}}&amp;lt;/b&amp;gt;!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Это запустит web-приложение на 8080 порту, а по ссылке &lt;code&gt;http://127.0.0.1/hello/Alexander&lt;/code&gt; вы увидите Hello Alexander.
+Очень просто.&lt;/p&gt;
+&lt;p&gt;Дальнейшее изучение можно продолжить по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://bottlepy.org/docs/dev/index.html"&gt;http://bottlepy.org/docs/dev/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/221659/"&gt;http://habrahabr.ru/post/221659/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/250831/"&gt;http://habrahabr.ru/post/250831/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 05 Aug 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-05:posts/2015/авг./05/bottle-s-python/</guid><category>bottle</category><category>web</category></item><item><title>Django REST API</title><link>http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/29/django-rest-api/</link><description>&lt;p&gt;Пишите web приложения? Тогда для вас не является новостью, что без API далеко не уедешь. &lt;/p&gt;
 &lt;p&gt;Для фреймворка django существует несколько способов создать API за пару минут, да еще и с документацией.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/tomchristie/django-rest-framework"&gt;https://github.com/tomchristie/django-rest-framework&lt;/a&gt;
 &lt;a href="https://github.com/marcgibbons/django-rest-swagger"&gt;https://github.com/marcgibbons/django-rest-swagger&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 29 Jul 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-07-29:posts/2015/июля/29/django-rest-api/</guid><category>django</category><category>rest</category><category>api</category><category>swagger</category></item></channel></rss>

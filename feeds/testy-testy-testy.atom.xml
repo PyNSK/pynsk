@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/testy-testy-testy.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-07-28T08:00:00+06:00</updated><entry><title>Имитация файловой системы с помощью mock</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/" rel="alternate"></link><updated>2015-07-28T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-28:posts/2015/июля/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/</id><summary type="html">&lt;p&gt;Вы пишите тесты? Тогда вам знаком модуль mock (в Python3 находится в unittest). Это модуль, который позволяет сделать имитацию объекта.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/testy-testy-testy.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-04T17:00:00+06:00</updated><entry><title>Тесты тесты тесты: модуль тестирования py.test</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./04/testy-testy-testy-modul-testirovaniia-pytest/" rel="alternate"></link><updated>2015-08-04T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-04:posts/2015/авг./04/testy-testy-testy-modul-testirovaniia-pytest/</id><summary type="html">&lt;p&gt;Наряду с входящими в стандартную поставку питона средствами для тестирования, существуют и альтернативные инструменты, например, py.test. &lt;a href="http://pytest.org/"&gt;http://pytest.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;py.test имеет множество расширений, которые значительно упрощают написание тестов.
+py.test имеет плагины для всех популярных web-фреймворков, с помощью плагинов позволяет кэшеировать результаты (успешных тестов), формировать отчеты в самых различных форматах.
+А также имеет очень простую систему расширения и вы можете буквально за день написать свой плагин.
+&lt;a class='embedly-card' data-card-chrome='0' href='http://pytest.org/latest/_static/pytest1.png'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;</summary><category term="тест"></category><category term="unittest"></category></entry><entry><title>Тесты тесты тесты: создание читаемых отчетов</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./04/testy-testy-testy-sozdanie-chitaemykh-otchetov/" rel="alternate"></link><updated>2015-08-04T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-04:posts/2015/авг./04/testy-testy-testy-sozdanie-chitaemykh-otchetov/</id><summary type="html">&lt;p&gt;Тесты тесты тесты: создание читаемых отчетов&lt;/p&gt;
+&lt;p&gt;Когда в вашей программе очень много тестов, то возникают проблемы с чтением отчетов (что сломалось, что корректно отработало). Для создания читаемых отчетов можно порекомендовать allure-framework. О этом фреймворке можно узнать в видео:
+&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=d5SreR6dGnE'&gt;&lt;/a&gt;
+            &lt;script&gt;
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}
+                }(document);
+            &lt;/script&gt;
+            &lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/allure-framework"&gt;https://github.com/allure-framework&lt;/a&gt;&lt;/p&gt;</summary><category term="тест"></category><category term="test"></category><category term="отчет"></category></entry><entry><title>Имитация файловой системы с помощью mock</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/" rel="alternate"></link><updated>2015-07-28T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-28:posts/2015/июля/28/imitatsiia-failovoi-sistemy-s-pomoshchiu-mock/</id><summary type="html">&lt;p&gt;Вы пишите тесты? Тогда вам знаком модуль mock (в Python3 находится в unittest). Это модуль, который позволяет сделать имитацию объекта.&lt;/p&gt;
 &lt;p&gt;Это необходимо, когда пишите тесты на свой код, а этот код использует множество долгих приготовлений: сходить в БД, разобрать данные еще что-то. Вот в этом случае вы можете провести имитацию всех этих долгих приготовлений и сконцентрироваться на написании тестов для своего кода.&lt;/p&gt;
 &lt;p&gt;В случае с файловой системой немного сложней. Вот надо какие-то файлы создавать,в них что-то писать. Засорять свою домашнюю директорию папками "temp"? Не обязательно, можно имитировать файловую систему с помощью mockfs.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mockfs/mockfs"&gt;https://github.com/mockfs/mockfs&lt;/a&gt;&lt;/p&gt;</summary><category term="тест"></category><category term="mock"></category><category term="test"></category></entry><entry><title>unittest - основной инструмент тестирования</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/21/unittest-osnovnoi-instrument-testirovaniia/" rel="alternate"></link><updated>2015-07-21T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-21:posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/</id><summary type="html">&lt;p&gt;Одним из основных инструментов для тестирования в Python - unittest&lt;/p&gt;
