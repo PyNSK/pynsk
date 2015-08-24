@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2012-12-01T10:02:00+07:00</updated><entry><title>Синтаксис Python: with ... as</title><link href="http://pynsk.ru/posts/2012/%D0%B4%D0%B5%D0%BA./01/sintaksis-python-with-as/" rel="alternate"></link><updated>2012-12-01T10:02:00+07:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2012-12-01:posts/2012/дек./01/sintaksis-python-with-as/</id><summary type="html">&lt;p&gt;Конструкция &lt;code&gt;with ... as&lt;/code&gt; используется для оборачивания выполнения блока инструкций менеджером контекста. 
-Иногда это более удобная конструкция, чем &lt;code&gt;try...except...finally&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Синтаксис конструкции &lt;code&gt;with ... as&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;quot;with&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;as&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;,&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;expression&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;as&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;
-    &lt;span class="n"&gt;suite&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-07-20T17:00:00+06:00</updated><entry><title>Генераторы списков</title><link href="http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/20/generatory-spiskov/" rel="alternate"></link><updated>2015-07-20T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-07-20:posts/2015/июля/20/generatory-spiskov/</id><summary type="html">&lt;p&gt;Если вы использовали Python достаточно долго, вы должны были хотя бы слышать о понятии «list comprehensions». Это способ уместить цикл for, блок if и присваивание в одну строку.&lt;/p&gt;
+&lt;p&gt;Генератор списков - яркий пример «синтаксического сахара». То есть конструкции, без которой легко можно обойтись, но с ней намного лучше :) Генераторы списков, как это не странно, предназначены для удобной обработки списков, к которой можно отнести и создание новых списков, и модификацию существующих.
+Допустим, нам необходимо получить список нечетных чисел, не превышающих 25.
+В принципе, только познакомившись с работой команды xrange решить эту проблему несложно.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Теперь по порядку о том, что происходит при выполнении данного блока:&lt;/p&gt;
-&lt;p&gt;Выполняется выражение в конструкции with ... as.
-Загружается специальный метод &lt;strong&gt;exit&lt;/strong&gt; для дальнейшего использования.
-Выполняется метод &lt;strong&gt;enter&lt;/strong&gt;. Если конструкция with включает в себя слово as, то возвращаемое методом &lt;strong&gt;enter&lt;/strong&gt; значение записывается в переменную.
-Выполняется suite.
-Вызывается метод &lt;strong&gt;exit&lt;/strong&gt;, причём неважно, выполнилось ли suite или произошло исключение. В этот метод передаются параметры исключения, если оно произошло, или во всех аргументах значение None, если исключения не было.
-Примером использования данной конструкции является чтение и запись из/в файл (гарантированное закрытие файла)&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://effbot.org/zone/python-with-statement.htm"&gt;http://effbot.org/zone/python-with-statement.htm&lt;/a&gt;
-&lt;a href="http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html"&gt;http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html&lt;/a&gt;
-&lt;a href="https://docs.python.org/2/reference/compound_stmts.html"&gt;https://docs.python.org/2/reference/compound_stmts.html&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="pynsk"></category></entry></feed>
+&lt;p&gt;В общем-то, полученный результат — целиком нас устраивает всем, кроме длинной записи. тут-то на помощь и придет наш «сахарок». В самом простом виде, он обычно &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;res&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В общем виде эта конструкция такова:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python
+[stmt for var in iterable if predicate]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;По-мимо генератора списка есть синтаксический сахар - генератор словарей.&lt;/p&gt;</summary><category term="синтаксис"></category><category term="syntax"></category><category term="list"></category></entry></feed>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/testy-testy-testy.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 21 Jul 2015 17:00:00 +0600</lastBuildDate><item><title>unittest - основной инструмент тестирования</title><link>http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/21/unittest-osnovnoi-instrument-testirovaniia/</link><description>&lt;p&gt;Одним из основных инструментов для тестирования в Python - unittest&lt;/p&gt;
+&lt;p&gt;Это стандартный модуль для реализации юнит-тестов на Python.
+Unittest это порт JUnit с Java, иными словами ООП стиль, что весьма удобно для тестирования и процедур, и классов.&lt;/p&gt;
+&lt;p&gt;Возможностей в данном модуле довольно много: проверки (assert*), декораторы, позволяющие пропустить отдельный тест (@skip, @skipIf) или обозначить сломанные тесты (@expectedFailure)&lt;/p&gt;
+&lt;p&gt;При написании тестов надо исходит из следующих принципов:&lt;/p&gt;
+&lt;p&gt;Работа теста не должна зависеть от результатов работы других тестов.
+- Тест должен использовать данные, специально для него подготовленные, и никакие другие.
+- Тест не должен требовать ввода от пользователя
+- Тесты не должны перекрывать друг друга (не надо писать одинаковые тесты 20 раз). Можно писать частично перекрывающие тесты.
+- Нашли баг -&amp;gt; напиши тест
+- Тесты надо поддерживать в рабочем состоянии
+- Модульные тесты не должны проверять производительность сущности (класса, функции)
+- Тесты должны проверять не только то, что сущность работает корректно на корректных данных, но и то что ведет себя адекватно при некорректных данных.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 21 Jul 2015 17:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-07-21:posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/</guid><category>тесты</category><category>test</category><category>unittest</category></item><item><title>unittest</title><link>http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/21/unittest/</link><description>&lt;p&gt;unittest - https://docs.python.org/3.5/library/unittest.html - фреймворк для написания юнит-тестов.
+unittest является частью стандартной поставки.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 21 Jul 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-07-21:posts/2015/июля/21/unittest/</guid><category>тесты</category><category>test</category><category>unittest</category></item></channel></rss>
