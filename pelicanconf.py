@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import os
 
 from embedly_cards import EmbedlyCardExtension
+from pyembed.markdown import PyEmbedMarkdown
 
 PROJECT_DIR = os.path.normpath(
     os.path.abspath(os.path.dirname(os.path.abspath(__file__))))
@@ -34,7 +35,8 @@ SUMMARY_MAX_LENGTH = 60
 MD_EXTENSIONS = ['codehilite(css_class=highlight)',
                  'extra',
                  # ...
-                 EmbedlyCardExtension()]
+                 EmbedlyCardExtension(),
+                 PyEmbedMarkdown()]
 
 # Social widget
 SOCIAL = (
