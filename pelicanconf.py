@@ -112,7 +112,7 @@ DISPLAY_TAGS_INLINE = True
 
 # todo
 # когда напишу страницы, то включить обрабтно
-DISPLAY_PAGES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = True
 
 GOOGLE_ANALYTICS = 'UA-53909016-3'
 GITHUB_URL = 'https://github.com/WarmongeR1/pynsk'
