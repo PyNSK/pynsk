@@ -231,72 +231,6 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/23/interesno-kak-rabotaet-python/">Интересно как работает Python?</a></h2>
-
-                <div class="summary"><p>Интересно как работает Python?</p>
-<p>Рекомендуем изучить материалы:</p>
-<ul>
-<li>Интерпретатор Python: о чём думает змея? (часть I-III) - <a href="http://habrahabr.ru/post/206420/">http://habrahabr.ru/post/206420/</a></li>
-<li>Python изнутри. Введение - <a href="habrahabr.ru/company/buruki/blog/189972/">habrahabr.ru/company/buruki/blog/189972/</a></li>
-<li>Python изнутри. Объекты. Голова - <a href="habrahabr.ru/company/buruki/blog/189986/">habrahabr.ru/company/buruki/blog/189986/</a></li>
-<li>Python изнутри. Объекты. Хвост - <a href="habrahabr.ru/company/buruki/blog/190336/">habrahabr.ru/company/buruki/blog/190336/</a></li>
-<li>Python изнутри. Структуры процесса - <a href="habrahabr.ru/company/buruki/blog/191032/">habrahabr.ru/company/buruki/blog/191032/</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/23/interesno-kak-rabotaet-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/23/kak-rabotaet-python/">Как работает Python?</a></h2>
-
-                <div class="summary"><p>Как работает Python, что такое интерпретатор, как работает компилятор и что такое байт-код, далее расскажу о виртуальной машине (PVM) и о производительности Python. Также о альтернативных реализациях интерпретатора.</p>
-<p><a href="http://adw0rd.com/2009/08/22/python-howto-work/">http://adw0rd.com/2009/08/22/python-howto-work/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/23/kak-rabotaet-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/22/django-db-mailer-batareika-dlia-otpravki-email/">Django DB Mailer - батарейка для отправки email</a></h2>
-
-                <div class="summary"><p>В подавляющем большинстве проектов используется отправка сообщений на почтовые адреса клиентов/админов/отделов. На сколько утомительно каждый раз создавать шаблоны на файловой системе, задавать сигналы, использовать часто дублирующийся код для рендеринга и отправки.</p>
-<p>В конечном итоге встают задачи о фоновой отправке, об изменениях отправителя, приоритизации, повторной отправке сообщения в случае неудачи, частом редактировании по просьбе клиента/маркетологов, прикреплению к письму ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/22/django-db-mailer-batareika-dlia-otpravki-email/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/22/requests/">requests</a></h2>
-
-                <div class="summary"><p>requests - <a href="http://docs.python-requests.org/en/latest/">http://docs.python-requests.org/en/latest/</a> - универсальный (для python2, python3) модуль для создание HTTP запросов.
-Данный модуль позволяет очень просто послать запрос, получить данные.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-<span class="mi">200</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;content-type&#39;</span><span class="p">]</span>
-<span class="s">&#39;application/json; charset=utf8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">encoding</span>
-<span class="s">&#39;utf-8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
-<span class="s">u&#39;{&quot;type&quot;:&quot;User&quot;...&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="p">{</span><span class="s">u&#39;private_gists&#39;</span><span class="p">:</span> <span class="mi">419</span><span class="p">,</span> <span class="s">u ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/22/requests/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/">unittest - основной инструмент тестирования</a></h2>
-
-                <div class="summary"><p>Одним из основных инструментов для тестирования в Python - unittest</p>
-<p>Это стандартный модуль для реализации юнит-тестов на Python.
-Unittest это порт JUnit с Java, иными словами ООП стиль, что весьма удобно для тестирования и процедур, и классов.</p>
-<p>Возможностей в данном модуле довольно много: проверки (assert*), декораторы, позволяющие пропустить отдельный тест (@skip, @skipIf) или обозначить сломанные тесты (@expectedFailure)</p>
-<p>При написании тестов надо ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/июля/21/unittest-osnovnoi-instrument-testirovaniia/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/июля/21/unittest/">unittest</a></h2>
 
                 <div class="summary"><p>unittest - https://docs.python.org/3.5/library/unittest.html - фреймворк для написания юнит-тестов.
@@ -546,29 +480,9 @@ unittest является частью стандартной поставки.<
                             cython
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/db.html">
-                            db
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/debug.html">
-                            debug
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/doctest.html">
-                            doctest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -661,7 +575,7 @@ unittest является частью стандартной поставки.<
                             интерфейс
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/interpretator.html">
                             интерпретатор
                         </a>
@@ -749,11 +663,6 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/plotly.html">
                             plotly
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/postgresql.html">
-                            postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -856,11 +765,6 @@ unittest является частью стандартной поставки.<
                             scandir
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/set.html">
-                            set
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
@@ -908,7 +812,7 @@ unittest является частью стандартной поставки.<
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
-                            test
+                            тест
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -926,11 +830,6 @@ unittest является частью стандартной поставки.<
                             tkinter
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/toolbar.html">
-                            toolbar
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
@@ -941,7 +840,7 @@ unittest является частью стандартной поставки.<
                             видео
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
                         </a>
@@ -959,11 +858,6 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/yattag.html">
                             yattag
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/yield.html">
-                            yield
                         </a>
                     </li>
                 </ul>
