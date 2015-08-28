@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Заполнить страницу - PyNSK - Новосибирское Python сообщество</title>
+    <title>Синтаксис Python: with ... as - PyNSK - Новосибирское Python сообщество</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,16 +166,22 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://pynsk.ru/pages/my-super-post.html">
+<link rel="canonical" href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/">
 
-        <meta name="author" content="Alexis Metaireau" />
-        <meta name="description" content="Short version for index and feeds" />
+        <meta name="author" content="Alexander Sapronov" />
+        <meta name="keywords" content="синтаксис,with" />
+        <meta name="description" content="Конструкция with ... as используется для оборачивания выполнения блока инструкций менеджером контекста. Иногда это более удобная конструкция, чем try...except...finally. Синтаксис конструкции with ... as: &#34;with&#34; expression [&#34;as&#34; target] (&#34;,&#34; expression [&#34;as&#34; target])* &#34;:&#34; suite Теперь по порядку о том, что происходит при выполнении данного блока: Выполняется выражение в конструкции with ... as. Загружается специальный метод __exit__ для дальнейшего использования. Выполняется метод __enter__. Если ..." />
 
-    <meta property="og:site_name" content="PyNSK - Новосибирское Python сообщество" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Заполнить страницу"/>
-    <meta property="og:url" content="http://pynsk.ru/pages/my-super-post.html"/>
-    <meta property="og:description" content="Short version for index and feeds" />
+        <meta property="og:site_name" content="PyNSK - Новосибирское Python сообщество" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Синтаксис Python: with ... as"/>
+        <meta property="og:url" content="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/"/>
+        <meta property="og:description" content="Конструкция with ... as используется для оборачивания выполнения блока инструкций менеджером контекста. Иногда это более удобная конструкция, чем try...except...finally. Синтаксис конструкции with ... as: &#34;with&#34; expression [&#34;as&#34; target] (&#34;,&#34; expression [&#34;as&#34; target])* &#34;:&#34; suite Теперь по порядку о том, что происходит при выполнении данного блока: Выполняется выражение в конструкции with ... as. Загружается специальный метод __exit__ для дальнейшего использования. Выполняется метод __enter__. Если ..."/>
+        <meta property="article:published_time" content="2015-08-24" />
+            <meta property="article:section" content="Синтаксис Python" />
+            <meta property="article:tag" content="синтаксис" />
+            <meta property="article:tag" content="with" />
+            <meta property="article:author" content="Alexander Sapronov" />
 
 
     <!-- Bootstrap -->
@@ -209,6 +215,9 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/categories.html">Категории</a></li>
+                         <li  ><a href="http://pynsk.ru/pages/about.html">
+                             О сообществе
+                          </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><span>
@@ -228,13 +237,86 @@ PyNSK - Новосибирское Python сообщество            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content" class="body">
-        <h1 class="entry-title">Заполнить страницу</h1>
-        
-        <div class="entry-content">
-            <p>This is the content of my super blog post.</p>
-        </div>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/"
+                       rel="bookmark"
+                       title="Permalink to Синтаксис Python: with ... as">
+                        Синтаксис Python: with ... as
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-08-24T17:00:00+06:00"> Пн. 24 Август 2015</time>
+    </span>
+
+    <span class="label label-default">Время чтения</span> ~1 минут
+
+        <span class="label label-default">Категория</span>
+        <a href="http://pynsk.ru/category/sintaksis-python.html">Синтаксис Python</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://pynsk.ru/tag/sintaksis.html">синтаксис</a>
+        /
+	<a href="http://pynsk.ru/tag/with.html">with</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+
+                <p>Конструкция <code>with ... as</code> используется для оборачивания выполнения блока инструкций менеджером контекста. Иногда это более удобная конструкция, чем <code>try...except...finally</code>.</p>
+<p>Синтаксис конструкции <code>with ... as</code>:</p>
+<div class="highlight"><pre><span class="s">&quot;with&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">]</span> <span class="p">(</span><span class="s">&quot;,&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">])</span><span class="o">*</span> <span class="s">&quot;:&quot;</span>
+    <span class="n">suite</span>
+</pre></div>
+
+
+<p>Теперь по порядку о том, что происходит при выполнении данного блока:</p>
+<ul>
+<li>Выполняется выражение в конструкции <code>with ... as</code>.</li>
+<li>Загружается специальный метод <code>__exit__</code> для дальнейшего использования.</li>
+<li>Выполняется метод <code>__enter__</code>. Если конструкция <code>with</code> включает в себя слово <code>as</code>, то возвращаемое методом <code>__enter__</code> значение записывается в переменную.</li>
+<li>Выполняется suite.</li>
+<li>Вызывается метод <code>__exit__</code>, причём неважно, выполнилось ли suite или произошло исключение. В этот метод передаются параметры исключения, если оно произошло, или во всех аргументах значение None, если исключения не было.</li>
+<li>
+<p>Примером использования данной конструкции является чтение и запись из/в файл (гарантированное закрытие файла)</p>
+</li>
+<li>
+<p><a href="http://effbot.org/zone/python-with-statement.htm">http://effbot.org/zone/python-with-statement.htm</a></p>
+</li>
+<li><a href="http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html">http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html</a></li>
+<li><a href="https://docs.python.org/2/reference/compound_stmts.html">https://docs.python.org/2/reference/compound_stmts.html</a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Новости по теме:</h4>
+    <ul>
+        <li><a href="http://pynsk.ru/posts/2015/авг./31/sintaksis-python-operator-yield/">Синтаксис Python: оператор yield</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/авг./03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/">Синтаксис Python: трехместное выражение if/else</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/июля/20/generatory-spiskov/">Генераторы списков</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-znakomimsia-s-sintaksisom-za-y-minut/">Синтаксис Python: знакомимся с синтаксисом за Y минут</a></li>
+    </ul>
+</section>
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
     </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -269,6 +351,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                 </a>
 
                 <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/funktsionalnyi-python.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Функциональный Python
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/hardcore-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Hardcore Python
@@ -375,7 +462,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             aiohttp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
                         </a>
@@ -420,9 +507,29 @@ PyNSK - Новосибирское Python сообщество            </a>
                             cython
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
+                            django-debug-toolbar
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/doctest.html">
+                            doctest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -445,9 +552,19 @@ PyNSK - Новосибирское Python сообщество            </a>
                             fixture
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/fp.html">
+                            fp
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
+                            функциональное программирование
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -476,6 +593,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/html.html">
+                            html
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/http.html">
                             http
                         </a>
@@ -500,9 +622,14 @@ PyNSK - Новосибирское Python сообщество            </a>
                             интерфейс
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/interpretator.html">
                             интерпретатор
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/ipython.html">
+                            IPython
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -560,6 +687,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                             отчет
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pamiat.html">
+                            память
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
@@ -581,8 +713,18 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/postgresql.html">
+                            postgresql
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -613,6 +755,16 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python2.html">
+                            python2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -655,7 +807,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             requests
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
                         </a>
@@ -665,7 +817,12 @@ PyNSK - Новосибирское Python сообщество            </a>
                             scandir
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/set.html">
+                            set
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
                         </a>
@@ -712,7 +869,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
-                            тест
+                            test
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -730,6 +887,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                             tkinter
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/toolbar.html">
+                            toolbar
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
@@ -740,7 +902,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             видео
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
                         </a>
@@ -748,6 +910,21 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/winapi.html">
                             winapi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/with.html">
+                            with
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yattag.html">
+                            yattag
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yield.html">
+                            yield
                         </a>
                     </li>
                 </ul>
@@ -796,5 +973,7 @@ PyNSK - Новосибирское Python сообщество            </a>
     </script>
     <!-- End Google Analytics Code -->
 
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
 </body>
 </html>
