@@ -87,6 +87,7 @@ PLUGINS = [
     'liquid_tags.literal',
     'tipue_search',
     'sitemap',
+    'assets',
     'optimize_images',
     'tag_cloud',
     'post_stats',
