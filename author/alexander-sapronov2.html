@@ -231,118 +231,128 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./19/izvlechenie-informatsii-parsing-datvremeni/">Извлечение информации: парсинг дат/времени</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/">Синтаксис Python: with ... as</a></h2>
 
-                <div class="summary"><p>Извлечение информации из текста/web-страниц сопряжено с эвристиками. 
-Одна из проблем, с которой сталкиваются разработчики - как парсить даты. Даты можно написать 100 и одним способом:
-tomorrow, а еще 4/4/80 или March 5th, 1980. И какой код писать, чтобы понять эти даты?</p>
-<p>К счастью, код уже написан - <a href="https://github.com/bear/parsedatetime">https://github.com/bear/parsedatetime</a></p>
-<p>Данная библиотека позволяет спарсить время в самых ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./19/izvlechenie-informatsii-parsing-datvremeni/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/">Статическая типизация в Python: сила опциональной типизации</a></h2>
+                <div class="summary"><p>Конструкция <code>with ... as</code> используется для оборачивания выполнения блока инструкций менеджером контекста. Иногда это более удобная конструкция, чем <code>try...except...finally</code>.</p>
+<p>Синтаксис конструкции <code>with ... as</code>:</p>
+<div class="highlight"><pre><span class="s">&quot;with&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">]</span> <span class="p">(</span><span class="s">&quot;,&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">])</span><span class="o">*</span> <span class="s">&quot;:&quot;</span>
+    <span class="n">suite</span>
+</pre></div>
 
-                <div class="summary"><p>Не секрет, что Python (CPython) - динамически типизируемый язык (все типы выясняются во время выполнения программы). Это как дар так и проклятие. С одной стороны - можно быстрее писать программы, с другой - тяжелее найти ошибки. При этом, если была бы статическая типизация - уже на этапе компиляции мы знали бы где мы затупили с типами.</p>
-<p>В этом видео рассказывается, как же можно использовать ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./18/staticheskaia-tipizatsiia-v-python-sila-optsionalnoi-tipizatsii/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./18/testy-testy-testy-nose/">Тесты тесты тесты: nose</a></h2>
 
-                <div class="summary"><p>nose — это инструмент для прогона тестов посредством unittest (и doctest, с ключом --with-doctest). Имеет также собственное API, использовать которое необязательно. 
-nose автоматически собирает тесты из файлов вида test_*, достаточно умен, чтобы заглянуть в папочку tests при наличии таковой, умеет измерять покрытие кода (code coverage) при помощи coverage.py (--with-coverage). Также можно запустить только тесты, которые отвалились в последний прогон (--failed ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./18/testy-testy-testy-nose/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./17/poleznye-instrumenty-pycharm/">Полезные инструменты: Pycharm</a></h2>
-
-                <div class="summary"><p>Pycharm - это IDE специализированная под Python разработку.</p>
-<p>Возможности этого редактора кода захватывают:
-- Статический анализ кода, подсветка синтаксиса и ошибок.
-- Рефакторинг: переименование, извлечение метода, введение переменной, введение константы, подъём и спуск метода и т. д.
-- Инструменты для веб-разработки с использованием фреймворка Django
-- Встроенный отладчик для Python
-- Встроенные инструменты для юнит-тестирования
-- Поддержка систем контроля версий (Git, svn и другие)
-- По-мимо этого, Pycharm ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./17/poleznye-instrumenty-pycharm/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/">Синтаксис Python: изменяемые и неизменяемые типы данных</a></h2>
-
-                <div class="summary"><p>Все типы данных в Python относятся к одной из 2-х категорий: изменяемые (mutable) и неизменяемые (unmutable). Многие из предопределённых типов данных Python — это типы неизменяемых объектов: числовые данные (int, float, complex), символьные строки (class 'str'), кортежи (tuple). Другие типы определены как изменяемые: списки (list), множества (set), словари (dict). Вновь определяемые пользователем типы (классы) могут быть определены как неизменяемые или изменяемые ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./16/python-hardcore-cython/">Python hardcore: Cython</a></h2>
-
-                <div class="summary"><p>Cython — язык программирования, упрощающий написание модулей С/С++ кода для Python. Кроме стандартного синтаксиса Python, поддерживаются:</p>
-<p>Прямой вызов функций и методов С/С++ из кода на Cython;
-Строгая типизация переменных, классов, атрибутов классов.</p>
-<p>Код Cython преобразуется в С/С++ код для последующей компиляции и впоследствии может использоваться как расширение стандартного Python или как независимое приложение со встроенной библиотекой выполнения Cython ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./16/python-hardcore-cython/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./16/python-i-asinkhronnye-zadachi/">Python и асинхронные задачи</a></h2>
-
-                <div class="summary"><p>Celery — распределенная очередь заданий
-И так, что же умеет Celery:</p>
+<p>Теперь по порядку о том, что происходит при выполнении данного блока:</p>
 <ul>
-<li>Выполнять задания асинхронно или синхронно</li>
-<li>Выполнять периодические задания(умная замена crond)</li>
-<li>Выполнять отложенные задания</li>
-<li>Распределенное выполнение (может быть запущен на N серверах)</li>
-<li>В пределах одного worker'а возможно конкурентное выполнение нескольких задач(одновременно)</li>
-<li>Выполнять задание повторно, если вылез exception</li>
-<li>Ограничивать количество заданий в единицу времени(rate limit, для задания или ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./16/python-i-asinkhronnye-zadachi/">more ...</a>
+<li>Выполняется выражение в конструкции <code>with ... as</code>.</li>
+<li>Загружается специальный метод <code>__exit__</code> для дальнейшего использования.</li>
+<li>Выполняется метод <code>__enter__</code>. Если ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./15/risovanie-grafikov-na-python/">Рисование графиков на Python</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-znakomimsia-s-sintaksisom-za-y-minut/">Синтаксис Python: знакомимся с синтаксисом за Y минут</a></h2>
 
-                <div class="summary"><p>Графики бывают совсем разные. Де-факто стандартом в питоне для построения графиков является matplotlib. Это такой комбайн, который умеет очень много, даже 3Д графики. </p>
-<p>Matplotlib написан и поддерживался в основном Джоном Хантером (англ. John Hunter) и распространяется на условиях BSD-подобной лицензии. Генерируемые в различных форматах изображения могут быть использованы в интерактивной графике, в научных публикациях, графическом интерфейсе пользователя, веб-приложениях, где требуется ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./15/risovanie-grafikov-na-python/">more ...</a>
+                <div class="summary"><p>Когда мне необходимо быстро вникнуть в синтаксис языка X, то использую этот сайт:
+<a href="http://learnxinyminutes.com/docs/ru-ru/python3-ru/">http://learnxinyminutes.com/docs/ru-ru/python3-ru/</a>
+А по ссылке вы найдете синтаксис языка Python</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-znakomimsia-s-sintaksisom-za-y-minut/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./15/python-v-igrakh-pygame/">Python в играх: PyGame</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/">Hardcore Python: запускаем С код с помощью cffi</a></h2>
 
-                <div class="summary"><p>Pygame - это кроссплатформенная библиотека языка Python, предназначенная для написания компьютерных игр и мультимедиа приложений.</p>
-<p>Для знакомства с возможностями PyGame ссылки:</p>
-<ul>
-<li><a href="http://habrahabr.ru/post/130726/">http://habrahabr.ru/post/130726/</a></li>
-<li><a href="http://habrahabr.ru/post/130726/">http://habrahabr.ru/post/130726/</a></li>
-<li><a href="http://habrahabr.ru/post/164229/">http://habrahabr.ru/post/164229/</a></li>
-<li><a href="http://habrahabr.ru/post/193888/">http://habrahabr.ru/post/193888/</a></li>
-<li><a href="http://www.pygame.org/">http://www.pygame.org/</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./15/python-v-igrakh-pygame/">more ...</a>
+                <div class="summary"><p>Самый популярный Python это CPython. Он настолько популярен, что когда говорят Python имеют ввиду именно каноническую реализацию - CPython.</p>
+<p>CPython, как можно понять из названия, имеет какое-то отношение к языку C.
+Из Python вы можете с помощью ctypes дергать С-шные функции.<br />
+Однако, этот механизм несколько медленный и не всегда удобный - бывает надо просто дернуть один кусок C-кода. Или надо только часть ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./14/python-v-igrakh-gde-ispolzuetsia-python/">Python в играх: где используется Python?</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">Таинство стандартной библиотеки:  functools.singledispatch</a></h2>
 
-                <div class="summary"><p>Сегодня вашему вниманию представляется статья и небольшая инфографика, которая покажет вам на конкретных примерах, что Python столь же эффективен в разработке игр, как и в других областях.</p>
-<p><a href="http://tproger.ru/articles/python-powered-games/">http://tproger.ru/articles/python-powered-games/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./14/python-v-igrakh-gde-ispolzuetsia-python/">more ...</a>
+                <div class="summary"><p>Стандартная поставка Python полна возможностями. 
+Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.</p>
+<p>Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.</p>
+<p>Подробней о ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-plotly-plotly/">Полезные библиотеки: plot.ly (plotly)</a></h2>
+
+                <div class="summary"><p>Понятное представление информации - это вечная задача. Причем она свойственна всем.</p>
+<p>Хочется упомянуть графики. Вот собрали мы данные, задача была не простая, а теперь надо их представить. Графики бывают разных типов, их очень много. Даже если какой-то график сделали, а как поделиться? Можно скинуть картинку, да только придется потом с "линейкой" вычислять значения, а можно пойти по другому пути - https://plot ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-plotly-plotly/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-numpy/">Полезные библиотеки: numpy</a></h2>
+
+                <div class="summary"><p>NumPy — это библиотека языка Python, добавляющая поддержку больших многомерных массивов и матриц, вместе с большой библиотекой высокоуровневых (и очень быстрых) математических функций для операций с этими массивами.</p>
+<p>В чем же "фишка" NumPy вы можете спросить. </p>
+<p>Основным объектом NumPy является однородный многомерный массив (в numpy называется numpy.ndarray). Это многомерный массив элементов (обычно чисел), одного типа.</p>
+<p>Здесь можно подчеркнуть <em>одного типа ...</em></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./22/poleznye-biblioteki-numpy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/">Внутренности Python: зачем нужен GIL(Global interpreter lock)</a></h2>
+
+                <div class="summary"><p>Много хают GIL в Python, в этом видео вы узнаете насколько же он плох... или все-таки хорош?
+<a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=AWX4JnAnjBE'></a>
+            <script>
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";
+                    var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d ...</script></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./21/vnutrennosti-python-zachem-nuzhen-gilglobal-interpreter-lock/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/">Python на службе народа: распознаем образы с помощью Raspberry Pi</a></h2>
+
+                <div class="summary"><p>Raspberry Pi - это мини-компьютер, который имеет невысокую цену и при этом имеет богатые возможности.
+Применение мини-компьютеров широкое, например, можно сделать камеру для дома - можете реализовать программку, которая будет следить за вашим маленьким ребенком и посылать вам сигнал, когда ребенок проснулся.</p>
+<p><a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=vRHoQVZLvoM)
+[http://www.open-electronics.org/raspberry-pi-and-the-camera-pi-module-face-recognition-tutorial/](http://www ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./21/python-na-sluzhbe-naroda-raspoznaem-obrazy-s-pomoshchiu-raspberry-pi/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./20/interesnye-kontseptsii-transdiusery/">Интересные концепции: Трансдьюсеры</a></h2>
+
+                <div class="summary"><p>Трансдьюсеры — это попытка переосмыслить операции над коллекциями, найти в них общую идею и принцип, научиться совмещать вместе несколько операций для их дальнейшего переиспользования.</p>
+<p><a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=ANZOvcYPagU)
+[!embedlycard](https://www.youtube.com/watch?t=1080&v=VTEfb5ojOzA'></a>
+            <script>
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a ...</script></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/interesnye-kontseptsii-transdiusery/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./20/anons-vstrechi-2-soobshchestva-pynsk/">Анонс встречи №2 сообщества PyNSK</a></h2>
+
+                <div class="summary"><p>Внимание внимание внимание, в середине сентября, а именно, 13 сентября в 13 часов пройдет встреча Python-сообщества PyNSK.</p>
+<p>Подробности по ссылке - <a href="https://vk.com/pynsk_13_09_2015">https://vk.com/pynsk_13_09_2015</a></p>
+<p>На встрече вас ожидает два полноценных доклада и один мини-доклад:</p>
+<p>Доклад Игоря Старикова (основатель Python сайта <a href="http://pythonz.net/">http://pythonz.net/</a>) - "Разработчик разработчику: Азбука вежливости"</p>
+<p>Доклад Артёма Попова <a href="https://vk.com/id42320764">https://vk.com/id42320764</a> - "Python в музыке. osc, midi и ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/anons-vstrechi-2-soobshchestva-pynsk/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -366,6 +376,8 @@ nose автоматически собирает тесты из файлов в
                             href="http://pynsk.ru/author/alexander-sapronov7.html">7</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/author/alexander-sapronov8.html">8</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/author/alexander-sapronov9.html">9</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/author/alexander-sapronov3.html">&raquo;</a></li>
         </ul>
@@ -403,6 +415,11 @@ nose автоматически собирает тесты из файлов в
                 </a>
 
                 <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/funktsionalnyi-python.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Функциональный Python
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/hardcore-python.html">
                             <i class="fa fa-folder-open fa-lg"></i> Hardcore Python
@@ -509,7 +526,7 @@ nose автоматически собирает тесты из файлов в
                             aiohttp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
                         </a>
@@ -554,7 +571,7 @@ nose автоматически собирает тесты из файлов в
                             cython
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
                         </a>
@@ -579,9 +596,19 @@ nose автоматически собирает тесты из файлов в
                             fixture
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/fp.html">
+                            fp
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
+                            функциональное программирование
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -607,6 +634,11 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/html.html">
+                            html
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -637,6 +669,11 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/interpretator.html">
                             интерпретатор
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/ipython.html">
+                            IPython
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -694,6 +731,11 @@ nose автоматически собирает тесты из файлов в
                             отчет
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pamiat.html">
+                            память
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
@@ -717,6 +759,11 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -747,6 +794,16 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python2.html">
+                            python2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -789,7 +846,7 @@ nose автоматически собирает тесты из файлов в
                             requests
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
                         </a>
@@ -799,7 +856,7 @@ nose автоматически собирает тесты из файлов в
                             scandir
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
                         </a>
@@ -882,6 +939,16 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/winapi.html">
                             winapi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/with.html">
+                            with
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yattag.html">
+                            yattag
                         </a>
                     </li>
                 </ul>
