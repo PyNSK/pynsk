@@ -118,6 +118,11 @@ DISPLAY_PAGES_ON_MENU = True
 GOOGLE_ANALYTICS = 'UA-53909016-3'
 GITHUB_URL = 'https://github.com/WarmongeR1/pynsk'
 
+# flatly - неплохо
+# readable-old размер шрифтов
+# sandstone - неплохо
+# BOOTSTRAP_THEME = 'readable-old'
+
 
 
 MENUITEMS = [

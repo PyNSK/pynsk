@@ -1,5 +1,37 @@
+html{
+    font-size:62.5%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0)
+}
+
 body {
     padding-top: 70px;
+    font-family:"Lora",Georgia,"Times New Roman",Times,serif;
+    font-size:16px;
+    line-height:1.428571429;
+    color:#333;
+    background-color:#f9f9f9
+}
+
+.navbar-default{
+    background-color:#285880;
+    border-color:#285880;
+    color: #e6f1ff;
+}
+
+.navbar-default .navbar-brand {
+    color: #e6f1ff;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #e6f1ff;
+}
+
+
+
+#tipue_search_input {
+    background-color: #2c6b97;
+    border-color: #244064;
+    color: #e6f1ff;
+    font-size: 16px;
 }
 
 #sidebar .list-group, #sidebar .list-group-item {
