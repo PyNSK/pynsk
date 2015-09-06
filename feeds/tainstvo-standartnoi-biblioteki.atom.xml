@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-08-30T18:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: abc</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./30/tainstvo-standartnoi-biblioteki-abc/" rel="alternate"></link><updated>2015-08-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-30:posts/2015/авг./30/tainstvo-standartnoi-biblioteki-abc/</id><summary type="html">&lt;p&gt;Абстрактные базовые классы и интерфейсы — близкие по назначению и смыслу сущности. Как первые, так и вторые представляют собой своеобразный способ документирования кода и помогают ограничить (decouple) взаимодействие отдельных абстракций в программе (классов).&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-09-06T18:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: itertools</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./06/tainstvo-standartnoi-biblioteki-itertools/" rel="alternate"></link><updated>2015-09-06T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-06:posts/2015/сент./06/tainstvo-standartnoi-biblioteki-itertools/</id><summary type="html">&lt;p&gt;Еще один стандартный модуль в Python - itertools.
+Модуль itertools - сборник полезных итераторов.&lt;/p&gt;
+&lt;p&gt;В нем содержатся множество операций над итераторами, да и сами интераторы. 
+Например есть бесконечная арифметическая прогрессия, можно объединять, разъединять итераторы, всячески извлекать значения как из одного так и групп итераторов, повторять итератор, группировать значения итератора и многое другое. А что именно - по ссылкам.&lt;/p&gt;
+&lt;p&gt;Ссылки по теме:
+https://docs.python.org/3.5/library/itertools.html
+https://pymotw.com/2/itertools/
+http://pythonworld.ru/moduli/modul-itertools.html&lt;/p&gt;</summary><category term="itertools"></category></entry><entry><title>Таинство стандартной библиотеки: docstring</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./06/tainstvo-standartnoi-biblioteki-docstring/" rel="alternate"></link><updated>2015-09-06T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-06:posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/</id><summary type="html">&lt;p&gt;Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring'ом.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;def test():
+...    "This is the test's docstring"
+...    print "opa"&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Получить доступ к docstring можно так:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;test.&lt;strong&gt;doc&lt;/strong&gt;
+"This is the test's docstring"
+Либо так:&lt;/p&gt;
+&lt;p&gt;help(test)
+Help on function test in module &lt;strong&gt;main&lt;/strong&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;test()
+    This is the test's docstring
+Существуют инструменты, которые позволяют извлекать docstring не по одиночке, а для целого модуля/пакета. О них и пойдет речь.&lt;/p&gt;
+&lt;p&gt;Изучаем дальше: &lt;/p&gt;
+&lt;p&gt;https://www.python.org/dev/peps/pep-0257/&lt;/p&gt;
+&lt;p&gt;http://pyobject.ru/blog/2006/09/08/document-it/
+http://habrahabr.ru/post/149371/&lt;/p&gt;</summary><category term="docstring"></category><category term="документация"></category></entry><entry><title>Таинство стандартной библиотеки: abc</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./30/tainstvo-standartnoi-biblioteki-abc/" rel="alternate"></link><updated>2015-08-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-30:posts/2015/авг./30/tainstvo-standartnoi-biblioteki-abc/</id><summary type="html">&lt;p&gt;Абстрактные базовые классы и интерфейсы — близкие по назначению и смыслу сущности. Как первые, так и вторые представляют собой своеобразный способ документирования кода и помогают ограничить (decouple) взаимодействие отдельных абстракций в программе (классов).&lt;/p&gt;
 &lt;p&gt;Питон — очень гибкий язык. Одна из граней этой гибкости — возможности, предоставляемые метапрограммированием. И хотя в ядре языка абстрактные классы и интерфейсы не представлены, первые были реализованы в стандартном модуле abc, вторые — в проекте Zope (модуль zope.interfaces).&lt;/p&gt;
 &lt;p&gt;Начиная с версии языка 2.6 в стандартную библиотеку включается модуль abc, добавляющий в язык абстрактные базовые классы (далее АБК).&lt;/p&gt;
 &lt;p&gt;АБК позволяют определить класс, указав при этом, какие методы или свойства обязательно переопределить в классах-наследниках&lt;/p&gt;

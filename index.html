@@ -243,90 +243,126 @@ PyNSK - Новосибирское Python сообщество            </a>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./30/tainstvo-standartnoi-biblioteki-abc/">Таинство стандартной библиотеки: abc</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-itertools/">Таинство стандартной библиотеки: itertools</a></h2>
 
-                <div class="summary"><p>Абстрактные базовые классы и интерфейсы — близкие по назначению и смыслу сущности. Как первые, так и вторые представляют собой своеобразный способ документирования кода и помогают ограничить (decouple) взаимодействие отдельных абстракций в программе (классов).</p>
-<p>Питон — очень гибкий язык. Одна из граней этой гибкости — возможности, предоставляемые метапрограммированием. И хотя в ядре языка абстрактные классы и интерфейсы не представлены, первые были реализованы в стандартном ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./30/tainstvo-standartnoi-biblioteki-abc/">more ...</a>
+                <div class="summary"><p>Еще один стандартный модуль в Python - itertools.
+Модуль itertools - сборник полезных итераторов.</p>
+<p>В нем содержатся множество операций над итераторами, да и сами интераторы. 
+Например есть бесконечная арифметическая прогрессия, можно объединять, разъединять итераторы, всячески извлекать значения как из одного так и групп итераторов, повторять итератор, группировать значения итератора и многое другое. А что именно - по ссылкам.</p>
+<p>Ссылки по теме:
+https://docs ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-itertools/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./30/vnutrennosti-python-na-chto-ukhodit-pamiat/">Внутренности Python: на что уходит память</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/">Таинство стандартной библиотеки: docstring</a></h2>
 
-                <div class="summary"><p>Часто утверждают, что Python жрет очень много памяти. 
-В этом видео вы узнаете как Python работает с памятью</p>
-<div style="text-align: center;"><iframe width="480" height="270" src="https://www.youtube.com/embed/XwpUQX_8rmY?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./30/vnutrennosti-python-na-chto-ukhodit-pamiat/">more ...</a>
+                <div class="summary"><p>Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring'ом.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def test():
+...    "This is the test's docstring"
+...    print "opa"</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Получить доступ к docstring можно так:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>test.<strong>doc</strong>
+"This is the test's docstring"
+Либо так:</p>
+<p>help(test)
+Help on function ...</p></blockquote></blockquote></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./29/poleznye-instrumenty-pycallgraph/">Полезные инструменты: pycallgraph</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./05/poleznye-moduli-pyside/">Полезные модули: PySide</a></h2>
 
-                <div class="summary"><p>Идеальный программист не пишет тесты, потому что у него не бывает ошибок. А сверх идеальный программист даже код не пишет. </p>
-<p>А так как идеальных нет, поэтому бывают медленные куски программы. Точнее как, обычно это называем "тормозит". Чтобы понять какое место тормозит можно воспользоваться модулем pycallgraph - https://github.com/gak/pycallgraph</p>
-<p>Данный модуль строит красивые графики-графы, в которых цветом выделяет медленные ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./29/poleznye-instrumenty-pycallgraph/">more ...</a>
+                <div class="summary"><p>PySide — привязка языка Python к инструментарию Qt, совместимая на уровне API с PyQt. В отличие от PyQt, PySide доступна для свободного использования как в открытых, так и закрытых, в частности, коммерческих проектах, поскольку лицензирована по LGPL.</p>
+<p>Проект возник в результате нежелания создателей PyQt менять лицензионную политику для своего проекта. Свет PySide увидел в августе 2009 года, когда была выпущена первая ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./05/poleznye-moduli-pyside/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./28/python-na-sluzhbe-naroda-sozdaem-bota-dlia-telegram/">Python на службе народа: создаем бота для Telegram</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./05/poleznye-moduli-pyqt/">Полезные модули: PyQt</a></h2>
 
-                <div class="summary"><p>Развитие общества обладает цикличностью. Лет 30-25 назад были популярны чаты, лет 15-10 назад тоже чаты были на коне. И сейчас снова. Только теперь это называют словом мессенджер.</p>
-<p>Хочется привести информацию о создании бота для мессенджера Telegram.</p>
-<p>24 июня разработчики Telegram открыли платформу для создания ботов. </p>
-<p>Прежде всего, бот для Telegram — это по-прежнему приложение, запущенное на вашей стороне и осуществляющее запросы ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./28/python-na-sluzhbe-naroda-sozdaem-bota-dlia-telegram/">more ...</a>
+                <div class="summary"><p>Проекты все чаще зарождаются именно в web,  однако, и десктоп ПО еще живо, да и инструментарий к нему. В частности, кроссплатформенный фреймворк Qt имеет обертку для Python - PyQt. </p>
+<p>Уже давно все крупные GUI-фреймворки имеют дизайнер форм (в нашем случае - Qt designer). В которой вы можете набросать мышкой кнопки на формы, а уже затем в коде добавить логику работы с ними ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./05/poleznye-moduli-pyqt/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./28/poleznye-instrumenty-ipython/">Полезные инструменты: IPython</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./04/opyt-razrabotchikov-fail-requirementstxt-v-kazhdyi-proekt/">Опыт разработчиков: файл requirements.txt в каждый проект</a></h2>
 
-                <div class="summary"><p>IPython - интерактивная оболочка для языка программирования Python, которая предоставляет расширенную интроспекцию, дополнительный командный синтаксис, подсветку кода и автоматическое дополнение.</p>
-<p>IPython весьма удобен для демонстраций и экспериментов. В отличие от стандартного REPL, IPython может запоминать введенные команды. А IPython Notebook позволяет сохранить все свои эксперименты в файл, после чего залить на сервис для просмотра другими. Даже github поддерживает отображение этих "книг ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./28/poleznye-instrumenty-ipython/">more ...</a>
+                <div class="summary"><p>Первой проблемой при поддержке старых проектов является понять, как запустить его. 
+Чтобы немного упростить эту задачу разработчики используют pip и файл requirements.txt. В этом файле записываются все необходимые для работы библиотеки и, что самое главное, указывают версии этих библиотек. </p>
+<p>Имея такой файл настройка окружения для старта проекта может состоять из одной команды:</p>
+<div class="highlight"><pre>pip install -r requirements.txt
+</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./04/opyt-razrabotchikov-fail-requirementstxt-v-kazhdyi-proekt/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./27/funktsionalnyi-python-probuem-funktsionalshchinu/">Функциональный Python: пробуем функциональщину</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./03/pishem-web-proekty-vyzhimaem-maksimum-iz-postgresql/">Пишем web-проекты: выжимаем максимум из PostgreSQL</a></h2>
 
-                <div class="summary"><p>Существует два основных подхода в программировании - декларативный и императивный. 
-Каждый из них имеет свои достоинства и недостатки. Крайнее время декларативный подход, а в частности функциональное программирование стало весьма популярным. Давайте ознакомимся с ним:
-<div style="text-align: center;"><iframe width="480" height="270" src="https://www.youtube.com/embed/DblOFqPE1Pk?feature=oembed" frameborder="0" allowfullscreen></iframe></div></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./27/funktsionalnyi-python-probuem-funktsionalshchinu/">more ...</a>
+                <div class="summary"><p>Postgres предоставляет много встроенных возможностей для создания эфективных приложений,
+использующих базы данных. А в версии 9.4 появляется еще и полноценное JSON поле,
+при правильном использовании которого, отпадает необходимость использвания NoSQL баз данных.
+В докладе мы рассмотрим, как использовать этот потенциал по максимуму в своих Python/Django
+приложениях.</p>
+<div style="text-align: center;"><iframe width="480" height="270" src="https://www.youtube.com/embed/wP6pCm2zvUg?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./03/pishem-web-proekty-vyzhimaem-maksimum-iz-postgresql/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./26/pishem-web-proekty-tutorial-po-django/">Пишем web-проекты: туториал по django</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./02/poleznye-instrumenty-django-debug-toolbar/">Полезные инструменты: django-debug-toolbar</a></h2>
 
-                <div class="summary"><p>Django - это крупный web-фреймворк. Это отличный инструмент для создания web-приложений. Освоение этого инструмента занимает приличное количество времени.
-А начать можно с туториала - <a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/">https://docs.djangoproject.com/en/stable/intro/tutorial01/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./26/pishem-web-proekty-tutorial-po-django/">more ...</a>
+                <div class="summary"><p>Разработка программ сопряжена с сложностями. Произвольно или нет лезут различные баги. Для поиска ошибок применяют различные инструменты, например дебаг. Дебаг бывает кустарным - print'ами, а есть более каноничный подход - дебаггерами.</p>
+<p>С десктоп программами все ясно - сиди тыкай точки остановки и изучай состояние программы, а что делать с web?</p>
+<p>А делать вот что - ставить debug toolbar: <a href="https://github.com/django-debug-toolbar/django-debug-toolbar">https://github.com/django-debug-toolbar/django-debug-toolbar ...</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./02/poleznye-instrumenty-django-debug-toolbar/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./26/poleznye-biblioteki-generatsiia-html-s-pomoshchiu-yattag/">Полезные библиотеки: генерация html с помощью Yattag</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./01/testy-testy-testy-doctest/">Тесты тесты тесты: doctest</a></h2>
 
-                <div class="summary"><p>В PyPi репозитории не один шаблонизатор HTML. Но далеко не всегда хочется тащить его за собой.
-В этом случае нам поможет модуль Yattag - это библиотека (DSL по сути), которая позволяет в Python-way формате писать HTML/XML файлы</p>
-<p>Ознакомьтесь с туториалом:
-<a href="http://www.yattag.org/#tutorial">http://www.yattag.org/#tutorial</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./26/poleznye-biblioteki-generatsiia-html-s-pomoshchiu-yattag/">more ...</a>
+                <div class="summary"><p>Тесты можно писать прям в коде, а точнее в docstring.</p>
+<p>Модуль doctest ищет куски текста, которые выглядят как интерактивные сессии Python и затем выполняет эти сессии, чтобы проверить, что они работают точно так же, как показано. Есть несколько стандартных причин, чтобы использовать doctest:
+Для того, чтобы проверить актуальность строк документации, убедившись, что все интерактивные примеры работают именно так, как задокументировано ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./01/testy-testy-testy-doctest/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./25/pishem-web-proekty-obzor-i-sravnenie-metodov-realizatsii-rest-api-v-django/">Пишем web-проекты: обзор и сравнение методов реализации REST API в Django</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./31/sintaksis-python-mnozhestva-set/">Синтаксис Python: множества (set)</a></h2>
 
-                <div class="summary"><p>Без API уже тяжело представить веб-проект. Для django существует несколько библиотек, которые позволяют создать REST API за пару строк. </p>
-<div style="text-align: center;"><iframe width="480" height="270" src="https://www.youtube.com/embed/nEl2ymv2QnA?feature=oembed" frameborder="0" allowfullscreen></iframe></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./25/pishem-web-proekty-obzor-i-sravnenie-metodov-realizatsii-rest-api-v-django/">more ...</a>
+                <div class="summary"><p>Множество в python - "контейнер", содержащий не повторяющиеся элементы в случайном порядке.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="nb">set</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s">&#39;hello&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">{</span><span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;l&#39;</span><span class="p">,</span> <span class="s">&#39;e&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">{</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;d&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span> <span class="c"># генератор множеств</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c"># А так нельзя!</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./31/sintaksis-python-mnozhestva-set/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -351,6 +387,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                             href="http://pynsk.ru/index8.html">8</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/index9.html">9</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index10.html">10</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/index2.html">&raquo;</a></li>
         </ul>
@@ -410,7 +448,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                     </li>
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/opyt-razrabotchikov.html">
-                            <i class="fa fa-folder-open fa-lg"></i> Опыт разработчиков
+                            <i class="fa fa-folder-open fa-lg"></i> Опыт разработчиков
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -544,9 +582,34 @@ PyNSK - Новосибирское Python сообщество            </a>
                             cython
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
+                            django-debug-toolbar
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/doctest.html">
+                            doctest
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/dokumentatsiia.html">
+                            документация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -569,11 +632,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                             fixture
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fp.html">
-                            fp
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
@@ -594,9 +652,9 @@ PyNSK - Новосибирское Python сообщество            </a>
                             график
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/gui.html">
-                            GUI
+                            gui
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -639,7 +697,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             интерфейс
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/interpretator.html">
                             интерпретатор
                         </a>
@@ -647,6 +705,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/ipython.html">
                             IPython
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/itertools.html">
+                            itertools
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -719,7 +782,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             pep
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
                         </a>
@@ -727,6 +790,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/plotly.html">
                             plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/postgresql.html">
+                            postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -759,6 +827,16 @@ PyNSK - Новосибирское Python сообщество            </a>
                             pypi
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pyqt.html">
+                            pyqt
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pyside.html">
+                            pyside
+                        </a>
+                    </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/pytest.html">
                             pytest
@@ -777,6 +855,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/python3.html">
                             python3
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/qt.html">
+                            qt
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -819,6 +902,16 @@ PyNSK - Новосибирское Python сообщество            </a>
                             requests
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/requirements.html">
+                            requirements
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/requirementstxt.html">
+                            requirements.txt
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
@@ -827,6 +920,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/scandir.html">
                             scandir
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/set.html">
+                            set
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -876,7 +974,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
-                            тест
+                            test
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -894,6 +992,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                             tkinter
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/toolbar.html">
+                            toolbar
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
@@ -904,7 +1007,7 @@ PyNSK - Новосибирское Python сообщество            </a>
                             видео
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
                         </a>
@@ -922,6 +1025,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/yattag.html">
                             yattag
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yield.html">
+                            yield
                         </a>
                     </li>
                 </ul>
