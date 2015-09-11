@@ -170,13 +170,13 @@ init_mathjax();
 
         <meta name="author" content="Alexander Sapronov" />
         <meta name="keywords" content="docstring,документация" />
-        <meta name="description" content="Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring&#39;ом. def test(): ... &#34;This is the test&#39;s docstring&#34; ... print &#34;opa&#34; Получить доступ к docstring можно так: test.doc &#34;This is the test&#39;s docstring&#34; Либо так: help(test) Help on function ..." />
+        <meta name="description" content="Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring&#39;ом. &gt;&gt;&gt; def test(): ... &#34;This is the test&#39;s docstring&#34; ... print &#34;opa&#34; Получить доступ к docstring можно так: &gt;&gt;&gt; test.__doc__ &#34;This is the test&#39;s docstring&#34; Либо так: &gt;&gt;&gt; help(test) Help on function ..." />
 
         <meta property="og:site_name" content="PyNSK - Новосибирское Python сообщество" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Таинство стандартной библиотеки: docstring"/>
         <meta property="og:url" content="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/"/>
-        <meta property="og:description" content="Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring&#39;ом. def test(): ... &#34;This is the test&#39;s docstring&#34; ... print &#34;opa&#34; Получить доступ к docstring можно так: test.doc &#34;This is the test&#39;s docstring&#34; Либо так: help(test) Help on function ..."/>
+        <meta property="og:description" content="Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring&#39;ом. &gt;&gt;&gt; def test(): ... &#34;This is the test&#39;s docstring&#34; ... print &#34;opa&#34; Получить доступ к docstring можно так: &gt;&gt;&gt; test.__doc__ &#34;This is the test&#39;s docstring&#34; Либо так: &gt;&gt;&gt; help(test) Help on function ..."/>
         <meta property="article:published_time" content="2015-09-06" />
             <meta property="article:section" content="Таинство стандартной библиотеки" />
             <meta property="article:tag" content="docstring" />
@@ -273,34 +273,34 @@ PyNSK - Новосибирское Python сообщество            </a>
                 </div>
 
                 <p>Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring'ом.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>def test():
-...    "This is the test's docstring"
-...    print "opa"</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<span class="o">...</span>    <span class="s">&quot;This is the test&#39;s docstring&quot;</span>
+<span class="o">...</span>    <span class="k">print</span> <span class="s">&quot;opa&quot;</span>
+</pre></div>
+
+
 <p>Получить доступ к docstring можно так:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>test.<strong>doc</strong>
-"This is the test's docstring"
-Либо так:</p>
-<p>help(test)
-Help on function test in module <strong>main</strong>:</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>test()
-    This is the test's docstring
-Существуют инструменты, которые позволяют извлекать docstring не по одиночке, а для целого модуля/пакета. О них и пойдет речь.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">test</span><span class="o">.</span><span class="n">__doc__</span>
+<span class="s">&quot;This is the test&#39;s docstring&quot;</span>
+</pre></div>
+
+
+<p>Либо так:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="n">function</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">__main__</span><span class="p">:</span>
+
+<span class="n">test</span><span class="p">()</span>
+    <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">test</span><span class="s">&#39;s docstring</span>
+</pre></div>
+
+
+<p>Существуют инструменты, которые позволяют извлекать docstring не по одиночке, а для целого модуля/пакета. О них и пойдет речь.</p>
 <p>Изучаем дальше: </p>
-<p>https://www.python.org/dev/peps/pep-0257/</p>
-<p>http://pyobject.ru/blog/2006/09/08/document-it/
-http://habrahabr.ru/post/149371/</p>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0257/">https://www.python.org/dev/peps/pep-0257/</a></li>
+<li><a href="http://pyobject.ru/blog/2006/09/08/document-it/">http://pyobject.ru/blog/2006/09/08/document-it/</a></li>
+<li><a href="http://habrahabr.ru/post/149371/">http://habrahabr.ru/post/149371/</a></li>
+</ul>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -502,6 +502,11 @@ http://habrahabr.ru/post/149371/</p>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/cython.html">
                             cython
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -735,11 +740,6 @@ http://habrahabr.ru/post/149371/</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycharm.html">
-                            pycharm
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/pycon.html">
                             pycon
                         </a>
@@ -885,13 +885,13 @@ http://habrahabr.ru/post/149371/</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/svg.html">
-                            svg
+                        <a href="http://pynsk.ru/tag/swagger.html">
+                            swagger
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swagger.html">
-                            swagger
+                        <a href="http://pynsk.ru/tag/syntax.html">
+                            syntax
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
