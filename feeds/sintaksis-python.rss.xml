@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/sintaksis-python.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 31 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: множества (set)</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./31/sintaksis-python-mnozhestva-set/</link><description>&lt;p&gt;Множество в python - "контейнер", содержащий не повторяющиеся элементы в случайном порядке.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/sintaksis-python.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 11 Sep 2015 18:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: super() это супер</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./11/sintaksis-python-super-eto-super/</link><description>&lt;p&gt;Вы знаете что такое super()?
+Думаете что это вызов метода класса родителя? Если так, то вам стоит посмотреть это видео.
+&lt;div style="text-align: center;"&gt;&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/61UuKJRl2m0?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 11 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-11:posts/2015/сент./11/sintaksis-python-super-eto-super/</guid><category>super</category><category>видео</category></item><item><title>Синтаксис Python: генераторы</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./07/sintaksis-python-generatory/</link><description>&lt;p&gt;Генераторы это итерируемые объекты, которые можно прочитать лишь один раз. Это связано с тем, что они не хранят значения в памяти, а генерируют их на лету:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&amp;gt;&amp;gt;&amp;gt; mygenerator = (x*x for x in range(3))
+&amp;gt;&amp;gt;&amp;gt; for i in mygenerator :
+...    print(i)
+0
+1
+4
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Казалось бы, всего один раз можно пройти по данным. Зачем это?&lt;/p&gt;
+&lt;p&gt;На практике мы редко проходим по одним и тем же данным несколько раз. 
+При этом нам не всегда нужны все данные. Например, стоит задача проверить что все элементы массива положительные. Вот мы пишем цикл, в котором сравниваем элементы с нулем. И бац, попадается отрицательный элемент. Можем уже дальше не проверять и уже кинуть ошибку. При этом весь массив не находится в памяти. &lt;/p&gt;
+&lt;p&gt;Это если обычные числа, а если элементы коллекции это результаты вычисления функции - вот как в коде выше, это квадраты. А элементов у нас не 3, а 1 миллион. А в данный момент нам нужны только первые 500, по ним определим нужны ли нам остальные. Вот здесь и приходят на помощь генераторы - они возвращают именно столько сколько и надо данных.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 07 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-07:posts/2015/сент./07/sintaksis-python-generatory/</guid><category>генератор</category><category>yield</category></item><item><title>Синтаксис Python: множества (set)</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./31/sintaksis-python-mnozhestva-set/</link><description>&lt;p&gt;Множество в python - "контейнер", содержащий не повторяющиеся элементы в случайном порядке.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;

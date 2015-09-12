@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 06 Sep 2015 18:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: itertools</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./06/tainstvo-standartnoi-biblioteki-itertools/</link><description>&lt;p&gt;Еще один стандартный модуль в Python - itertools.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 13 Sep 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: textwrap для сокращения текста</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./13/tainstvo-standartnoi-biblioteki-textwrap-dlia-sokrashcheniia-teksta/</link><description>&lt;p&gt;Таинство стандартной библиотеки: textwrap для укорочения текстов&lt;/p&gt;
+&lt;p&gt;При работе над Python Дайджестом - &lt;a href="http://pythondigest.ru/"&gt;http://pythondigest.ru/&lt;/a&gt; а именно при работе над "Колонкой автора" возникла такая задачка - уменьшить длину описания.  Описание ссылок берется из RSS этой группы и оно иногда длинное. &lt;/p&gt;
+&lt;p&gt;Как же наиболее просто решить эту задачу? Самое простое - взять строку описания и взять, скажем первые 300 символов. Просто? Только вот проблема - слово может оборваться на середине. Чтобы не обрабатывать эту ситуацию самостоятельно, можно воспользоваться модулем textwrap. &lt;/p&gt;
+&lt;p&gt;textwrap это стандартный модуль, который позволяет всячески укорачивать текст. Например, можно ограничить длину строки (будет текст выводится в несколько строк).&lt;/p&gt;
+&lt;p&gt;Озвученную задачу можно решить так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;textwrap&lt;/span&gt;
+&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;textwrap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shorten&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_content&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ссылки на тему:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.dotnetperls.com/textwrap"&gt;http://www.dotnetperls.com/textwrap&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/library/textwrap.html"&gt;https://docs.python.org/3.5/library/textwrap.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pymotw.com/2/textwrap/"&gt;https://pymotw.com/2/textwrap/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 13 Sep 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-13:posts/2015/сент./13/tainstvo-standartnoi-biblioteki-textwrap-dlia-sokrashcheniia-teksta/</guid><category>стандартная библиотека</category><category>обработка текста</category></item><item><title>Таинство стандартной библиотеки: itertools</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./06/tainstvo-standartnoi-biblioteki-itertools/</link><description>&lt;p&gt;Еще один стандартный модуль в Python - itertools.
 Модуль itertools - сборник полезных итераторов.&lt;/p&gt;
 &lt;p&gt;В нем содержатся множество операций над итераторами, да и сами интераторы. 
 Например есть бесконечная арифметическая прогрессия, можно объединять, разъединять итераторы, всячески извлекать значения как из одного так и групп итераторов, повторять итератор, группировать значения итератора и многое другое. А что именно - по ссылкам.&lt;/p&gt;
