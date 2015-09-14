@@ -231,18 +231,6 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./20/anons-vstrechi-2-soobshchestva-pynsk/">Анонс встречи №2 сообщества PyNSK</a></h2>
-
-                <div class="summary"><p>Внимание внимание внимание, в середине сентября, а именно, 13 сентября в 13 часов пройдет встреча Python-сообщества PyNSK.</p>
-<p>Подробности по ссылке - <a href="https://vk.com/pynsk_13_09_2015">https://vk.com/pynsk_13_09_2015</a></p>
-<p>На встрече вас ожидает два полноценных доклада и один мини-доклад:</p>
-<p>Доклад Игоря Старикова (основатель Python сайта <a href="http://pythonz.net/">http://pythonz.net/</a>) - "Разработчик разработчику: Азбука вежливости"</p>
-<p>Доклад Артёма Попова <a href="https://vk.com/id42320764">https://vk.com/id42320764</a> - "Python в музыке. osc, midi и ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/anons-vstrechi-2-soobshchestva-pynsk/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/сент./13/tainstvo-standartnoi-biblioteki-textwrap-dlia-sokrashcheniia-teksta/">Таинство стандартной библиотеки: textwrap для сокращения текста</a></h2>
 
                 <div class="summary"><p>Таинство стандартной библиотеки: textwrap для укорочения текстов</p>
@@ -344,6 +332,29 @@ funcy - это набор мелких полезностей при работ�
 <ul>
 <li><a href="https://docs.python.org/3.5/library/itertools.html">https://docs ...</a></li></ul>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-itertools/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/">Таинство стандартной библиотеки: docstring</a></h2>
+
+                <div class="summary"><p>Docstring - (сокращение от documentation string, строка документации) встроенное средство документирования модулей, функций, классов и методов. Делается очень просто - сразу после определения указывается строковое значение, которое и будет docstring'ом.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+<span class="o">...</span>    <span class="s">&quot;This is the test&#39;s docstring&quot;</span>
+<span class="o">...</span>    <span class="k">print</span> <span class="s">&quot;opa&quot;</span>
+</pre></div>
+
+
+<p>Получить доступ к docstring можно так:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">test</span><span class="o">.</span><span class="n">__doc__</span>
+<span class="s">&quot;This is the test&#39;s docstring&quot;</span>
+</pre></div>
+
+
+<p>Либо так:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">help</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="n">function ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/сент./06/tainstvo-standartnoi-biblioteki-docstring/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -541,23 +552,13 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bd.html">
-                            БД
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/biblioteka.html">
                             библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cffi.html">
-                            cffi
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -646,11 +647,6 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generator.html">
-                            генератор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/gil.html">
                             GIL
                         </a>
@@ -673,11 +669,6 @@ funcy - это набор мелких полезностей при работ�
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/html.html">
-                            html
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -751,13 +742,13 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mock.html">
-                            mock
+                        <a href="http://pynsk.ru/tag/mechanize.html">
+                            mechanize
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nose.html">
-                            nose
+                        <a href="http://pynsk.ru/tag/mock.html">
+                            mock
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -806,16 +797,6 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/plotly.html">
-                            plotly
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/postgresql.html">
-                            postgresql
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
                         </a>
@@ -855,6 +836,11 @@ funcy - это набор мелких полезностей при работ�
                             pyside
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
@@ -891,13 +877,13 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regex.html">
-                            regex
+                        <a href="http://pynsk.ru/tag/regexp.html">
+                            regexp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regexp.html">
-                            regexp
+                        <a href="http://pynsk.ru/tag/reguliarnye-vyrazheniia.html">
+                            регулярные выражения
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -915,19 +901,14 @@ funcy - это набор мелких полезностей при работ�
                             requirements
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scandir.html">
-                            scandir
+                        <a href="http://pynsk.ru/tag/set.html">
+                            set
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -961,6 +942,11 @@ funcy - это набор мелких полезностей при работ�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/statistika.html">
+                            статистика
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/super.html">
                             super
                         </a>
@@ -973,6 +959,11 @@ funcy - это набор мелких полезностей при работ�
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/swagger.html">
                             swagger
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/syntax.html">
+                            syntax
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1000,6 +991,11 @@ funcy - это набор мелких полезностей при работ�
                             toolbar
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/uchebnik.html">
+                            учебник
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
@@ -1013,6 +1009,21 @@ funcy - это набор мелких полезностей при работ�
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/winapi.html">
+                            winapi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/with.html">
+                            with
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yattag.html">
+                            yattag
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
