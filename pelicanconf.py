@@ -111,8 +111,7 @@ ABOUT_ME = True
 AVATAR = '/images/logo.png'
 DISPLAY_TAGS_INLINE = True
 
-# todo
-# когда напишу страницы, то включить обрабтно
+BOOTSTRAP_FLUID = True
 DISPLAY_PAGES_ON_MENU = True
 
 GOOGLE_ANALYTICS = 'UA-53909016-3'
