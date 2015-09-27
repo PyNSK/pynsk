@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/izvlechenie-informatsii.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 09 Sep 2015 10:00:00 +0600</lastBuildDate><item><title>Извлечение информации: скачиваем список ссылок с помощью asyncio</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./09/izvlechenie-informatsii-skachivaem-spisok-ssylok-s-pomoshchiu-asyncio/</link><description>&lt;p&gt;Порой возникают рутинные задачи, которые не хочется делать руками. Примером такой задачи может являться - скачать множество страниц по ссылкам. Если 5 ссылок еще вручную сохранить можно, а если их 1000? или 6250, как было в моем случае. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/izvlechenie-informatsii.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 23 Sep 2015 10:00:00 +0600</lastBuildDate><item><title>Извлечение информации: grab - фреймворк для веб-парсинга</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/</link><description>&lt;p&gt;Grab — python библиотека для парсинга сайтов&lt;/p&gt;
+&lt;p&gt;Её основные функции:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Подготовка сетевого запроса (cookies, http-заголовки, POST/GET данные)&lt;/li&gt;
+&lt;li&gt;Запрос на сервер (возможно через HTTP/SOCKS прокси)&lt;/li&gt;
+&lt;li&gt;Получение ответа сервера и его первоначальная обработка (парсинг заголовков, парсинг cookies, определение кодировки документа, обработка редиректа (поддерживаются даже редирект в meta refresh тэге))&lt;/li&gt;
+&lt;li&gt;Работа с DOM-деревом ответа (если это HTML-документ)&lt;/li&gt;
+&lt;li&gt;Работа с формами (заполнение, автозаполнение)&lt;/li&gt;
+&lt;li&gt;Отладка: логирование процесса в консоль, сетевых запросов и ответов в файлы&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В чем же особенность?&lt;/p&gt;
+&lt;p&gt;Если scrapy — это реально паук, бегает по сети, тянет в тыщу потоков информацию, то grab — это скорее швейцарский нож, вы его берёте и начинает вдумчиво колупать сайт.&lt;/p&gt;
+&lt;p&gt;Пощупать модуль:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://grablib.org/ru/"&gt;http://grablib.org/ru/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Image" src="https://s-media-cache-ak0.pinimg.com/736x/0e/ef/7e/0eef7e463459b10b3ea1f3f21b03d653.jpg" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 23 Sep 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-23:posts/2015/сент./23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/</guid><category>grab</category><category>parsing</category><category>web parsing</category><category>crawler</category><category>парсинг</category></item><item><title>Извлечение информации: скачиваем список ссылок с помощью asyncio</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./09/izvlechenie-informatsii-skachivaem-spisok-ssylok-s-pomoshchiu-asyncio/</link><description>&lt;p&gt;Порой возникают рутинные задачи, которые не хочется делать руками. Примером такой задачи может являться - скачать множество страниц по ссылкам. Если 5 ссылок еще вручную сохранить можно, а если их 1000? или 6250, как было в моем случае. &lt;/p&gt;
 &lt;p&gt;На Python эту задачу можно с помощью модуля asyncio и aiohttp. &lt;/p&gt;
 &lt;p&gt;Вот такой код можно написать за пару минут:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;asyncio&lt;/span&gt;

@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-09-20T17:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: модуль operator</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./20/tainstvo-standartnoi-biblioteki-modul-operator/" rel="alternate"></link><updated>2015-09-20T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-20:posts/2015/сент./20/tainstvo-standartnoi-biblioteki-modul-operator/</id><summary type="html">&lt;p&gt;Таинство стандартной библиотеки: модуль operator&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-09-26T15:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/" rel="alternate"></link><updated>2015-09-26T15:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-26:posts/2015/сент./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</id><summary type="html">&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;tuple&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Если из класса (считай "шаблон") мы создает объекты ("по шаблону делаем экземпляры"), то что делать как назвать
+ситуацию, когда кто-то делает классы?
+Стоит сказать зачем это может быть нужно:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;изменять типы создаваемых классов. &lt;/li&gt;
+&lt;li&gt;Например, подмешивать миксины(примиси)&lt;/li&gt;
+&lt;li&gt;автоматически вызывать некоторый код каждый раз, когда где-то создается класс, дочерний от данного.&lt;/li&gt;
+&lt;li&gt;Например, дергать метод, который будет логгировать время запуска функции&lt;/li&gt;
+&lt;li&gt;изменять параметры создаваемого дочернего класса. &lt;/li&gt;
+&lt;li&gt;Например, на все функции класса повесить декоратор. (какую-то валидацию)&lt;/li&gt;
+&lt;li&gt;для написания ORM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Это все позволяют реализовать мета-классы.&lt;/p&gt;
+&lt;p&gt;Ссылки для чтения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://hlabs.org/development/python/pro_python.html"&gt;http://hlabs.org/development/python/pro_python.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ibm.com/developerworks/ru/library/l-pymeta/"&gt;http://www.ibm.com/developerworks/ru/library/l-pymeta/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/145835/"&gt;http://habrahabr.ru/post/145835/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/65625/"&gt;http://habrahabr.ru/post/65625/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.iso.ru/print/rus/document5953.phtml"&gt;http://www.iso.ru/print/rus/document5953.phtml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;http://blog.jetfix.ru/post/metaklassy-razrushenie-mifov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Таинство стандартной библиотеки: модуль operator</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./20/tainstvo-standartnoi-biblioteki-modul-operator/" rel="alternate"></link><updated>2015-09-20T17:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-20:posts/2015/сент./20/tainstvo-standartnoi-biblioteki-modul-operator/</id><summary type="html">&lt;p&gt;Таинство стандартной библиотеки: модуль operator&lt;/p&gt;
 &lt;p&gt;Модуль operator содержит набор функций, соответствующих операторам Python.&lt;/p&gt;
 &lt;p&gt;Вот некоторые функции:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;operator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# суммирует два значения&lt;/span&gt;

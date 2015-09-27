@@ -1,5 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 20 Sep 2015 17:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: модуль operator</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./20/tainstvo-standartnoi-biblioteki-modul-operator/</link><description>&lt;p&gt;Таинство стандартной библиотеки: модуль operator&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 26 Sep 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</link><description>&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;tuple&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Если из класса (считай "шаблон") мы создает объекты ("по шаблону делаем экземпляры"), то что делать как назвать
+ситуацию, когда кто-то делает классы?
+Стоит сказать зачем это может быть нужно:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;изменять типы создаваемых классов. &lt;/li&gt;
+&lt;li&gt;Например, подмешивать миксины(примиси)&lt;/li&gt;
+&lt;li&gt;автоматически вызывать некоторый код каждый раз, когда где-то создается класс, дочерний от данного.&lt;/li&gt;
+&lt;li&gt;Например, дергать метод, который будет логгировать время запуска функции&lt;/li&gt;
+&lt;li&gt;изменять параметры создаваемого дочернего класса. &lt;/li&gt;
+&lt;li&gt;Например, на все функции класса повесить декоратор. (какую-то валидацию)&lt;/li&gt;
+&lt;li&gt;для написания ORM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Это все позволяют реализовать мета-классы.&lt;/p&gt;
+&lt;p&gt;Ссылки для чтения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://hlabs.org/development/python/pro_python.html"&gt;http://hlabs.org/development/python/pro_python.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ibm.com/developerworks/ru/library/l-pymeta/"&gt;http://www.ibm.com/developerworks/ru/library/l-pymeta/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/145835/"&gt;http://habrahabr.ru/post/145835/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/65625/"&gt;http://habrahabr.ru/post/65625/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.iso.ru/print/rus/document5953.phtml"&gt;http://www.iso.ru/print/rus/document5953.phtml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;http://blog.jetfix.ru/post/metaklassy-razrushenie-mifov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sat, 26 Sep 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-26:posts/2015/сент./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</guid></item><item><title>Опыт разработчиков: основы декларативной магии</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./25/opyt-razrabotchikov-osnovy-deklarativnoi-magii/</link><description>&lt;p&gt;&lt;img alt="embed" src="http://www.youtube.com/watch?v=luhyEER7_KM" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 25 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-25:posts/2015/сент./25/opyt-razrabotchikov-osnovy-deklarativnoi-magii/</guid><category>опыт</category></item><item><title>Опыт разработчиков: соглашения о кодировании</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./25/opyt-razrabotchikov-soglasheniia-o-kodirovanii/</link><description>&lt;p&gt;В обществе существуют различные соглашения. Соглашения рождаются не просто так, а для того чтобы о чем-то условится и начать создавать.&lt;/p&gt;
+&lt;p&gt;Для разработчика важным является соглашение о кодировании. Это своего рода свод "законов", которые принимает новый разработчик, когда погружается в проект. Чаще всего такие законы очевидны и естественны.&lt;/p&gt;
+&lt;p&gt;Возьмем пример - длина строки не более 79 символов. В свое время дисплеи содержали лишь 80 столбцов, поэтому было удобно, когда код помещался на экран.
+Подобные рекомендации или "законы" присущи любому популярному языку. Приглашаю с ними ознакомится по ссылке  &lt;a href="https://github.com/SalGnt/cscs"&gt;https://github.com/SalGnt/cscs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;P.S. PEP8&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://i.imgur.com/66ON9pI.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 25 Sep 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-25:posts/2015/сент./25/opyt-razrabotchikov-soglasheniia-o-kodirovanii/</guid></item><item><title>Синтаксис Python: dir()</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./24/sintaksis-python-dir/</link><description>&lt;p&gt;Достался нам в наследство какой-то код. А там непонятный объект с названием &lt;code&gt;super_object_1&lt;/code&gt;. 
+Как понять что это за объект?&lt;/p&gt;
+&lt;p&gt;На помощь приходят встроенные функции - &lt;code&gt;type()&lt;/code&gt;, &lt;code&gt;dir()&lt;/code&gt;. Если с &lt;code&gt;type()&lt;/code&gt; все ясно - возвращает тип, то с &lt;code&gt;dir&lt;/code&gt; не совсем. &lt;/p&gt;
+&lt;p&gt;dir - Возвращает имена переменных, доступные в локальной области, либо атрибуты указанного объекта в алфавитном порядке.
+Это значит, что при вызове кода:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;super_object_1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# мы получим список его методов.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Но есть тонкости:
+Определение в классе метода &lt;code&gt;__dir__()&lt;/code&gt;, возвращающего список и имён, позволяет варьировать результат выполнения &lt;code&gt;dir()&lt;/code&gt; для экземпляров класса. 
+Для объектов, класс которых не определил &lt;code&gt;__dir__()&lt;/code&gt;, функция попытается определить атрибуты по данным &lt;code&gt;__dict__&lt;/code&gt;.
+Возвращаемый список может включать не все атрибуты, особенно в случаях с переопределенным &lt;code&gt;__getattr__()&lt;/code&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 24 Sep 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-24:posts/2015/сент./24/sintaksis-python-dir/</guid></item><item><title>Функциональный Python: fn.py</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./23/funktsionalnyi-python-fnpy/</link><description>&lt;p&gt;Функциональные аспекты, такие как чистота, иммутабельные данные весьма жизнеспособны. Какие-то из них Python хорошо поддерживает, какие-то нет (например, рекурсия).
+Сегодня хочется упомянуть библиотеку fn.py. Эта библиотека добавляет синтаксический сахар в виде scala-лямбд, персистентных структур данных, стримом, а также другие элементы, которые встречаются в ФП.&lt;/p&gt;
+&lt;p&gt;Рассказ о библиотеке:&lt;/p&gt;
+&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/k3az1g_Q4xE?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Исходники библиотеки: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/kachayev/fn.py"&gt;https://github.com/kachayev/fn.py&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 23 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-23:posts/2015/сент./23/funktsionalnyi-python-fnpy/</guid><category>fp</category><category>функциональное программирование</category><category>фп</category></item><item><title>Извлечение информации: grab - фреймворк для веб-парсинга</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/</link><description>&lt;p&gt;Grab — python библиотека для парсинга сайтов&lt;/p&gt;
+&lt;p&gt;Её основные функции:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Подготовка сетевого запроса (cookies, http-заголовки, POST/GET данные)&lt;/li&gt;
+&lt;li&gt;Запрос на сервер (возможно через HTTP/SOCKS прокси)&lt;/li&gt;
+&lt;li&gt;Получение ответа сервера и его первоначальная обработка (парсинг заголовков, парсинг cookies, определение кодировки документа, обработка редиректа (поддерживаются даже редирект в meta refresh тэге))&lt;/li&gt;
+&lt;li&gt;Работа с DOM-деревом ответа (если это HTML-документ)&lt;/li&gt;
+&lt;li&gt;Работа с формами (заполнение, автозаполнение)&lt;/li&gt;
+&lt;li&gt;Отладка: логирование процесса в консоль, сетевых запросов и ответов в файлы&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В чем же особенность?&lt;/p&gt;
+&lt;p&gt;Если scrapy — это реально паук, бегает по сети, тянет в тыщу потоков информацию, то grab — это скорее швейцарский нож, вы его берёте и начинает вдумчиво колупать сайт.&lt;/p&gt;
+&lt;p&gt;Пощупать модуль:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://grablib.org/ru/"&gt;http://grablib.org/ru/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Image" src="https://s-media-cache-ak0.pinimg.com/736x/0e/ef/7e/0eef7e463459b10b3ea1f3f21b03d653.jpg" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 23 Sep 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-23:posts/2015/сент./23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/</guid><category>grab</category><category>parsing</category><category>web parsing</category><category>crawler</category><category>парсинг</category></item><item><title>Тесты тесты тесты: Selenium как инструмент тестирования</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./22/testy-testy-testy-selenium-kak-instrument-testirovaniia/</link><description>&lt;p&gt;&lt;img alt="Image" src="https://pbs.twimg.com/media/BIoHXdICQAEaEoE.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;Selenium – это проект, в рамках которого разрабатывается серия программных продуктов с открытым исходным кодом.
+Среди продуктов интересен Selenium WebDriver - это программная библиотека для управления браузерами. WebDriver представляет собой драйверы для различных браузеров и клиентские библиотеки на разных языках программирования, предназначенные для управления этими драйверами.&lt;/p&gt;
+&lt;p&gt;Много слов и мало сути. А суть проста - использование такого веб-драйвера сводится к созданию бота, выполняющего всю ручную работу с браузером автоматизированно.&lt;/p&gt;
+&lt;p&gt;Что может быть автоматизировано? По факту что угодно, что человек может делать вручную. Если вы пишите web проект с UI, то можете написать тесты, которые будут прокликивать все элементы UI на предмет ошибок.&lt;/p&gt;
+&lt;p&gt;Материалы для погружения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.seleniumhq.org/"&gt;http://www.seleniumhq.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/152653/"&gt;http://habrahabr.ru/post/152653/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/248559/"&gt;http://habrahabr.ru/post/248559/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 22 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-22:posts/2015/сент./22/testy-testy-testy-selenium-kak-instrument-testirovaniia/</guid><category>тест</category><category>selenium</category></item><item><title>Синтаксис Python: yield from</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./21/sintaksis-python-yield-from/</link><description>&lt;p&gt;Рассмотрим еще одну страшную конструкцию в Python 3.3+ - yield from&lt;/p&gt;
+&lt;p&gt;Напомню, генератор это объект который можно про итерировать только однажды. Записывается как:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; 
+&lt;span class="c"&gt;# Или так&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;gen&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Когда у нас один генератор - все хорошо. Используем его как итератор и радуемся. Но не редки ситуации когда есть два генератора:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;generator2&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;generator3&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;И стоит задача - проитерировать один генератор, потом второй. Но вернуть значения не в виде списка,  в виде генератора.
+Здесь на помощь приходит конструкция&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;yield from &amp;lt;expr&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;где &lt;code&gt;&amp;lt;expr&amp;gt;&lt;/code&gt; - выражение, вычисление которого даёт нам итерируемый объект, из которого и вычленяется итератор. &lt;/p&gt;
+&lt;p&gt;Эту конструкцию можно читать так:
+&lt;code&gt;yield (вернуть значение) &amp;lt;стоп мыслей&amp;gt; from (взять значение из) &amp;lt;expr&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Используя &lt;code&gt;yield form&lt;/code&gt; задача решается так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;def generator():
+    yield from generator2()
+    yield from generator3()
+&amp;gt;&amp;gt;&amp;gt; generator()
+&amp;lt;generator object generator at 0x7f60d8fb3480&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Почитать:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0380/"&gt;https://www.python.org/dev/peps/pep-0380/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://simeonvisser.com/posts/python-3-using-yield-from-in-generators-part-1.html"&gt;http://simeonvisser.com/posts/python-3-using-yield-from-in-generators-part-1.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/132554/"&gt;http://habrahabr.ru/post/132554/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 21 Sep 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-21:posts/2015/сент./21/sintaksis-python-yield-from/</guid><category>yield from</category><category>синтаксис</category></item><item><title>Синтаксис Python: encode/decode</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./21/sintaksis-python-encodedecode/</link><description>&lt;p&gt;Вероятно, самым заметным отличием Python 2 от Python 3 является юникод.  Это нововведение упростило работу со строками. Однако, так как Python 2 еще в строю, то кодировки еще в силе и не мало разработчиков путается между encode и decode.&lt;/p&gt;
+&lt;p&gt;Стоит привести картинку, которая прояснит все:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://eli.thegreenplace.net/images/2012/01/py3_string_bytes.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Таким образом, если у нас есть строка:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Cool page&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;То существует множество способов (кодировок) представить ее в байтовом виде&lt;/p&gt;
+&lt;p&gt;Поэтому мы и пишем:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;название кодировки&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# переводим строку байтовый вид&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;И обратно. Если у нас есть набор байт, то чтобы получить строку пишем:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;байт-строка&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;название кодировки&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# получаем из байтовой строки настоящую строку&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Подробнее:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/135913/"&gt;http://habrahabr.ru/post/135913/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://eli.thegreenplace.net/2012/01/30/the-bytesstr-dichotomy-in-python-3/"&gt;http://eli.thegreenplace.net/2012/01/30/the-bytesstr-dichotomy-in-python-3/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 21 Sep 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-09-21:posts/2015/сент./21/sintaksis-python-encodedecode/</guid><category>encode</category><category>decode</category><category>синтаксис</category></item><item><title>Таинство стандартной библиотеки: модуль operator</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./20/tainstvo-standartnoi-biblioteki-modul-operator/</link><description>&lt;p&gt;Таинство стандартной библиотеки: модуль operator&lt;/p&gt;
 &lt;p&gt;Модуль operator содержит набор функций, соответствующих операторам Python.&lt;/p&gt;
 &lt;p&gt;Вот некоторые функции:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;operator&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# суммирует два значения&lt;/span&gt;
