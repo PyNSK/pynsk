@@ -1,7 +1,7 @@
 Title: Синтаксис Python: yield from
 Date: 2015-09-21 18:00
 Tags: yield from, синтаксис
-Category: Синтаксис Python: yield from
+Category: Синтаксис Python
 
 Рассмотрим еще одну страшную конструкцию в Python 3.3+ - yield from
 

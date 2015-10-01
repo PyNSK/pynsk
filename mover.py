@@ -5,6 +5,7 @@ import datetime
 
 # crontab
 # 25 */6 * * * make github
+# * * * * * cd /home/warmonger/Develop/Groups/PyNSK/pynsk/ && source /home/warmonger/Develop/venv/project_pynsk/bin/activate && make github
 
 def main():
     _base = os.path.join(os.path.dirname(__file__))
