@@ -1,12 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-09-29T18:00:00+06:00</updated><entry><title>Анонс встречи №3 сообщества PyNSK</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./29/anons-vstrechi-3-soobshchestva-pynsk/" rel="alternate"></link><updated>2015-09-29T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-29:posts/2015/сент./29/anons-vstrechi-3-soobshchestva-pynsk/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/event/event_3.png" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-01T18:00:00+06:00</updated><entry><title>Интересные концепции: mixin'ы (примеси)</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./01/interesnye-kontseptsii-mixiny-primesi/" rel="alternate"></link><updated>2015-10-01T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-01:posts/2015/окт./01/interesnye-kontseptsii-mixiny-primesi/</id><summary type="html">&lt;p&gt;В определенных случаях множественное наследование это зло. 
+Добро - когда классы родители не перекрывают друг друга. Частный случай такой схемы - примиси == миксины == mixin == mix in.
+Концепция примисей строится на идеи четкого разделения свойств и методов для сущностей. &lt;/p&gt;
+&lt;p&gt;Например,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;если есть летающее животное, то можно смело иметь метод fly;&lt;/li&gt;
+&lt;li&gt;если есть раскрашиваемый объект, то можно завести методы "покрасить", и два состояния - "раскрашен" (&lt;code&gt;bool&lt;/code&gt;) и цвет.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Использование миксин выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Mixin1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Mixin1&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Mixin2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Mixin2&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BaseClass&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Mixin1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Mixin2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(смотрели видео "Super - это супер"?)&lt;/p&gt;
+&lt;p&gt;В чем отличие от обычного наследования?
+По синтаксису - ни в чем. Отличия на уровне договоренностей и использовании - в mixin-класс помещают все необходимое и достаточное для определения сущности. &lt;/p&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;есть изменяемый объект - все действия с таким объектом храним в миксине.&lt;/li&gt;
+&lt;li&gt;есть итерируемый объект - тоже миксин.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Комбинируем два этих элемента и получаем интерируемый изменяемый объект.&lt;/p&gt;
+&lt;p&gt;Погружаемся в множественное наследование:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://qualcode.ru/article/python_mixin/"&gt;http://qualcode.ru/article/python_mixin/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ianlewis.org/en/mixins-and-python"&gt;https://www.ianlewis.org/en/mixins-and-python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.o2b.ru/python-mixins/"&gt;http://www.o2b.ru/python-mixins/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/140298/"&gt;http://habrahabr.ru/post/140298/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="примесь"></category><category term="mixin"></category></entry><entry><title>Полезные инструменты: pythontutor.com</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./01/poleznye-instrumenty-pythontutorcom/" rel="alternate"></link><updated>2015-10-01T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-01:posts/2015/окт./01/poleznye-instrumenty-pythontutorcom/</id><summary type="html">&lt;p&gt;Полезные инструменты: pythontutor.com&lt;/p&gt;
+&lt;p&gt;Представим ситуацию, вы читаете лекцию, пускай студентам. Хочется все по шагам и подробно рассказать о данном куске кода.
+Можно вести славеса пол часа, а можно продемонстрировать с помощью http://www.pythontutor.com/&lt;/p&gt;</summary></entry><entry><title>Полезные инструменты: pylint - в поисках ошибок</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./30/poleznye-instrumenty-pylint-v-poiskakh-oshibok/" rel="alternate"></link><updated>2015-09-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-30:posts/2015/сент./30/poleznye-instrumenty-pylint-v-poiskakh-oshibok/</id><summary type="html">&lt;p&gt;Статический анализ кода — анализ кода без реального исполнения кода.
+Под словом "анализ" можно понимать многое - что код соответствует PEP8, что код безопасный (все типы верно приведены), что код не содержит логических ошибок.&lt;/p&gt;
+&lt;p&gt;Самым придирчивым анализатором является pylint.&lt;/p&gt;
+&lt;p&gt;Pylint анализирует исходный код, выводит небольшую статистику по нему и делает около 150 проверок на разного рода ошибки. Все найденные ошибки выводятся в списке.&lt;/p&gt;
+&lt;p&gt;Все сообщения об ошибках делятся на 4 типа:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ошибки;&lt;/li&gt;
+&lt;li&gt;потенциальные ошибки;&lt;/li&gt;
+&lt;li&gt;следование стилистике и соглашениям (PEP8 и прочее);&lt;/li&gt;
+&lt;li&gt;предложения по рефакторингу.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Узнать мощь инструмента можно по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.pylint.org/"&gt;http://www.pylint.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://tiendil.livejournal.com/23215.html"&gt;http://tiendil.livejournal.com/23215.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dmalinovsky.blogspot.ru/2011/03/python.html"&gt;http://dmalinovsky.blogspot.ru/2011/03/python.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rtfm.co.ua/python-pylint-analiz-oshibok-i-kachestva-koda/"&gt;http://rtfm.co.ua/python-pylint-analiz-oshibok-i-kachestva-koda/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/114745/"&gt;http://habrahabr.ru/post/114745/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="pylint"></category><category term="анализатор"></category><category term="ошибка"></category><category term="поиск ошибок"></category><category term="статический анализ"></category><category term="статический анализатор"></category></entry><entry><title>Полезные библиотеки: langid.py</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./30/poleznye-biblioteki-langidpy/" rel="alternate"></link><updated>2015-09-30T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-30:posts/2015/сент./30/poleznye-biblioteki-langidpy/</id><summary type="html">&lt;p&gt;Представим ситуацию: есть блог, в котором публикуются посты на двух языках (а может и на 10). Необходимо рассортировать посты по языкам в разные RSS. (постов очень много, пускай 1000)&lt;/p&gt;
+&lt;p&gt;Вопрос к аудитории - как вы решили бы такую задачу?&lt;/p&gt;
+&lt;p&gt;Чтобы решить подобную задачу можно воспользоваться библиотекой &lt;code&gt;langid.py&lt;/code&gt;. 
+Это небольшой инструмент, который без доступа в Интернет(!!!) может определить язык текста (и слова).&lt;/p&gt;
+&lt;p&gt;Инструмент работает и из консоли, и как web сервис, а также как обычный Python-модуль:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;langid&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;langid&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;classify&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;This is a test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;en&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.99999999099035441&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ссылка на божественный инструмент:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/saffsd/langid.py"&gt;https://github.com/saffsd/langid.py&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="язык"></category><category term="language"></category><category term="модуль"></category><category term="пакет"></category></entry><entry><title>Анонс встречи №3 сообщества PyNSK</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./29/anons-vstrechi-3-soobshchestva-pynsk/" rel="alternate"></link><updated>2015-09-29T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-29:posts/2015/сент./29/anons-vstrechi-3-soobshchestva-pynsk/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/event/event_3.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Встреча сообщества PyNSK состоится 11 октября (воскресенье) в 13 часов, в Самоваре (&lt;a href="http://go.2gis.com/b20p"&gt;http://go.2gis.com/b20p&lt;/a&gt;)
 Регистрация на встречу по ссылке - &lt;a href="http://bit.ly/pynsk3_reg"&gt;http://bit.ly/pynsk3_reg&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;На встрече вас ожидает море общения и два доклада:&lt;/p&gt;
 &lt;p&gt;Юра Бабуров aka buriy расскажет доклад  "Получаем текст веб-страниц из Python и как это работает"&lt;/p&gt;
 &lt;p&gt;Описание: Мы рассмотрим python-библиотеку под названием readability-lxml (&lt;a href="https://github.com/buriy/python-readability"&gt;https://github.com/buriy/python-readability&lt;/a&gt;) , её применение и механизм работы для задачи извлечения текстов новостных страниц. &lt;/p&gt;
 &lt;p&gt;Евгений Петренко (&lt;a href="https://vk.com/mrevgenx"&gt;https://vk.com/mrevgenx&lt;/a&gt;) погрузит нас в тему тяжелых вычислений на Python с помощью доклада "Python + GPGPU: ожидания и реалии"&lt;/p&gt;
-&lt;p&gt;Описание: В докладе расскажу, как добиться дополнительного ускорения сложных вычислений. Будут разобраны подводные камни многопоточности в CUDA, перечислены особенности оптимизиции программ для графического процессора и представлены полезные средства отладки и профилирования. Дополнительно приведу примеры из собственного опыта распараллеливания и оптимизации такого рода программ.&lt;/p&gt;</summary></entry><entry><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/" rel="alternate"></link><updated>2015-09-26T15:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-26:posts/2015/сент./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</id><summary type="html">&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
+&lt;p&gt;Описание: В докладе расскажу, как добиться дополнительного ускорения сложных вычислений. Будут разобраны подводные камни многопоточности в CUDA, перечислены особенности оптимизиции программ для графического процессора и представлены полезные средства отладки и профилирования. Дополнительно приведу примеры из собственного опыта распараллеливания и оптимизации такого рода программ.&lt;/p&gt;</summary></entry><entry><title>Синтаксис Python: frozenset - морозное множество</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/" rel="alternate"></link><updated>2015-09-28T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-28:posts/2015/сент./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/</id><summary type="html">&lt;p&gt;frozenset и set, это как кортеж (&lt;code&gt;tuple&lt;/code&gt;) и список. Первые являются неизменяемыми, вторые изменяемые. &lt;/p&gt;
+&lt;p&gt;Иммутабельные(неизменяемые) структуры данных - это коллекции, которые нельзя изменить. Примерно как числа. Число просто есть, его нельзя поменять. Также и иммутабельный массив — он такой, каким его создали, и всегда таким будет. Если нужно добавить элемент — придется создать новый массив.&lt;/p&gt;
+&lt;p&gt;Преимущества неизменяемых структур:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Безопасно разделять ссылку между потоками&lt;/li&gt;
+&lt;li&gt;Легко тестировать&lt;/li&gt;
+&lt;li&gt;Легко отследить жизненный цикл (соответствует data flow)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;На примере frozenset неизменяемость выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;qwerty&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;frozenset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;qwerty&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nc"&gt;set&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nc"&gt;set&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;frozenset&amp;#39;&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;add&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="frozenset"></category><category term="set"></category><category term="множество"></category><category term="синтаксис"></category></entry><entry><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/" rel="alternate"></link><updated>2015-09-26T15:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-26:posts/2015/сент./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</id><summary type="html">&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;tuple&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;

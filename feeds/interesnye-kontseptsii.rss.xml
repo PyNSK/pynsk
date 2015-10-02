@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/interesnye-kontseptsii.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 20 Aug 2015 17:00:00 +0600</lastBuildDate><item><title>Интересные концепции: Трансдьюсеры</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./20/interesnye-kontseptsii-transdiusery/</link><description>&lt;p&gt;Трансдьюсеры — это попытка переосмыслить операции над коллекциями, найти в них общую идею и принцип, научиться совмещать вместе несколько операций для их дальнейшего переиспользования.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/interesnye-kontseptsii.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 01 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Интересные концепции: mixin'ы (примеси)</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./01/interesnye-kontseptsii-mixiny-primesi/</link><description>&lt;p&gt;В определенных случаях множественное наследование это зло. 
+Добро - когда классы родители не перекрывают друг друга. Частный случай такой схемы - примиси == миксины == mixin == mix in.
+Концепция примисей строится на идеи четкого разделения свойств и методов для сущностей. &lt;/p&gt;
+&lt;p&gt;Например,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;если есть летающее животное, то можно смело иметь метод fly;&lt;/li&gt;
+&lt;li&gt;если есть раскрашиваемый объект, то можно завести методы "покрасить", и два состояния - "раскрашен" (&lt;code&gt;bool&lt;/code&gt;) и цвет.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Использование миксин выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Mixin1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Mixin1&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Mixin2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Mixin2&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BaseClass&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Mixin1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Mixin2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(смотрели видео "Super - это супер"?)&lt;/p&gt;
+&lt;p&gt;В чем отличие от обычного наследования?
+По синтаксису - ни в чем. Отличия на уровне договоренностей и использовании - в mixin-класс помещают все необходимое и достаточное для определения сущности. &lt;/p&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;есть изменяемый объект - все действия с таким объектом храним в миксине.&lt;/li&gt;
+&lt;li&gt;есть итерируемый объект - тоже миксин.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Комбинируем два этих элемента и получаем интерируемый изменяемый объект.&lt;/p&gt;
+&lt;p&gt;Погружаемся в множественное наследование:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://qualcode.ru/article/python_mixin/"&gt;http://qualcode.ru/article/python_mixin/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ianlewis.org/en/mixins-and-python"&gt;https://www.ianlewis.org/en/mixins-and-python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.o2b.ru/python-mixins/"&gt;http://www.o2b.ru/python-mixins/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/140298/"&gt;http://habrahabr.ru/post/140298/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 01 Oct 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-01:posts/2015/окт./01/interesnye-kontseptsii-mixiny-primesi/</guid><category>примесь</category><category>mixin</category></item><item><title>Интересные концепции: Трансдьюсеры</title><link>http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./20/interesnye-kontseptsii-transdiusery/</link><description>&lt;p&gt;Трансдьюсеры — это попытка переосмыслить операции над коллекциями, найти в них общую идею и принцип, научиться совмещать вместе несколько операций для их дальнейшего переиспользования.&lt;/p&gt;
 &lt;p&gt;&lt;a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=ANZOvcYPagU)
 [!embedlycard](https://www.youtube.com/watch?t=1080&amp;v=VTEfb5ojOzA'&gt;&lt;/a&gt;
             &lt;script&gt;
