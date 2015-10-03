@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 26 Sep 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</link><description>&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 03 Oct 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: logging</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./03/tainstvo-standartnoi-biblioteki-logging/</link><description>&lt;p&gt;&lt;code&gt;Logging&lt;/code&gt; — библиотека для удобного ведения логов в Python &lt;/p&gt;
+&lt;p&gt;В любой разработке приходится рано или поздно вести логи, ведь не отдашь же заказчику программу где отладочные сообщения выводятся с помощью print, да и в дальнейшем если у заказчика что то пойдет не так то можно просто попросит показать лог и понять в чем проблема(в большинстве случаев).&lt;/p&gt;
+&lt;p&gt;В чем же мощь logging:
+Легко можно поместить указатель времени в каждое сообщение
+Вы можете использовать разные уровни срочности ваших сообщений и фильтровать их по этому уровню
+Когда Вы захотите позже найти / изменить лог-сообщения Вы не перепутаете их с другим выводом команды &lt;code&gt;print&lt;/code&gt;
+Если Вы хотите вывести лог в файл, то очень легко будет игнорировать вывод лог-сообщений&lt;/p&gt;
+&lt;p&gt;Чтобы начать использовать logging почти ничего делать не надо:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;
+
+&lt;span class="c"&gt;# Сообщение отладочное&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;This is a debug message&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Сообщение информационное&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;This is an info message&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Сообщение предупреждение&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;This is a warning&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Сообщение ошибки&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;This is an error message&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Сообщение критическое&lt;/span&gt;
+&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;critical&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;FATAL!!!&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Это только базовая возможность &lt;code&gt;logging&lt;/code&gt;, обо всех возможностях по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/library/logging.html"&gt;https://docs.python.org/3.5/library/logging.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://python-lab.blogspot.ru/2012/08/print-logging-python.html"&gt;http://python-lab.blogspot.ru/2012/08/print-logging-python.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/144566/"&gt;http://habrahabr.ru/post/144566/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sat, 03 Oct 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-03:posts/2015/окт./03/tainstvo-standartnoi-biblioteki-logging/</guid><category>log</category><category>logging</category><category>print</category></item><item><title>Таинство стандартной библиотеки: мета-классы, что это и зачем</title><link>http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./26/tainstvo-standartnoi-biblioteki-meta-klassy-chto-eto-i-zachem/</link><description>&lt;p&gt;В Python все является объектом. Даже класс. Не объект класса, а сам класс.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
 &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;tuple&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;
