@@ -5,7 +5,8 @@ import datetime
 
 # crontab
 # 25 */6 * * * make github
-# * * * * * cd /home/warmonger/Develop/Groups/PyNSK/pynsk/ && source /home/warmonger/Develop/venv/project_pynsk/bin/activate && make github
+# * * * * * cd /home/warmonger/Develop/Groups/PyNSK/pynsk/ && source /home/warmonger/Develop/venv/project_pynsk/bin/activate && python mover.py
+
 
 def main():
     _base = os.path.join(os.path.dirname(__file__))
@@ -31,6 +32,8 @@ def main():
 
                 os.rename(x, new_path)
 
+    with open("log.log", 'w') as fio:
+        fio.write("Run at %s\n" % (str(datetime.datetime.now())))
 
 if __name__ == '__main__':
     main()
