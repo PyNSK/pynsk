@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-05T18:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: functools.lru_cache — кэшируем результат выполнения функции</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./05/tainstvo-standartnoi-biblioteki-functoolslru_cache-keshiruem-rezultat-vypolneniia-funktsii/" rel="alternate"></link><updated>2015-10-05T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-05:posts/2015/окт./05/tainstvo-standartnoi-biblioteki-functoolslru_cache-keshiruem-rezultat-vypolneniia-funktsii/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://amnesia.me/images/amnesia%20humor.jpg" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-06T10:00:00+06:00</updated><entry><title>Полезные инструменты</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./06/poleznye-instrumenty/" rel="alternate"></link><updated>2015-10-06T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-06:posts/2015/окт./06/poleznye-instrumenty/</id><summary type="html">&lt;p&gt;Если вы автор Python-библиотеки, то скорее всего вам необходимо поддерживать несколько версий Python.
+Стандартный набор - 2.6, 2.7, 3.3, 3.4 и сейчас уже 3.5. Поддерживать несколько версий Python помогают тесты. &lt;/p&gt;
+&lt;p&gt;Не секрет, что тесты помогают допускать меньше ошибок во время поддержки проекта. Например, вы можете смелее делать рефакторинг и быть уверены, что функционал который проверяют тесты работает. &lt;/p&gt;
+&lt;p&gt;Пускай написали тесты для озвученных версий Python, как их запускать? Постоянно менять venv и тыкать python run_test.py?
+Есть удобнее инструмент - &lt;code&gt;tox&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;tox - это средство автоматизации, которое позволяет свести запуск тестирования до одной команды (а можно и до 0).
+В конфиг файле tox.ini вы можете указать:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Что установить&lt;/li&gt;
+&lt;li&gt;Какие версии Python использовать&lt;/li&gt;
+&lt;li&gt;Что сделать перед запуском тестов&lt;/li&gt;
+&lt;li&gt;Как запускать тесты&lt;/li&gt;
+&lt;li&gt;Что делать после запуска тестов (например, сделать отчет с помощью coverage, послать отчет на email)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Конфиг файл может выглядеть так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[tox]&lt;/span&gt;
+&lt;span class="na"&gt;envlist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;py26,py27&lt;/span&gt;
+&lt;span class="k"&gt;[testenv]&lt;/span&gt;
+&lt;span class="na"&gt;deps&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;pytest       # install pytest in the venvs&lt;/span&gt;
+&lt;span class="na"&gt;commands&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;py.test  # or &amp;#39;nosetests&amp;#39; or ...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ссылка на документацию: &lt;a href="https://tox.readthedocs.org/en/latest/"&gt;https://tox.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;</summary><category term="tox"></category><category term="test"></category><category term="тест"></category><category term="автоматизация"></category></entry><entry><title>Таинство стандартной библиотеки: functools.lru_cache — кэшируем результат выполнения функции</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./05/tainstvo-standartnoi-biblioteki-functoolslru_cache-keshiruem-rezultat-vypolneniia-funktsii/" rel="alternate"></link><updated>2015-10-05T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-05:posts/2015/окт./05/tainstvo-standartnoi-biblioteki-functoolslru_cache-keshiruem-rezultat-vypolneniia-funktsii/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://amnesia.me/images/amnesia%20humor.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Начиная с версии 3.2, в Python появилась возможность стандартными средствами организовать мемоизацию. Иными словами, кэшировать результаты вызова функции. Этот механизм представлен в виде декоратора в модуле &lt;code&gt;functools&lt;/code&gt; и называется &lt;code&gt;lru_cache&lt;/code&gt; (least recently used cache).&lt;/p&gt;
 &lt;p&gt;На примере изъезженных чисел Фибоначчи это выглядит так:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@lru_cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;maxsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
