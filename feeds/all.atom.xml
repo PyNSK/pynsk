@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-06T18:00:00+06:00</updated><entry><title>Учебные материалы: научная графика в python</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./06/uchebnye-materialy-nauchnaia-grafika-v-python/" rel="alternate"></link><updated>2015-10-06T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-06:posts/2015/окт./06/uchebnye-materialy-nauchnaia-grafika-v-python/</id><summary type="html">&lt;p&gt;На русском языке не так много хороший книг, но есть. Среди них выделяется пособие Шабанова Павла.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-07T18:00:00+06:00</updated><entry><title>Пишем web-проекты: полиморфные связи или Foreign Key на две Django модели</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./07/pishem-web-proekty-polimorfnye-sviazi-ili-foreign-key-na-dve-django-modeli/" rel="alternate"></link><updated>2015-10-07T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-07:posts/2015/окт./07/pishem-web-proekty-polimorfnye-sviazi-ili-foreign-key-na-dve-django-modeli/</id><summary type="html">&lt;p&gt;Представим ситуацию. 
+Есть модель Текст (заголовок, тело, теги) и модели Новость, Продукт, Реклама, которые имеют свои уникальные параметры. 
+Необходимо связать Текст и все остальные - вполне логичное желание. &lt;/p&gt;
+&lt;p&gt;Как можно поступить:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Добавить Foreign Key в Текст (т.е. будет N=3 Foreign Key полей)&lt;/li&gt;
+&lt;li&gt;Сделать отдельные модели для связи - будет 3 таблицы для связки. (вручную их сделаем)&lt;/li&gt;
+&lt;li&gt;Сделать 2 поля, одно из которых будет говорить, какая модель имеется в виду, а второе – хранить ключ этой модели. + добавить свойство, которое будет возвращать запись из нужной модели (делать нужный query запрос) &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Первый вариант не подходит, потому что каждая новая модель будет добавлять еще одну Foreign Key связь
+Второй не очень, потому что N моделей - N дополнительных таблиц делать руками
+А вот третий вариант неплохой. Он и реализован в Django и состоит из двух компонентов: Content Types Framework и Generic Relations.&lt;/p&gt;
+&lt;p&gt;Вот простой пример: реализуем систему тэгов(ярлычков), которая могла бы выглядеть так&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.contenttypes.fields&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GenericForeignKey&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib.contenttypes.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ContentType&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TaggedItem&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SlugField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;content_type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ContentType&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;object_id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PositiveIntegerField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;content_object&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GenericForeignKey&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;content_type&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;object_id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__str__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;              &lt;span class="c"&gt;# __unicode__ on Python 2&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Обычное поле ForeignKey может “указывать” только на одну модель, что означает, - если в модели TaggedItem есть поле ForeignKey, его можно “связать” с одной и только одной моделью, для которой и будут сохраняться тэги. Приложение contenttypes предоставляет нам поле специального типа (GenericForeignKey), которое решает обозначенную выше проблему и позволяет создать связь с любой моделью&lt;/p&gt;
+&lt;p&gt;Ссылки:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.djangoproject.com/en/1.8/ref/contrib/contenttypes/"&gt;https://docs.djangoproject.com/en/1.8/ref/contrib/contenttypes/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://djbook.ru/rel1.8/ref/contrib/contenttypes.html"&gt;http://djbook.ru/rel1.8/ref/contrib/contenttypes.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://axiacore.com/blog/how-use-genericforeignkey-django/"&gt;http://axiacore.com/blog/how-use-genericforeignkey-django/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ikrvss.ru/2010/11/09/django-polymorphic-foreign-key/"&gt;http://www.ikrvss.ru/2010/11/09/django-polymorphic-foreign-key/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="django"></category><category term="generic"></category><category term="foreign key"></category></entry><entry><title>Учебные материалы: научная графика в python</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./06/uchebnye-materialy-nauchnaia-grafika-v-python/" rel="alternate"></link><updated>2015-10-06T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-06:posts/2015/окт./06/uchebnye-materialy-nauchnaia-grafika-v-python/</id><summary type="html">&lt;p&gt;На русском языке не так много хороший книг, но есть. Среди них выделяется пособие Шабанова Павла.&lt;/p&gt;
 &lt;p&gt;Данное электронное пособие на русском языке посвящено работе с научной графикой с помощью графической библиотекой matplotlib языка программирования python.&lt;/p&gt;
 &lt;p&gt;Учебник предназначен для всех желающих освоить библиотеку matplotlib для создания научной графики в python. Книга будет интересна студентам, аспирантам и научным сотрудникам всех возрастов.&lt;/p&gt;
 &lt;p&gt;Главная цель пособия - облегчить изучение библиотеки matplotlib и предложить ряд готовых решений для создания научной графики высокого публикационного качества. Приведённые в учебнике примеры показывают возможности языка python для визуализации результатов научной деятельности.&lt;/p&gt;
