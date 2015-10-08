@@ -1,6 +1,6 @@
 Title: Python на службе народа: распознаем образы с помощью Raspberry Pi
 Date: 2015-08-21 8:00
-Tags: raspberry pi
+Tags: raspberry pi, видео, польза
 Category: Python на службе народа 
 
 Raspberry Pi - это мини-компьютер, который имеет невысокую цену и при этом имеет богатые возможности.

@@ -1,6 +1,6 @@
 Title: Синтаксис Python: super() это супер
 Date: 2015-09-11 18:00
-Tags: super, видео
+Tags: super, видео, синтаксис
 Category: Синтаксис Python
 
 

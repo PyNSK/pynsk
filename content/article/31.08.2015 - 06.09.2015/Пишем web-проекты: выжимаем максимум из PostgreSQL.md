@@ -1,6 +1,6 @@
 Title: Пишем web-проекты: выжимаем максимум из PostgreSQL
 Date: 2015-09-03 17:00
-Tags: web, db, postgresql
+Tags: web, db, postgresql, видео
 Category: Пишем web-проекты
 
 Postgres предоставляет много встроенных возможностей для создания эфективных приложений,

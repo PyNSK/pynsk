@@ -1,6 +1,6 @@
 Title: Внутренности Python: зачем нужен GIL(Global interpreter lock)
 Date: 2015-08-21 17:00
-Tags: GIL
+Tags: GIL, видео
 Category: Внутренности Python 
 
 
