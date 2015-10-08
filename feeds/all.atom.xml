@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-08T10:00:00+06:00</updated><entry><title>Опыт разработчиков: замыкания (closure). Зачем и почему.</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/" rel="alternate"></link><updated>2015-10-08T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-08:posts/2015/окт./08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/</id><summary type="html">&lt;p&gt;В синтаксисе Python один и тот же символ или конструкция часто используется для разных целей
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-08T18:00:00+06:00</updated><entry><title>Hardcore Python: переопределяем механизм импорта</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./08/hardcore-python-pereopredeliaem-mekhanizm-importa/" rel="alternate"></link><updated>2015-10-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-08:posts/2015/окт./08/hardcore-python-pereopredeliaem-mekhanizm-importa/</id><summary type="html">&lt;p&gt;В стандартной Python начиная с 2.3 существует механизм импорт-хуков. 
+Зачем они нужны? 
+Все очень просто - захотелось добавить поддержку импорта из .zip архивов. Ява такое может (.jar) - чем Питон хуже?
+Но открывать редактор только ради .zip не очень... Поэтому Python умеет загружать модули из базы данных или с соседнего сервера.&lt;/p&gt;
+&lt;p&gt;Механизм механизм импорт-хуков реализован с помощью:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sys.meta_path&lt;/li&gt;
+&lt;li&gt;sys.path_hooks&lt;/li&gt;
+&lt;li&gt;sys.path_import_cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Как ими пользоваться отлично описано в статье Андрея Светлова (1 ссылка в приложении), поэтому здесь повторять не буду.&lt;/p&gt;
+&lt;p&gt;Ссылки чтобы сломать мозг:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://asvetlov.blogspot.ru/2010/05/3.html"&gt;http://asvetlov.blogspot.ru/2010/05/3.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0302/"&gt;https://www.python.org/dev/peps/pep-0302/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/sys.html"&gt;https://docs.python.org/3/library/sys.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://xion.org.pl/2012/05/06/hacking-python-imports/"&gt;http://xion.org.pl/2012/05/06/hacking-python-imports/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="sys"></category><category term="стандартная библиотека"></category></entry><entry><title>Опыт разработчиков: замыкания (closure). Зачем и почему.</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/" rel="alternate"></link><updated>2015-10-08T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-08:posts/2015/окт./08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/</id><summary type="html">&lt;p&gt;В синтаксисе Python один и тот же символ или конструкция часто используется для разных целей
 Возможно вы встречались с подобным кодом:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;outer_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;inner_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
