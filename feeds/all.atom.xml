@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-08T18:00:00+06:00</updated><entry><title>Hardcore Python: переопределяем механизм импорта</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./08/hardcore-python-pereopredeliaem-mekhanizm-importa/" rel="alternate"></link><updated>2015-10-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-08:posts/2015/окт./08/hardcore-python-pereopredeliaem-mekhanizm-importa/</id><summary type="html">&lt;p&gt;В стандартной Python начиная с 2.3 существует механизм импорт-хуков. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-10T15:00:00+06:00</updated><entry><title>Python проекты: интерпретатор PyPy</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./10/python-proekty-interpretator-pypy/" rel="alternate"></link><updated>2015-10-10T15:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-10:posts/2015/окт./10/python-proekty-interpretator-pypy/</id><summary type="html">&lt;p&gt;PyPy — это интерпретатор Python, который написан на Python (RPython) и может компилировать сам себя.&lt;/p&gt;
+&lt;p&gt;Основное отличие от обычного CPython — наличие JIT компилятора.
+Прелесть JIT компилятора в том, что в течении работы программы оптимизируются ее части.&lt;/p&gt;
+&lt;p&gt;Скорость исполнения кода на PyPy выше. На сайте http://speed.pypy.org/ вы можете найти сравнения CPython и PyPy.
+На сайте есть график (в самом низу):
+На графике видно, что скорость исполнения одного и того же кода на CPython и PyPy различается в среднем в 7 раза.&lt;/p&gt;
+&lt;p&gt;Неплохо да? Ничего не изменяли в программе, а прирост в 7 раз получили.
+Да еще и памяти кушает меньше с многопоточностью там хорошо.&lt;/p&gt;
+&lt;p&gt;А теперь ложка дегтя:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PyPy развивается медленно, сейчас две версии: одна базируется на CPython 2.7.10, другая на 3.2.5&lt;/li&gt;
+&lt;li&gt;Так как PyPy имеет JIT компилятор, то есть время разогрева. Это такое время, когда код и данные оптимизируются.&lt;/li&gt;
+&lt;li&gt;Не все библиотеки поддерживают PyPy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ссылочки: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://pypy.org/"&gt;http://pypy.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ibm.com/developerworks/ru/library/os-pypy-intro/"&gt;http://www.ibm.com/developerworks/ru/library/os-pypy-intro/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="pypy"></category></entry><entry><title>Hardcore Python: переопределяем механизм импорта</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./08/hardcore-python-pereopredeliaem-mekhanizm-importa/" rel="alternate"></link><updated>2015-10-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-08:posts/2015/окт./08/hardcore-python-pereopredeliaem-mekhanizm-importa/</id><summary type="html">&lt;p&gt;В стандартной Python начиная с 2.3 существует механизм импорт-хуков. 
 Зачем они нужны? 
 Все очень просто - захотелось добавить поддержку импорта из .zip архивов. Ява такое может (.jar) - чем Питон хуже?
 Но открывать редактор только ради .zip не очень... Поэтому Python умеет загружать модули из базы данных или с соседнего сервера.&lt;/p&gt;

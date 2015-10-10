@@ -231,6 +231,15 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./06/python-i-bazy-dannykh-mnogo-baz-mnogo-modulei-ili-odin/">Python и базы данных: много баз - много модулей или один?</a></h2>
+
+                <div class="summary"><p>Без баз данных (БД) в современной разработке редко обходится. Питон не обделен и имеет множество модулей для работы с базами данных. Есть и специализированные, например, pymongo - модуль для MongoDB, есть и более обширные - sqlalchemy, PonyORB.</p>
+<p>sqlalchemy - это <a href="https://www.wikiwand.com/ru/ORM">ORM</a> для различных БД. Если просто, то это инструмент, написать структуру данных и работать с ней, а "алхимия" будет самостоятельно сохранять/подгружать из ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./06/python-i-bazy-dannykh-mnogo-baz-mnogo-modulei-ili-odin/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/авг./05/python-i-interesnyi-parsing-saitov/">Python и интересный парсинг сайтов</a></h2>
 
                 <div class="summary"><p>Излечение информации со страниц может быть интересным. Рекомендуем к просмотру видео
@@ -367,27 +376,6 @@ XY диаграммы
 
                 <div class="summary"><p>Пишите под windows, да еще и с Win API? Python здесь тоже может помочь, ведь для него есть библиотека pywin32 (http://sourceforge.net/projects/pywin32/). Данная библиотека предоставляет все базовые примитивы для работы с WinAPI.</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./01/python-winapi/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./01/click/">click</a></h2>
-
-                <div class="summary"><p>Библиотека click (<a href="http://click.pocoo.org/4/">http://click.pocoo.org/4/</a>) позволяет с минимальными усилиями создать интерфейс командной строки. 
-Создаете функцию, добавляете пару декораторов и готово.</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">click</span>
-
-<span class="nd">@click.command</span><span class="p">()</span>
-<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--count&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;Number of greetings.&#39;</span><span class="p">)</span>
-<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--name&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s">&#39;Your name&#39;</span><span class="p">,</span>
-              <span class="n">help</span><span class="o">=</span><span class="s">&#39;The person to greet.&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-     <span class="o">...</span>
-</pre></div>
-
-
-<p>А как вы создаете командные интерфейсы?</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./01/click/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -576,11 +564,6 @@ XY диаграммы
                             aiohttp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/analizator.html">
-                            анализатор
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
@@ -596,14 +579,14 @@ XY диаграммы
                             asyncio
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/avtomatizatsiia.html">
-                            автоматизация
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bait-kod.html">
                             байт-код
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bd.html">
+                            БД
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -612,8 +595,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -622,13 +605,18 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cython.html">
-                            cython
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/db.html">
-                            db
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -637,13 +625,13 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dokumentatsiia.html">
-                            документация
+                        <a href="http://pynsk.ru/tag/doctest.html">
+                            doctest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -652,18 +640,23 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ficha.html">
+                            фича
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/fixture.html">
                             fixture
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/fp.html">
                             fp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/frozenset.html">
-                            frozenset
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -687,11 +680,6 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gensim.html">
-                            gensim
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/grab.html">
                             grab
                         </a>
@@ -711,6 +699,11 @@ XY диаграммы
                             gui
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gunicorn.html">
+                            gunicorn
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
@@ -722,13 +715,23 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/html.html">
-                            html
+                        <a href="http://pynsk.ru/tag/http.html">
+                            http
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iazyk.html">
-                            язык
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/if.html">
+                            if
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -747,8 +750,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kesh.html">
-                            кэш
+                        <a href="http://pynsk.ru/tag/itertools.html">
+                            itertools
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -757,13 +760,18 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/konkurentnost.html">
-                            конкурентность
+                        <a href="http://pynsk.ru/tag/language.html">
+                            language
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/log.html">
-                            log
+                        <a href="http://pynsk.ru/tag/list.html">
+                            list
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/magiia.html">
+                            магия
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -772,8 +780,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matplotlib.html">
-                            matplotlib
+                        <a href="http://pynsk.ru/tag/mnozhestvo.html">
+                            множество
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -781,24 +789,14 @@ XY диаграммы
                             mock
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/modul.html">
-                            модуль
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/multiprocessing.html">
-                            multiprocessing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nose.html">
-                            nose
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/obrabotka-teksta.html">
                             обработка текста
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/opencv.html">
+                            opencv
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -819,6 +817,16 @@ XY диаграммы
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/otchet.html">
+                            отчет
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -847,18 +855,18 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
+                            поиск ошибок
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/postgresql.html">
                             postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/print.html">
-                            print
+                        <a href="http://pynsk.ru/tag/proekt.html">
+                            проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -872,8 +880,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pylint.html">
-                            pylint
+                        <a href="http://pynsk.ru/tag/pygame.html">
+                            pygame
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -881,9 +889,19 @@ XY диаграммы
                             pypi
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pypy.html">
+                            pypy
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pyqt.html">
                             pyqt
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -892,18 +910,13 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
+                        <a href="http://pynsk.ru/tag/python2.html">
+                            python2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             qt
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/raspberry-pi.html">
-                            raspberry pi
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -912,18 +925,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regex.html">
-                            regex
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reguliarnye-vyrazheniia.html">
-                            регулярные выражения
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requests.html">
-                            requests
+                        <a href="http://pynsk.ru/tag/reiting.html">
+                            рейтинг
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -934,11 +937,6 @@ XY диаграммы
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scandir.html">
-                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -962,8 +960,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
+                        <a href="http://pynsk.ru/tag/standart.html">
+                            стандарт
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -972,28 +970,18 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
-                            статическая типизация
+                        <a href="http://pynsk.ru/tag/super.html">
+                            super
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analiz.html">
-                            статический анализ
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
-                            статический анализатор
+                        <a href="http://pynsk.ru/tag/svg.html">
+                            svg
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/swagger.html">
                             swagger
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/syntax.html">
-                            syntax
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1012,13 +1000,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
-                            типы данных
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tox.html">
-                            tox
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1052,6 +1035,11 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/web-parsing.html">
+                            web parsing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/winapi.html">
                             winapi
                         </a>
@@ -1067,8 +1055,8 @@ XY диаграммы
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/yield-from.html">
-                            yield from
+                        <a href="http://pynsk.ru/tag/zamykanie.html">
+                            замыкание
                         </a>
                     </li>
                 </ul>
