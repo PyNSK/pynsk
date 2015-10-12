@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 10 Oct 2015 15:00:00 +0600</lastBuildDate><item><title>Python проекты: интерпретатор PyPy</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./10/python-proekty-interpretator-pypy/</link><description>&lt;p&gt;PyPy — это интерпретатор Python, который написан на Python (RPython) и может компилировать сам себя.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 12 Oct 2015 10:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: do...while</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/sintaksis-python-dowhile/</link><description>&lt;p&gt;Цикл &lt;code&gt;do while&lt;/code&gt; отличается от цикла &lt;code&gt;while&lt;/code&gt; тем, что в &lt;code&gt;do while&lt;/code&gt; сначала выполняется тело цикла, а затем проверяется условие продолжения цикла.
+Из-за такой особенности &lt;code&gt;do while&lt;/code&gt; называют циклом с постусловием. Таким образом, если условие &lt;code&gt;do while&lt;/code&gt; заведомо ложное, то хотя бы один раз блок операторов в теле цикла &lt;code&gt;do while&lt;/code&gt; выполнится.&lt;/p&gt;
+&lt;p&gt;Иииии.... такой конструкции - &lt;code&gt;do...while&lt;/code&gt; нет в Python. Написать цикл с постусловие можно так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;fail_condition&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;или так&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;fail_condition&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 12 Oct 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/sintaksis-python-dowhile/</guid><category>while</category><category>синтаксис</category></item><item><title>Python проекты: интерпретатор PyPy</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./10/python-proekty-interpretator-pypy/</link><description>&lt;p&gt;PyPy — это интерпретатор Python, который написан на Python (RPython) и может компилировать сам себя.&lt;/p&gt;
 &lt;p&gt;Основное отличие от обычного CPython — наличие JIT компилятора.
 Прелесть JIT компилятора в том, что в течении работы программы оптимизируются ее части.&lt;/p&gt;
 &lt;p&gt;Скорость исполнения кода на PyPy выше. На сайте http://speed.pypy.org/ вы можете найти сравнения CPython и PyPy.

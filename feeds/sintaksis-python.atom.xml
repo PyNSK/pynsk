@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-09-28T10:00:00+06:00</updated><entry><title>Синтаксис Python: frozenset - морозное множество</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/" rel="alternate"></link><updated>2015-09-28T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-28:posts/2015/сент./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/</id><summary type="html">&lt;p&gt;frozenset и set, это как кортеж (&lt;code&gt;tuple&lt;/code&gt;) и список. Первые являются неизменяемыми, вторые изменяемые. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-12T10:00:00+06:00</updated><entry><title>Синтаксис Python: do...while</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/sintaksis-python-dowhile/" rel="alternate"></link><updated>2015-10-12T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/sintaksis-python-dowhile/</id><summary type="html">&lt;p&gt;Цикл &lt;code&gt;do while&lt;/code&gt; отличается от цикла &lt;code&gt;while&lt;/code&gt; тем, что в &lt;code&gt;do while&lt;/code&gt; сначала выполняется тело цикла, а затем проверяется условие продолжения цикла.
+Из-за такой особенности &lt;code&gt;do while&lt;/code&gt; называют циклом с постусловием. Таким образом, если условие &lt;code&gt;do while&lt;/code&gt; заведомо ложное, то хотя бы один раз блок операторов в теле цикла &lt;code&gt;do while&lt;/code&gt; выполнится.&lt;/p&gt;
+&lt;p&gt;Иииии.... такой конструкции - &lt;code&gt;do...while&lt;/code&gt; нет в Python. Написать цикл с постусловие можно так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;fail_condition&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;или так&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;fail_condition&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;stuff&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="while"></category><category term="синтаксис"></category></entry><entry><title>Синтаксис Python: frozenset - морозное множество</title><link href="http://pynsk.ru/posts/2015/%D1%81%D0%B5%D0%BD%D1%82./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/" rel="alternate"></link><updated>2015-09-28T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-09-28:posts/2015/сент./28/sintaksis-python-frozenset-moroznoe-mnozhestvo/</id><summary type="html">&lt;p&gt;frozenset и set, это как кортеж (&lt;code&gt;tuple&lt;/code&gt;) и список. Первые являются неизменяемыми, вторые изменяемые. &lt;/p&gt;
 &lt;p&gt;Иммутабельные(неизменяемые) структуры данных - это коллекции, которые нельзя изменить. Примерно как числа. Число просто есть, его нельзя поменять. Также и иммутабельный массив — он такой, каким его создали, и всегда таким будет. Если нужно добавить элемент — придется создать новый массив.&lt;/p&gt;
 &lt;p&gt;Преимущества неизменяемых структур:&lt;/p&gt;
 &lt;ul&gt;
