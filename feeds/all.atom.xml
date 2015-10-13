@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-12T18:00:00+06:00</updated><entry><title>Интересные концепции: какой смысл с Объектном подходе?</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/interesnye-kontseptsii-kakoi-smysl-s-obektnom-podkhode/" rel="alternate"></link><updated>2015-10-12T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/interesnye-kontseptsii-kakoi-smysl-s-obektnom-podkhode/</id><summary type="html">&lt;p&gt;В Интернет часто говорят об ООП, об объектах. Так какой смысл во всем этом? Какая польза, недостатки?
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-13T10:00:00+06:00</updated><entry><title>Полезные инструменты: fabric - автоматизируем рутину</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/" rel="alternate"></link><updated>2015-10-13T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-13:posts/2015/окт./13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/</id><summary type="html">&lt;p&gt;Ситуация: написали web-проект, свой, домашний, а может и на работе. Надо его опубликовать в Интернет - задеплоить. 
+Зашли на сервер, активировали venv, скачали новые исходники из репозитория, накатили миграции, обновили static-файлы, перезапустили, предположим, celery, перезапустили uwsgi.&lt;/p&gt;
+&lt;p&gt;И тут, поняли что забыли раскоментировать строчку в коде. Делаем коммит, снова заходим на сервер, активировали venv.... 
+Зачем вся эта рутина с деплоем? Может есть способ проще? Мы же IT-шники, давайте напишем скрипт. &lt;/p&gt;
+&lt;p&gt;Здесь то на помощь и приходит &lt;code&gt;fabric&lt;/code&gt; - инструмент командной строки. 
+&lt;code&gt;fabric&lt;/code&gt; предоставляет обертку над командной строкой. Вы пишите fab файл с вашим сценарием деплоя. Например.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;fabric.api&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;host_type&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;uname -s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;А затем запускаете на нескольких (или одной) удаленной машине&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;fab -H localhost,linuxbox host_type
+&lt;span class="o"&gt;[&lt;/span&gt;localhost&lt;span class="o"&gt;]&lt;/span&gt; run: uname -s
+&lt;span class="o"&gt;[&lt;/span&gt;localhost&lt;span class="o"&gt;]&lt;/span&gt; out: Darwin
+&lt;span class="o"&gt;[&lt;/span&gt;linuxbox&lt;span class="o"&gt;]&lt;/span&gt; run: uname -s
+&lt;span class="o"&gt;[&lt;/span&gt;linuxbox&lt;span class="o"&gt;]&lt;/span&gt; out: Linux
+
+Done.
+Disconnecting from localhost... &lt;span class="k"&gt;done&lt;/span&gt;.
+Disconnecting from linuxbox... &lt;span class="k"&gt;done&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Все очень просто&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.fabfile.org/"&gt;http://www.fabfile.org/&lt;/a&gt;&lt;/p&gt;</summary><category term="fabric"></category><category term="автоматизация"></category><category term="инструмент"></category></entry><entry><title>Интересные концепции: какой смысл с Объектном подходе?</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/interesnye-kontseptsii-kakoi-smysl-s-obektnom-podkhode/" rel="alternate"></link><updated>2015-10-12T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/interesnye-kontseptsii-kakoi-smysl-s-obektnom-podkhode/</id><summary type="html">&lt;p&gt;В Интернет часто говорят об ООП, об объектах. Так какой смысл во всем этом? Какая польза, недостатки?
 Соображения на эту темы вы сможете найти в видео:&lt;/p&gt;
 &lt;iframe width="480" height="270" src="https://www.youtube.com/embed/M1XL65qj2dU?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="видео"></category><category term="объект"></category></entry><entry><title>Синтаксис Python: do...while</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/sintaksis-python-dowhile/" rel="alternate"></link><updated>2015-10-12T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/sintaksis-python-dowhile/</id><summary type="html">&lt;p&gt;Цикл &lt;code&gt;do while&lt;/code&gt; отличается от цикла &lt;code&gt;while&lt;/code&gt; тем, что в &lt;code&gt;do while&lt;/code&gt; сначала выполняется тело цикла, а затем проверяется условие продолжения цикла.
 Из-за такой особенности &lt;code&gt;do while&lt;/code&gt; называют циклом с постусловием. Таким образом, если условие &lt;code&gt;do while&lt;/code&gt; заведомо ложное, то хотя бы один раз блок операторов в теле цикла &lt;code&gt;do while&lt;/code&gt; выполнится.&lt;/p&gt;
