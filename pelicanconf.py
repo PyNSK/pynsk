@@ -57,7 +57,7 @@ DIRECT_TEMPLATES = (
 MARKUP = ('rst', 'markdown',)
 
 THEME = get_theme_path('pelican-bootstrap3')
-
+DISQUS_SITENAME = "pynsk"
 
 SITEMAP = {
     "format": "xml",
