@@ -3,10 +3,10 @@ import os
 import datetime
 
 
-# crontab
-# 25 */6 * * * make github
-# * * * * * cd /home/warmonger/Develop/Groups/PyNSK/pynsk/ && source /home/warmonger/Develop/venv/project_pynsk/bin/activate && python mover.py
 
+# crontab -e
+# 10 */4 * * * bash /home/warmonger/Develop/Groups/PyNSK/pynsk/mover.bash
+# 5 */4 * * * cd /home/warmonger/Develop/Groups/PyNSK/pynsk/ && source /home/warmonger/Develop/venv/project_pynsk/bin/activate && python mover.py
 
 def main():
     _base = os.path.join(os.path.dirname(__file__))
