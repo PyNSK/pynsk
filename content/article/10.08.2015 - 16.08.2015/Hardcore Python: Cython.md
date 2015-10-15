@@ -1,4 +1,4 @@
-Title: Python hardcore: Cython
+Title: Hardcore Python: Cython
 Date: 2015-08-16 18:00
 Tags: cython, оптимизация
 Category: Hardcore Python 
