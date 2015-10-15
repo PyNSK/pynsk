@@ -1016,8 +1016,10 @@ nose автоматически собирает тесты из файлов в
 &lt;p&gt;В этом коде указаны типы, что делать не обязательно (тогда и прироста не будет толком)
 Типы в Cython - Си-шные, т.е. каких-то сложных Python-типов вы не найдете.&lt;/p&gt;
 &lt;p&gt;Хорошее применение языка - связка с C/C++ кодом - оно происходит в разы быстрее, чем в CPython и PyPi. Скорость исполнения программы также выше (может достигать сотен раз).  &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://cython.org/"&gt;http://cython.org/&lt;/a&gt;
-&lt;a href="https://www.wikiwand.com/ru/Cython"&gt;https://www.wikiwand.com/ru/Cython&lt;/a&gt;&lt;/p&gt;</summary><category term="cython"></category><category term="оптимизация"></category></entry><entry><title>Python и асинхронные задачи</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./16/python-i-asinkhronnye-zadachi/" rel="alternate"></link><updated>2015-08-16T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-16:posts/2015/авг./16/python-i-asinkhronnye-zadachi/</id><summary type="html">&lt;p&gt;Celery — распределенная очередь заданий
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://cython.org/"&gt;http://cython.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.wikiwand.com/ru/Cython"&gt;https://www.wikiwand.com/ru/Cython&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="cython"></category><category term="оптимизация"></category></entry><entry><title>Python и асинхронные задачи</title><link href="http://pynsk.ru/posts/2015/%D0%B0%D0%B2%D0%B3./16/python-i-asinkhronnye-zadachi/" rel="alternate"></link><updated>2015-08-16T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-08-16:posts/2015/авг./16/python-i-asinkhronnye-zadachi/</id><summary type="html">&lt;p&gt;Celery — распределенная очередь заданий
 И так, что же умеет Celery:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Выполнять задания асинхронно или синхронно&lt;/li&gt;
