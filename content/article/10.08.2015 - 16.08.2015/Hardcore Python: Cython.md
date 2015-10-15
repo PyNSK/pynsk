@@ -31,5 +31,5 @@ print(ackermann(1, 4))
 
 Хорошее применение языка - связка с C/C++ кодом - оно происходит в разы быстрее, чем в CPython и PyPi. Скорость исполнения программы также выше (может достигать сотен раз).  
 
-[http://cython.org/](http://cython.org/)
-[https://www.wikiwand.com/ru/Cython](https://www.wikiwand.com/ru/Cython)
+- [http://cython.org/](http://cython.org/)
+- [https://www.wikiwand.com/ru/Cython](https://www.wikiwand.com/ru/Cython)
