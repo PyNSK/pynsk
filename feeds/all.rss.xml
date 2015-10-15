@@ -1369,7 +1369,7 @@ Python предоставляет без малого 68 встроенных ф
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 22 Jul 2015 08:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-07-22:posts/2015/июля/22/requests/</guid><category>requests</category><category>http</category></item><item><title>Тесты тесты тесты: unittest - основной инструмент тестирования</title><link>http://pynsk.ru/posts/2015/%D0%B8%D1%8E%D0%BB%D1%8F/21/testy-testy-testy-unittest-osnovnoi-instrument-testirovaniia/</link><description>&lt;p&gt;Одним из основных инструментов для тестирования в Python - unittest&lt;/p&gt;
 &lt;p&gt;Это стандартный модуль для реализации юнит-тестов на Python.
 Unittest это порт JUnit с Java, иными словами ООП стиль, что весьма удобно для тестирования и процедур, и классов.&lt;/p&gt;
-&lt;p&gt;Возможностей в данном модуле довольно много: проверки (assert*), декораторы, позволяющие пропустить отдельный тест (@skip, @skipIf) или обозначить сломанные тесты (@expectedFailure)&lt;/p&gt;
+&lt;p&gt;Возможностей в данном модуле довольно много: проверки (&lt;code&gt;assert*&lt;/code&gt;), декораторы, позволяющие пропустить отдельный тест (&lt;code&gt;@skip&lt;/code&gt;, &lt;code&gt;@skipIf&lt;/code&gt;) или обозначить сломанные тесты (&lt;code&gt;@expectedFailure&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;При написании тестов надо исходит из следующих принципов:&lt;/p&gt;
 &lt;p&gt;Работа теста не должна зависеть от результатов работы других тестов.&lt;/p&gt;
 &lt;ul&gt;
