@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-14T18:00:00+06:00</updated><entry><title>Таинство стандартной библиотеки: сериализуем данные с помощью marshal</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/" rel="alternate"></link><updated>2015-10-14T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-14:posts/2015/окт./14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/</id><summary type="html">&lt;p&gt;Наверное, вы слышали про модуль Pickle, который умеет сериализовать объект в бинарный вид, который можно потом сохранить/загрузить в /из файл.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-16T10:00:00+06:00</updated><entry><title>Опыт разработчиков: использование переменной _</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./16/opyt-razrabotchikov-ispolzovanie-peremennoi-_/" rel="alternate"></link><updated>2015-10-16T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-16:posts/2015/окт./16/opyt-razrabotchikov-ispolzovanie-peremennoi-_/</id><summary type="html">&lt;p&gt;Хорошие имена переменных - это признак хорошего кода. 
+Для циклов часто используют одно-буквенные переменные, для временных переменных тоже короткие, для глобальных - ЗАГЛАВНЫЕ. Есть и другие рекомендации. Все они написаны кровью из глаз разработчиков.&lt;/p&gt;
+&lt;p&gt;Перейдем к заголовку и сразу пример:
+Пускай есть функция, которая возвращает 3 значения.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="o"&gt;....&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Функция возвращает три значения, а нам в данном кусе кода необходимо только 2, а может одно? Пускай среднее. Куда "потерять" первую и третью переменную?&lt;/p&gt;
+&lt;p&gt;В этом случае может однобуквенная переменная &lt;code&gt;_&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Что произошло? Мы сохранили среднее значение в переменную value, а два других в _.&lt;br /&gt;
+Переменная с названием _ это такая же как и value, ничем не примечательна кроме названия. Оно как бы пустое, очень короткое, мало внимания привлекает. Рекомендуем использовать для значений, которые используются единожды в коде.&lt;/p&gt;</summary><category term="опыт"></category></entry><entry><title>Таинство стандартной библиотеки: сериализуем данные с помощью marshal</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/" rel="alternate"></link><updated>2015-10-14T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-14:posts/2015/окт./14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/</id><summary type="html">&lt;p&gt;Наверное, вы слышали про модуль Pickle, который умеет сериализовать объект в бинарный вид, который можно потом сохранить/загрузить в /из файл.&lt;/p&gt;
 &lt;p&gt;А модуль marshal сериализует объект в текстовый вид.
 Получив строку вы можете отправить ее другу по email, а уже из строки снова получить объект&lt;/p&gt;
 &lt;p&gt;Особенности модуля:&lt;/p&gt;
