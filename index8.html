@@ -231,6 +231,25 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/">Синтаксис Python: with ... as</a></h2>
+
+                <div class="summary"><p>Конструкция <code>with ... as</code> используется для оборачивания выполнения блока инструкций менеджером контекста. Иногда это более удобная конструкция, чем <code>try...except...finally</code>.</p>
+<p>Синтаксис конструкции <code>with ... as</code>:</p>
+<div class="highlight"><pre><span class="s">&quot;with&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">]</span> <span class="p">(</span><span class="s">&quot;,&quot;</span> <span class="n">expression</span> <span class="p">[</span><span class="s">&quot;as&quot;</span> <span class="n">target</span><span class="p">])</span><span class="o">*</span> <span class="s">&quot;:&quot;</span>
+    <span class="n">suite</span>
+</pre></div>
+
+
+<p>Теперь по порядку о том, что происходит при выполнении данного блока:</p>
+<ul>
+<li>Выполняется выражение в конструкции <code>with ... as</code>.</li>
+<li>Загружается специальный метод <code>__exit__</code> для дальнейшего использования.</li>
+<li>Выполняется метод <code>__enter__</code>. Если ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-with-as/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/авг./24/sintaksis-python-znakomimsia-s-sintaksisom-za-y-minut/">Синтаксис Python: знакомимся с синтаксисом за Y минут</a></h2>
 
                 <div class="summary"><p>Когда мне необходимо быстро вникнуть в синтаксис языка X, то использую этот сайт:
@@ -334,23 +353,6 @@ PyNSK - Новосибирское Python сообщество            </a>
 <p>Доклад Игоря Старикова (основатель Python сайта <a href="http://pythonz.net/">http://pythonz.net/</a>) - "Разработчик разработчику: Азбука вежливости"</p>
 <p>Доклад Артёма Попова <a href="https://vk.com/id42320764">https://vk.com/id42320764</a> - "Python в музыке. osc, midi и ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/anons-vstrechi-2-soobshchestva-pynsk/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">Таинство стандартной библиотеки: functools.partial</a></h2>
-
-                <div class="summary"><p>Представим, написали мы функцию:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">super_function</span><span class="p">(</span><span class="n">server_name</span><span class="p">,</span> <span class="n">host</span><span class="p">):</span>
-<span class="o">....</span><span class="k">print</span><span class="p">(</span><span class="n">server_name</span><span class="p">)</span>
-<span class="o">...........</span>
-<span class="o">....</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Но вот беда, первый аргумент - имя сервера у вас уже есть. А второй, ip сервера, вы получите от пользователя, а функцию уже надо вызвать. Можно, конечно, дождаться когда будет два аргумента, тогда и запустить. А можно пойти по другому пути - воспользоваться механизмом каррирования - такое страшное слово. </p>
-<p>Каррирование - преобразование ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/авг./20/tainstvo-standartnoi-biblioteki-functoolspartial/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -556,11 +558,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                             api
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/assert.html">
-                            assert
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/asyncio.html">
                             asyncio
@@ -577,13 +574,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cache.html">
-                            cache
+                        <a href="http://pynsk.ru/tag/biblioteka.html">
+                            библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -592,23 +584,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/closure.html">
-                            closure
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cython.html">
-                            cython
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/debug.html">
                             debug
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/decode.html">
-                            decode
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -617,13 +599,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
+                        <a href="http://pynsk.ru/tag/dokumentatsiia.html">
+                            документация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -632,18 +614,23 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fixture.html">
-                            fixture
+                        <a href="http://pynsk.ru/tag/fabric.html">
+                            fabric
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ficha.html">
+                            фича
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/fp.html">
                             fp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/frozenset.html">
-                            frozenset
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -662,8 +649,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generator.html">
-                            генератор
+                        <a href="http://pynsk.ru/tag/fuzzy-testing.html">
+                            fuzzy-testing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/generic.html">
+                            generic
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -671,19 +663,9 @@ PyNSK - Новосибирское Python сообщество            </a>
                             GIL
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/grab.html">
-                            grab
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/grafika.html">
-                            графика
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -697,13 +679,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/http.html">
-                            http
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/if.html">
-                            if
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -712,8 +689,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/import.html">
-                            импорт
+                        <a href="http://pynsk.ru/tag/instrument.html">
+                            инструмент
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -732,6 +709,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/kesh.html">
                             кэш
                         </a>
@@ -739,6 +721,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/konkurentnost.html">
+                            конкурентность
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -757,11 +744,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mail.html">
-                            mail
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/marshal.html">
                             marshal
                         </a>
@@ -777,13 +759,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnogopotochnost.html">
-                            многопоточность
+                        <a href="http://pynsk.ru/tag/mixin.html">
+                            mixin
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -792,18 +769,28 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/multiprocessing.html">
-                            multiprocessing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/obekt.html">
-                            объект
+                        <a href="http://pynsk.ru/tag/mock.html">
+                            mock
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/obrabotka-teksta.html">
                             обработка текста
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/oop.html">
+                            ооп
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/opencv.html">
+                            opencv
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/operator.html">
+                            operator
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -826,6 +813,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                             отчет
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pamiat.html">
                             память
@@ -841,29 +833,34 @@ PyNSK - Новосибирское Python сообщество            </a>
                             pep
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
-                            поиск ошибок
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
+                        <a href="http://pynsk.ru/tag/proekt.html">
+                            проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycharm.html">
-                            pycharm
+                        <a href="http://pynsk.ru/tag/pycon.html">
+                            pycon
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pygame.html">
-                            pygame
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -874,11 +871,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pyqt.html">
                             pyqt
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pytest.html">
-                            pytest
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -897,6 +889,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/r.html">
+                            R
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/raspberry-pi.html">
                             raspberry pi
                         </a>
@@ -907,13 +904,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regex.html">
-                            regex
+                        <a href="http://pynsk.ru/tag/regexp.html">
+                            regexp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
+                        <a href="http://pynsk.ru/tag/reguliarnye-vyrazheniia.html">
+                            регулярные выражения
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -927,8 +924,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/selenium.html">
-                            selenium
+                        <a href="http://pynsk.ru/tag/sbornik.html">
+                            сборник
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -941,14 +938,14 @@ PyNSK - Новосибирское Python сообщество            </a>
                             синтаксис
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/spravochnik.html">
                             справочник
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -957,28 +954,18 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
-                            статическая типизация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/staticheskii-analiz.html">
                             статический анализ
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/statistika.html">
-                            статистика
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/syntax.html">
                             syntax
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/sys.html">
+                            sys
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -999,11 +986,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/tipizatsiia.html">
                             типизация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
-                            типы данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1031,9 +1013,29 @@ PyNSK - Новосибирское Python сообщество            </a>
                             web
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/while.html">
+                            while
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/winapi.html">
+                            winapi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yattag.html">
+                            yattag
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yield-from.html">
+                            yield from
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
