@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-12T10:00:00+06:00</updated><entry><title>Синтаксис Python: do...while</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/sintaksis-python-dowhile/" rel="alternate"></link><updated>2015-10-12T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/sintaksis-python-dowhile/</id><summary type="html">&lt;p&gt;Цикл &lt;code&gt;do while&lt;/code&gt; отличается от цикла &lt;code&gt;while&lt;/code&gt; тем, что в &lt;code&gt;do while&lt;/code&gt; сначала выполняется тело цикла, а затем проверяется условие продолжения цикла.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-19T10:00:00+06:00</updated><entry><title>Синтаксис Python: переменная __all__</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./19/sintaksis-python-peremennaia-__all__/" rel="alternate"></link><updated>2015-10-19T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-19:posts/2015/окт./19/sintaksis-python-peremennaia-__all__/</id><summary type="html">&lt;p&gt;Вы наверное слышали фразу "wild import - зло". В коде это выглядит так&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;my_super_module&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ответ почему это "зло" очень простой - вы импортируете всё - то что надо и то что не надо. А значит вы можете смело перегрузить какой-то метод. 
+Как же быть? Можно импортировать только нужные переменные и функции/классы, что является правильным подходом. Но ведь должен быть альтернативный вариант.&lt;/p&gt;
+&lt;p&gt;Он есть - это переменная &lt;code&gt;__all__&lt;/code&gt;
+&lt;code&gt;__all__&lt;/code&gt; в Pythone - это список публичных объектов данного модуля.&lt;/p&gt;
+&lt;p&gt;Например, есть некий &lt;code&gt;mymodule.py&lt;/code&gt;, в нем очень много объектов, и не требуется давать пользоваться ими всеми (например, какие-то приватные функции есть). В &lt;code&gt;__all__&lt;/code&gt; в &lt;code&gt;mymodule.py&lt;/code&gt; вы списком определяете названия объектов, которые можно импортировать:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;__all__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;MyClass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;MyClass2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;И тогда конструкция&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mymodule&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Импортирует только те объекты, которые вы описали в &lt;code&gt;__all__&lt;/code&gt;.&lt;/p&gt;</summary><category term="синтаксис"></category><category term="магическая переменная"></category><category term="__all__"></category></entry><entry><title>Синтаксис Python: do...while</title><link href="http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./12/sintaksis-python-dowhile/" rel="alternate"></link><updated>2015-10-12T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-12:posts/2015/окт./12/sintaksis-python-dowhile/</id><summary type="html">&lt;p&gt;Цикл &lt;code&gt;do while&lt;/code&gt; отличается от цикла &lt;code&gt;while&lt;/code&gt; тем, что в &lt;code&gt;do while&lt;/code&gt; сначала выполняется тело цикла, а затем проверяется условие продолжения цикла.
 Из-за такой особенности &lt;code&gt;do while&lt;/code&gt; называют циклом с постусловием. Таким образом, если условие &lt;code&gt;do while&lt;/code&gt; заведомо ложное, то хотя бы один раз блок операторов в теле цикла &lt;code&gt;do while&lt;/code&gt; выполнится.&lt;/p&gt;
 &lt;p&gt;Иииии.... такой конструкции - &lt;code&gt;do...while&lt;/code&gt; нет в Python. Написать цикл с постусловие можно так:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
