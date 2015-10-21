@@ -75,7 +75,7 @@ SITEMAP = {
 }
 
 PLUGIN_PATHS = [
-    'pelican-plugins',
+    'plugins',
 ]
 
 PLUGINS = [
