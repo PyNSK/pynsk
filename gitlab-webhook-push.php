@@ -100,8 +100,8 @@ if (isset($password))
 // GitLab sends the json as raw post data
 $input = $_POST['payload'];
 $json  = json_decode($input);
-log_append($input)
-log_append($json)
+log_append($input);
+log_append($json);
 
 if (!is_object($json) || empty($json->ref)) {
     log_append('Invalid push event data');
