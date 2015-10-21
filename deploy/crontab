@@ -1,4 +1,4 @@
 
 
-10 */4 * * * bash /home/warmonger/pynsk.ru/repo/mover.bash
+10 */4 * * * bash /home/warmonger/pynsk.ru/repo/deploy/mover.bash
 5 */4 * * * cd /home/warmonger/pynsk.ru/ && source ./env/bin/activate && cd ./repo && python mover.py
