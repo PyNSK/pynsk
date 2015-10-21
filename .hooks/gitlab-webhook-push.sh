@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "fdsfsd"
-git pull > gitpull.log
+
+git pull git@github.com:PyNSK/pynsk.git master > gitpull.log
