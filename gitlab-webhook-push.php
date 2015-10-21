@@ -98,7 +98,7 @@ if (isset($password))
 }
 
 // GitLab sends the json as raw post data
-$input = $_POST['payload'];
+$input = file_get_contents('php://input');
 $json  = json_decode($input);
 log_append($input);
 log_append($json);
