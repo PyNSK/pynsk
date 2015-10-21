@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 19 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: слайсы/срезы</title><link>http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/</link><description>&lt;p&gt;Синтаксис Python легкий, читаемый. 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 21 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Учебные материалы: познаем Django</title><link>http://pynsk.ru/posts/2015/Oct/21/uchebnye-materialy-poznaem-django/</link><description>&lt;p&gt;Django - web-фреймворк. Обладает отличной документацией, которую можно читать долго и упорно. Есть даже тутроиал по созданию блога. 
+Вот только есть "минус" - проходишь туториал с блогом и не знаешь где еще добыть структурированной информации. Да еще и актуальной.&lt;/p&gt;
+&lt;p&gt;Мы сделали опрос и получили следующие советы:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.djangoproject.com/wiki/Tutorials"&gt;https://code.djangoproject.com/wiki/Tutorials&lt;/a&gt;
+Данный ресурс содержит ссылки на множество учебных пособий по Django. Все разбито по разделам. Много практики! &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://djbook.ru/"&gt;http://djbook.ru/&lt;/a&gt;
+Русскоязычный ресурс, много готового кода. Быстро отвечают на вопросы.&lt;/p&gt;
+&lt;p&gt;И два ресурса с видео:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://godjango.com/"&gt;https://godjango.com/&lt;/a&gt; - различные django скринкасты&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/user/MickeySoFine1972/videos"&gt;https://www.youtube.com/user/MickeySoFine1972/videos&lt;/a&gt; - видео-уроки по Django&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;А какие django ресурсы знаете вы?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 21 Oct 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-21:posts/2015/Oct/21/uchebnye-materialy-poznaem-django/</guid><category>django</category><category>учебник</category><category>видео</category></item><item><title>Извлечение информации: lxml - парсим XML и HTML</title><link>http://pynsk.ru/posts/2015/Oct/21/izvlechenie-informatsii-lxml-parsim-xml-i-html/</link><description>&lt;p&gt;lxml это быстрая и гибкая библиотека для обработки разметки XML и HTML на Python. Она снабжена поддержкой языка запросов XML (XPath) и языка преобразования XML-документов (XSLT) и предоставляет API ElementTree.&lt;/p&gt;
+&lt;p&gt;Много где можно найти что ее называют "быстрой". Для обоснования этого прилагательного прошу ознакомиться со страницей - &lt;a href="http://lxml.de/performance.html"&gt;http://lxml.de/performance.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Пример использования:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&amp;#39;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;soft&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;    &amp;lt;os&amp;gt; &lt;/span&gt;
+&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;linux&amp;quot; dist=&amp;quot;ubuntu&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;            This text about linux&lt;/span&gt;
+&lt;span class="s"&gt;        &amp;lt;/item&amp;gt;             &lt;/span&gt;
+&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;mac os&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;            Apple company&lt;/span&gt;
+&lt;span class="s"&gt;        &amp;lt;/item&amp;gt;             &lt;/span&gt;
+&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;windows&amp;quot; dist=&amp;quot;XP&amp;quot; /&amp;gt;             &lt;/span&gt;
+&lt;span class="s"&gt;    &amp;lt;/os&amp;gt;&lt;/span&gt;
+&lt;span class="s"&gt;&amp;lt;/soft&amp;gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;
+
+&lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Парсинг строки&lt;/span&gt;
+&lt;span class="c"&gt;#tree = etree.parse(&amp;#39;1.xml&amp;#39;) # Парсинг файла&lt;/span&gt;
+
+&lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Открываем раздел&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c"&gt;# Перебираем элементы&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;name =&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Выводим параметр name&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text =&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,[&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;# Выводим текст элемента&lt;/span&gt;
+
+&lt;span class="c"&gt;# Доступ к тексту напрямую, с указанием фильтра&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[@name=&amp;quot;linux&amp;quot;]/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[2]/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Доступ к параметру напрямую&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[@name=&amp;quot;linux&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# Выборка по ключу&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;dist by key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;//*[@name=&amp;quot;windows&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Вот и ссылки для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/220125/"&gt;http://habrahabr.ru/post/220125/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lxml.de/"&gt;http://lxml.de/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/lxml"&gt;https://pypi.python.org/pypi/lxml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 21 Oct 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-21:posts/2015/Oct/21/izvlechenie-informatsii-lxml-parsim-xml-i-html/</guid><category>lxml</category><category>xml</category><category>html</category><category>парсинг</category></item><item><title>Синтаксис Python: слайсы/срезы</title><link>http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/</link><description>&lt;p&gt;Синтаксис Python легкий, читаемый. 
 Хочется упомянуть массивы (как структура с последовательными элементами). В Python они бывают разные - &lt;code&gt;list&lt;/code&gt;, &lt;code&gt;tuple&lt;/code&gt;, строки
 Операции с массивами:&lt;/p&gt;
 &lt;ul&gt;
