@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 21 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Учебные материалы: познаем Django</title><link>http://pynsk.ru/posts/2015/Oct/21/uchebnye-materialy-poznaem-django/</link><description>&lt;p&gt;Django - web-фреймворк. Обладает отличной документацией, которую можно читать долго и упорно. Есть даже тутроиал по созданию блога. 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 22 Oct 2015 10:00:00 +0600</lastBuildDate><item><title>Интересные концепции: утиная типизация</title><link>http://pynsk.ru/posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/</link><description>&lt;p&gt;Слышали фразу: "Если что-то выглядит как утка, плавает как утка и крякает как утка, то, вероятно, это утка"?
+Эта поговорка характеризует утиную типизацию == утипизацию&lt;/p&gt;
+&lt;p&gt;Смысл утиной типизации заключается в ослаблении типов. Вместо того чтобы заботиться о точном классе объекта мы заботимся о том какие методы для него можно вызвать и какие операции над ним можно выполнять. Таким образом, обычным делом становится просто передать объект методу, зная, что при неправильном использовании будет выброшено исключение (&lt;code&gt;exception&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Например: если есть код&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;method&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+   &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;При утиной типизации мы не заботимся о типе объекта &lt;code&gt;obj&lt;/code&gt;, нам лишь важно, что у него есть метод &lt;code&gt;start&lt;/code&gt;. Если же такого метода нет, то исключение нас разочарует.    &lt;/p&gt;
+&lt;p&gt;Утиная типизация решает некоторые проблемы иерархической типизации:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;невозможность явно указать (путем наследования) на совместимость интерфейса со всеми настоящими и будущими интерфейсами, с которыми он идейно совместим;&lt;/li&gt;
+&lt;li&gt;экспоненциальное увеличение числа связей в иерархии типов.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Image" src="https://pbs.twimg.com/media/BPgjzbBCUAAXgMa.jpg" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 22 Oct 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-22:posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/</guid><category>типизация</category><category>утка</category><category>концепция</category><category>image</category></item><item><title>Учебные материалы: познаем Django</title><link>http://pynsk.ru/posts/2015/Oct/21/uchebnye-materialy-poznaem-django/</link><description>&lt;p&gt;Django - web-фреймворк. Обладает отличной документацией, которую можно читать долго и упорно. Есть даже тутроиал по созданию блога. 
 Вот только есть "минус" - проходишь туториал с блогом и не знаешь где еще добыть структурированной информации. Да еще и актуальной.&lt;/p&gt;
 &lt;p&gt;Мы сделали опрос и получили следующие советы:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://code.djangoproject.com/wiki/Tutorials"&gt;https://code.djangoproject.com/wiki/Tutorials&lt;/a&gt;
