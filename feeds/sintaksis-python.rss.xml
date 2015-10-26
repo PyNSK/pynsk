@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/sintaksis-python.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 19 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: слайсы/срезы</title><link>http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/</link><description>&lt;p&gt;Синтаксис Python легкий, читаемый. 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/sintaksis-python.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 26 Oct 2015 10:00:00 +0600</lastBuildDate><item><title>Синтаксис Python: raw-unicode-escape против u'\xd0\x9a'</title><link>http://pynsk.ru/posts/2015/Oct/26/sintaksis-python-raw-unicode-escape-protiv-uxd0x9a/</link><description>&lt;p&gt;Python 2 и проблемы с кодировками — это единое целое. И мало, что сами файлы с исходниками сохраняют в самых разных кодировках, так и текстовые файлы с данными этим грешат.
+Казалось бы, используй &lt;code&gt;encode/decode&lt;/code&gt; и что тут думать. Но бывает, что декодируешь юникод и получаешь строку:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;u&amp;#39;\xd0\x9a\xd1\x83\xd1\x80\xd1\x83\xd0\xbc\xd0\xbe\xd1\x87&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Юникодные символы в юникодной строке. И вот здесь гугл начинает молить о пощаде, предлагая вариант — составить словарь символов и букв и сделать replace.&lt;/p&gt;
+&lt;p&gt;Но есть и более удобный вариант — кодек &lt;code&gt;'raw-unicode-escape'&lt;/code&gt;.
+И тогда, использование выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\xd0\x9a\xd1\x83\xd1\x80\xd1\x83\xd0\xbc\xd0\xbe\xd1\x87&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;raw-unicode-escape&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;Курумоч&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 26 Oct 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-26:posts/2015/Oct/26/sintaksis-python-raw-unicode-escape-protiv-uxd0x9a/</guid><category>кодировка</category><category>encoding</category><category>юникод</category><category>unicode</category></item><item><title>Синтаксис Python: слайсы/срезы</title><link>http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/</link><description>&lt;p&gt;Синтаксис Python легкий, читаемый. 
 Хочется упомянуть массивы (как структура с последовательными элементами). В Python они бывают разные - &lt;code&gt;list&lt;/code&gt;, &lt;code&gt;tuple&lt;/code&gt;, строки
 Операции с массивами:&lt;/p&gt;
 &lt;ul&gt;
