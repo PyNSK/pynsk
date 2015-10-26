@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 24 Oct 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: zipimport - импортируем код из zip файлов</title><link>http://pynsk.ru/posts/2015/Oct/24/tainstvo-standartnoi-biblioteki-zipimport-importiruem-kod-iz-zip-failov/</link><description>&lt;p&gt;Еще в далеком Python 2.3 был добавлен модуль &lt;code&gt;zipimport&lt;/code&gt;. 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 25 Oct 2015 18:00:00 +0600</lastBuildDate><item><title>Математика в Python: Матрицы в NumPy</title><link>http://pynsk.ru/posts/2015/Oct/25/matematika-v-python-matritsy-v-numpy/</link><description>&lt;p&gt;Списки - встроенный тип Python, могут содержать любые элементы: целые, дробные числа, строки, объекты. Это великая сила Python, но в то же время и слабость — в отношении скорости работы. &lt;/p&gt;
+&lt;p&gt;В стандартные дистрибутивы Python входит модуль array, реализующий аналог массивов C/C++, он может пригодиться для простейших расчётов с многомерными массивами, матрицами.&lt;/p&gt;
+&lt;p&gt;NumPy — мощнейшая библиотека для научных вычислений. Написать здесь операции с матрицами так же просто, как и с обычными числами. &lt;/p&gt;
+&lt;p&gt;Матрица в NumPy — это объект numpy.array, массив чисел одного типа, какой угодно размерности: 0 (одно число, скаляр), 1 (вектор), 2 (матрица), 3 (тензор третьего ранга)... &lt;/p&gt;
+&lt;p&gt;Матрицы во многом похожи на списки и массивы модуля array: поддерживают индексацию с таким же синтаксисом и легко преобразуются в них.&lt;/p&gt;
+&lt;p&gt;Перейдём к делу. Например, нужно посчитать произведение и сумму матриц, скаляров и векторов. Мы бы на бумаге записали так:&lt;/p&gt;
+&lt;p&gt;A&lt;em&gt;B&lt;/em&gt;C*D + E,
+где B,C — матрицы 2x2, D,E — вектор-столбцы, A — скаляр (число).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.5&lt;/span&gt; &lt;span class="c"&gt;# обычное число&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;1.5&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="c"&gt;# а можно и так&lt;/span&gt;
+
+&lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;diag&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mf"&gt;1.32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.78&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;# треугольная, матрица, делаем диагональную матрицу&lt;/span&gt;
+&lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;3.12&lt;/span&gt; &lt;span class="c"&gt;# потом дописываем элемент B_12 (обозначение, как мы привыкли в институтах)&lt;/span&gt;
+
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;# сначала делаем вектор-строку и заполняем нулями,&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;concatenate&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;­&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="p"&gt;]]))&lt;/span&gt; &lt;span class="c"&gt;# добавляем внизу вектор-строку (3, 2)&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.97&lt;/span&gt; &lt;span class="c"&gt;# и для интереса сделаем элемент (1,1) ненулевым&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="c"&gt;# а теперь транспонируем, тоже для интереса&lt;/span&gt;
+
+&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# просто делаем вектор-столбец с дробными числами,&lt;/span&gt;
+&lt;span class="c"&gt;# а точки писать лень (но и без dtype вычисления будут дробные, так как дробные числа уже есть)&lt;/span&gt;
+
+&lt;span class="n"&gt;E&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ones&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# вектор-столбец из единиц&lt;/span&gt;
+&lt;span class="n"&gt;E&lt;/span&gt; &lt;span class="o"&gt;*=&lt;/span&gt; &lt;span class="mf"&gt;2.3&lt;/span&gt; &lt;span class="c"&gt;# домножим для интереса&lt;/span&gt;
+
+&lt;span class="n"&gt;M&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt; &lt;span class="c"&gt;# проще пареной репы!!!&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;D&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;E&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;M&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Результат:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;­&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;1.32&lt;/span&gt; &lt;span class="mf"&gt;3.12&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;0.&lt;/span&gt; &lt;span class="mf"&gt;0.78&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;­&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;0.97&lt;/span&gt; &lt;span class="mf"&gt;3.&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;0.&lt;/span&gt; &lt;span class="mf"&gt;2.&lt;/span&gt; &lt;span class="p"&gt;]]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;10.&lt;/span&gt; &lt;span class="mf"&gt;12.&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;­&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;2.3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;2.3&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;
+
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;­&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;21.506&lt;/span&gt; &lt;span class="mf"&gt;170.78&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="mf"&gt;2.3&lt;/span&gt; &lt;span class="mf"&gt;30.38&lt;/span&gt; &lt;span class="p"&gt;]]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Мораль: &lt;/p&gt;
+&lt;p&gt;производить действия с матрицами в NumPy так же просто, как и при рисовании их символов в тетради на парах линейной алгебры. 
+Пусть этот пример выглядит наивным, но он показывает, что есть множество инструментов для конструирования матриц, не говоря уже о банальной инициализации известными элементами. &lt;/p&gt;
+&lt;p&gt;А если речь идёт о матрицах 10x10? Трёхмерных, четырёхмерных? С комплексными числами? И даже с произвольными объектами вместо чисел (если определить арифметические действия над ними)? &lt;/p&gt;
+&lt;p&gt;NumPy Вам в помощь.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 25 Oct 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-25:posts/2015/Oct/25/matematika-v-python-matritsy-v-numpy/</guid><category>numpy</category></item><item><title>Таинство стандартной библиотеки: timeit - измерим время работы!</title><link>http://pynsk.ru/posts/2015/Oct/25/tainstvo-standartnoi-biblioteki-timeit-izmerim-vremia-raboty/</link><description>&lt;p&gt;Представим мы придумали алгоритм, на пальцах оценили его быстродействие, закодили и получили медленно работающий софт.
+Что делать? куда бежать? С чего стоит начать?
+Да сначала стоит измерить сколько &lt;em&gt;ресурсов&lt;/em&gt; (память, время, проц) кушает ваш софт. Уже имея числа на руках можно думать дальше.&lt;/p&gt;
+&lt;p&gt;Для измерения временных затрат для вашего кода можно воспользоваться библиотекой &lt;code&gt;timeit&lt;/code&gt;. А другие ресурсы измерим в след. раз.
+Она позволяет измерить время работы куска кода программы:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;timeit&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;-&amp;quot;.join(str(n) for n in range(100))&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mf"&gt;0.3018611848820001&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;-&amp;quot;.join([str(n) for n in range(100)])&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mf"&gt;0.2727368790656328&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;timeit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;-&amp;quot;.join(map(str, range(100)))&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="mf"&gt;0.23702679807320237&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ссылка для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.4/library/timeit.html"&gt;https://docs.python.org/3.4/library/timeit.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 25 Oct 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-10-25:posts/2015/Oct/25/tainstvo-standartnoi-biblioteki-timeit-izmerim-vremia-raboty/</guid><category>time</category><category>timeit</category><category>измерение</category><category>время</category><category>быстродействие</category><category>производительность</category></item><item><title>Таинство стандартной библиотеки: zipimport - импортируем код из zip файлов</title><link>http://pynsk.ru/posts/2015/Oct/24/tainstvo-standartnoi-biblioteki-zipimport-importiruem-kod-iz-zip-failov/</link><description>&lt;p&gt;Еще в далеком Python 2.3 был добавлен модуль &lt;code&gt;zipimport&lt;/code&gt;. 
 Этот модуль упростил возможность импорта из &lt;code&gt;zip&lt;/code&gt; файлов: &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
 &lt;span class="n"&gt;Python&lt;/span&gt; &lt;span class="mf"&gt;2.3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="c"&gt;#1, Aug 1 2003, 19:54:32) &lt;/span&gt;

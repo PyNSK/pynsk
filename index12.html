@@ -231,6 +231,24 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/10/magicheskie-metody-v-python/">Магические методы в Python</a></h2>
+
+                <div class="summary"><p>Статья от  Rafe Kettler.</p>
+<p>Что такое магические методы? Они всё в объектно-ориентированном Питоне. Это специальные методы, с помощью которых вы можете добавить в ваши классы «магию». Они всегда обрамлены двумя нижними подчеркиваниями (например, <strong>init</strong> или <strong>lt</strong>). Ещё, они не так хорошо документированны, как хотелось бы. Все магические методы описаны в документации, но весьма беспорядочно и почти безо всякой организации. Поэтому ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/10/magicheskie-metody-v-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/09/tainstvo-standartnoi-biblioteki-collections/">Таинство стандартной библиотеки: collections</a></h2>
+
+                <div class="summary"><p>Модуль collections - предоставляет специализированные типы данных, на основе словарей, кортежей, множеств, списков. Этот модуль хорошо себя показывает при частой работе со словарями и списками. 
+Например, данный модуль предоставляет возможность посчитать n наиболее часто встречающихся элементов, в порядке убывания встречаемости. Есть в этом модуле и словарь, который помнит порядок ключей. А еще есть структура, которая позволяет создать объект ведущий себя как ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/09/tainstvo-standartnoi-biblioteki-collections/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Aug/09/tainstvo-standartnoi-biblioteki-datetime-i-calendar/">Таинство стандартной библиотеки: datetime и calendar</a></h2>
 
                 <div class="summary"><p>Стандартная поставка Python содержит множество инструментов для решения задач. Например, для работы с датами отлично себя показывают datetime и calendar</p>
@@ -330,33 +348,6 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/05/bottle-s-python/">Bottle с Python</a></h2>
-
-                <div class="summary"><p>bottle - это веб-фреймворк для Python. Отличительной особенностью этого фреймворка является простота - исходный код занимает один файл. Несмотря на свою минималистичность, Bottle предоставляет довольно широкие возможности, которых на 100% хватает для мелких и средних проектов.
-Чтобы стартануть изучение достаточно написать:</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">template</span>
-
-<span class="nd">@route</span><span class="p">(</span><span class="s">&#39;/hello/&lt;name&gt;&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s">&#39;&lt;b&gt;Hello {{name}}&lt;/b&gt;!&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-
-<span class="n">run ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/05/bottle-s-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-modul-testirovaniia-pytest/">Тесты тесты тесты: модуль тестирования py.test</a></h2>
-
-                <div class="summary"><p>Наряду с входящими в стандартную поставку питона средствами для тестирования, существуют и альтернативные инструменты, например, py.test. <a href="http://pytest.org/">http://pytest.org/</a></p>
-<p>py.test имеет множество расширений, которые значительно упрощают написание тестов.
-py.test имеет плагины для всех популярных web-фреймворков, с помощью плагинов позволяет кэшеировать результаты (успешных тестов), формировать отчеты в самых различных форматах.
-А также имеет очень простую систему расширения и ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-modul-testirovaniia-pytest/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://pynsk.ru/index11.html">&laquo;</a>
@@ -451,6 +442,11 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/matematika-v-python.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Математика в Python
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/opyt-razrabotchikov.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Опыт разработчиков
                         </a>
@@ -541,29 +537,19 @@ py.test имеет плагины для всех популярных web-фр�
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/__all__.html">
-                            __all__
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/admin.html">
-                            admin
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/analizator.html">
+                            анализатор
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/assert.html">
-                            assert
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -582,31 +568,6 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/celery.html">
-                            celery
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cffi.html">
-                            cffi
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/closure.html">
-                            closure
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/coverage.html">
-                            coverage
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/crawler.html">
                             crawler
                         </a>
@@ -614,6 +575,11 @@ py.test имеет плагины для всех популярных web-фр�
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/debug.html">
                             debug
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/decode.html">
+                            decode
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -627,8 +593,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fabric.html">
-                            fabric
+                        <a href="http://pynsk.ru/tag/dsl.html">
+                            dsl
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/email.html">
+                            email
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -652,13 +623,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy.html">
-                            fuzzy
+                        <a href="http://pynsk.ru/tag/generator.html">
+                            генератор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generator.html">
-                            генератор
+                        <a href="http://pynsk.ru/tag/gensim.html">
+                            gensim
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -671,9 +642,19 @@ py.test имеет плагины для всех популярных web-фр�
                             график
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/grafika.html">
+                            графика
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/gui.html">
                             gui
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gunicorn.html">
+                            gunicorn
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -686,14 +667,24 @@ py.test имеет плагины для всех популярных web-фр�
                             html
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/import.html">
-                            import
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/instrument.html">
-                            инструмент
+                        <a href="http://pynsk.ru/tag/if.html">
+                            if
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/image.html">
+                            image
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/import.html">
+                            import
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -711,14 +702,24 @@ py.test имеет плагины для всех популярных web-фр�
                             IPython
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
+                            исключение
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/kesh.html">
+                            кэш
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
-                            концепция
+                        <a href="http://pynsk.ru/tag/konkurentnost.html">
+                            конкурентность
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -737,13 +738,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magiia.html">
-                            магия
+                        <a href="http://pynsk.ru/tag/logging.html">
+                            logging
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/marshal.html">
-                            marshal
+                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
+                            магическая переменная
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -752,43 +753,38 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matritsa.html">
-                            матрица
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/mechanize.html">
                             mechanize
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mixin.html">
-                            mixin
+                        <a href="http://pynsk.ru/tag/mnozhestvo.html">
+                            множество
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnogopotochnost.html">
-                            многопоточность
+                        <a href="http://pynsk.ru/tag/mock.html">
+                            mock
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/multiprocessing.html">
+                            multiprocessing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nauka.html">
+                            наука
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/numpy.html">
                             numpy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/obekt.html">
-                            объект
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/obrabotka-teksta.html">
                             обработка текста
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -826,44 +822,34 @@ py.test имеет плагины для всех популярных web-фр�
                             pep
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
-                            поиск ошибок
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/postgresql.html">
-                            postgresql
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycallgraph.html">
-                            pycallgraph
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycharm.html">
-                            pycharm
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycon.html">
-                            pycon
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pygame.html">
-                            pygame
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/pylint.html">
                             pylint
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pypi.html">
+                            pypi
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -879,6 +865,11 @@ py.test имеет плагины для всех популярных web-фр�
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python2.html">
+                            python2
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -902,13 +893,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requests.html">
-                            requests
+                        <a href="http://pynsk.ru/tag/reiting.html">
+                            рейтинг
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
+                        <a href="http://pynsk.ru/tag/requirements.html">
+                            requirements
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -926,6 +917,11 @@ py.test имеет плагины для всех популярных web-фр�
                             синтаксис
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slice.html">
+                            slice
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/spravochnik.html">
                             справочник
@@ -934,11 +930,6 @@ py.test имеет плагины для всех популярных web-фр�
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/sqlalchemy.html">
                             sqlalchemy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/srez.html">
-                            срез
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -952,13 +943,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/statistika.html">
-                            статистика
+                        <a href="http://pynsk.ru/tag/staticheskii-analiz.html">
+                            статический анализ
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/svg.html">
-                            svg
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -987,23 +978,13 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
-                            типы данных
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/toolbar.html">
-                            toolbar
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/tox.html">
                             tox
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1016,9 +997,19 @@ py.test имеет плагины для всех популярных web-фр�
                             unittest
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/utka.html">
+                            утка
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vremia.html">
+                            время
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1027,18 +1018,23 @@ py.test имеет плагины для всех популярных web-фр�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/with.html">
-                            with
+                        <a href="http://pynsk.ru/tag/while.html">
+                            while
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/yattag.html">
-                            yattag
+                        <a href="http://pynsk.ru/tag/xml.html">
+                            xml
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yield-from.html">
+                            yield from
                         </a>
                     </li>
                 </ul>
