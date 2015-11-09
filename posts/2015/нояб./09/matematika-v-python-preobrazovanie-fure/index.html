@@ -318,12 +318,15 @@ ihfft(a, n=None, axis=-1) — обратное одномерное ДПФ.
 
 
 <p>Длина входного массива <code>N</code>, а выходного <code>2*N+1</code>.</p>
-<p>Кроме того, есть вспомогательные функции (будет понятнее из примера):
-fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft<em>.
-rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft</em>.
+<p>Кроме того, есть вспомогательные функции (будет понятнее из примера):</p>
+<div class="highlight"><pre>fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft*.
+rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft*.
 n — длина входного массива, d — период дискретизации (обратная частота дискретизации).
 fftshift(x, axes=None) — преобразует массив (с результатом ДПФ, от функций fft*) так, чтобы нулевая частота была в центре.
-ifftshift(x, axes=None) — делает обратную операцию.</p>
+ifftshift(x, axes=None) — делает обратную операцию.
+</pre></div>
+
+
 <p>Приведём такой пример. Допустим, записали мы микрофоном какой-то шум, и надо определить, есть ли там какой-нибудь тон.</p>
 <div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c">#coding=utf8</span>
@@ -368,13 +371,15 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
 </pre></div>
 
 
-<p>Ссылки для изучения:
-- <a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье">Преобразование Фурье</a>
-- <a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье">Быстрое преобразование Фурье</a>
-- <a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье">Дискретное преобразование Фурье</a>
-- <a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова">Теорема Котельникова</a>
-- <a href="http://habrahabr.ru/post/196374/">Простыми словами о преобразовании Фурье</a>
-- <a href="http://habrahabr.ru/post/269991/">Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих</a></p>
+<p>Ссылки для изучения:</p>
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье">Преобразование Фурье</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье">Быстрое преобразование Фурье</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье">Дискретное преобразование Фурье</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова">Теорема Котельникова</a></li>
+<li><a href="http://habrahabr.ru/post/196374/">Простыми словами о преобразовании Фурье</a></li>
+<li><a href="http://habrahabr.ru/post/269991/">Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих</a></li>
+</ul>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -569,13 +574,13 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/action.html">
-                            action
+                        <a href="http://pynsk.ru/tag/__all__.html">
+                            __all__
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/admin.html">
-                            admin
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -583,14 +588,14 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             aiohttp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/analizator.html">
-                            анализатор
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/assert.html">
+                            assert
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -609,18 +614,38 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bd.html">
+                            БД
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/bottle.html">
                             bottle
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/crawler.html">
-                            crawler
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/db.html">
                             db
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/decode.html">
+                            decode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -634,18 +659,18 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/doctest.html">
                             doctest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/ficha.html">
-                            фича
+                        <a href="http://pynsk.ru/tag/dsl.html">
+                            dsl
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/encode.html">
+                            encode
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -674,13 +699,13 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
+                        <a href="http://pynsk.ru/tag/generator.html">
+                            генератор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generator.html">
-                            генератор
+                        <a href="http://pynsk.ru/tag/gil.html">
+                            GIL
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -693,19 +718,9 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             график
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/grafika.html">
-                            графика
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/gui.html">
                             gui
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gunicorn.html">
-                            gunicorn
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -714,8 +729,8 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/html.html">
-                            html
+                        <a href="http://pynsk.ru/tag/http.html">
+                            http
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -726,6 +741,11 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/import.html">
                             import
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/instrument.html">
+                            инструмент
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -744,16 +764,6 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/itertools.html">
-                            itertools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iunikod.html">
-                            юникод
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/izmerenie.html">
                             измерение
                         </a>
@@ -769,8 +779,8 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kodirovka.html">
-                            кодировка
+                        <a href="http://pynsk.ru/tag/language.html">
+                            language
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -779,23 +789,18 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
-                            магическая переменная
+                        <a href="http://pynsk.ru/tag/log.html">
+                            log
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magiia.html">
-                            магия
+                        <a href="http://pynsk.ru/tag/logging.html">
+                            logging
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mail.html">
-                            mail
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
+                        <a href="http://pynsk.ru/tag/matan.html">
+                            матан
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -804,23 +809,23 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/mnogopotochnost.html">
+                            многопоточность
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/mnozhestvo.html">
                             множество
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mock.html">
-                            mock
+                        <a href="http://pynsk.ru/tag/modul.html">
+                            модуль
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/multiprocessing.html">
                             multiprocessing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nauka.html">
-                            наука
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -838,6 +843,11 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             обработка текста
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/oop.html">
+                            ооп
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/optimizatsiia.html">
                             оптимизация
@@ -851,11 +861,6 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/paket.html">
-                            пакет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -884,8 +889,8 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
-                            поиск ошибок
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -894,8 +899,18 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/pygame.html">
                             pygame
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pypi.html">
+                            pypi
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -913,9 +928,19 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             python
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python2.html">
+                            python2
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             qt
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/r.html">
+                            R
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -924,18 +949,18 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
+                        <a href="http://pynsk.ru/tag/regexp.html">
+                            regexp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/reiting.html">
+                            рейтинг
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sbornik.html">
-                            сборник
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -958,6 +983,11 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             слабая ссылка
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/spisok.html">
+                            список
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/spravochnik.html">
                             справочник
@@ -974,11 +1004,6 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analiz.html">
-                            статический анализ
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
                             статический анализатор
                         </a>
@@ -989,23 +1014,13 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swagger.html">
-                            swagger
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sys.html">
-                            sys
+                        <a href="http://pynsk.ru/tag/svg.html">
+                            svg
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
                             тест
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/testing.html">
-                            testing
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1019,23 +1034,13 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipizatsiia.html">
-                            типизация
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
-                            типы данных
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/toolbar.html">
-                            toolbar
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
+                        <a href="http://pynsk.ru/tag/tox.html">
+                            tox
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1058,14 +1063,14 @@ ifftshift(x, axes=None) — делает обратную операцию.</p>
                             web
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/while.html">
+                            while
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/yield-from.html">
-                            yield from
                         </a>
                     </li>
                 </ul>

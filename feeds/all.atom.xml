@@ -48,12 +48,15 @@ ihfft(a, n=None, axis=-1) — обратное одномерное ДПФ.
 
 
 &lt;p&gt;Длина входного массива &lt;code&gt;N&lt;/code&gt;, а выходного &lt;code&gt;2*N+1&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Кроме того, есть вспомогательные функции (будет понятнее из примера):
-fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft&lt;em&gt;.
-rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft&lt;/em&gt;.
+&lt;p&gt;Кроме того, есть вспомогательные функции (будет понятнее из примера):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft*.
+rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft*.
 n — длина входного массива, d — период дискретизации (обратная частота дискретизации).
 fftshift(x, axes=None) — преобразует массив (с результатом ДПФ, от функций fft*) так, чтобы нулевая частота была в центре.
-ifftshift(x, axes=None) — делает обратную операцию.&lt;/p&gt;
+ifftshift(x, axes=None) — делает обратную операцию.
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Приведём такой пример. Допустим, записали мы микрофоном какой-то шум, и надо определить, есть ли там какой-нибудь тон.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
 &lt;span class="c"&gt;#coding=utf8&lt;/span&gt;
@@ -98,13 +101,15 @@ ifftshift(x, axes=None) — делает обратную операцию.&lt;/
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Ссылки для изучения:
-- &lt;a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье"&gt;Преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье"&gt;Быстрое преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье"&gt;Дискретное преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова"&gt;Теорема Котельникова&lt;/a&gt;
-- &lt;a href="http://habrahabr.ru/post/196374/"&gt;Простыми словами о преобразовании Фурье&lt;/a&gt;
-- &lt;a href="http://habrahabr.ru/post/269991/"&gt;Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих&lt;/a&gt;&lt;/p&gt;</summary><category term="матан"></category></entry><entry><title>Анонс встречи №4 сообщества PyNSK</title><link href="http://pynsk.ru/posts/2015/%D0%BD%D0%BE%D1%8F%D0%B1./05/anons-vstrechi-4-soobshchestva-pynsk/" rel="alternate"></link><updated>2015-11-05T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-05:posts/2015/нояб./05/anons-vstrechi-4-soobshchestva-pynsk/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/event/event_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье"&gt;Преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье"&gt;Быстрое преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье"&gt;Дискретное преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова"&gt;Теорема Котельникова&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/196374/"&gt;Простыми словами о преобразовании Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/269991/"&gt;Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="матан"></category></entry><entry><title>Анонс встречи №4 сообщества PyNSK</title><link href="http://pynsk.ru/posts/2015/%D0%BD%D0%BE%D1%8F%D0%B1./05/anons-vstrechi-4-soobshchestva-pynsk/" rel="alternate"></link><updated>2015-11-05T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-05:posts/2015/нояб./05/anons-vstrechi-4-soobshchestva-pynsk/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/event/event_4.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Встреча сообщества PyNSK состоится 15 ноября (воскресенье) в 13 часов, в Самоваре (&lt;a href="http://go.2gis.com/b20p"&gt;http://go.2gis.com/b20p&lt;/a&gt;)
 Регистрация на встречу по ссылке - &lt;a href="http://bit.ly/pynsk4_reg"&gt;http://bit.ly/pynsk4_reg&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;На встрече вас ожидает море общения и три доклада:&lt;/p&gt;

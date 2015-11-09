@@ -48,12 +48,15 @@ ihfft(a, n=None, axis=-1) — обратное одномерное ДПФ.
 
 
 &lt;p&gt;Длина входного массива &lt;code&gt;N&lt;/code&gt;, а выходного &lt;code&gt;2*N+1&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Кроме того, есть вспомогательные функции (будет понятнее из примера):
-fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft&lt;em&gt;.
-rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft&lt;/em&gt;.
+&lt;p&gt;Кроме того, есть вспомогательные функции (будет понятнее из примера):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft*.
+rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft*.
 n — длина входного массива, d — период дискретизации (обратная частота дискретизации).
 fftshift(x, axes=None) — преобразует массив (с результатом ДПФ, от функций fft*) так, чтобы нулевая частота была в центре.
-ifftshift(x, axes=None) — делает обратную операцию.&lt;/p&gt;
+ifftshift(x, axes=None) — делает обратную операцию.
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Приведём такой пример. Допустим, записали мы микрофоном какой-то шум, и надо определить, есть ли там какой-нибудь тон.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
 &lt;span class="c"&gt;#coding=utf8&lt;/span&gt;
@@ -98,13 +101,15 @@ ifftshift(x, axes=None) — делает обратную операцию.&lt;/
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Ссылки для изучения:
-- &lt;a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье"&gt;Преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье"&gt;Быстрое преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье"&gt;Дискретное преобразование Фурье&lt;/a&gt;
-- &lt;a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова"&gt;Теорема Котельникова&lt;/a&gt;
-- &lt;a href="http://habrahabr.ru/post/196374/"&gt;Простыми словами о преобразовании Фурье&lt;/a&gt;
-- &lt;a href="http://habrahabr.ru/post/269991/"&gt;Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 09 Nov 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-11-09:posts/2015/нояб./09/matematika-v-python-preobrazovanie-fure/</guid><category>матан</category></item><item><title>Математика в Python: Матрицы в NumPy</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./25/matematika-v-python-matritsy-v-numpy/</link><description>&lt;p&gt;Списки - встроенный тип Python, могут содержать любые элементы: целые, дробные числа, строки, объекты. Это великая сила Python, но в то же время и слабость — в отношении скорости работы. &lt;/p&gt;
+&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье"&gt;Преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье"&gt;Быстрое преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье"&gt;Дискретное преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова"&gt;Теорема Котельникова&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/196374/"&gt;Простыми словами о преобразовании Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/269991/"&gt;Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 09 Nov 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-11-09:posts/2015/нояб./09/matematika-v-python-preobrazovanie-fure/</guid><category>матан</category></item><item><title>Математика в Python: Матрицы в NumPy</title><link>http://pynsk.ru/posts/2015/%D0%BE%D0%BA%D1%82./25/matematika-v-python-matritsy-v-numpy/</link><description>&lt;p&gt;Списки - встроенный тип Python, могут содержать любые элементы: целые, дробные числа, строки, объекты. Это великая сила Python, но в то же время и слабость — в отношении скорости работы. &lt;/p&gt;
 &lt;p&gt;В стандартные дистрибутивы Python входит модуль array, реализующий аналог массивов C/C++, он может пригодиться для простейших расчётов с многомерными массивами, матрицами.&lt;/p&gt;
 &lt;p&gt;NumPy — мощнейшая библиотека для научных вычислений. Написать здесь операции с матрицами так же просто, как и с обычными числами. &lt;/p&gt;
 &lt;p&gt;Матрица в NumPy — это объект numpy.array, массив чисел одного типа, какой угодно размерности: 0 (одно число, скаляр), 1 (вектор), 2 (матрица), 3 (тензор третьего ранга)... &lt;/p&gt;
