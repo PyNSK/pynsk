@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-30T18:00:00+06:00</updated><entry><title>Hardcore Python: Оптимизация на грани и за ней</title><link href="http://pynsk.ru/posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/" rel="alternate"></link><updated>2015-10-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-30:posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/</id><summary type="html">&lt;p&gt;Возможно, вы видели доклад Антона Патрушева про оптимизацию Python — вплоть до отключения Garbage Collector.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-11-09T18:00:00+06:00</updated><entry><title>Математика в Python: Преобразование фурье</title><link href="http://pynsk.ru/posts/2015/Nov/09/matematika-v-python-preobrazovanie-fure/" rel="alternate"></link><updated>2015-11-09T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-09:posts/2015/Nov/09/matematika-v-python-preobrazovanie-fure/</id><summary type="html">&lt;p&gt;Осторожно, МАТАН!!!&lt;/p&gt;
+&lt;p&gt;По-простому, &lt;strong&gt;преобразование Фурье&lt;/strong&gt; — разложение некоторого сигнала на гармонические (синусы или косинусы) колебания (спектр). &lt;/p&gt;
+&lt;p&gt;Если вы осознанно употребляете слово "частота", вы уже хотя бы интуитивно представляете, что такое преобразование Фурье. Даже в наших ушах есть хардверный анализатор Фурье (улитка) (а также продвинутые драйвера в мозгу), благодаря которому мы различаем голоса, ноты, тембры... Призма раскладывает белый свет на цвета радуги — это тоже Фурье-анализатор. Форматы mp3 и jpeg в своих алгоритмах содержат преобразование Фурье (одномерное и двухмерное, соответственно) для сжатия информации. В природе и технике есть тысячи примеров... Также есть обратное преобразование Фурье, переводящее "частоты" и "амплитуды" в "сигнал", математически очень похожее на прямое.&lt;/p&gt;
+&lt;p&gt;Преобразование Фурье является &lt;strong&gt;интегральным преобразованием&lt;/strong&gt;. &lt;/p&gt;
+&lt;p&gt;Если речь идёт о дискретном сигнале, то интеграл обращается в сумму (и становится &lt;code&gt;дискретным преобразованием Фурье, ДПФ&lt;/code&gt;). Беда в том, что, чтобы посчитать такую сумму &lt;code&gt;N&lt;/code&gt; элементов, надо совершить &lt;code&gt;N^2&lt;/code&gt; операций с комплексными числами. Но кто-то очень умный давно (&lt;code&gt;Cooley, Tukey, 1965 г&lt;/code&gt;, а ещё сам &lt;code&gt;Гаусс в 1805 г.&lt;/code&gt;) придумал алгоритм, вычисляющий &lt;code&gt;ДПФ&lt;/code&gt; &lt;code&gt;N&lt;/code&gt; элементов в &lt;code&gt;N*log(N)&lt;/code&gt; операций (большая часть из которых над действительными числами), что существенно экономит вычислительное время — быстрое преобразование Фурье, БПФ (&lt;code&gt;Fast Fourier Transform, FFT&lt;/code&gt;). Именно так реализовано ДПФ в современных компьютерных программах.&lt;/p&gt;
+&lt;p&gt;В библиотеке &lt;code&gt;numpy&lt;/code&gt; содержится всё что нужно для дискретного преобразования Фурье. Всё это лежит в &lt;code&gt;numpy.fft&lt;/code&gt;. Вот эти функции.&lt;/p&gt;
+&lt;p&gt;Общий случай: сигнал может быть как из действительных чисел, так и из комплексных.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fft(a, n=None, axis=-1) — прямое одномерное ДПФ.
+ifft(a, n=None, axis=-1) — обратное одномерное ДПФ.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;a&lt;/code&gt; — "сигнал", входной массив (массив &lt;code&gt;numpy&lt;/code&gt;, &lt;code&gt;array&lt;/code&gt; или даже питоновский &lt;code&gt;список&lt;/code&gt; или &lt;code&gt;кортеж&lt;/code&gt;, если в нём только числа). Массив может быть и многомерным, тогда будет вычисляться много &lt;code&gt;ОДНОМЕРНЫХ ПФ&lt;/code&gt; по строкам (по умолчанию) или столбцам, в зависимости от параметра axis. Например, &lt;code&gt;a&lt;/code&gt; — двухмерный, &lt;code&gt;a[n][m]&lt;/code&gt;: при &lt;code&gt;axis=1&lt;/code&gt; или &lt;code&gt;-1&lt;/code&gt; будет такое (под &lt;code&gt;fourier(a...)&lt;/code&gt; понимается результат действия ПФ на &lt;code&gt;a&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[fourier(a[0][j]), fourier(a[1][j]), ... foirier(a[n][j])]&lt;/span&gt;
+&lt;span class="na"&gt;При axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;0 такое:&lt;/span&gt;
+&lt;span class="k"&gt;[fourier(a[i][0]), fourier(a[i][1]), ... foirier(a[i][m])]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;n&lt;/code&gt; — сколько элементов массива брать. Если меньше длины массива, то обрезать, если больше, то дополнить нулями, по умолчанию &lt;code&gt;len(a)&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fft2(a, s=None, axes=(-2, -1)) — прямое двухмерное ПФ.
+ifft2(a, s=None, axes=(-2, -1)) — обратное двухмерное ПФ.
+fftn(a, s=None, axes=None) — прямое многомерное ПФ.
+ifftn(a, s=None, axes=None) — обратное многомерное ПФ.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Всё так же, как и для одномерных, но s и axes теперь кортежи для каждой размерности. О размерности &lt;code&gt;fftn&lt;/code&gt;, &lt;code&gt;ifftn&lt;/code&gt; догадаются по размерности входных массивов или &lt;code&gt;s&lt;/code&gt; и &lt;code&gt;axes&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Когда сигнал действительный (&lt;code&gt;real&lt;/code&gt;) (пожалуй, самый распространённый случай).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rfft(a, n=None, axis=-1) — прямое одномерное ДПФ (для действительных чисел).
+irfft(a, n=None, axis=-1) — обратное одномерное ДПФ.
+rfft2(a, s=None, axes=(-2, -1)) — прямое двухмерное ДПФ.
+irfft2(a, s=None, axes=(-2, -1)) — обратное двухмерное ДПФ.
+rfftn(a, s=None, axes=None) — прямое многомерное ДПФ.
+irfftn(a, s=None, axes=None) — обратное многомерное ДПФ.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Всё так же, как и для общего случая.&lt;/p&gt;
+&lt;p&gt;Все эти функции возвращают массив соответствующей размерности, в котором записан результат &lt;code&gt;ДПФ&lt;/code&gt;. &lt;em&gt;Разница такая&lt;/em&gt;. Если длина входного массива (или какой-либо его размерности) &lt;code&gt;N&lt;/code&gt;, то в общем случае (с комплексным сигналом) длина выходного массива &lt;code&gt;N&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Там содержатся сначала положительные частоты от нуля до частоты Котельникова (Найквиста), потом отрицательные в порядке возрастания.&lt;/p&gt;
+&lt;p&gt;В случае действительного сигнала отрицательные частоты полностью симметричны положительным, и тогда нет нужды их записывать: длина выходного массива &lt;code&gt;N/2+1&lt;/code&gt;, частоты от нуля до частоты Котельникова.&lt;/p&gt;
+&lt;p&gt;Если спектр сигнала действительный (а сигнал обладает "эрмитовой симметрией": его половины симметричны относительно центра по модулю и являются комплексно сопряжёнными друг другу), то можно применить такие функции:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;hfft(a, n=None, axis=-1) — прямое одномерное ДПФ.
+ihfft(a, n=None, axis=-1) — обратное одномерное ДПФ.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Длина входного массива &lt;code&gt;N&lt;/code&gt;, а выходного &lt;code&gt;2*N+1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Кроме того, есть вспомогательные функции (будет понятнее из примера):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций fft*.
+rfftfreq(n, d=1.0) — возвращает частоты для выходных массивов функций rfft*.
+n — длина входного массива, d — период дискретизации (обратная частота дискретизации).
+fftshift(x, axes=None) — преобразует массив (с результатом ДПФ, от функций fft*) так, чтобы нулевая частота была в центре.
+ifftshift(x, axes=None) — делает обратную операцию.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Приведём такой пример. Допустим, записали мы микрофоном какой-то шум, и надо определить, есть ли там какой-нибудь тон.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c"&gt;#coding=utf8&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;abs&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;np_abs&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.fft&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rfft&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rfftfreq&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;numpy.random&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pi&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="c"&gt;# а можно импортировать numpy и писать: numpy.fft.rfft&lt;/span&gt;
+&lt;span class="n"&gt;FD&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;22050&lt;/span&gt; &lt;span class="c"&gt;# частота дискретизации, отсчётов в секунду&lt;/span&gt;
+&lt;span class="c"&gt;# а это значит, что в дискретном сигнале представлены частоты от нуля до 11025 Гц (это и есть теорема Котельникова)&lt;/span&gt;
+&lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt; &lt;span class="c"&gt;# длина входного массива, 0.091 секунд при такой частоте дискретизации&lt;/span&gt;
+&lt;span class="c"&gt;# сгенерируем сигнал с частотой 440 Гц длиной N&lt;/span&gt;
+&lt;span class="n"&gt;pure_sig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;6.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mf"&gt;440.0&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;FD&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;span class="c"&gt;# сгенерируем шум, тоже длиной N (это важно!)&lt;/span&gt;
+&lt;span class="n"&gt;noise&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;50.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;50.&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# суммируем их и добавим постоянную составляющую 2 мВ (допустим, не очень хороший микрофон попался. Или звуковая карта или АЦП)&lt;/span&gt;
+&lt;span class="n"&gt;sig&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pure_sig&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;noise&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mf"&gt;2.0&lt;/span&gt; &lt;span class="c"&gt;# в numpy так перегружена функция сложения&lt;/span&gt;
+&lt;span class="c"&gt;# вычисляем преобразование Фурье. Сигнал действительный, поэтому надо использовать rfft, это быстрее, чем fft&lt;/span&gt;
+&lt;span class="n"&gt;spectrum&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rfft&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# нарисуем всё это, используя matplotlib&lt;/span&gt;
+&lt;span class="c"&gt;# Сначала сигнал зашумлённый и тон отдельно&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FD&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;sig&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# по оси времени секунды!&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;FD&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;pure_sig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# чистый сигнал будет нарисован красным&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Время, c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# это всё запускалось в Python 2.7, поэтому юникодовские строки&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Напряжение, мВ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Зашумлённый сигнал и тон 440 Гц&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c"&gt;# когда закроется этот график, откроется следующий&lt;/span&gt;
+&lt;span class="c"&gt;# Потом спектр&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rfftfreq&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;FD&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;np_abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;spectrum&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;# rfftfreq сделает всю работу по преобразованию номеров элементов массива в герцы&lt;/span&gt;
+&lt;span class="c"&gt;# нас интересует только спектр амплитуд, поэтому используем abs из numpy (действует на массивы поэлементно)&lt;/span&gt;
+&lt;span class="c"&gt;# делим на число элементов, чтобы амплитуды были в милливольтах, а не в суммах Фурье. Проверить просто — постоянные составляющие должны совпадать в сгенерированном сигнале и в спектре&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Частота, Гц&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Напряжение, мВ&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;u&amp;#39;Спектр&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Преобразование_Фурье"&gt;Преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Быстрое_преобразование_Фурье"&gt;Быстрое преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Дискретное_преобразование_Фурье"&gt;Дискретное преобразование Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ru.wikipedia.org/wiki/Теорема_Котельникова"&gt;Теорема Котельникова&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/196374/"&gt;Простыми словами о преобразовании Фурье&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/269991/"&gt;Практическое применение преобразования Фурье для анализа сигналов. Введение для начинающих&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="матан"></category></entry><entry><title>Анонс встречи №4 сообщества PyNSK</title><link href="http://pynsk.ru/posts/2015/Nov/05/anons-vstrechi-4-soobshchestva-pynsk/" rel="alternate"></link><updated>2015-11-05T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-05:posts/2015/Nov/05/anons-vstrechi-4-soobshchestva-pynsk/</id><summary type="html">&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/event/event_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Встреча сообщества PyNSK состоится 15 ноября (воскресенье) в 13 часов, в Самоваре (&lt;a href="http://go.2gis.com/b20p"&gt;http://go.2gis.com/b20p&lt;/a&gt;)
+Регистрация на встречу по ссылке - &lt;a href="http://bit.ly/pynsk4_reg"&gt;http://bit.ly/pynsk4_reg&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;На встрече вас ожидает море общения и три доклада:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Владимир Донец (kwimba.ru, https://vk.com/vovk.donets)&lt;/strong&gt; расскажет доклад &lt;strong&gt;"Магия в Python: Дескрипторы. Что это?"&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Описание:&lt;/strong&gt; Слышали про магию в Python? Одно из магических заклинаний называется дескрипторы. Мощная фича языка, которая позволяет определять свое поведение атрибута объекта при доступе к этому атрибуту. 
+Сложно звучит? А вы знали, что дескрипторами уже наверняка пользовались, если хотя бы раз писали на Python. Я расскажу о том, что такое дескрипторы и как их осознанно можно применять в собственном коде. Так что приходите. Наверняка будут чай, кофе, печеньки и дружеские рукопожатия&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Богомолов Иван&lt;/strong&gt; с мини-докладом расскажет как начать работать с Google API - &lt;strong&gt;"Быстрый старт в gDrive API"&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Описание:&lt;/strong&gt; Краткий обзор разных вариантов использования gDrive API, так же вы узнаете как получить доступ к gDrive API, конечно же с примерами подключения, авторизации и выполнения различных запросов на питоне.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;Александр Маршалов (ЦФТ, https://vk.com/alone.amper)&lt;/strong&gt; расскажет про AST с докладом: &lt;strong&gt;"Модифицируй это!" или "Больше магии Python с помощью изменения AST"&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Описание:&lt;/strong&gt; Мы узнаем, что из себя представляет дерево синтаксического разбора (AST / Abstract Syntax Tree) в языке Python 
+и какие магические возможности можно получить с помощью модификации AST.&lt;/p&gt;</summary></entry><entry><title>Hardcore Python: Оптимизация на грани и за ней</title><link href="http://pynsk.ru/posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/" rel="alternate"></link><updated>2015-10-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-30:posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/</id><summary type="html">&lt;p&gt;Возможно, вы видели доклад Антона Патрушева про оптимизацию Python — вплоть до отключения Garbage Collector.
 Это свежий доклад (PyCon RU 2015) и в нём вы найдете развитие идей оптимизации Python&lt;/p&gt;
 &lt;iframe width="480" height="270" src="https://www.youtube.com/embed/c0qb9-8s5IU?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="оптимизация"></category><category term="gc"></category><category term="garbage collector"></category><category term="видео"></category></entry><entry><title>Hardcore Python: Пишем свой интерпретатор</title><link href="http://pynsk.ru/posts/2015/Oct/29/hardcore-python-pishem-svoi-interpretator/" rel="alternate"></link><updated>2015-10-29T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-29:posts/2015/Oct/29/hardcore-python-pishem-svoi-interpretator/</id><summary type="html">&lt;p&gt;Говорят, что отличный результат для мужчины — построить дом, вырастить сына и посадить дерево. А если ты программист, то ещё написать свой язык программирования.&lt;/p&gt;
 &lt;p&gt;Сейчас уже нет чисто интерпретируемых языков, даже Python сначала компилируется в байт-код, а потом интерпретируется — исполняется. 
@@ -122,100 +246,7 @@
 &lt;li&gt;&lt;a href="https://docs.python.org/2/library/zipimport.html"&gt;https://docs.python.org/2/library/zipimport.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.python.org/2.3/whatsnew/node5.html"&gt;https://docs.python.org/2.3/whatsnew/node5.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://habrahabr.ru/company/acronis/blog/208378/"&gt;http://habrahabr.ru/company/acronis/blog/208378/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="zip"></category><category term="import"></category></entry><entry><title>Учебные материалы: Что нового в Python 3.5</title><link href="http://pynsk.ru/posts/2015/Oct/23/uchebnye-materialy-chto-novogo-v-python-35/" rel="alternate"></link><updated>2015-10-23T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-23:posts/2015/Oct/23/uchebnye-materialy-chto-novogo-v-python-35/</id><summary type="html">&lt;p&gt;Когда полезны аннотации типов? Станет ли асинхронное программирование обычной практикой с новыми async-await? Устроим обсуждение этих и других новинок Python 3.5.
-Все это вы сможете узнаете в докладе Андрея Власовских&lt;/p&gt;
-&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/2GuTQwBYsgI?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python"></category><category term="видео"></category></entry><entry><title>Таинство стандартной библиотеки: .pyi файлы - python stubs</title><link href="http://pynsk.ru/posts/2015/Oct/23/tainstvo-standartnoi-biblioteki-pyi-faily-python-stubs/" rel="alternate"></link><updated>2015-10-23T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-23:posts/2015/Oct/23/tainstvo-standartnoi-biblioteki-pyi-faily-python-stubs/</id><summary type="html">&lt;p&gt;PEP 484 добавил в Python расширенные возможности опциональной типизации. 
-Польза от этого функционала большая - возможность создать статический анализатор Python программ, а значит еще до запуска узнать об многих ошибках.&lt;/p&gt;
-&lt;p&gt;Появился модуль typing, который в 3.5 есть по умолчанию, а начиная с 3.2 можно установить с PyPi
-Но что делать с кодом на 2.7? Хочется же больше ошибок вылавливать. 
-Здесь на пользу приходят python stubs - &lt;code&gt;.pyi&lt;/code&gt; файлы. &lt;/p&gt;
-&lt;p&gt;Пример такого файла:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addTest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Testable&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addTests&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Iterable&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Testable&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;TestResult&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;countTestCases&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Многоточия - это часть формата. 
-В файле &lt;code&gt;.pyi&lt;/code&gt; декларируются функции с типами аргументов и возвращаемых значений, а тело уже будет их обычных &lt;code&gt;.py&lt;/code&gt; файлов&lt;/p&gt;
-&lt;p&gt;Смысл: пользователь размечает часть своего кода типами, а автоматизированные средства будут проверять и оповещать о возможных ошибках. 
-Но есть и недостатки - на данный момент мало инструментов, которые умеют такую проверку делать.&lt;/p&gt;
-&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.mypy-lang.org/wiki/CreatingStubsForPythonModules"&gt;http://www.mypy-lang.org/wiki/CreatingStubsForPythonModules&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0484/"&gt;https://www.python.org/dev/peps/pep-0484/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Интересные концепции: утиная типизация</title><link href="http://pynsk.ru/posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/" rel="alternate"></link><updated>2015-10-22T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-22:posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/</id><summary type="html">&lt;p&gt;Слышали фразу: "Если что-то выглядит как утка, плавает как утка и крякает как утка, то, вероятно, это утка"?
-Эта поговорка характеризует утиную типизацию == утипизацию&lt;/p&gt;
-&lt;p&gt;Смысл утиной типизации заключается в ослаблении типов. Вместо того чтобы заботиться о точном классе объекта мы заботимся о том какие методы для него можно вызвать и какие операции над ним можно выполнять. Таким образом, обычным делом становится просто передать объект методу, зная, что при неправильном использовании будет выброшено исключение (&lt;code&gt;exception&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;Например: если есть код&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;method&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-   &lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;При утиной типизации мы не заботимся о типе объекта &lt;code&gt;obj&lt;/code&gt;, нам лишь важно, что у него есть метод &lt;code&gt;start&lt;/code&gt;. Если же такого метода нет, то исключение нас разочарует.    &lt;/p&gt;
-&lt;p&gt;Утиная типизация решает некоторые проблемы иерархической типизации:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;невозможность явно указать (путем наследования) на совместимость интерфейса со всеми настоящими и будущими интерфейсами, с которыми он идейно совместим;&lt;/li&gt;
-&lt;li&gt;экспоненциальное увеличение числа связей в иерархии типов.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Image" src="https://pbs.twimg.com/media/BPgjzbBCUAAXgMa.jpg" /&gt;&lt;/p&gt;</summary><category term="типизация"></category><category term="утка"></category><category term="концепция"></category><category term="image"></category></entry><entry><title>Учебные материалы: познаем Django</title><link href="http://pynsk.ru/posts/2015/Oct/21/uchebnye-materialy-poznaem-django/" rel="alternate"></link><updated>2015-10-21T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-21:posts/2015/Oct/21/uchebnye-materialy-poznaem-django/</id><summary type="html">&lt;p&gt;Django - web-фреймворк. Обладает отличной документацией, которую можно читать долго и упорно. Есть даже тутроиал по созданию блога. 
-Вот только есть "минус" - проходишь туториал с блогом и не знаешь где еще добыть структурированной информации. Да еще и актуальной.&lt;/p&gt;
-&lt;p&gt;Мы сделали опрос и получили следующие советы:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://code.djangoproject.com/wiki/Tutorials"&gt;https://code.djangoproject.com/wiki/Tutorials&lt;/a&gt;
-Данный ресурс содержит ссылки на множество учебных пособий по Django. Все разбито по разделам. Много практики! &lt;/p&gt;
-&lt;p&gt;&lt;a href="http://djbook.ru/"&gt;http://djbook.ru/&lt;/a&gt;
-Русскоязычный ресурс, много готового кода. Быстро отвечают на вопросы.&lt;/p&gt;
-&lt;p&gt;И два ресурса с видео:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://godjango.com/"&gt;https://godjango.com/&lt;/a&gt; - различные django скринкасты&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.youtube.com/user/MickeySoFine1972/videos"&gt;https://www.youtube.com/user/MickeySoFine1972/videos&lt;/a&gt; - видео-уроки по Django&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;А какие django ресурсы знаете вы?&lt;/p&gt;</summary><category term="django"></category><category term="учебник"></category><category term="видео"></category></entry><entry><title>Извлечение информации: lxml - парсим XML и HTML</title><link href="http://pynsk.ru/posts/2015/Oct/21/izvlechenie-informatsii-lxml-parsim-xml-i-html/" rel="alternate"></link><updated>2015-10-21T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-21:posts/2015/Oct/21/izvlechenie-informatsii-lxml-parsim-xml-i-html/</id><summary type="html">&lt;p&gt;lxml это быстрая и гибкая библиотека для обработки разметки XML и HTML на Python. Она снабжена поддержкой языка запросов XML (XPath) и языка преобразования XML-документов (XSLT) и предоставляет API ElementTree.&lt;/p&gt;
-&lt;p&gt;Много где можно найти что ее называют "быстрой". Для обоснования этого прилагательного прошу ознакомиться со страницей - &lt;a href="http://lxml.de/performance.html"&gt;http://lxml.de/performance.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Пример использования:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&amp;#39;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;soft&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;    &amp;lt;os&amp;gt; &lt;/span&gt;
-&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;linux&amp;quot; dist=&amp;quot;ubuntu&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;            This text about linux&lt;/span&gt;
-&lt;span class="s"&gt;        &amp;lt;/item&amp;gt;             &lt;/span&gt;
-&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;mac os&amp;quot;&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;            Apple company&lt;/span&gt;
-&lt;span class="s"&gt;        &amp;lt;/item&amp;gt;             &lt;/span&gt;
-&lt;span class="s"&gt;        &amp;lt;item name=&amp;quot;windows&amp;quot; dist=&amp;quot;XP&amp;quot; /&amp;gt;             &lt;/span&gt;
-&lt;span class="s"&gt;    &amp;lt;/os&amp;gt;&lt;/span&gt;
-&lt;span class="s"&gt;&amp;lt;/soft&amp;gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;
-
-&lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;XML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Парсинг строки&lt;/span&gt;
-&lt;span class="c"&gt;#tree = etree.parse(&amp;#39;1.xml&amp;#39;) # Парсинг файла&lt;/span&gt;
-
-&lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Открываем раздел&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c"&gt;# Перебираем элементы&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tag&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;name =&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# Выводим параметр name&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text =&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,[&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;# Выводим текст элемента&lt;/span&gt;
-
-&lt;span class="c"&gt;# Доступ к тексту напрямую, с указанием фильтра&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[@name=&amp;quot;linux&amp;quot;]/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;text2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[2]/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c"&gt;# Доступ к параметру напрямую&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/soft/os/item[@name=&amp;quot;linux&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="c"&gt;# Выборка по ключу&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;dist by key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;//*[@name=&amp;quot;windows&amp;quot;]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;dist&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Вот и ссылки для изучения:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://habrahabr.ru/post/220125/"&gt;http://habrahabr.ru/post/220125/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://lxml.de/"&gt;http://lxml.de/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/lxml"&gt;https://pypi.python.org/pypi/lxml&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="lxml"></category><category term="xml"></category><category term="html"></category><category term="парсинг"></category></entry><entry><title>Синтаксис Python: слайсы/срезы</title><link href="http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/" rel="alternate"></link><updated>2015-10-19T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-19:posts/2015/Oct/19/sintaksis-python-slaisysrezy/</id><summary type="html">&lt;p&gt;Синтаксис Python легкий, читаемый. 
+&lt;/ul&gt;</summary><category term="zip"></category><category term="import"></category></entry><entry><title>Синтаксис Python: слайсы/срезы</title><link href="http://pynsk.ru/posts/2015/Oct/19/sintaksis-python-slaisysrezy/" rel="alternate"></link><updated>2015-10-19T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-19:posts/2015/Oct/19/sintaksis-python-slaisysrezy/</id><summary type="html">&lt;p&gt;Синтаксис Python легкий, читаемый. 
 Хочется упомянуть массивы (как структура с последовательными элементами). В Python они бывают разные - &lt;code&gt;list&lt;/code&gt;, &lt;code&gt;tuple&lt;/code&gt;, строки
 Операции с массивами:&lt;/p&gt;
 &lt;ul&gt;

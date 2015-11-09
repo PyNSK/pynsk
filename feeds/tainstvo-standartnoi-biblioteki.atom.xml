@@ -38,29 +38,7 @@
 &lt;li&gt;&lt;a href="https://docs.python.org/2/library/zipimport.html"&gt;https://docs.python.org/2/library/zipimport.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://docs.python.org/2.3/whatsnew/node5.html"&gt;https://docs.python.org/2.3/whatsnew/node5.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://habrahabr.ru/company/acronis/blog/208378/"&gt;http://habrahabr.ru/company/acronis/blog/208378/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="zip"></category><category term="import"></category></entry><entry><title>Таинство стандартной библиотеки: .pyi файлы - python stubs</title><link href="http://pynsk.ru/posts/2015/Oct/23/tainstvo-standartnoi-biblioteki-pyi-faily-python-stubs/" rel="alternate"></link><updated>2015-10-23T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-23:posts/2015/Oct/23/tainstvo-standartnoi-biblioteki-pyi-faily-python-stubs/</id><summary type="html">&lt;p&gt;PEP 484 добавил в Python расширенные возможности опциональной типизации. 
-Польза от этого функционала большая - возможность создать статический анализатор Python программ, а значит еще до запуска узнать об многих ошибках.&lt;/p&gt;
-&lt;p&gt;Появился модуль typing, который в 3.5 есть по умолчанию, а начиная с 3.2 можно установить с PyPi
-Но что делать с кодом на 2.7? Хочется же больше ошибок вылавливать. 
-Здесь на пользу приходят python stubs - &lt;code&gt;.pyi&lt;/code&gt; файлы. &lt;/p&gt;
-&lt;p&gt;Пример такого файла:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addTest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Testable&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;addTests&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Iterable&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Testable&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;TestResult&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;countTestCases&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Многоточия - это часть формата. 
-В файле &lt;code&gt;.pyi&lt;/code&gt; декларируются функции с типами аргументов и возвращаемых значений, а тело уже будет их обычных &lt;code&gt;.py&lt;/code&gt; файлов&lt;/p&gt;
-&lt;p&gt;Смысл: пользователь размечает часть своего кода типами, а автоматизированные средства будут проверять и оповещать о возможных ошибках. 
-Но есть и недостатки - на данный момент мало инструментов, которые умеют такую проверку делать.&lt;/p&gt;
-&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.mypy-lang.org/wiki/CreatingStubsForPythonModules"&gt;http://www.mypy-lang.org/wiki/CreatingStubsForPythonModules&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://www.python.org/dev/peps/pep-0484/"&gt;https://www.python.org/dev/peps/pep-0484/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Таинство стандартной библиотеки: сериализуем данные с помощью marshal</title><link href="http://pynsk.ru/posts/2015/Oct/14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/" rel="alternate"></link><updated>2015-10-14T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-14:posts/2015/Oct/14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/</id><summary type="html">&lt;p&gt;Наверное, вы слышали про модуль Pickle, который умеет сериализовать объект в бинарный вид, который можно потом сохранить/загрузить в /из файл.&lt;/p&gt;
+&lt;/ul&gt;</summary><category term="zip"></category><category term="import"></category></entry><entry><title>Таинство стандартной библиотеки: сериализуем данные с помощью marshal</title><link href="http://pynsk.ru/posts/2015/Oct/14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/" rel="alternate"></link><updated>2015-10-14T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-14:posts/2015/Oct/14/tainstvo-standartnoi-biblioteki-serializuem-dannye-s-pomoshchiu-marshal/</id><summary type="html">&lt;p&gt;Наверное, вы слышали про модуль Pickle, который умеет сериализовать объект в бинарный вид, который можно потом сохранить/загрузить в /из файл.&lt;/p&gt;
 &lt;p&gt;А модуль marshal сериализует объект в текстовый вид.
 Получив строку вы можете отправить ее другу по email, а уже из строки снова получить объект&lt;/p&gt;
 &lt;p&gt;Особенности модуля:&lt;/p&gt;
