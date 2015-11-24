@@ -231,6 +231,108 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/05/bottle-s-python/">Bottle с Python</a></h2>
+
+                <div class="summary"><p>bottle - это веб-фреймворк для Python. Отличительной особенностью этого фреймворка является простота - исходный код занимает один файл. Несмотря на свою минималистичность, Bottle предоставляет довольно широкие возможности, которых на 100% хватает для мелких и средних проектов.
+Чтобы стартануть изучение достаточно написать:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">route</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">template</span>
+
+<span class="nd">@route</span><span class="p">(</span><span class="s">&#39;/hello/&lt;name&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s">&#39;&lt;b&gt;Hello {{name}}&lt;/b&gt;!&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">run ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/05/bottle-s-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-modul-testirovaniia-pytest/">Тесты тесты тесты: модуль тестирования py.test</a></h2>
+
+                <div class="summary"><p>Наряду с входящими в стандартную поставку питона средствами для тестирования, существуют и альтернативные инструменты, например, py.test. <a href="http://pytest.org/">http://pytest.org/</a></p>
+<p>py.test имеет множество расширений, которые значительно упрощают написание тестов.
+py.test имеет плагины для всех популярных web-фреймворков, с помощью плагинов позволяет кэшеировать результаты (успешных тестов), формировать отчеты в самых различных форматах.
+А также имеет очень простую систему расширения и ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-modul-testirovaniia-pytest/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-sozdanie-chitaemykh-otchetov/">Тесты тесты тесты: создание читаемых отчетов</a></h2>
+
+                <div class="summary"><p>Тесты тесты тесты: создание читаемых отчетов</p>
+<p>Когда в вашей программе очень много тестов, то возникают проблемы с чтением отчетов (что сломалось, что корректно отработало). Для создания читаемых отчетов можно порекомендовать allure-framework. О этом фреймворке можно узнать в видео:
+<a class='embedly-card' data-card-chrome='0' href='http://www.youtube.com/watch?v=d5SreR6dGnE'></a>
+            <script>
+            !function(a){
+                var b="embedly-platform",c="script";
+                if(!a.getElementById(b)){
+                    var d=a.createElement(c);
+                    d.id=b;
+                    d.src=("https ...</script></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/04/testy-testy-testy-sozdanie-chitaemykh-otchetov/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-konstruktsiia-switch/">Синтаксис Python: конструкция switch</a></h2>
+
+                <div class="summary"><p>Стоит упомянуть про конструкцию switch в Python. Такой конструкции в языке нет, однако, выкрутится можно. Часто рекомендуют писать множественные elif'ы, но можно сделать так:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">switch_case</span><span class="p">(</span><span class="n">case</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">&quot;You entered &quot;</span> <span class="o">+</span> <span class="p">{</span>
+    <span class="s">&#39;1&#39;</span> <span class="p">:</span> <span class="s">&quot;one&quot;</span><span class="p">,</span>
+    <span class="s">&#39;2&#39;</span> <span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">,</span>
+    <span class="s">&#39;3&#39;</span> <span class="p">:</span> <span class="s">&quot;three&quot;</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="s">&quot;an out of range number&quot;</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Input a number between 1 and 3: &quot;</span><span class="p">)</span> 
+<span class="k">print</span> <span class="n">switch_case</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+
+
+<p>В этом примере мы ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-konstruktsiia-switch/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/">Синтаксис Python: трехместное выражение if/else</a></h2>
+
+                <div class="summary"><p>Сегодня хочется упомянуть о непонятной на первый взгляд конструкции - тернарная условная операция, или по-русски - трехместное выражение <code>if/else</code>.</p>
+<p>Представим, есть такой код:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">X</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">Y</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">Z</span>
+</pre></div>
+
+
+<p>довольно короткая, но, тем не менее, занимает целых 4 строки. Специально для таких случаев и было придумано выражение <code>if/else</code>:</p>
+<div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="n">Y</span> <span class="k">if</span> <span class="n">X</span> <span class="k">else</span> <span class="n">Z</span>
+</pre></div>
+
+
+<p>В данной инструкции интерпретатор выполнит ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/02/risovanie-svg-grafikov/">Рисование svg графиков</a></h2>
+
+                <div class="summary"><p>Для рисования векторных графиков (svg) подойдет библиотека pygal - <a href="http://pygal.org/">http://pygal.org/</a> 
+Данный модуль предоставляет широкий спектр возможностей, в частности можно нарисовать:</p>
+<p>Столбчатые диаграммы
+Линейные диаграммы
+XY диаграммы
+Круговые диаграммы
+Лепестковые диаграммы
+и другие</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/02/risovanie-svg-grafikov/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Aug/02/statisticheskii-modul-v-standartnoi-biblioteke/">Статистический модуль в стандартной библиотеке</a></h2>
 
                 <div class="summary"><p>Статистический модуль теперь есть в стандартной библиотеке.
@@ -280,67 +382,6 @@ JSL позволяет описывать модели, почти в какой
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/31/python-iazyk-obshchego-naznacheniia/">Python - язык общего назначения</a></h2>
-
-                <div class="summary"><p>Python - язык общего назначения, может применяться где угодно. Не верите? На странице <a href="https://www.python.org/about/success/">https://www.python.org/about/success/</a> представлены сферы и названия компаний, которые применяют этот язык.</p>
-<p>Впечатляет.</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/31/python-iazyk-obshchego-naznacheniia/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/30/python-i-real-time/">Python и real-time?</a></h2>
-
-                <div class="summary"><p>Возможно!<br />
-Рассказ "Управление памятью в real-time приложениях Python"  Антона Патрушева покажет как можно писать Python приложения с максимально быстрым откликом.
-<a href="https://events.yandex.ru/lib/talks/2075/">https://events.yandex.ru/lib/talks/2075/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/30/python-i-real-time/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/30/sravnenie-r-i-python/">Сравнение R и Python</a></h2>
-
-                <div class="summary"><p>В последнее время любят сравнивать Python и R. Так давайте же почитаем сравнение этих двух языков. 
-<a href="http://blog.dominodatalab.com/comparing-python-and-r-for-data-science/">http://blog.dominodatalab.com/comparing-python-and-r-for-data-science/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/30/sravnenie-r-i-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/29/parsing-s-pomoshchiu-asyncio/">Парсинг с помощью asyncio</a></h2>
-
-                <div class="summary"><p>Парсинг сайтов это вечная задача. Сайтов много, данных много и все они разные.
-Для задач парсинга существует великое разнообразие инструментов.</p>
-<p>В Python 3-ей версии появился стандартный модуль для создания асинхронных программ. И грех не воспользоваться данной возможностью.</p>
-<p>Примером парсинга на asyncio может послужить эта статья 
-<a href="http://olegwock.net/blog/python/byistryiy-parsing-na-python-s-pomoshhyu-asyncio/">http://olegwock.net/blog/python/byistryiy-parsing-na-python-s-pomoshhyu-asyncio/</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/29/parsing-s-pomoshchiu-asyncio/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/29/django-rest-api/">Django REST API</a></h2>
-
-                <div class="summary"><p>Пишите web приложения? Тогда для вас не является новостью, что без API далеко не уедешь. </p>
-<p>Для фреймворка django существует несколько способов создать API за пару минут, да еще и с документацией.</p>
-<p><a href="https://github.com/tomchristie/django-rest-framework">https://github.com/tomchristie/django-rest-framework</a>
-<a href="https://github.com/marcgibbons/django-rest-swagger">https://github.com/marcgibbons/django-rest-swagger</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/29/django-rest-api/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/28/klassy-i-funktsii/">Классы и функции</a></h2>
-
-                <div class="summary"><p>До сих путаетесь между функциями, методами, классами и объектами? Пора разобраться в этом.
-Данная статья расскажет, что такое Bound и UnBound методы, как можно в динамике добавлять поля в объект, как перегружать методы.</p>
-<p><a href="http://0agr.ru/blog/2011/05/03/advanced-python-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D1%8B-%D0%B8-%D0%B8%D1%85-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B/">http://0agr.ru/blog/2011/05/03/advanced-python-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B-%D0%BA%D0%BB%D0 ...</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/28/klassy-i-funktsii/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://pynsk.ru/index13.html">&laquo;</a>
@@ -377,6 +418,8 @@ JSL позволяет описывать модели, почти в какой
                             href="http://pynsk.ru/index15.html">15</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/index16.html">16</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index17.html">17</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/index15.html">&raquo;</a></li>
         </ul>
@@ -540,11 +583,6 @@ JSL позволяет описывать модели, почти в какой
                             __all__
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/action.html">
-                            action
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
@@ -555,7 +593,12 @@ JSL позволяет описывать модели, почти в какой
                             api
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ardruio.html">
+                            ardruio
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/asyncio.html">
                             asyncio
                         </a>
@@ -571,23 +614,18 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bystrodeistvie.html">
-                            быстродействие
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/celery.html">
-                            celery
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/crawler.html">
-                            crawler
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/debug.html">
-                            debug
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -601,41 +639,21 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/dsl.html">
                             dsl
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/encode.html">
-                            encode
+                        <a href="http://pynsk.ru/tag/ficha.html">
+                            фича
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/encoding.html">
-                            encoding
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/foreign-key.html">
-                            foreign key
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/fp.html">
                             fp
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
                         </a>
@@ -650,17 +668,7 @@ JSL позволяет описывать модели, почти в какой
                             fuzzy
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy-testing.html">
-                            fuzzy-testing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/generator.html">
                             генератор
                         </a>
@@ -670,17 +678,17 @@ JSL позволяет описывать модели, почти в какой
                             gensim
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/grab.html">
+                            grab
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/grafika.html">
-                            графика
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/gui.html">
                             gui
                         </a>
@@ -695,19 +703,14 @@ JSL позволяет описывать модели, почти в какой
                             hardcore
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/igry.html">
-                            игры
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/html.html">
+                            html
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/import.html">
                             import
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/instrument.html">
-                            инструмент
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -726,23 +729,28 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iunikod.html">
-                            юникод
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/izmerenie.html">
                             измерение
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/kodirovka.html">
+                            кодировка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/konkurentnost.html">
+                            конкурентность
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -751,13 +759,23 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mail.html">
-                            mail
+                        <a href="http://pynsk.ru/tag/lxml.html">
+                            lxml
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
+                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
+                            магическая переменная
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/magiia.html">
+                            магия
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/mashinnoe-obuchenie.html">
+                            машинное обучение
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -766,8 +784,8 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mixin.html">
-                            mixin
+                        <a href="http://pynsk.ru/tag/micropython.html">
+                            micropython
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -776,23 +794,18 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/modul.html">
-                            модуль
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/multiprocessing.html">
-                            multiprocessing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nauka.html">
-                            наука
+                        <a href="http://pynsk.ru/tag/mock.html">
+                            mock
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/numpy.html">
                             numpy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/obekt.html">
+                            объект
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -801,11 +814,16 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/odnoplatnyi-kompiuter.html">
-                            одноплатный компьютер
+                        <a href="http://pynsk.ru/tag/opencv.html">
+                            opencv
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/operator.html">
+                            operator
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/optimizatsiia.html">
                             оптимизация
                         </a>
@@ -820,11 +838,6 @@ JSL позволяет описывать модели, почти в какой
                             ошибка
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/paket.html">
-                            пакет
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pamiat.html">
                             память
@@ -832,7 +845,7 @@ JSL позволяет описывать модели, почти в какой
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
-                            parsing
+                            парсинг
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -846,23 +859,18 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/print.html">
-                            print
+                        <a href="http://pynsk.ru/tag/primes.html">
+                            примесь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/proekt.html">
+                            проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/proizvoditelnost.html">
                             производительность
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycon.html">
-                            pycon
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pylint.html">
-                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -881,18 +889,13 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pytest.html">
-                            pytest
+                        <a href="http://pynsk.ru/tag/pyside.html">
+                            pyside
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -911,11 +914,6 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regexp.html">
-                            regexp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/reguliarnye-vyrazheniia.html">
                             регулярные выражения
                         </a>
@@ -923,11 +921,6 @@ JSL позволяет описывать модели, почти в какой
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/reiting.html">
                             рейтинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -940,6 +933,11 @@ JSL позволяет описывать модели, почти в какой
                             сборник
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/set.html">
                             set
@@ -948,6 +946,11 @@ JSL позволяет описывать модели, почти в какой
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -971,13 +974,28 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/super.html">
+                            super
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/syntax.html">
                             syntax
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/sys.html">
+                            sys
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
                             тест
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/testing.html">
+                            testing
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -986,13 +1004,18 @@ JSL позволяет описывать модели, почти в какой
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
-                            типы данных
+                        <a href="http://pynsk.ru/tag/timeit.html">
+                            timeit
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/tipizatsiia.html">
+                            типизация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1000,9 +1023,19 @@ JSL позволяет описывать модели, почти в какой
                             учебник
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/unicode.html">
+                            unicode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/utka.html">
+                            утка
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1010,9 +1043,19 @@ JSL позволяет описывать модели, почти в какой
                             видео
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vremia.html">
+                            время
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/winapi.html">
+                            winapi
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
