@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/interesnye-kontseptsii.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-22T10:00:00+06:00</updated><entry><title>Интересные концепции: утиная типизация</title><link href="http://pynsk.ru/posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/" rel="alternate"></link><updated>2015-10-22T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-22:posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/</id><summary type="html">&lt;p&gt;Слышали фразу: "Если что-то выглядит как утка, плавает как утка и крякает как утка, то, вероятно, это утка"?
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/interesnye-kontseptsii.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-11-24T10:00:00+06:00</updated><entry><title>Интересные концепции: webhook</title><link href="http://pynsk.ru/posts/2015/Nov/24/interesnye-kontseptsii-webhook/" rel="alternate"></link><updated>2015-11-24T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-24:posts/2015/Nov/24/interesnye-kontseptsii-webhook/</id><summary type="html">&lt;p&gt;Webhook — механизм получения уведомлений об определённых событиях (в основном о действиях пользователей) на свой собственный сайт. В момент срабатывания события - бросается запрос (чаще всего POST) на указанный URL.&lt;/p&gt;
+&lt;p&gt;Например, разновидность Webhook - GitHook - отслеживает статус Git-репозитория на предмет изменений - пришел коммит на определенную ветку, проставили тэг и другое.  &lt;/p&gt;
+&lt;p&gt;Но что же особенного в этом? Автоматизация. Это отличный инструмент автоматизации. Можно принять POST запрос с помощью Flask:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;app = Flask(__name__)
+@app.route(&amp;#39;/post&amp;#39;, methods=[&amp;#39;POST&amp;#39;])
+def foo():
+    print(request.get_json(silent=True))
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;А затем выполнить какую-то логику. Например:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;По наступлению какой-то погоды на улице - вывести оповещение "Прогрей машину"&lt;/li&gt;
+&lt;li&gt;При коммите в репозиторий запустить скрипт на удаленном компе&lt;/li&gt;
+&lt;li&gt;Автоматически публиковать в twitter какой-то юморной пост&lt;/li&gt;
+&lt;li&gt;Написать СМС "Как дела в школе?" ребенку, когда он зашел домой (подключился к домашнему WiFi)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;P.S. Не все сервисы предоставляют Webhook самостоятельно. Однако, с помощью сервиса http://ifttt.com/ и https://ifttt.com/maker в частности можно реализовать отправку хука при самых разных событиях.&lt;/p&gt;</summary><category term="hook. webhook"></category><category term="githook"></category><category term="автоматизация"></category></entry><entry><title>Интересные концепции: утиная типизация</title><link href="http://pynsk.ru/posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/" rel="alternate"></link><updated>2015-10-22T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-22:posts/2015/Oct/22/interesnye-kontseptsii-utinaia-tipizatsiia/</id><summary type="html">&lt;p&gt;Слышали фразу: "Если что-то выглядит как утка, плавает как утка и крякает как утка, то, вероятно, это утка"?
 Эта поговорка характеризует утиную типизацию == утипизацию&lt;/p&gt;
 &lt;p&gt;Смысл утиной типизации заключается в ослаблении типов. Вместо того чтобы заботиться о точном классе объекта мы заботимся о том какие методы для него можно вызвать и какие операции над ним можно выполнять. Таким образом, обычным делом становится просто передать объект методу, зная, что при неправильном использовании будет выброшено исключение (&lt;code&gt;exception&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;Например: если есть код&lt;/p&gt;

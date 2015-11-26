@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/prakticheskie-zadachi.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 24 Nov 2015 18:00:00 +0600</lastBuildDate><item><title>Практические задачи: Задача #001 - генерация псевдо-настоящих данных о пользователе</title><link>http://pynsk.ru/posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/</link><description>&lt;p&gt;Много слов про новый раздел постов:&lt;/p&gt;
+&lt;p&gt;Мы прекрасно понимаем, что новичкам сложно переступить через черту теории и начать использовать программирования для решения практических задач, поэтому запускаем новый раздел постов - "Практические задачи". В этом разделе будут публиковаться реальные задачи - какие-то будем брать из собственной работы, какие-то с блогов и адаптировать, какие-то с фриланс сайтов.&lt;/p&gt;
+&lt;p&gt;Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение.
+А также, чтобы читать код было удобно - публикуйте его на https://gist.github.com/ или какой-то подобный сервис.&lt;/p&gt;
+&lt;p&gt;Задача #001 - псевдо-настоящих данных о пользователе.
+Описание:&lt;/p&gt;
+&lt;p&gt;Запускается сайт знакомств - http://super-dating-site.com/ и чтобы повысить привлекательность среди новых пользователей необходимо заполнить сайт пользователями.
+Вам ставят задачу - сгенерировать от 1к до 5к пользователей для сайта. &lt;/p&gt;
+&lt;p&gt;Для этого необходимо сгенерировать таблицу со столбцами:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Фамилия&lt;/li&gt;
+&lt;li&gt;Имя&lt;/li&gt;
+&lt;li&gt;Пол&lt;/li&gt;
+&lt;li&gt;Ник пользователя &lt;/li&gt;
+&lt;li&gt;Страна проживания&lt;/li&gt;
+&lt;li&gt;Язык общения&lt;/li&gt;
+&lt;li&gt;Фотографию пользователя&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Стоит учесть, что каждой стране свойственен свой язык общения, имена, фамилии, фотографии. Т.е. например, в Португалии имя "Василий" это скорее редкость чем правило.&lt;/p&gt;
+&lt;p&gt;Написать скрипт, который сможет сгенерировать таблицу с N строками.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 24 Nov 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-11-24:posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/</guid><category>задача</category><category>генерация данных</category><category>генерация</category></item></channel></rss>

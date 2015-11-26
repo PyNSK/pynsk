@@ -231,6 +231,89 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/25/opyt-razrabotchikov-soglasheniia-o-kodirovanii/">Опыт разработчиков: соглашения о кодировании</a></h2>
+
+                <div class="summary"><p>В обществе существуют различные соглашения. Соглашения рождаются не просто так, а для того чтобы о чем-то условится и начать создавать.</p>
+<p>Для разработчика важным является соглашение о кодировании. Это своего рода свод "законов", которые принимает новый разработчик, когда погружается в проект. Чаще всего такие законы очевидны и естественны.</p>
+<p>Возьмем пример - длина строки не более 79 символов. В свое время дисплеи содержали ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/25/opyt-razrabotchikov-soglasheniia-o-kodirovanii/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/24/sintaksis-python-dir/">Синтаксис Python: dir()</a></h2>
+
+                <div class="summary"><p>Достался нам в наследство какой-то код. А там непонятный объект с названием <code>super_object_1</code>. 
+Как понять что это за объект?</p>
+<p>На помощь приходят встроенные функции - <code>type()</code>, <code>dir()</code>. Если с <code>type()</code> все ясно - возвращает тип, то с <code>dir</code> не совсем. </p>
+<p>dir - Возвращает имена переменных, доступные в локальной области, либо атрибуты указанного объекта в алфавитном порядке.
+Это значит, что при вызове кода:</p>
+<div class="highlight"><pre><span class="nb">dir ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/24/sintaksis-python-dir/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/23/funktsionalnyi-python-fnpy/">Функциональный Python: fn.py</a></h2>
+
+                <div class="summary"><p>Функциональные аспекты, такие как чистота, иммутабельные данные весьма жизнеспособны. Какие-то из них Python хорошо поддерживает, какие-то нет (например, рекурсия).
+Сегодня хочется упомянуть библиотеку fn.py. Эта библиотека добавляет синтаксический сахар в виде scala-лямбд, персистентных структур данных, стримом, а также другие элементы, которые встречаются в ФП.</p>
+<p>Рассказ о библиотеке:</p>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/k3az1g_Q4xE?feature=oembed" frameborder="0" allowfullscreen></iframe>
+
+<p>Исходники библиотеки: </p>
+<ul>
+<li><a href="https://github.com/kachayev/fn.py">https://github.com/kachayev/fn.py</a></li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/23/funktsionalnyi-python-fnpy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/">Извлечение информации: grab - фреймворк для веб-парсинга</a></h2>
+
+                <div class="summary"><p>Grab — python библиотека для парсинга сайтов</p>
+<p>Её основные функции:</p>
+<ul>
+<li>Подготовка сетевого запроса (cookies, http-заголовки, POST/GET данные)</li>
+<li>Запрос на сервер (возможно через HTTP/SOCKS прокси)</li>
+<li>Получение ответа сервера и его первоначальная обработка (парсинг заголовков, парсинг cookies, определение кодировки документа, обработка редиректа (поддерживаются даже редирект в meta refresh тэге))</li>
+<li>Работа с DOM-деревом ответа (если это HTML-документ)</li>
+<li>Работа с формами (заполнение, автозаполнение ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/23/izvlechenie-informatsii-grab-freimvork-dlia-veb-parsinga/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/22/testy-testy-testy-selenium-kak-instrument-testirovaniia/">Тесты тесты тесты: Selenium как инструмент тестирования</a></h2>
+
+                <div class="summary"><p><img alt="Image" src="https://pbs.twimg.com/media/BIoHXdICQAEaEoE.gif" /></p>
+<p>Selenium – это проект, в рамках которого разрабатывается серия программных продуктов с открытым исходным кодом.
+Среди продуктов интересен Selenium WebDriver - это программная библиотека для управления браузерами. WebDriver представляет собой драйверы для различных браузеров и клиентские библиотеки на разных языках программирования, предназначенные для управления этими драйверами.</p>
+<p>Много слов и мало сути. А суть проста - использование такого веб-драйвера сводится к созданию бота, выполняющего ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/22/testy-testy-testy-selenium-kak-instrument-testirovaniia/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-yield-from/">Синтаксис Python: yield from</a></h2>
+
+                <div class="summary"><p>Рассмотрим еще одну страшную конструкцию в Python 3.3+ - yield from</p>
+<p>Напомню, генератор это объект который можно про итерировать только однажды. Записывается как:</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> 
+<span class="c"># Или так</span>
+<span class="k">def</span> <span class="nf">gen</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">x</span>
+</pre></div>
+
+
+<p>Когда у нас один генератор - все хорошо. Используем его как итератор и радуемся. Но не редки ситуации когда есть ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-yield-from/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-encodedecode/">Синтаксис Python: encode/decode</a></h2>
 
                 <div class="summary"><p>Вероятно, самым заметным отличием Python 2 от Python 3 является юникод.  Это нововведение упростило работу со строками. Однако, так как Python 2 еще в строю, то кодировки еще в силе и не мало разработчиков путается между encode и decode.</p>
@@ -279,80 +362,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                 <div class="summary"><p>Python имеет автоматическое управление памятью: подсчёт ссылок для большинства объектов и сборка мусора для удаления циклов. Память освобождается сразу после того, как была удалена последняя ссылка на объект.</p>
 <p>Этот подход отлично работает для большинства приложений, но иногда возникает необходимость вести учёт объектов только когда они используются где-нибудь ещё. К сожалению, само слежение за объектами уже создает ссылку и тем самым ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/19/tainstvo-standartnoi-biblioteki-slabye-ssylki-weakref/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/17/vnutrennosti-python-import-v-pitone/">Внутренности Python: импорт в Питоне</a></h2>
-
-                <div class="summary"><p>Любая программа использует импорт модулей. Но, как показал беглый опрос, далеко не все программисты представляют, как работает импорт, что содержится в модуле и как этот импорт можно расширять для своих нужд.</p>
-<p>Удивительный факт: даже англоязычные ресурсы предоставляют недостаточно информации</p>
-<p>Серия статей:</p>
-<ul>
-<li><a href="http://asvetlov.blogspot.ru/2010/05/blog-post.html">http://asvetlov.blogspot.ru/2010/05/blog-post.html</a></li>
-<li><a href="http://asvetlov.blogspot.ru/2010/05/2.html">http://asvetlov.blogspot.ru/2010/05/2.html</a></li>
-<li><a href="http://asvetlov.blogspot.ru/2010/05/3.html">http://asvetlov.blogspot ...</a></li></ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/17/vnutrennosti-python-import-v-pitone/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/17/poleznye-biblioteki-gensim-biblioteka-dlia-modelirovaniia-nad-tekstami/">Полезные библиотеки: gensim - библиотека для моделирования над текстами</a></h2>
-
-                <div class="summary"><p>Gensim - библиотека Python для моделирования, тематическое моделирование документов и извлечения подобия с больших корпусов.</p>
-<p>Целевая аудитория является обработка естественного языка (НЛП) и IR сообщество.</p>
-<p>В Gensim реализованы популярные алгоритмы НЛП. Например, word2vec. Большинство реализаций алгоритмов умеет использовать несколько ядер.</p>
-<p>https://github.com/piskvorky/gensim/</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/17/poleznye-biblioteki-gensim-biblioteka-dlia-modelirovaniia-nad-tekstami/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/16/pishem-web-proekty-django-admin-actions/">Пишем web-проекты: Django Admin Actions</a></h2>
-
-                <div class="summary"><p>Интерфейс администратора Django достается разработчику "даром" - прописываешь немного срочек и готово.
-Появляется UI где можно изменять объекты моделей - просто так нам предоставляют GRUD возможности.</p>
-<p>Но что если нам надо сделать какие-то дополнительные возможности?
-Для примера такие действия есть в Python Дайджест:</p>
-<p><img alt="Python Дайджест" src="http://pynsk.ru/images/posts/django_actions.png" /></p>
-<p>Такие возможности реализуются с помощью Django admin actions. 
-Для примера так:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">ItemModeratorAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
-    <span class="n">actions</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s">&#39;_action_make_moderated&#39;</span><span class="p">,</span>
-    <span class="p">]</span>
-    <span class="k">def</span> <span class="nf">_action_set_queue ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/16/pishem-web-proekty-django-admin-actions/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/15/opyt-razrabotchikov-rabota-s-oshibkami-kak-lovit-iskliucheniia-i-chto-potom-s-nimi-delat/">Опыт разработчиков: Работа с ошибками. Как ловить исключения и что потом с ними делать</a></h2>
-
-                <div class="summary"><iframe width="480" height="270" src="https://www.youtube.com/embed/hzVECcMI8ys?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/15/opyt-razrabotchikov-rabota-s-oshibkami-kak-lovit-iskliucheniia-i-chto-potom-s-nimi-delat/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/15/opyt-razrabotchikov-assert-kak-sredstvo-dlia-validatsii/">Опыт разработчиков: assert как средство для валидации</a></h2>
-
-                <div class="summary"><p>Опыт разработчиков: assert как средство для валидации</p>
-<p>Хочется сегодня осветить такой элемент синтаксиса как assert. 
-assert - это специальная конструкция, позволяющая проверять предположения о значениях произвольных данных в произвольном месте программы.</p>
-<p>Какая же польза от этой проверки?
-Представим что мы что-то пишем код, который получает данные из Базы Данных, производит обработку данных и загружает результат обратно. По замыслу этого кода мы ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/15/opyt-razrabotchikov-assert-kak-sredstvo-dlia-validatsii/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/14/sintaksis-python-rabota-s-matritsami/">Синтаксис Python: работа с матрицами</a></h2>
-
-                <div class="summary"><p>Матрица - это, если утрировать, "табличка", N-мерный массив (чаще всего двумерный). 
-Матрицы возникают не редко. Например, игровое поле, карта мира - тоже можно представить матрицей, да то же решето Эратосфена - тоже двумерный массив, или вообще - вложенные списки.</p>
-<p>Это все создает необходимость знать как работать с матрицами и какими инструментами. Модулей для работы с этими объектами не мало, самые известные - стандартный math и ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/14/sintaksis-python-rabota-s-matritsami/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -432,6 +441,11 @@ assert - это специальная конструкция, позволяю�
 
                 <ul class="list-group" id="categories">
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/api-vsemu-golova.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> API всему голова
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/funktsionalnyi-python.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Функциональный Python
                         </a>
@@ -479,6 +493,11 @@ assert - это специальная конструкция, позволяю�
                     <li class="list-group-item">
                         <a href="http://pynsk.ru/category/poleznye-moduli.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Полезные модули
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/prakticheskie-zadachi.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Практические задачи
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -557,6 +576,16 @@ assert - это специальная конструкция, позволяю�
                             __all__
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/admin.html">
+                            admin
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
@@ -588,8 +617,13 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
+                        <a href="http://pynsk.ru/tag/bd.html">
+                            БД
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bystrodeistvie.html">
+                            быстродействие
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -597,14 +631,9 @@ assert - это специальная конструкция, позволяю�
                             coverage
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/db.html">
-                            db
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/cython.html">
+                            cython
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -613,13 +642,28 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
+                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
+                            django-debug-toolbar
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/doctest.html">
+                            doctest
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/ficha.html">
                             фича
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -638,8 +682,8 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy.html">
-                            fuzzy
+                        <a href="http://pynsk.ru/tag/gc.html">
+                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -648,13 +692,13 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gensim.html">
-                            gensim
+                        <a href="http://pynsk.ru/tag/gevent.html">
+                            gevent
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/grab.html">
-                            grab
+                        <a href="http://pynsk.ru/tag/gil.html">
+                            GIL
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -667,19 +711,34 @@ assert - это специальная конструкция, позволяю�
                             gui
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gunicorn.html">
-                            gunicorn
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/hook-webhook.html">
+                            hook. webhook
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/html.html">
                             html
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/http.html">
+                            http
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/iazyk.html">
+                            язык
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -702,29 +761,14 @@ assert - это специальная конструкция, позволяю�
                             IPython
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/izmerenie.html">
-                            измерение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/json.html">
-                            json
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kodirovka.html">
-                            кодировка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/konkurentnost.html">
-                            конкурентность
+                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
+                            концепция
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -733,8 +777,8 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lxml.html">
-                            lxml
+                        <a href="http://pynsk.ru/tag/logging.html">
+                            logging
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -743,23 +787,18 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magiia.html">
-                            магия
+                        <a href="http://pynsk.ru/tag/marshal.html">
+                            marshal
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mashinnoe-obuchenie.html">
-                            машинное обучение
+                        <a href="http://pynsk.ru/tag/matan.html">
+                            матан
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/micropython.html">
-                            micropython
+                        <a href="http://pynsk.ru/tag/matplotlib.html">
+                            matplotlib
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -768,8 +807,8 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mock.html">
-                            mock
+                        <a href="http://pynsk.ru/tag/nose.html">
+                            nose
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -777,19 +816,9 @@ assert - это специальная конструкция, позволяю�
                             numpy
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/obekt.html">
-                            объект
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/obrabotka-teksta.html">
                             обработка текста
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -822,6 +851,11 @@ assert - это специальная конструкция, позволяю�
                             парсинг
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/patter.html">
+                            паттер
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pep.html">
                             pep
@@ -833,23 +867,23 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/proekt.html">
-                            проект
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
-                            производительность
+                        <a href="http://pynsk.ru/tag/pycharm.html">
+                            pycharm
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pypi.html">
-                            pypi
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -872,6 +906,11 @@ assert - это специальная конструкция, позволяю�
                             python
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             qt
@@ -888,13 +927,13 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reguliarnye-vyrazheniia.html">
-                            регулярные выражения
+                        <a href="http://pynsk.ru/tag/regexp.html">
+                            regexp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
+                        <a href="http://pynsk.ru/tag/requirements.html">
+                            requirements
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -912,6 +951,11 @@ assert - это специальная конструкция, позволяю�
                             scandir
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/selenium.html">
+                            selenium
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/set.html">
                             set
@@ -922,19 +966,14 @@ assert - это специальная конструкция, позволяю�
                             синтаксис
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
-                            слабая ссылка
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/spravochnik.html">
                             справочник
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sqlalchemy.html">
-                            sqlalchemy
+                        <a href="http://pynsk.ru/tag/sravnenie.html">
+                            сравнение
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -943,13 +982,13 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
-                            статическая типизация
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
+                        <a href="http://pynsk.ru/tag/statistika.html">
+                            статистика
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -965,11 +1004,6 @@ assert - это специальная конструкция, позволяю�
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
                             тест
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/testing.html">
-                            testing
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -988,8 +1022,18 @@ assert - это специальная конструкция, позволяю�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tkinter.html">
-                            tkinter
+                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
+                            типы данных
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/toolbar.html">
+                            toolbar
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/tox.html">
+                            tox
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -997,19 +1041,9 @@ assert - это специальная конструкция, позволяю�
                             учебник
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/unicode.html">
-                            unicode
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/utka.html">
-                            утка
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1022,34 +1056,19 @@ assert - это специальная конструкция, позволяю�
                             время
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/winapi.html">
-                            winapi
+                        <a href="http://pynsk.ru/tag/web-parsing.html">
+                            web parsing
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/yield-from.html">
-                            yield from
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zhelezo.html">
-                            железо
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zip.html">
-                            zip
                         </a>
                     </li>
                 </ul>
