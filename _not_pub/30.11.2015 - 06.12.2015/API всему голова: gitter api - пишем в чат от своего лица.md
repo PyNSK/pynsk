@@ -1,5 +1,5 @@
 Title: API всему голова: gitter api - пишем в чат от своего лица
-Date: 2015-12-01 18:00
+Date: 2015-12-03 18:00
 Tags: api, gitter, channel
 Category: API всему голова
 
