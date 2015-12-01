@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/poleznye-instrumenty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-10-13T10:00:00+06:00</updated><entry><title>Полезные инструменты: fabric - автоматизируем рутину</title><link href="http://pynsk.ru/posts/2015/Oct/13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/" rel="alternate"></link><updated>2015-10-13T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-13:posts/2015/Oct/13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/</id><summary type="html">&lt;p&gt;Ситуация: написали web-проект, свой, домашний, а может и на работе. Надо его опубликовать в Интернет - задеплоить. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/poleznye-instrumenty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-11-30T18:00:00+06:00</updated><entry><title>Полезные инструменты: sandman - админка над базой + REST за пару секунд</title><link href="http://pynsk.ru/posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/" rel="alternate"></link><updated>2015-11-30T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-11-30:posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/</id><summary type="html">&lt;p&gt;Сейчас редкий проект обходится без базы данных. Это может быть реляционная БД, или NoSQL, да может просто текстовые файлы. И каждый раз возникает необходимость посмотреть данные в ней, а иногда и другим показать. &lt;/p&gt;
+&lt;p&gt;В этом случае подойдет инструмент - &lt;code&gt;sandman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Sandman&lt;/code&gt; - позволяет за пару секунд сделать web-интерфейс для популярных БД. &lt;/p&gt;
+&lt;p&gt;Выполняем команду:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sandmanctl sqlite:////tmp/my_database.db
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Получаем&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="https://www.jeffknupp.com/images/admin_tracks_improved.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;Инструмент почти не требует настройки и работает стабильно.  И в дополнение дает REST&lt;/p&gt;
+&lt;p&gt;Ссылки для изучения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/jeffknupp/sandman"&gt;https://github.com/jeffknupp/sandman&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="инструмент"></category><category term="бд"></category><category term="база данных"></category><category term="database"></category><category term="интерфейс"></category><category term="rest"></category></entry><entry><title>Полезные инструменты: fabric - автоматизируем рутину</title><link href="http://pynsk.ru/posts/2015/Oct/13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/" rel="alternate"></link><updated>2015-10-13T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-10-13:posts/2015/Oct/13/poleznye-instrumenty-fabric-avtomatiziruem-rutinu/</id><summary type="html">&lt;p&gt;Ситуация: написали web-проект, свой, домашний, а может и на работе. Надо его опубликовать в Интернет - задеплоить. 
 Зашли на сервер, активировали venv, скачали новые исходники из репозитория, накатили миграции, обновили static-файлы, перезапустили, предположим, celery, перезапустили uwsgi.&lt;/p&gt;
 &lt;p&gt;И тут, поняли что забыли раскоментировать строчку в коде. Делаем коммит, снова заходим на сервер, активировали venv.... 
 Зачем вся эта рутина с деплоем? Может есть способ проще? Мы же IT-шники, давайте напишем скрипт. &lt;/p&gt;

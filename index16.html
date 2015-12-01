@@ -231,6 +231,38 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/01/click/">click</a></h2>
+
+                <div class="summary"><p>Библиотека click (<a href="http://click.pocoo.org/4/">http://click.pocoo.org/4/</a>) позволяет с минимальными усилиями создать интерфейс командной строки. 
+Создаете функцию, добавляете пару декораторов и готово.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--count&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;Number of greetings.&#39;</span><span class="p">)</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--name&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s">&#39;Your name&#39;</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s">&#39;The person to greet.&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+     <span class="o">...</span>
+</pre></div>
+
+
+<p>А как вы создаете командные интерфейсы?</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/01/click/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Jul/31/json-dsl-jsl/">JSON DSL - JSL</a></h2>
+
+                <div class="summary"><p>Если вы широко используете JSON в своем проекте, то вам будет интересен DSL - JSL.
+JSL позволяет описывать модели, почти в какой-нибудь ORM, создавать объекты по этим моделям и как-то с ними работать.
+Интересный проект.</p>
+<p><a href="https://github.com/aromanovich/jsl">https://github.com/aromanovich/jsl</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/31/json-dsl-jsl/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Jul/31/python-iazyk-obshchego-naznacheniia/">Python - язык общего назначения</a></h2>
 
                 <div class="summary"><p>Python - язык общего назначения, может применяться где угодно. Не верите? На странице <a href="https://www.python.org/about/success/">https://www.python.org/about/success/</a> представлены сферы и названия компаний, которые применяют этот язык.</p>
@@ -312,32 +344,6 @@ PyNSK - Новосибирское Python сообщество            </a>
 
 <p>Большая вероятность, что это было регулярное ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/27/reguliarnye-vyrazheniia/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/27/vstroennye-funktsii-python/">Встроенные функции Python</a></h2>
-
-                <div class="summary"><p>Стандартная библиотека Python отличается хорошей документацией и широким ассортиментом готовых решений.
-Python предоставляет без малого 68 встроенных функций: это получение модуля числа, бинарное и hex представления числа, различные преобразование типов, сложение, возведение в степень и многие другие.</p>
-<p><a href="https://docs.python.org/3.5/library/functions.html">https://docs.python.org/3.5/library/functions.html</a></p>
-<p>А вы знали, что в Python всё является объектом? Даже число</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="p">[</span><span class="s">&#39;__abs__ ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/27/vstroennye-funktsii-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir.</a></h2>
-
-                <div class="summary"><p>PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir. </p>
-<p>Функция scandir возвращает генератор, который содержит директории по пути.
-Польза scandir состоит в производительности. Теперь os.listdir и os.walk будут работать в 2-20 раз быстрее.</p>
-<p>Пример: функция, которая возвращает генератор с директориями начинающиеся с точки:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">subdirs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Yield directory names not starting with &#39;.&#39; under given path ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -554,14 +560,14 @@ Python предоставляет без малого 68 встроенных ф
                             aiohttp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/analizator.html">
-                            анализатор
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ardruio.html">
+                            ardruio
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -579,24 +585,24 @@ Python предоставляет без малого 68 встроенных ф
                             байт-код
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/bd.html">
+                            бд
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
+                        </a>
+                    </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/bystrodeistvie.html">
                             быстродействие
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cache.html">
-                            cache
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/cffi.html">
                             cffi
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/crawler.html">
-                            crawler
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -605,18 +611,8 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dannye.html">
-                            данные
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/debug.html">
-                            debug
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -624,44 +620,14 @@ Python предоставляет без малого 68 встроенных ф
                             django
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dokumentatsiia.html">
-                            документация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/encode.html">
-                            encode
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/fp.html">
                             fp
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/frozenset.html">
-                            frozenset
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/funcy.html">
-                            funcy
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -670,8 +636,13 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/garbage-collector.html">
-                            garbage collector
+                        <a href="http://pynsk.ru/tag/fuzzy.html">
+                            fuzzy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gc.html">
+                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -680,18 +651,18 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generatsiia.html">
-                            генерация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generic.html">
-                            generic
+                        <a href="http://pynsk.ru/tag/gevent.html">
+                            gevent
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/grafik.html">
                             график
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/grafika.html">
+                            графика
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -709,12 +680,17 @@ Python предоставляет без малого 68 встроенных ф
                             html
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/import.html">
                             import
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/instrument.html">
                             инструмент
                         </a>
@@ -740,13 +716,8 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/izmerenie.html">
-                            измерение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kesh.html">
-                            кэш
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -759,9 +730,24 @@ Python предоставляет без малого 68 встроенных ф
                             конкурентность
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/lambda.html">
+                            lambda
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/list.html">
                             list
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/logging.html">
+                            logging
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/magiia.html">
+                            магия
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -770,13 +756,8 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matritsa.html">
-                            матрица
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
+                        <a href="http://pynsk.ru/tag/mnogopotochnost.html">
+                            многопоточность
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -795,8 +776,13 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/operator.html">
-                            operator
+                        <a href="http://pynsk.ru/tag/odnoplatnyi-kompiuter.html">
+                            одноплатный компьютер
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/operatsionnaia-sistema.html">
+                            операционная система
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -809,14 +795,14 @@ Python предоставляет без малого 68 встроенных ф
                             опыт
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/os.html">
-                            ОС
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/otchet.html">
+                            отчет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -829,14 +815,14 @@ Python предоставляет без малого 68 встроенных ф
                             парсинг
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/patter.html">
+                            паттер
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pep.html">
                             pep
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pickle.html">
-                            pickle
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -845,8 +831,18 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/print.html">
-                            print
+                        <a href="http://pynsk.ru/tag/plot.html">
+                            plot
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/primes.html">
+                            примесь
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -855,13 +851,18 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycharm.html">
-                            pycharm
+                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
+                            производительность
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pygame.html">
-                            pygame
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pypi.html">
+                            pypi
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -875,8 +876,8 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pyside.html">
-                            pyside
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -889,6 +890,11 @@ Python предоставляет без малого 68 встроенных ф
                             qt
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/r.html">
+                            R
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/raspberry-pi.html">
                             raspberry pi
@@ -899,24 +905,14 @@ Python предоставляет без малого 68 встроенных ф
                             real-time
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regex.html">
-                            regex
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirements.html">
-                            requirements
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/selenium.html">
+                            selenium
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -927,16 +923,6 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
-                            слабая ссылка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slice.html">
-                            slice
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -950,8 +936,23 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/sqlalchemy.html">
+                            sqlalchemy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/sravnenie.html">
                             сравнение
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ssylka.html">
+                            ссылка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/standart.html">
+                            стандарт
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -960,8 +961,23 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
+                        <a href="http://pynsk.ru/tag/staticheskii-analiz.html">
+                            статический анализ
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/svg.html">
+                            svg
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/swig.html">
+                            swig
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/syntax.html">
+                            syntax
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -979,14 +995,14 @@ Python предоставляет без малого 68 встроенных ф
                             тесты
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/time.html">
-                            time
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/tipizatsiia.html">
                             типизация
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1010,11 +1026,6 @@ Python предоставляет без малого 68 встроенных ф
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/vizualizatsiia.html">
-                            визуализация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/vkcom.html">
                             vk.com
                         </a>
@@ -1024,14 +1035,14 @@ Python предоставляет без малого 68 встроенных ф
                             вконтакте
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/weakref.html">
-                            weakref
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/with.html">
+                            with
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1042,11 +1053,6 @@ Python предоставляет без малого 68 встроенных ф
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zamykanie.html">
-                            замыкание
                         </a>
                     </li>
                 </ul>
