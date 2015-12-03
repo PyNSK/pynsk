@@ -231,6 +231,52 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/13/opyt-razrabotchikov-perestante-pisat-klassy/">Опыт разработчиков: "Перестаньте писать классы"</a></h2>
+
+                <div class="summary"><p>Признак того, что объект не должен быть классом — если в нём всего 2 метода, и один из них — инициализация, <code>__init__</code>. Каждый раз видя это, подумайте: «наверное, мне нужна просто одна функция».</p>
+<ul>
+<li><a href="http://habrahabr.ru/post/140581/">http://habrahabr.ru/post/140581/</a></li>
+<li><a href="http://habrahabr.ru/post/143620/">http://habrahabr.ru/post/143620/</a></li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/13/opyt-razrabotchikov-perestante-pisat-klassy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/12/parsing-i-python-mechanize/">Парсинг и Python: mechanize</a></h2>
+
+                <div class="summary"><p>Для сбора данных с Web-страниц в Python существует библиотека mechanize, автоматизирующая взаимодействие с Web-сайтами. Часто используемая совместно с ней библиотека Beautiful Soup помогает понять тот «почти-HTML» код, который обычно находится на Web-сайтах.</p>
+<p><a href="http://www.ibm.com/developerworks/ru/library/l-python-mechanize-beautiful-soup/">http://www.ibm.com/developerworks/ru/library/l-python-mechanize-beautiful-soup/</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/12/parsing-i-python-mechanize/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/">Таинство стандартной библиотеки: примеры для asyncio - aiohttp</a></h2>
+
+                <div class="summary"><p>Asyncio - это модуль содержащий инфраструктуру пригодную для написания асинхронных сетевых приложений. Благодаря концепции сопрограмм (coroutines), код асинхронного приложения прост для понимания и поддержки. </p>
+<p>Экосистема развивается не по дням, а по часам. Стоит обратить внимание на развитие этого направления современного Python</p>
+<ul>
+<li><a href="http://sysdev.me/python-asyncio/">http://sysdev.me/python-asyncio/</a></li>
+<li><a href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></li>
+<li><a href="https://docs.python.org/3/library/asyncio-dev.html">https://docs.python.org/3/library/asyncio-dev.html</a></li>
+</ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/12/tainstvo-standartnoi-biblioteki-primery-dlia-asyncio-aiohttp/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Aug/11/testy-testy-testy-chto-takoe-fikstura-fixture/">Тесты тесты тесты: что такое фикстура (fixture)?</a></h2>
+
+                <div class="summary"><p>При написании тестов не редка ситуация, когда надо иметь фиксированное воспроизводимое много раз состояние программы. Например, такая-то кнопочка нажата, такой-то класс содержит такие-то значения.</p>
+<p>Чтобы не приходилось каждый раз вручную создавать подобное состояние программы используются fixture (фикстуры). 
+Фикстуры позволяют сохранить состояние системы в файл, а потом его от туда загрузить. </p>
+<p>По-мимо тестов, фикстуры применяются для создания начального состояния системы. Например ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/11/testy-testy-testy-chto-takoe-fikstura-fixture/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Aug/11/testy-testy-testy-propuskaem-testy-v-pytest-po-usloviiu/">Тесты тесты тесты: пропускаем тесты в pytest по условию</a></h2>
 
                 <div class="summary"><p>Тесты не всегда универсальны. Например, в Windows надо дергать одну программу, в Linux другую. Чтобы реализовать такую логику в pytest можно воспользоваться - <code>skipif</code></p>
@@ -298,50 +344,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     d.id=b;
                     d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets ...</script></p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/08/python-i-real-time-web-prilozhenie/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/08/python-gui-pyqt/">Python + GUI == PyQt</a></h2>
-
-                <div class="summary"><p>Qt - это инструментарий для разработки на C++, который предоставляет огромный спектр возможностей: от рисования GUI, до написания низкоуровневых серверов. 
-Часто Qt применяют для создания GUI, в том числе в интерактивном режиме - можно перемещать виджеты на формы.
-Qt имеет отличную докумементацию, а также имеет привязку для Python - PyQt и PySide. (вторая еще с Qt5 не умеет работать)</p>
-<p>Используя PyQt можно нарисовать ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/08/python-gui-pyqt/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/">Python как средство для определения "хорошо/плохо"</a></h2>
-
-                <div class="summary"><p>Информации очень много. Хорошо бы уметь ее фильтровать. Хочется упомянуть такое средство фильтрации как анализ тональности. Это даже не фильтрация, но можно применять как фильтр.</p>
-<p>Sentiment analysis (по-русски, анализ тональности) — это область компьютерной лингвистики, которая занимается изучением мнений и эмоций в текстовых документах. </p>
-<p>С помощью анализа тональности можно определить, что текст N интересный, а текст M неинтересный - причем это сделает ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/07/python-kak-sredstvo-dlia-opredeleniia-khoroshoplokho/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/07/utility-napisannye-na-python-youtube-dl/">Утилиты написанные на Python: youtube-dl</a></h2>
-
-                <div class="summary"><p>youtube-dl (https://github.com/rg3/youtube-dl/)
-- это очень популярный скрипт для выгрузки видео с сервиса Youtube (, Vimeo и других). Данная утилита позволяет очень легко выдернуть видео со страницы ютьюб. 
-Множество настроек позволяют в том числе выдернуть субтитры, узнать длительность видео и многие другие параметры.</p>
-<p>Данную утилиту можно применить следующим образом: если у вас есть ряд каналов, которые вы смотрите регулярно ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/07/utility-napisannye-na-python-youtube-dl/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/06/chto-takoe-pep/">Что такое PEP?</a></h2>
-
-                <div class="summary"><p>Развитие языка Python происходит согласно чётко регламентированному процессу создания, обсуждения, отбора и реализации документов PEP.
-PEP - Python Enhancement Proposal - это предложения по развитию питона
-<a href="https://www.python.org/dev/peps/">https://www.python.org/dev/peps/</a>
-Процесс PEP является основным механизмом для предложения новых возможностей и для документирования проектных решений, которые прошли в Python.</p>
-<p>Самым известным PEP является PEP8 - это свод рекомендаций в оформлению кода. Рекомендации ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/06/chto-takoe-pep/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -554,8 +556,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/__all__.html">
-                            __all__
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -583,6 +585,11 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             байт-код
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/baza-dannykh.html">
+                            база данных
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bd.html">
                             бд
@@ -594,18 +601,13 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bystrodeistvie.html">
-                            быстродействие
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/c.html">
                             c
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/crawler.html">
-                            crawler
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -614,38 +616,23 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/debug.html">
-                            debug
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fabric.html">
-                            fabric
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fixture.html">
-                            fixture
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/fp.html">
                             fp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/frozenset.html">
+                            frozenset
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -658,9 +645,19 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             функциональное программирование
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/fuzzy.html">
+                            fuzzy
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/generator.html">
                             генератор
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/generatsiia.html">
+                            генерация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -674,8 +671,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gil.html">
-                            GIL
+                        <a href="http://pynsk.ru/tag/githook.html">
+                            githook
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -688,19 +685,9 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             gui
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gunicorn.html">
-                            gunicorn
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/hardcore.html">
                             hardcore
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/hook-webhook.html">
-                            hook. webhook
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -709,13 +696,13 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/if.html">
-                            if
+                        <a href="http://pynsk.ru/tag/http.html">
+                            http
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/image.html">
-                            image
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -744,16 +731,6 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/itertools.html">
-                            itertools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iunikod.html">
-                            юникод
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/kesh.html">
                             кэш
                         </a>
@@ -761,11 +738,6 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kodirovka.html">
-                            кодировка
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -779,28 +751,18 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
-                            магическая переменная
+                        <a href="http://pynsk.ru/tag/magiia.html">
+                            магия
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mail.html">
-                            mail
+                        <a href="http://pynsk.ru/tag/micropython.html">
+                            micropython
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/modul.html">
-                            модуль
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nose.html">
-                            nose
+                        <a href="http://pynsk.ru/tag/mock.html">
+                            mock
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -828,6 +790,11 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             ошибка
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pamiat.html">
                             память
@@ -838,14 +805,14 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             парсинг
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/patter.html">
-                            паттер
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pep.html">
                             pep
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -854,13 +821,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/plotly.html">
-                            plotly
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/postgresql.html">
-                            postgresql
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -871,11 +833,6 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycharm.html">
-                            pycharm
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -891,6 +848,16 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python-proekt.html">
+                            python проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -914,13 +881,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requests.html">
-                            requests
+                        <a href="http://pynsk.ru/tag/regexp.html">
+                            regexp
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -938,9 +900,19 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             set
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/signal.html">
+                            сигнал
+                        </a>
+                    </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/sintaksis.html">
                             синтаксис
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -959,13 +931,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/standart.html">
-                            стандарт
+                        <a href="http://pynsk.ru/tag/sqlalchemy.html">
+                            sqlalchemy
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -973,9 +940,14 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             стандартная библиотека
                         </a>
                     </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
+                            статическая типизация
+                        </a>
+                    </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swig.html">
-                            swig
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -993,19 +965,9 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             тест
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/testing.html">
-                            testing
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/testy.html">
                             тесты
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/time.html">
-                            time
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1014,8 +976,8 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
+                        <a href="http://pynsk.ru/tag/tipy-dannykh.html">
+                            типы данных
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1028,14 +990,34 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                             unittest
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/utka.html">
-                            утка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-0">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vizualizatsiia.html">
+                            визуализация
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vkcom.html">
+                            vk.com
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vkontakte.html">
+                            вконтакте
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vodianoi-znak.html">
+                            водяной знак
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/weakref.html">
+                            weakref
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1044,13 +1026,33 @@ PEP - Python Enhancement Proposal - это предложения по разв�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/xml.html">
-                            xml
+                        <a href="http://pynsk.ru/tag/winapi.html">
+                            winapi
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yattag.html">
+                            yattag
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/yield-from.html">
+                            yield from
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zadacha.html">
+                            задача
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zhelezo.html">
+                            железо
                         </a>
                     </li>
                 </ul>
