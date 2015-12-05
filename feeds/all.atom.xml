@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-03T12:00:00+06:00</updated><entry><title>API всему голова: gitter api - пишем в чат от своего лица</title><link href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/" rel="alternate"></link><updated>2015-12-03T12:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</id><summary type="html">&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/all.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-04T18:00:00+06:00</updated><entry><title>Python на службе народа: оповещения в Linux</title><link href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/" rel="alternate"></link><updated>2015-12-04T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-04:posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/</id><summary type="html">&lt;p&gt;Оповещения - это зло для продуктивности, но без них тяжело. Сервер упал - как узнать об этом мгновенно? СМС, письмо на email,  оповещение на рабочем столе.&lt;/p&gt;
+&lt;p&gt;К сожалению, без Qt, Wx и других фреймворков кроссплатформенные оповещения не сделать. Поэтому рассмотрим только Linux.
+Для linux есть библиотека &lt;code&gt;libnotify&lt;/code&gt; и обязка для нее python-notify&lt;/p&gt;
+&lt;p&gt;Установим:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install python-notify
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;После чего можно использовать команду notify-send (в терминале):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;notify-send &amp;quot;hello world&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Или из кода:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;
+&lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;notify-send&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Или вот так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pygtk&lt;/span&gt;
+&lt;span class="n"&gt;pygtk&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;2.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pynotify&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;pynotify&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Basics&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="оповещение"></category><category term="notification"></category><category term="notify"></category><category term="pynotify"></category><category term="Qt"></category><category term="Wx"></category></entry><entry><title>Таинство стандартной библиотеки: asyncio в Python. Как устроено и зачем нужно?</title><link href="http://pynsk.ru/posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/" rel="alternate"></link><updated>2015-12-04T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-04:posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/</id><summary type="html">&lt;p&gt;Видео со свежего Moscow Python митапа.&lt;/p&gt;
+&lt;p&gt;В python 3.4 появился asyncio. До сих пор многие разработчики не знают, что это такое, как реализуется асинхронность в Python и в чем её сильные и слабые места. Повторим пройденное и заглянем под капот.&lt;/p&gt;
+&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/BhqeJGTji2I?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="видео"></category><category term="asyncio"></category></entry><entry><title>API всему голова: gitter api - пишем в чат от своего лица</title><link href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/" rel="alternate"></link><updated>2015-12-03T12:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</id><summary type="html">&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
 Чаты бесплатны, есть интеграция с Github, есть API - что еще для небольшого чата надо?&lt;/p&gt;
 &lt;p&gt;Сегодня мы научимся писать в чат с помощью API. В заголовке отметил, что будем писать от своего лица, поэтому будет все просто.&lt;/p&gt;
 &lt;p&gt;Для начала стоит изучить возможность API -&amp;gt; &lt;a href="https://developer.gitter.im/docs/welcome"&gt;https://developer.gitter.im/docs/welcome&lt;/a&gt;&lt;/p&gt;
