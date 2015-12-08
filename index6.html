@@ -231,6 +231,52 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Oct/10/python-proekty-interpretator-pypy/">Python проекты: интерпретатор PyPy</a></h2>
+
+                <div class="summary"><p>PyPy — это интерпретатор Python, который написан на Python (RPython) и может компилировать сам себя.</p>
+<p>Основное отличие от обычного CPython — наличие JIT компилятора.
+Прелесть JIT компилятора в том, что в течении работы программы оптимизируются ее части.</p>
+<p>Скорость исполнения кода на PyPy выше. На сайте http://speed.pypy.org/ вы можете найти сравнения CPython и PyPy.
+На сайте есть график (в самом ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/10/python-proekty-interpretator-pypy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Oct/08/hardcore-python-pereopredeliaem-mekhanizm-importa/">Hardcore Python: переопределяем механизм импорта</a></h2>
+
+                <div class="summary"><p>В стандартной Python начиная с 2.3 существует механизм импорт-хуков. 
+Зачем они нужны? 
+Все очень просто - захотелось добавить поддержку импорта из .zip архивов. Ява такое может (.jar) - чем Питон хуже?
+Но открывать редактор только ради .zip не очень... Поэтому Python умеет загружать модули из базы данных или с соседнего сервера.</p>
+<p>Механизм механизм импорт-хуков реализован с помощью:</p>
+<ul>
+<li>sys.meta_path</li>
+<li>sys.path_hooks ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/08/hardcore-python-pereopredeliaem-mekhanizm-importa/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Oct/08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/">Опыт разработчиков: замыкания (closure). Зачем и почему.</a></h2>
+
+                <div class="summary"><p>В синтаксисе Python один и тот же символ или конструкция часто используется для разных целей
+Возможно вы встречались с подобным кодом:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">outer_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner_func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="c"># inner_func замкнуло в себе х</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">inner_func</span>
+</pre></div>
+
+
+<p>Похож на декоратор. Это называется замыканием. Это более общий случай декоратора.
+Смысл замыкания состоит в том, что определение функции "замораживает" окружающий её контекст ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/08/opyt-razrabotchikov-zamykaniia-closure-zachem-i-pochemu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Oct/07/pishem-web-proekty-polimorfnye-sviazi-ili-foreign-key-na-dve-django-modeli/">Пишем web-проекты: полиморфные связи или Foreign Key на две Django модели</a></h2>
 
                 <div class="summary"><p>Представим ситуацию. 
@@ -314,38 +360,6 @@ multiprocessing ...</p>
 <li>если есть летающее животное, то можно смело иметь метод fly;</li>
 <li>если есть раскрашиваемый объект, то можно завести методы "покрасить", и два состояния - "раскрашен ...</li></ul>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/01/interesnye-kontseptsii-mixiny-primesi/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/01/poleznye-instrumenty-pythontutorcom/">Полезные инструменты: pythontutor.com</a></h2>
-
-                <div class="summary"><p>Полезные инструменты: pythontutor.com</p>
-<p>Представим ситуацию, вы читаете лекцию, пускай студентам. Хочется все по шагам и подробно рассказать о данном куске кода.
-Можно вести славеса пол часа, а можно продемонстрировать с помощью http://www.pythontutor.com/</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/01/poleznye-instrumenty-pythontutorcom/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/30/poleznye-instrumenty-pylint-v-poiskakh-oshibok/">Полезные инструменты: pylint - в поисках ошибок</a></h2>
-
-                <div class="summary"><p>Статический анализ кода — анализ кода без реального исполнения кода.
-Под словом "анализ" можно понимать многое - что код соответствует PEP8, что код безопасный (все типы верно приведены), что код не содержит логических ошибок.</p>
-<p>Самым придирчивым анализатором является pylint.</p>
-<p>Pylint анализирует исходный код, выводит небольшую статистику по нему и делает около 150 проверок на разного рода ошибки. Все найденные ошибки выводятся в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/30/poleznye-instrumenty-pylint-v-poiskakh-oshibok/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Sep/30/poleznye-biblioteki-langidpy/">Полезные библиотеки: langid.py</a></h2>
-
-                <div class="summary"><p>Представим ситуацию: есть блог, в котором публикуются посты на двух языках (а может и на 10). Необходимо рассортировать посты по языкам в разные RSS. (постов очень много, пускай 1000)</p>
-<p>Вопрос к аудитории - как вы решили бы такую задачу?</p>
-<p>Чтобы решить подобную задачу можно воспользоваться библиотекой <code>langid.py</code>. 
-Это небольшой инструмент, который без доступа в Интернет(!!!) может определить язык текста (и ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/30/poleznye-biblioteki-langidpy/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -564,9 +578,19 @@ multiprocessing ...</p>
                             aiohttp
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/analizator.html">
+                            анализатор
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/argument.html">
+                            аргумент
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -589,11 +613,6 @@ multiprocessing ...</p>
                             байт-код
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/baza-dannykh.html">
-                            база данных
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bd.html">
                             бд
@@ -605,13 +624,28 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/brauzer.html">
                             браузер
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cffi.html">
-                            cffi
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/crawler.html">
+                            crawler
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -625,13 +659,13 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
+                        <a href="http://pynsk.ru/tag/dsl.html">
+                            dsl
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -650,18 +684,8 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy.html">
-                            fuzzy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/garbage-collector.html">
                             garbage collector
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -670,18 +694,13 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generatsiia.html">
-                            генерация
+                        <a href="http://pynsk.ru/tag/generatsiia-dannykh.html">
+                            генерация данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gitter.html">
-                            gitter
+                        <a href="http://pynsk.ru/tag/gevent.html">
+                            gevent
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -735,13 +754,8 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/izmerenie.html">
-                            измерение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kesh.html">
-                            кэш
+                        <a href="http://pynsk.ru/tag/jinja2.html">
+                            jinja2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -765,28 +779,28 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/marshal.html">
-                            marshal
+                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
+                            магическая переменная
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mixin.html">
-                            mixin
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnozhestvo.html">
-                            множество
+                        <a href="http://pynsk.ru/tag/multiprocessing.html">
+                            multiprocessing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/nose.html">
                             nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/notification.html">
+                            notification
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -800,8 +814,8 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/opoveshchenie.html">
+                            оповещение
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -817,11 +831,6 @@ multiprocessing ...</p>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/otchet.html">
-                            отчет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -840,8 +849,23 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/postgresql.html">
+                            postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -850,13 +874,13 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
-                            производительность
+                        <a href="http://pynsk.ru/tag/pygame.html">
+                            pygame
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycon.html">
-                            pycon
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -874,19 +898,29 @@ multiprocessing ...</p>
                             pyside
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/qt.html">
-                            Qt
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python-proekt.html">
+                            python проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/r.html">
-                            R
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/qt.html">
+                            Qt
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -899,24 +933,9 @@ multiprocessing ...</p>
                             real-time
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirements.html">
-                            requirements
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/selenium.html">
-                            selenium
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -935,8 +954,13 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slice.html">
-                            slice
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slais.html">
+                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -950,8 +974,8 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
+                        <a href="http://pynsk.ru/tag/srez.html">
+                            срез
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -965,13 +989,13 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/statistika.html">
-                            статистика
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
+                        <a href="http://pynsk.ru/tag/strip.html">
+                            strip
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -994,24 +1018,29 @@ multiprocessing ...</p>
                             тесты
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/time.html">
+                            time
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/timeit.html">
+                            timeit
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/tipizatsiia.html">
                             типизация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/typing.html">
-                            typing
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/unicode.html">
-                            unicode
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1024,24 +1053,14 @@ multiprocessing ...</p>
                             видео
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vkcom.html">
+                            vk.com
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/while.html">
-                            while
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/with.html">
-                            with
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1050,13 +1069,8 @@ multiprocessing ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zadacha.html">
-                            задача
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zamykanie.html">
-                            замыкание
+                        <a href="http://pynsk.ru/tag/zhelezo.html">
+                            железо
                         </a>
                     </li>
                 </ul>

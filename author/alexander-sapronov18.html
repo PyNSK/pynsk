@@ -231,6 +231,52 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Jul/27/vstroennye-funktsii-python/">Встроенные функции Python</a></h2>
+
+                <div class="summary"><p>Стандартная библиотека Python отличается хорошей документацией и широким ассортиментом готовых решений.
+Python предоставляет без малого 68 встроенных функций: это получение модуля числа, бинарное и hex представления числа, различные преобразование типов, сложение, возведение в степень и многие другие.</p>
+<p><a href="https://docs.python.org/3.5/library/functions.html">https://docs.python.org/3.5/library/functions.html</a></p>
+<p>А вы знали, что в Python всё является объектом? Даже число</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">[</span><span class="s">&#39;__abs__ ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/27/vstroennye-funktsii-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Jul/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir.</a></h2>
+
+                <div class="summary"><p>PEP 471 (Python 3.5) добавил в модуль os новую функцию - scandir. </p>
+<p>Функция scandir возвращает генератор, который содержит директории по пути.
+Польза scandir состоит в производительности. Теперь os.listdir и os.walk будут работать в 2-20 раз быстрее.</p>
+<p>Пример: функция, которая возвращает генератор с директориями начинающиеся с точки:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">subdirs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Yield directory names not starting with &#39;.&#39; under given path ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/25/pep-471-python-35-dobavil-v-modul-os-novuiu-funktsiiu-scandir/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Jul/25/tkinter/">Tkinter</a></h2>
+
+                <div class="summary"><p>Родным модулем для построения GUI интерфейсов для Python программ является Tkinter.
+Данная библиотека позволяет построить несложные интерфейсы. Tkinter есть на всех платформах где есть Python. В Python ветки 2.x.x при импорте модуля Tkinter, он пишется в большой буквы (иначе возникает ошибка). При импорте tkinter в версиях 3.x.x Питона имя модуля пишется с маленькой буквы.</p>
+<p>Данный курс ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/25/tkinter/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Jul/25/interpretator-brainfuck-na-python/">Интерпретатор brainfuck на Python</a></h2>
+
+                <div class="summary"><p>Язык brainfuck для хранения данных использует ячейки (по-хорошему бесконечное число ячеек) и состоит всего из восьми команд, поэтому выучить его будет легко.
+В этой статье показан интерпретатор brainfuck на Python
+<a href="http://pythonworld.ru/primery-programm/interpretator-brainfuck.html">http://pythonworld.ru/primery-programm/interpretator-brainfuck.html</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/25/interpretator-brainfuck-na-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Jul/25/nabor-gui-bibliotek-dlia-python/">Набор GUI библиотек для Python</a></h2>
 
                 <div class="summary"><p>На странице Python-wiki представлен огромный список пакетов для создания GUI на Python
@@ -289,56 +335,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                 <div class="summary"><p>В подавляющем большинстве проектов используется отправка сообщений на почтовые адреса клиентов/админов/отделов. На сколько утомительно каждый раз создавать шаблоны на файловой системе, задавать сигналы, использовать часто дублирующийся код для рендеринга и отправки.</p>
 <p>В конечном итоге встают задачи о фоновой отправке, об изменениях отправителя, приоритизации, повторной отправке сообщения в случае неудачи, частом редактировании по просьбе клиента/маркетологов, прикреплению к письму ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/22/django-db-mailer-batareika-dlia-otpravki-email/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/22/requests/">requests</a></h2>
-
-                <div class="summary"><p>requests - <a href="http://docs.python-requests.org/en/latest/">http://docs.python-requests.org/en/latest/</a> - универсальный (для python2, python3) модуль для создание HTTP запросов.
-Данный модуль позволяет очень просто послать запрос, получить данные.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-<span class="mi">200</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;content-type&#39;</span><span class="p">]</span>
-<span class="s">&#39;application/json; charset=utf8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">encoding</span>
-<span class="s">&#39;utf-8&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
-<span class="s">u&#39;{&quot;type&quot;:&quot;User&quot;...&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="p">{</span><span class="s">u&#39;private_gists&#39;</span><span class="p">:</span> <span class="mi">419</span><span class="p">,</span> <span class="s">u ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/22/requests/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/21/testy-testy-testy-unittest-osnovnoi-instrument-testirovaniia/">Тесты тесты тесты: unittest - основной инструмент тестирования</a></h2>
-
-                <div class="summary"><p>Одним из основных инструментов для тестирования в Python - unittest</p>
-<p>Это стандартный модуль для реализации юнит-тестов на Python.
-Unittest это порт JUnit с Java, иными словами ООП стиль, что весьма удобно для тестирования и процедур, и классов.</p>
-<p>Возможностей в данном модуле довольно много: проверки (<code>assert*</code>), декораторы, позволяющие пропустить отдельный тест (<code>@skip</code>, <code>@skipIf</code>) или обозначить сломанные тесты (<code>@expectedFailure</code>)</p>
-<p>При написании тестов надо ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/21/testy-testy-testy-unittest-osnovnoi-instrument-testirovaniia/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/21/unittest/">unittest</a></h2>
-
-                <div class="summary"><p>unittest - https://docs.python.org/3.5/library/unittest.html - фреймворк для написания юнит-тестов.
-unittest является частью стандартной поставки.</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/21/unittest/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Jul/20/generatory-spiskov/">Генераторы списков</a></h2>
-
-                <div class="summary"><p>Если вы использовали Python достаточно долго, вы должны были хотя бы слышать о понятии «list comprehensions». Это способ уместить цикл for, блок if и присваивание в одну строку.</p>
-<p>Генератор списков - яркий пример «синтаксического сахара». То есть конструкции, без которой легко можно обойтись, но с ней намного лучше :) Генераторы списков, как это не странно, предназначены для удобной обработки списков, к которой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Jul/20/generatory-spiskov/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -557,9 +553,19 @@ unittest является частью стандартной поставки.<
                             aiohttp
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/analizator.html">
+                            анализатор
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/argument.html">
+                            аргумент
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -582,11 +588,6 @@ unittest является частью стандартной поставки.<
                             байт-код
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/baza-dannykh.html">
-                            база данных
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bd.html">
                             бд
@@ -598,13 +599,28 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/brauzer.html">
                             браузер
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cffi.html">
-                            cffi
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/crawler.html">
+                            crawler
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -618,13 +634,13 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
+                        <a href="http://pynsk.ru/tag/dsl.html">
+                            dsl
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -643,18 +659,8 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy.html">
-                            fuzzy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/garbage-collector.html">
                             garbage collector
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -663,18 +669,13 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generatsiia.html">
-                            генерация
+                        <a href="http://pynsk.ru/tag/generatsiia-dannykh.html">
+                            генерация данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gitter.html">
-                            gitter
+                        <a href="http://pynsk.ru/tag/gevent.html">
+                            gevent
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -728,13 +729,8 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/izmerenie.html">
-                            измерение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kesh.html">
-                            кэш
+                        <a href="http://pynsk.ru/tag/jinja2.html">
+                            jinja2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -758,28 +754,28 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/marshal.html">
-                            marshal
+                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
+                            магическая переменная
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mixin.html">
-                            mixin
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnozhestvo.html">
-                            множество
+                        <a href="http://pynsk.ru/tag/multiprocessing.html">
+                            multiprocessing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/nose.html">
                             nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/notification.html">
+                            notification
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -793,8 +789,8 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/opoveshchenie.html">
+                            оповещение
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -810,11 +806,6 @@ unittest является частью стандартной поставки.<
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/otchet.html">
-                            отчет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -833,8 +824,23 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/postgresql.html">
+                            postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -843,13 +849,13 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
-                            производительность
+                        <a href="http://pynsk.ru/tag/pygame.html">
+                            pygame
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycon.html">
-                            pycon
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -867,19 +873,29 @@ unittest является частью стандартной поставки.<
                             pyside
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/qt.html">
-                            Qt
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python-proekt.html">
+                            python проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/r.html">
-                            R
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/qt.html">
+                            Qt
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -892,24 +908,9 @@ unittest является частью стандартной поставки.<
                             real-time
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirements.html">
-                            requirements
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/selenium.html">
-                            selenium
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -928,8 +929,13 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slice.html">
-                            slice
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slais.html">
+                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -943,8 +949,8 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
+                        <a href="http://pynsk.ru/tag/srez.html">
+                            срез
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -958,13 +964,13 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/statistika.html">
-                            статистика
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
+                        <a href="http://pynsk.ru/tag/strip.html">
+                            strip
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -987,24 +993,29 @@ unittest является частью стандартной поставки.<
                             тесты
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/time.html">
+                            time
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/timeit.html">
+                            timeit
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/tipizatsiia.html">
                             типизация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/typing.html">
-                            typing
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/unicode.html">
-                            unicode
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1017,24 +1028,14 @@ unittest является частью стандартной поставки.<
                             видео
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vkcom.html">
+                            vk.com
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/while.html">
-                            while
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/with.html">
-                            with
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1043,13 +1044,8 @@ unittest является частью стандартной поставки.<
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zadacha.html">
-                            задача
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zamykanie.html">
-                            замыкание
+                        <a href="http://pynsk.ru/tag/zhelezo.html">
+                            железо
                         </a>
                     </li>
                 </ul>

@@ -232,12 +232,56 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-yield-from/">Синтаксис Python: yield from</a></h2>
+
+                <div class="summary"><p>Рассмотрим еще одну страшную конструкцию в Python 3.3+ - yield from</p>
+<p>Напомню, генератор это объект который можно про итерировать только однажды. Записывается как:</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> 
+<span class="c"># Или так</span>
+<span class="k">def</span> <span class="nf">gen</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">x</span>
+</pre></div>
+
+
+<p>Когда у нас один генератор - все хорошо. Используем его как итератор и радуемся. Но не редки ситуации когда есть ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-yield-from/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-encodedecode/">Синтаксис Python: encode/decode</a></h2>
+
+                <div class="summary"><p>Вероятно, самым заметным отличием Python 2 от Python 3 является юникод.  Это нововведение упростило работу со строками. Однако, так как Python 2 еще в строю, то кодировки еще в силе и не мало разработчиков путается между encode и decode.</p>
+<p>Стоит привести картинку, которая прояснит все:</p>
+<p><img alt="Image" src="http://eli.thegreenplace.net/images/2012/01/py3_string_bytes.png" /></p>
+<p>Таким образом, если у нас есть строка:</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;Cool page&#39;</span>
+</pre></div>
+
+
+<p>То существует множество способов (кодировок ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/21/sintaksis-python-encodedecode/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Sep/14/sintaksis-python-rabota-s-matritsami/">Синтаксис Python: работа с матрицами</a></h2>
 
                 <div class="summary"><p>Матрица - это, если утрировать, "табличка", N-мерный массив (чаще всего двумерный). 
 Матрицы возникают не редко. Например, игровое поле, карта мира - тоже можно представить матрицей, да то же решето Эратосфена - тоже двумерный массив, или вообще - вложенные списки.</p>
 <p>Это все создает необходимость знать как работать с матрицами и какими инструментами. Модулей для работы с этими объектами не мало, самые известные - стандартный math и ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/14/sintaksis-python-rabota-s-matritsami/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Sep/12/sintaksis-python-soprotsedury-i-zelenye-potoki/">Синтаксис Python: Сопроцедуры и зеленые потоки</a></h2>
+
+                <div class="summary"><p>Зеленые потоки(greenlets) и сопроцедуры(coroutines) это мощные механизмы языка позволяющие очень просто писать асинхронный код.</p>
+<p>В этом мастер классе вы узнаете об этом подробно</p>
+<iframe width="459" height="344" src="https://www.youtube.com/embed/FaDDBfskxjw?feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Sep/12/sintaksis-python-soprotsedury-i-zelenye-potoki/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -333,57 +377,6 @@ Yield - это ключевое слово которое используетс
 <a href="http://learnxinyminutes.com/docs/ru-ru/python3-ru/">http://learnxinyminutes.com/docs/ru-ru/python3-ru/</a>
 А по ссылке вы найдете синтаксис языка Python</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/24/sintaksis-python-znakomimsia-s-sintaksisom-za-y-minut/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/">Синтаксис Python: изменяемые и неизменяемые типы данных</a></h2>
-
-                <div class="summary"><p>Все типы данных в Python относятся к одной из 2-х категорий: изменяемые (mutable) и неизменяемые (unmutable). Многие из предопределённых типов данных Python — это типы неизменяемых объектов: числовые данные (int, float, complex), символьные строки (class 'str'), кортежи (tuple). Другие типы определены как изменяемые: списки (list), множества (set), словари (dict). Вновь определяемые пользователем типы (классы) могут быть определены как неизменяемые или изменяемые ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/17/sintaksis-python-izmeniaemye-i-neizmeniaemye-tipy-dannykh/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-konstruktsiia-switch/">Синтаксис Python: конструкция switch</a></h2>
-
-                <div class="summary"><p>Стоит упомянуть про конструкцию switch в Python. Такой конструкции в языке нет, однако, выкрутится можно. Часто рекомендуют писать множественные elif'ы, но можно сделать так:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">switch_case</span><span class="p">(</span><span class="n">case</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s">&quot;You entered &quot;</span> <span class="o">+</span> <span class="p">{</span>
-    <span class="s">&#39;1&#39;</span> <span class="p">:</span> <span class="s">&quot;one&quot;</span><span class="p">,</span>
-    <span class="s">&#39;2&#39;</span> <span class="p">:</span> <span class="s">&quot;two&quot;</span><span class="p">,</span>
-    <span class="s">&#39;3&#39;</span> <span class="p">:</span> <span class="s">&quot;three&quot;</span>
-    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="s">&quot;an out of range number&quot;</span><span class="p">)</span>
-
-<span class="n">num</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Input a number between 1 and 3: &quot;</span><span class="p">)</span> 
-<span class="k">print</span> <span class="n">switch_case</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-</pre></div>
-
-
-<p>В этом примере мы ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-konstruktsiia-switch/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/">Синтаксис Python: трехместное выражение if/else</a></h2>
-
-                <div class="summary"><p>Сегодня хочется упомянуть о непонятной на первый взгляд конструкции - тернарная условная операция, или по-русски - трехместное выражение <code>if/else</code>.</p>
-<p>Представим, есть такой код:</p>
-<div class="highlight"><pre><span class="k">if</span> <span class="n">X</span><span class="p">:</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">Y</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">Z</span>
-</pre></div>
-
-
-<p>довольно короткая, но, тем не менее, занимает целых 4 строки. Специально для таких случаев и было придумано выражение <code>if/else</code>:</p>
-<div class="highlight"><pre><span class="n">A</span> <span class="o">=</span> <span class="n">Y</span> <span class="k">if</span> <span class="n">X</span> <span class="k">else</span> <span class="n">Z</span>
-</pre></div>
-
-
-<p>В данной инструкции интерпретатор выполнит ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/03/sintaksis-python-trekhmestnoe-vyrazhenie-ifelse/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -570,9 +563,19 @@ Yield - это ключевое слово которое используетс
                             aiohttp
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/analizator.html">
+                            анализатор
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/api.html">
                             api
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/argument.html">
+                            аргумент
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -595,11 +598,6 @@ Yield - это ключевое слово которое используетс
                             байт-код
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/baza-dannykh.html">
-                            база данных
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bd.html">
                             бд
@@ -611,13 +609,28 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/brauzer.html">
                             браузер
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/cffi.html">
-                            cffi
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/crawler.html">
+                            crawler
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -631,13 +644,13 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/django-debug-toolbar.html">
-                            django-debug-toolbar
+                        <a href="http://pynsk.ru/tag/dsl.html">
+                            dsl
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dsl.html">
-                            dsl
+                        <a href="http://pynsk.ru/tag/foreign-key.html">
+                            foreign key
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -656,18 +669,8 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/fuzzy.html">
-                            fuzzy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/garbage-collector.html">
                             garbage collector
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -676,18 +679,13 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/generatsiia.html">
-                            генерация
+                        <a href="http://pynsk.ru/tag/generatsiia-dannykh.html">
+                            генерация данных
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gitter.html">
-                            gitter
+                        <a href="http://pynsk.ru/tag/gevent.html">
+                            gevent
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -741,13 +739,8 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/izmerenie.html">
-                            измерение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kesh.html">
-                            кэш
+                        <a href="http://pynsk.ru/tag/jinja2.html">
+                            jinja2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -771,28 +764,28 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/marshal.html">
-                            marshal
+                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
+                            магическая переменная
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mixin.html">
-                            mixin
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnozhestvo.html">
-                            множество
+                        <a href="http://pynsk.ru/tag/multiprocessing.html">
+                            multiprocessing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/nose.html">
                             nose
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/notification.html">
+                            notification
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -806,8 +799,8 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/opoveshchenie.html">
+                            оповещение
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -823,11 +816,6 @@ Yield - это ключевое слово которое используетс
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/otchet.html">
-                            отчет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -846,8 +834,23 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/pickle.html">
+                            pickle
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/pip.html">
                             pip
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/plotly.html">
+                            plotly
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/postgresql.html">
+                            postgresql
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -856,13 +859,13 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
-                            производительность
+                        <a href="http://pynsk.ru/tag/pygame.html">
+                            pygame
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycon.html">
-                            pycon
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -880,19 +883,29 @@ Yield - это ключевое слово которое используетс
                             pyside
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/qt.html">
-                            Qt
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python-proekt.html">
+                            python проект
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/r.html">
-                            R
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/qt.html">
+                            Qt
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -905,24 +918,9 @@ Yield - это ключевое слово которое используетс
                             real-time
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/reiting.html">
-                            рейтинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirements.html">
-                            requirements
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/rest.html">
                             rest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/selenium.html">
-                            selenium
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -941,8 +939,13 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slice.html">
-                            slice
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/slais.html">
+                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -956,8 +959,8 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sravnenie.html">
-                            сравнение
+                        <a href="http://pynsk.ru/tag/srez.html">
+                            срез
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -971,13 +974,13 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/statistika.html">
-                            статистика
+                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
+                            статический анализатор
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
+                        <a href="http://pynsk.ru/tag/strip.html">
+                            strip
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1000,24 +1003,29 @@ Yield - это ключевое слово которое используетс
                             тесты
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/time.html">
+                            time
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/timeit.html">
+                            timeit
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/tipizatsiia.html">
                             типизация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/typing.html">
-                            typing
+                        <a href="http://pynsk.ru/tag/tkinter.html">
+                            tkinter
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/unicode.html">
-                            unicode
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1030,24 +1038,14 @@ Yield - это ключевое слово которое используетс
                             видео
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/vkcom.html">
+                            vk.com
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/web.html">
                             web
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/while.html">
-                            while
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/with.html">
-                            with
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1056,13 +1054,8 @@ Yield - это ключевое слово которое используетс
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zadacha.html">
-                            задача
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/zamykanie.html">
-                            замыкание
+                        <a href="http://pynsk.ru/tag/zhelezo.html">
+                            железо
                         </a>
                     </li>
                 </ul>
