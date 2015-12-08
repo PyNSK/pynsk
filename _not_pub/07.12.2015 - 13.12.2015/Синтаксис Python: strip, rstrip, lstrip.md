@@ -18,6 +18,6 @@ print(name)
 
 ```python
 new_str = name.strip() # Удалит пробелы в начале и в конце строки
-new_str = name.lstrp() # Удалит только в начале
-new_str = name.lstrp() # Удалит только в конце
+new_str = name.rstrip() # Удалит только в начале
+new_str = name.lstrip() # Удалит только в конце
 ```
