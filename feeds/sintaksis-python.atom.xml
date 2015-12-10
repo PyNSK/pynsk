@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-07T18:00:00+06:00</updated><entry><title>Синтаксис Python: strip, rstrip, lstrip</title><link href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/" rel="alternate"></link><updated>2015-12-07T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-07:posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/</id><summary type="html">&lt;p&gt;Не редко возникает задача убрать лишние пробелы с начала/конца строки.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/sintaksis-python.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-10T04:00:00+06:00</updated><entry><title>Синтаксис Python: менеджер контекста (with) - подборка интересных ссылок</title><link href="http://pynsk.ru/posts/2015/Dec/10/sintaksis-python-menedzher-konteksta-with-podborka-interesnykh-ssylok/" rel="alternate"></link><updated>2015-12-10T04:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-10:posts/2015/Dec/10/sintaksis-python-menedzher-konteksta-with-podborka-interesnykh-ssylok/</id><summary type="html">&lt;p&gt;Менеджеры контекста — это механизм стоящий за ключевым словом with.&lt;/p&gt;
+&lt;p&gt;Ключевое слово with появилось еще в Python 2.5 (через &lt;code&gt;__future__&lt;/code&gt;).  Такая конструкция пришла на смену концепту &lt;code&gt;setup..try..except..finally&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Если раньше писали&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;file&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;То сейчас &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;fio&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;fio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;За этим изменением стоит много, но повторять уже написанный материал не хочется, поэтому подборка ссылок:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://proft.me/2010/06/24/python-i-menedzher-konteksta/"&gt;http://proft.me/2010/06/24/python-i-menedzher-konteksta/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://hlabs.org/development/python/pro_python.html"&gt;http://hlabs.org/development/python/pro_python.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://python-3.ru/page/instrukcija-with-as-v-python"&gt;http://python-3.ru/page/instrukcija-with-as-v-python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html"&gt;http://pythonworld.ru/osnovy/with-as-menedzhery-konteksta.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="with"></category><category term="контекст"></category><category term="менеджер контекста"></category></entry><entry><title>Синтаксис Python: strip, rstrip, lstrip</title><link href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/" rel="alternate"></link><updated>2015-12-07T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-07:posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/</id><summary type="html">&lt;p&gt;Не редко возникает задача убрать лишние пробелы с начала/конца строки.
 Например&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Доброе утро, Иван&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 

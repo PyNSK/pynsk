@@ -1,5 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/api-vsemu-golova.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-03T12:00:00+06:00</updated><entry><title>API всему голова: gitter api - пишем в чат от своего лица</title><link href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/" rel="alternate"></link><updated>2015-12-03T12:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</id><summary type="html">&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/api-vsemu-golova.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-10T04:00:00+06:00</updated><entry><title>API всему голова: twitter API - пишем твит с изображением</title><link href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/" rel="alternate"></link><updated>2015-12-10T04:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-10:posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</id><summary type="html">&lt;p&gt;О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
+Twitter имеет открытый API, который сегодня и освоим. Мы научимся публиковать пост с изображением через Twitter API&lt;/p&gt;
+&lt;h2&gt;Начинаем работу с API - получаем APP_ID&lt;/h2&gt;
+&lt;p&gt;Как и с другими API, первый шаг - почитать документацию - &lt;a href="https://dev.twitter.com/overview/documentation"&gt;https://dev.twitter.com/overview/documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;А второй шаг - авторизоваться. Чтобы авторизоваться надо получить API Key, API Secret и access token. 
+Для этого идем по ссылке &lt;a href="https://apps.twitter.com/"&gt;https://apps.twitter.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Наблюдаем такую картину:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Создаем приложение - вводим название, описание и ссылку на сайт. Эти данные толком не важны, поэтому вводим любые&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;После того как будет создано приложение мы получим нужные данные:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_3.png" /&gt;
+&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Жмем на кнопку &lt;code&gt;"Create my access token"&lt;/code&gt; и получаем все самое важное:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;API key (&lt;code&gt;TWITTER_CONSUMER_KEY&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;API Secret (&lt;code&gt;TWITTER_CONSUMER_SECRET&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Access token (&lt;code&gt;TWITTER_TOKEN&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Access token secret (&lt;code&gt;TWITTER_TOKEN_SECRET&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Теперь перейдем непосредственно к авторизации и нашей задачи&lt;/p&gt;
+&lt;h2&gt;Выбираем клиенсткую библиотеку&lt;/h2&gt;
+&lt;p&gt;Для API твиттера написано множество готовых клиентский библиотек - &lt;a href="https://dev.twitter.com/overview/api/twitter-libraries"&gt;https://dev.twitter.com/overview/api/twitter-libraries&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Для Python это:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/tweepy/tweepy"&gt;tweepy&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/bear/python-twitter"&gt;python-twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Mezgrman/TweetPony"&gt;TweetPonyby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/sixohsix/twitter"&gt;Python Twitter Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tchx84/twitter-gobject"&gt;twitter-gobject&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ckoepp/TwitterSearch"&gt;TwitterSearch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ryanmcgrath/twython"&gt;twythonby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/geduldig/TwitterAPI"&gt;TwitterAPI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/inueni/birdy"&gt;Birdy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Т.е. очень много.&lt;/p&gt;
+&lt;p&gt;В примерах будет использоваться &lt;code&gt;tweepy&lt;/code&gt; - потому что потому.&lt;/p&gt;
+&lt;h2&gt;Работаем с API&lt;/h2&gt;
+&lt;p&gt;Объявленная задача - написать пост через API с вложением.
+Для этого:&lt;/p&gt;
+&lt;p&gt;Напишем функцию авторизации:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;init_auth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;consumer_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consumer_secret&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token_secret&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tweepy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OAuthHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;consumer_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consumer_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_access_token&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tweepy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;API&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;После этого можно дергать методы из документации.
+Для публикации поста с вложением есть метод &lt;code&gt;update_with_media&lt;/code&gt; в &lt;code&gt;tweepy&lt;/code&gt;, который принимает путь до файла и текст.&lt;/p&gt;
+&lt;p&gt;Практика использования показывает, что картинки используются из Интернет, поэтому удобней указывать url до картинки и текст.
+Напишем функции:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;download_image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;abspath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+        &lt;span class="n"&gt;urlretrieve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;IndexError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+    &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;HTTPError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;file_path&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;send_tweet_with_media&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;api&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isfile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="c"&gt;# качаем файл из сети&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;download_image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;assert&lt;/span&gt; &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Not found image (for twitter)&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update_with_media&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Вот и весь код. Используем его&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;twitter_text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;#pynsk Я научился работать с twitter api&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://pp.vk.me/c624516/v624516517/31b6b/6kViWNZI6n4.jpg&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;twitter_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;init_auth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;consumer_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consumer_secret&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;send_tweet_with_media&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;twitter_api&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;twitter_text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="twitter"></category><category term="api"></category><category term="автоматизация"></category></entry><entry><title>API всему голова: gitter api - пишем в чат от своего лица</title><link href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/" rel="alternate"></link><updated>2015-12-03T12:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</id><summary type="html">&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
 Чаты бесплатны, есть интеграция с Github, есть API - что еще для небольшого чата надо?&lt;/p&gt;
 &lt;p&gt;Сегодня мы научимся писать в чат с помощью API. В заголовке отметил, что будем писать от своего лица, поэтому будет все просто.&lt;/p&gt;
 &lt;p&gt;Для начала стоит изучить возможность API -&amp;gt; &lt;a href="https://developer.gitter.im/docs/welcome"&gt;https://developer.gitter.im/docs/welcome&lt;/a&gt;&lt;/p&gt;
