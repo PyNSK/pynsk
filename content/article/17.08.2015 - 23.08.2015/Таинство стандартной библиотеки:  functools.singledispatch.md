@@ -9,4 +9,20 @@ Category: Таинство стандартной библиотеки
 
 Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.
 
+```python
+>>> @fun.register(int)
+... def _(arg, verbose=False):
+...     if verbose:
+...         print("Strength in numbers, eh?", end=" ")
+...     print(arg)
+...
+
+>>> @fun.register(list)
+... def _(arg, verbose=False):
+...     if verbose:
+...         print("Enumerate this:")
+...     for i, elem in enumerate(arg):
+...         print(i, elem)
+```
+
 Подробней о этом механизме по ссылке - [https://www.python.org/dev/peps/pep-0443/](https://www.python.org/dev/peps/pep-0443/)
