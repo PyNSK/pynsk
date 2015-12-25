@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/poleznye-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 28 Nov 2015 15:00:00 +0600</lastBuildDate><item><title>Полезные библиотеки: bokeh - библиотека визуализации данных</title><link>http://pynsk.ru/posts/2015/Nov/28/poleznye-biblioteki-bokeh-biblioteka-vizualizatsii-dannykh/</link><description>&lt;p&gt;Bokeh- это библиотека для интерактивной визуализации адаптированная под отображение в браузере. В этом и суть этой библиотеки.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/poleznye-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Dec 2015 10:00:00 +0600</lastBuildDate><item><title>Полезные библиотеки: RPC и nameko</title><link>http://pynsk.ru/posts/2015/Dec/16/poleznye-biblioteki-rpc-i-nameko/</link><description>&lt;p&gt;Всем привычно, когда управление и данные внутри программы перемещаются на одной машине. Все хорошо и ясно (в какой-то мере), но что делать если данных становится много и возникает желание распределить вычисления?&lt;/p&gt;
+&lt;p&gt;Берем 2 компьютера, а дальше... А дальше нам надо как-то из программы на одном компьютере запустить метод на другом, да еще и данные перекинуть.
+Вот здесь на помощь и приходит &lt;code&gt;RPC&lt;/code&gt; (Remote Procedure Call) вызов удалённых процедур.&lt;/p&gt;
+&lt;p&gt;Этот механизм берет на себя все проблемы соединения компьютеров, а таких много: адресные пространства компьютеров могут не совпадать, как передать данные, а если архитектуры различны? и этих "а если" очень много&lt;/p&gt;
+&lt;p&gt;Хорошо про RPC написано по ссылке -&amp;gt; &lt;a href="http://citforum.ru/operating_systems/sos/glava_12.shtml"&gt;http://citforum.ru/operating_systems/sos/glava_12.shtml&lt;/a&gt;
+Там вы найдете способ работы RPC, какие проблемы с RPC есть.&lt;/p&gt;
+&lt;p&gt;А мы продолжаем. У нас задача - запустить код на одной машине из кода на другой машине.&lt;/p&gt;
+&lt;p&gt;В Python есть несколько готовых инструментов для этой задачи. Один из них - nameko&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Nameko&lt;/code&gt; - это фреймворк, который направлен на создание различных микросервисов.
+Данный фреймворк обладает простым строением и позволяет работать в режимах RPC, Pub-Sub - чего достаточно для небольших проектов.&lt;/p&gt;
+&lt;p&gt;Создание микросервиса элементарное:&lt;/p&gt;
+&lt;p&gt;Немного кода:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;nameko.rpc&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rpc&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;GreetingService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;greeting_service&amp;quot;&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@rpc&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello, {}!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Запуск:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;nameko run helloworld
+starting services: greeting_service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Готово! Можно использовать (для примера, используем RPC из консоли):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;nameko shell
+&amp;gt;&amp;gt;&amp;gt; n.rpc.greeting_service.hello&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Matt&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+u&lt;span class="s1"&gt;&amp;#39;Hello, Matt!&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Таким образом можно реализовать распределенную систему.
+Пример задачи, где это может потребоваться - электронная библиотека. На одной машине клиент может выгружать и редактировать книги, а на второй машине данные хранятся и проводится их индексация.&lt;/p&gt;
+&lt;p&gt;Пара ссылок:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/onefinestay/nameko"&gt;https://github.com/onefinestay/nameko&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lucumr.pocoo.org/2015/4/8/microservices-with-nameko/"&gt;http://lucumr.pocoo.org/2015/4/8/microservices-with-nameko/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 16 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-16:posts/2015/Dec/16/poleznye-biblioteki-rpc-i-nameko/</guid><category>rpc</category><category>nameko</category><category>удаленный вызов процедур</category></item><item><title>Полезные библиотеки: bokeh - библиотека визуализации данных</title><link>http://pynsk.ru/posts/2015/Nov/28/poleznye-biblioteki-bokeh-biblioteka-vizualizatsii-dannykh/</link><description>&lt;p&gt;Bokeh- это библиотека для интерактивной визуализации адаптированная под отображение в браузере. В этом и суть этой библиотеки.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Image" src="https://i1.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/08/Bokeh_Intro.png?resize=398%2C339" /&gt;&lt;/p&gt;
 &lt;p&gt;bokeh имеет биндинги к самым различным языкам - R, Lua, Python, Julia.
 Вы пишите код визуализации на своем языке, а затем с помощью BokehJS отображаете в браузере. Возможности у инструмента огромные, прям как D3.js&lt;/p&gt;

@@ -231,110 +231,147 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/">API всему голова: ВКонтакте - от начала до отправки сообщения другу</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-args-kwargs/">Синтаксис Python: *args, **kwargs</a></h2>
 
-                <div class="summary"><p>Работа с API сервисов это всегда история по типу "Ожидание...реальность". Ибо даже простое API может скушать день, а то и 2 дня рабочего времени. </p>
-<p>API Вконтакте не исключение. Уже есть очень много материалов на тему использования этого интерфейса:</p>
-<p><a href="http://habrahabr.ru/search/page2/?q=vk+api&amp;target_type=posts&amp;order_by=relevance">http://habrahabr.ru/search/page2/?q=vk+api&amp;target_type=posts&amp;order_by=relevance</a> </p>
-<p>Много практических задач решили с помощью API:</p>
-<ul>
-<li><a href="http://habrahabr.ru/post/266671/">Скачивание музыки ...</a></li></ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/">more ...</a>
+                <div class="summary"><p>При написании кода не всегда хочется явно прописывать все аргументы.
+Например - на вход программы подается набор аргументов:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">run_program</span><span class="p">(</span><span class="n">config_folder</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">split_symbol</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+
+<p>Появляется новая опция - добавляй аргумент и явно указывай при вызове функции</p>
+<div class="highlight"><pre><span class="n">run_program</span><span class="p">(</span><span class="s">&#39;/tmp&#39;</span><span class="p">,</span> <span class="s">&#39;config_1.yaml&#39;</span><span class="p">,</span> <span class="s">&#39;#####&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Но в какой-то момент появляются опциональные аргументы. В этот момент приходит на помощь <code>*args</code> и <code>**kwargs</code>.</p>
+<p>Примечание: символы <em>, </em>* применяются ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-args-kwargs/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/26/poleznye-biblioteki-swig-zapuskaem-c-kod-iz-python/">Полезные библиотеки: swig - запускаем C-код из Python</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/06/tainstvo-standartnoi-biblioteki-shelve-baza-dannykh-dlia-obektov/">Таинство стандартной библиотеки: shelve - база данных для объектов</a></h2>
 
-                <div class="summary"><p>Для работы с С-библиотеками есть несколько способов:
-- Писать программу на С/C++ и подключать DLL (.so) файлы
-- Попытаться напрямую запустить C код из нужного языка. </p>
-<p>Перед тем как продолжить - зачем нужно запускать C/C++ код?
-Все просто - например, работаем с железом, а значит и с драйверами (а их пишут на C). Вот здесь и появляется необходимость взаимодействовать с С кодом ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/26/poleznye-biblioteki-swig-zapuskaem-c-kod-iz-python/">more ...</a>
+                <div class="summary"><p>Модуль <code>shelve</code> из стандартной библиотекой можно описать одной фразой - "pickle + anydbm".</p>
+<p>shelve позволяет сериализовать объект (прям как <code>pickle</code>), а потом сохранить его в виде похожем на БД (интерфейс <code>anydbm</code>).</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shelve</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">filename</span><span class="err">”</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="p">[</span><span class="err">‘</span><span class="n">key</span><span class="err">’</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="err">‘</span><span class="n">key</span><span class="err">’</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Как видно из небольшого примера, БД предоставляет интерфейс словаря. Это позволяет нам сохранять различные сериализуемые объекты под ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/06/tainstvo-standartnoi-biblioteki-shelve-baza-dannykh-dlia-obektov/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-django-braces-nabor-miksin-na-vse-sluchai-zhizni/">Пишем web-проекты: django-braces - набор миксин на все случаи жизни</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/">Python на службе народа: оповещения в Linux</a></h2>
 
-                <div class="summary"><p>При разработке сколько-либо сложного django-проекта необходимо из раза в раз писать одинаковые куски кода - разграничивать доступ к контенту.</p>
-<p>Например. чтобы только администратор в меню сайта видел ссылку на "админку", или чтобы модератор имел какую-то внутреннюю страницу, которая не доступна простому пользователю.</p>
-<p>В случае с уровнем доступа, с авторизацией и прочими типовыми задачами есть набор готовых миксин - django-braces.
-Django-braces позволяет в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-django-braces-nabor-miksin-na-vse-sluchai-zhizni/">more ...</a>
+                <div class="summary"><p>Оповещения - это зло для продуктивности, но без них тяжело. Сервер упал - как узнать об этом мгновенно? СМС, письмо на email,  оповещение на рабочем столе.</p>
+<p>К сожалению, без Qt, Wx и других фреймворков кроссплатформенные оповещения не сделать. Поэтому рассмотрим только Linux.
+Для linux есть библиотека <code>libnotify</code> и обязка для нее python-notify</p>
+<p>Установим:</p>
+<div class="highlight"><pre>sudo apt-get install python-notify
+</pre></div>
+
+
+<p>После чего можно использовать команду ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-jinja2-shablonizator/">Пишем web-проекты: jinja2 - шаблонизатор</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/">Таинство стандартной библиотеки: asyncio в Python. Как устроено и зачем нужно?</a></h2>
 
-                <div class="summary"><p>Jinja — это шаблонизатор для языка программирования Python. Он подобен шаблонизатору Django, но предоставляет Python-ические выражения, обеспечивая исполнение шаблонов в песочнице. Это текстовый язык шаблонов и, таким образом, может быть использован для создания какой-либо разметки, а также исходного кода.</p>
-<p>Шаблонизатор Jinja позволяет настраивать теги, фильтры, тесты и глобальные переменные. Также, в отличие от шаблонизатора Django, Jinja позволяет конструктору шаблонов вызывать функции ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-jinja2-shablonizator/">more ...</a>
+                <div class="summary"><p>Видео со свежего Moscow Python митапа.</p>
+<p>В python 3.4 появился asyncio. До сих пор многие разработчики не знают, что это такое, как реализуется асинхронность в Python и в чем её сильные и слабые места. Повторим пройденное и заглянем под капот.</p>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/BhqeJGTji2I?feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/">Практические задачи: Задача #001 - генерация псевдо-настоящих данных о пользователе</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/">API всему голова: gitter api - пишем в чат от своего лица</a></h2>
 
-                <div class="summary"><p>Много слов про новый раздел постов:</p>
-<p>Мы прекрасно понимаем, что новичкам сложно переступить через черту теории и начать использовать программирования для решения практических задач, поэтому запускаем новый раздел постов - "Практические задачи". В этом разделе будут публиковаться реальные задачи - какие-то будем брать из собственной работы, какие-то с блогов и адаптировать, какие-то с фриланс сайтов.</p>
-<p>Кто заинтересуется решением этих задач, просим помогать ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/">more ...</a>
+                <div class="summary"><p>Gitter - это система для создания чатов для пользователей Github. 
+Чаты бесплатны, есть интеграция с Github, есть API - что еще для небольшого чата надо?</p>
+<p>Сегодня мы научимся писать в чат с помощью API. В заголовке отметил, что будем писать от своего лица, поэтому будет все просто.</p>
+<p>Для начала стоит изучить возможность API -&gt; <a href="https://developer.gitter.im/docs/welcome">https://developer.gitter.im/docs/welcome</a></p>
+<p>После чего авторизуйтесь ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/24/interesnye-kontseptsii-webhook/">Интересные концепции: webhook</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/02/pishem-web-proekty-geksagonalnaia-arkhitektura-v-prilozheniiakh-django/">Пишем web-проекты: Гексагональная архитектура в приложениях Django</a></h2>
 
-                <div class="summary"><p>Webhook — механизм получения уведомлений об определённых событиях (в основном о действиях пользователей) на свой собственный сайт. В момент срабатывания события - бросается запрос (чаще всего POST) на указанный URL.</p>
-<p>Например, разновидность Webhook - GitHook - отслеживает статус Git-репозитория на предмет изменений - пришел коммит на определенную ветку, проставили тэг и другое.  </p>
-<p>Но что же особенного в этом? Автоматизация. Это отличный инструмент автоматизации. Можно принять ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/24/interesnye-kontseptsii-webhook/">more ...</a>
+                <div class="summary"><p>Видео со свежего Moscow Python митапа.</p>
+<p>Как не превратить свой проект в груду урлов? Как не потерять расширяемость с ростом кодовой базы? Как писать поддерживаемый код? Об этих проблемах и их возможных решениях на примере Django расскажет и покажет Малышев Артем.</p>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/tKEv9Enhm1Q?feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/02/pishem-web-proekty-geksagonalnaia-arkhitektura-v-prilozheniiakh-django/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/23/sintaksis-python-primenenie-generatorov/">Синтаксис Python: применение генераторов</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/02/pishem-web-proekty-django-signaly/">Пишем web-проекты:  django сигналы</a></h2>
 
-                <div class="summary"><p>Генераторы Python уже давно используются для решения всевозможных проблем связанных с итерациями и потоками данных. В этом уроке мы рассмотрим некоторые экзотические виды использования генераторов, таких как написание контекста менеджеры, функций обратного вызова (callbacks), устранение рекурсии,  workers и много другого.</p>
-<p>Внимание - видео очень длинное, но ЖЖУТКО интересное</p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/D1twn9kLmYg?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/23/sintaksis-python-primenenie-generatorov/">more ...</a>
+                <div class="summary"><p>Хочется поделиться ссылкой на статью - <a href="https://zxmd.wordpress.com/2013/05/23/django_signals/">https://zxmd.wordpress.com/2013/05/23/django_signals/</a></p>
+<p>Что такое сигнал в Django Framework ?</p>
+<p>На бытовом уровне это система (диспетчер сигналов) которая обрабатывает некоторые виды событий которые генерирует система. По сути система сигналов разделяется на два компонента:</p>
+<p>sender  — компонент посылающий сигнал;
+receiver — компонент отвечающий за обработку сигнала.
+...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/02/pishem-web-proekty-django-signaly/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/13/zheleznyi-python-odnoplatnye-kompiutery/">Железный Python: Одноплатные компьютеры</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/01/interesnye-kontseptsii-optsionalnaia-staticheskaia-tipizatsiia/">Интересные концепции: опциональная статическая типизация</a></h2>
 
-                <div class="summary"><h1>Одноплатный компьютер</h1>
-<p><code>Одноплатный компьютер</code> представляет собой  компьютер, собранный на <code>одной печатной плате</code> с набором необходимых компонентов для полноценной работы (микропроцессор, оперативная память, системы ввода-вывода и другие модули, необходимые для функционирования компьютера). На плате расположены необходимые для работы компьютера элементы и разъемы – Lan, Video, HDMI, распаяны ножки для подключения устройств и плат расширения (всевозможные платы-расширения, датчики, сенсоры, lcd и e-ink дисплеи ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/13/zheleznyi-python-odnoplatnye-kompiutery/">more ...</a>
+                <div class="summary"><p>Не секрет, что Python (CPython) - динамически типизируемый язык (все типы выясняются во время выполнения программы). Это как дар так и проклятие. С одной стороны - можно быстрее писать программы, с другой - тяжелее найти ошибки. При этом, если была бы статическая типизация - уже на этапе компиляции мы знали бы где мы затупили с типами.</p>
+<p>В русскоязычном Python Андрей Власовских из Jetbrains наиболее ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/01/interesnye-kontseptsii-optsionalnaia-staticheskaia-tipizatsiia/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/09/matematika-v-python-preobrazovanie-fure/">Математика в Python: Преобразование фурье</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/01/python-na-sluzhbe-naroda-dobavliaem-vodianoi-znak-na-izobrazhenie/">Python на службе народа: добавляем водяной знак на изображение</a></h2>
 
-                <div class="summary"><p>Осторожно, МАТАН!!!</p>
-<p>По-простому, <strong>преобразование Фурье</strong> — разложение некоторого сигнала на гармонические (синусы или косинусы) колебания (спектр). </p>
-<p>Если вы осознанно употребляете слово "частота", вы уже хотя бы интуитивно представляете, что такое преобразование Фурье. Даже в наших ушах есть хардверный анализатор Фурье (улитка) (а также продвинутые драйвера в мозгу), благодаря которому мы различаем голоса, ноты, тембры... Призма раскладывает белый свет на цвета радуги ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/09/matematika-v-python-preobrazovanie-fure/">more ...</a>
+                <div class="summary"><p>PIL - мощная библиотека для работы с изображениями. С помощью этой библиотеки можно выделять необходимые части картинок, конвертировать между форматами, рисовать, накладывать слои. </p>
+<p>В качестве наложения слоев хочется привести удачно позаимствованный пример наложения водяного знака на изображение</p>
+<div class="highlight"><pre><span class="c"># coding=utf-8</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageEnhance</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">image - картинка, на которую накладываете изображение</span>
+<span class="sd">watermark - картинка, которую накладываете</span>
+<span class="sd">opacity - прозрачность</span>
+<span class="sd">wm_interval - интервал между изображениями watermark ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/01/python-na-sluzhbe-naroda-dobavliaem-vodianoi-znak-na-izobrazhenie/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Nov/05/anons-vstrechi-4-soobshchestva-pynsk/">Анонс встречи №4 сообщества PyNSK</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/">Полезные инструменты: sandman - админка над базой + REST за пару секунд</a></h2>
 
-                <div class="summary"><p><img alt="Image" src="http://pynsk.ru/images/event/event_4.png" /></p>
-<p>Встреча сообщества PyNSK состоится 15 ноября (воскресенье) в 13 часов, в Самоваре (<a href="http://go.2gis.com/b20p">http://go.2gis.com/b20p</a>)
-Регистрация на встречу по ссылке - <a href="http://bit.ly/pynsk4_reg">http://bit.ly/pynsk4_reg</a> </p>
-<p>На встрече вас ожидает море общения и три доклада:</p>
-<hr />
-<p><strong>Владимир Донец (kwimba.ru, https://vk.com/vovk.donets)</strong> расскажет доклад <strong>"Магия в Python: Дескрипторы. Что это?"</strong></p>
-<p><strong>Описание:</strong> Слышали про магию в Python? Одно из ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/05/anons-vstrechi-4-soobshchestva-pynsk/">more ...</a>
+                <div class="summary"><p>Сейчас редкий проект обходится без базы данных. Это может быть реляционная БД, или NoSQL, да может просто текстовые файлы. И каждый раз возникает необходимость посмотреть данные в ней, а иногда и другим показать. </p>
+<p>В этом случае подойдет инструмент - <code>sandman</code>.</p>
+<p><code>Sandman</code> - позволяет за пару секунд сделать web-интерфейс для популярных БД. </p>
+<p>Выполняем команду:</p>
+<div class="highlight"><pre>sandmanctl sqlite:////tmp/my_database.db
+</pre></div>
+
+
+<p>Получаем</p>
+<p><img alt="Image" src="https://www.jeffknupp.com/images/admin_tracks_improved.jpg" /></p>
+<p>Инструмент почти не ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -380,6 +417,10 @@ Django-braces позволяет в ...</p>
                             href="http://pynsk.ru/index18.html">18</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/index19.html">19</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index20.html">20</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index21.html">21</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/index4.html">&raquo;</a></li>
         </ul>
@@ -523,6 +564,11 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/video-bokeh-video-s-pycon.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Видео: bokeh (видео с Pycon)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/vnutrennosti-python.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Внутренности Python
                         </a>
@@ -548,19 +594,14 @@ Django-braces позволяет в ...</p>
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/__all__.html">
-                            __all__
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/admin.html">
-                            admin
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/any.html">
+                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -589,13 +630,13 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bizli.html">
-                            Бизли
+                        <a href="http://pynsk.ru/tag/biblioteka.html">
+                            библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -604,18 +645,23 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/database.html">
-                            database
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/decode.html">
-                            decode
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/dublikat.html">
+                            дубликат
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -633,19 +679,24 @@ Django-braces позволяет в ...</p>
                             functools
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/funcy.html">
+                            funcy
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
                             функциональное программирование
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gc.html">
+                            gc
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/generator.html">
                             генератор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -669,13 +720,13 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iazyk.html">
-                            язык
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/if.html">
-                            if
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -704,18 +755,28 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/itertools.html">
-                            itertools
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
+                            концепция
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/lambda.html">
+                            lambda
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/language.html">
+                            language
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -729,18 +790,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matplotlib.html">
-                            matplotlib
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/menedzher-konteksta.html">
-                            менеджер контекста
+                        <a href="http://pynsk.ru/tag/mechanize.html">
+                            mechanize
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -754,6 +805,21 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/modul.html">
+                            модуль
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nameko.html">
+                            nameko
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nauka.html">
+                            наука
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/numpy.html">
                             numpy
                         </a>
@@ -764,13 +830,13 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/oop.html">
+                            ооп
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/operatsionnaia-sistema.html">
-                            операционная система
+                        <a href="http://pynsk.ru/tag/operator.html">
+                            operator
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -783,14 +849,24 @@ Django-braces позволяет в ...</p>
                             опыт
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/os.html">
-                            ОС
+                            os
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ospath.html">
+                            os.path
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -801,11 +877,6 @@ Django-braces позволяет в ...</p>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/patter.html">
-                            паттер
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -823,14 +894,19 @@ Django-braces позволяет в ...</p>
                             pip
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika.html">
-                            практика
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/plot.html">
+                            plot
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/praktika.html">
+                            практика
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -839,8 +915,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pylint.html">
-                            pylint
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -863,11 +939,6 @@ Django-braces позволяет в ...</p>
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             Qt
@@ -884,8 +955,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -894,8 +965,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sbornik.html">
-                            сборник
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -914,8 +985,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -928,11 +999,6 @@ Django-braces позволяет в ...</p>
                             справочник
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/standart.html">
-                            стандарт
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/standartnaia-biblioteka.html">
                             стандартная библиотека
@@ -941,26 +1007,6 @@ Django-braces позволяет в ...</p>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
                             статическая типизация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
-                            статический анализатор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/svg.html">
-                            svg
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swig.html">
-                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -989,16 +1035,11 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tox.html">
-                            tox
+                        <a href="http://pynsk.ru/tag/type.html">
+                            type
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
                         </a>
@@ -1008,19 +1049,24 @@ Django-braces позволяет в ...</p>
                             unittest
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-0">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/virtualenv.html">
+                            virtualenv
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/vizualizatsiia.html">
                             визуализация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/vodianoi-znak.html">
-                            водяной знак
+                        <a href="http://pynsk.ru/tag/vkontakte.html">
+                            вконтакте
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1034,8 +1080,8 @@ Django-braces позволяет в ...</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">

@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/python-na-sluzhbe-naroda.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-04T18:00:00+06:00</updated><entry><title>Python на службе народа: оповещения в Linux</title><link href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/" rel="alternate"></link><updated>2015-12-04T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-04:posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/</id><summary type="html">&lt;p&gt;Оповещения - это зло для продуктивности, но без них тяжело. Сервер упал - как узнать об этом мгновенно? СМС, письмо на email,  оповещение на рабочем столе.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/python-na-sluzhbe-naroda.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-15T10:00:00+06:00</updated><entry><title>Python на службе народа: сохраняем список словарей в csv файл</title><link href="http://pynsk.ru/posts/2015/Dec/15/python-na-sluzhbe-naroda-sokhraniaem-spisok-slovarei-v-csv-fail/" rel="alternate"></link><updated>2015-12-15T10:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-15:posts/2015/Dec/15/python-na-sluzhbe-naroda-sokhraniaem-spisok-slovarei-v-csv-fail/</id><summary type="html">&lt;p&gt;При автоматизации процессов необходимо загружать/выгружать данные. Эти процессы напрямую завязаны на данные и их представление. Одно из самых простых представлений - это &lt;code&gt;csv&lt;/code&gt; (Comma-Separated Value) таблицы.&lt;/p&gt;
+&lt;p&gt;Это обычные текстовые файлы с определенным форматом записей - колонки разделены запятыми, а каждая новая строка - это строка в таблицы&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;1997,Ford,E350,&amp;quot;ac, abs, moon&amp;quot;,3000.00
+1999,Chevy,&amp;quot;Venture &amp;quot;&amp;quot;Extended Edition&amp;quot;&amp;quot;&amp;quot;,&amp;quot;&amp;quot;,4900.00
+1996,Jeep,Grand Cherokee,&amp;quot;MUST SELL! air, moon roof, loaded&amp;quot;,4799.00
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Данный формат можно назвать базовым для представления таблиц - из &lt;code&gt;csv&lt;/code&gt; легко конвертировать в другие форматы&lt;/p&gt;
+&lt;p&gt;В Python существует модуль для работы с &lt;code&gt;csv&lt;/code&gt;, он так и называется - &lt;code&gt;csv&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Возможности модуля описаны по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/library/csv.html"&gt;https://docs.python.org/3.5/library/csv.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pymotw.com/2/csv/"&gt;https://pymotw.com/2/csv/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Модуль позволяет импортировать/экспортировать данные в &lt;code&gt;csv&lt;/code&gt; формате.
+Например, запись &lt;code&gt;csv&lt;/code&gt; файла построчно.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;eggs.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;csvfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;csvfile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="n"&gt;quotechar&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;|&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;quoting&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QUOTE_MINIMAL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Baked Beans&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Lovely Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Wonderful Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Однако, не редка ситуация, когда данные таблицы представлены в виде списка словарей. Где каждый словарь это одна строчка в таблице&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[
+    {
+        &amp;#39;column1&amp;#39;: 1,
+        &amp;#39;column2&amp;#39;: 100,
+    },
+    {
+        &amp;#39;column1&amp;#39;: 100500,
+        &amp;#39;column2&amp;#39;: 27,
+    },
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Если у вас такая ситуация, то не спешите писать функцию, которая преобразует список словарей.
+csv модуль содержит класс &lt;code&gt;DictWritter&lt;/code&gt;, который позволяет в пару строк сохранить эти данные в таблицу. Применение выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
+&lt;span class="n"&gt;toCSV&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;bob&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+         &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;jim&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
+&lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;toCSV&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;people.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DictWriter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeheader&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerows&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;toCSV&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Хитрость:&lt;/p&gt;
+&lt;p&gt;Google docs/drive позволяет сохранять &lt;code&gt;csv&lt;/code&gt; файлы в &lt;code&gt;excel&lt;/code&gt;, &lt;code&gt;odt&lt;/code&gt; и других популярных форматах для Офисных Пакетов&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="csv"></category><category term="dictwriter"></category><category term="таблицы"></category></entry><entry><title>Python на службе народа: оповещения в Linux</title><link href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/" rel="alternate"></link><updated>2015-12-04T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-04:posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/</id><summary type="html">&lt;p&gt;Оповещения - это зло для продуктивности, но без них тяжело. Сервер упал - как узнать об этом мгновенно? СМС, письмо на email,  оповещение на рабочем столе.&lt;/p&gt;
 &lt;p&gt;К сожалению, без Qt, Wx и других фреймворков кроссплатформенные оповещения не сделать. Поэтому рассмотрим только Linux.
 Для linux есть библиотека &lt;code&gt;libnotify&lt;/code&gt; и обязка для нее python-notify&lt;/p&gt;
 &lt;p&gt;Установим:&lt;/p&gt;

@@ -231,112 +231,124 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/">Hardcore Python: Оптимизация на грани и за ней</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/30/sintaksis-python-lambda-funktsii/">Синтаксис Python: lambda-функции</a></h2>
 
-                <div class="summary"><p>Возможно, вы видели доклад Антона Патрушева про оптимизацию Python — вплоть до отключения Garbage Collector.
-Это свежий доклад (PyCon RU 2015) и в нём вы найдете развитие идей оптимизации Python</p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/c0qb9-8s5IU?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/30/hardcore-python-optimizatsiia-na-grani-i-za-nei/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/29/hardcore-python-pishem-svoi-interpretator/">Hardcore Python: Пишем свой интерпретатор</a></h2>
+                <div class="summary"><p>Python поддерживает интересный синтаксис, позволяющий определять небольшие однострочные функции на лету. Позаимствованные из Lisp, так называемые lambda-функции могут быть использованы везде, где требуется функция.</p>
+<p>Небольшой пример</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
 
-                <div class="summary"><p>Говорят, что отличный результат для мужчины — построить дом, вырастить сына и посадить дерево. А если ты программист, то ещё написать свой язык программирования.</p>
-<p>Сейчас уже нет чисто интерпретируемых языков, даже Python сначала компилируется в байт-код, а потом интерпретируется — исполняется. 
-Но как это он делает?</p>
-<p>Чтобы узнать магию внутренностей интерпретаторов предлагаю цикл статей Let’s Build A Simple Interpreter:</p>
-<ul>
-<li><a href="http://ruslanspivak.com/lsbasi-part1/">http://ruslanspivak ...</a></li></ul>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/29/hardcore-python-pishem-svoi-interpretator/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/29/pishem-web-proekty-ispolzovanie-gevent-dlia-emuliatsii-vysokoi-nagruzki/">Пишем web-проекты: Использование gevent для эмуляции высокой нагрузки</a></h2>
-
-                <div class="summary"><p>Обязательное действие перед выпуском более-менее серьёзного проекта — тестирование производительности. На высоконагруженных проектах нужно точно знать, какую нагрузку они могут выдержать, причём заранее. Следовательно, нужен способ эмуляции высокой конкурентности, желательно чтобы в теории он позволял полностью загрузить канал траффиком. К тому же, неплохо было бы, чтобы для этого не нужно было использовать несколько десятков серверов. В докладе будет рассказано об опыте ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/29/pishem-web-proekty-ispolzovanie-gevent-dlia-emuliatsii-vysokoi-nagruzki/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/28/pishem-web-proekty-pogruzhenie-v-polnotekstovyi-poisk-ispolzuia-python/">Пишем web-проекты: Погружение в полнотекстовый поиск, используя Python</a></h2>
-
-                <div class="summary"><p>Чем больше/непонятней сайт, тем чаще используют поиск. В докладе Андрея Солдатенко вы сможете узнать как организовать хороший поиск по вашему сайту </p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/vXl7EEURfO8?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/28/pishem-web-proekty-pogruzhenie-v-polnotekstovyi-poisk-ispolzuia-python/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/27/uchebnye-materialy-kuda-polziot-piton/">Учебные материалы: Куда ползёт питон?</a></h2>
-
-                <div class="summary"><p>Чем Python и его экосистема отличается от других языков программирования? Какая у Python ниша? Какие сильные и слабые стороны у языка и батареек? На все эти вопросы Григорий попробует ответить в своём обзорном докладе, рассказывающем о том, куда ползёт Python в 2015 году</p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/_79KfX-3sQc?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/27/uchebnye-materialy-kuda-polziot-piton/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/26/sintaksis-python-raw-unicode-escape-protiv-uxd0x9a/">Синтаксис Python: raw-unicode-escape против u'\xd0\x9a'</a></h2>
-
-                <div class="summary"><p>Python 2 и проблемы с кодировками — это единое целое. И мало, что сами файлы с исходниками сохраняют в самых разных кодировках, так и текстовые файлы с данными этим грешат.
-Казалось бы, используй <code>encode/decode</code> и что тут думать. Но бывает, что декодируешь юникод и получаешь строку:</p>
-<div class="highlight"><pre>u&#39;\xd0\x9a\xd1\x83\xd1\x80\xd1\x83\xd0\xbc\xd0\xbe\xd1 ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/26/sintaksis-python-raw-unicode-escape-protiv-uxd0x9a/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/25/matematika-v-python-matritsy-v-numpy/">Математика в Python: Матрицы в NumPy</a></h2>
-
-                <div class="summary"><p>Списки - встроенный тип Python, могут содержать любые элементы: целые, дробные числа, строки, объекты. Это великая сила Python, но в то же время и слабость — в отношении скорости работы. </p>
-<p>В стандартные дистрибутивы Python входит модуль array, реализующий аналог массивов C/C++, он может пригодиться для простейших расчётов с многомерными массивами, матрицами.</p>
-<p>NumPy — мощнейшая библиотека для научных вычислений. Написать здесь операции с ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/25/matematika-v-python-matritsy-v-numpy/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/25/tainstvo-standartnoi-biblioteki-timeit-izmerim-vremia-raboty/">Таинство стандартной библиотеки: timeit - измерим время работы!</a></h2>
-
-                <div class="summary"><p>Представим мы придумали алгоритм, на пальцах оценили его быстродействие, закодили и получили медленно работающий софт.
-Что делать? куда бежать? С чего стоит начать?
-Да сначала стоит измерить сколько <em>ресурсов</em> (память, время, проц) кушает ваш софт. Уже имея числа на руках можно думать дальше.</p>
-<p>Для измерения временных затрат для вашего кода можно воспользоваться библиотекой <code>timeit</code>. А другие ресурсы измерим в след ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/25/tainstvo-standartnoi-biblioteki-timeit-izmerim-vremia-raboty/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/24/tainstvo-standartnoi-biblioteki-zipimport-importiruem-kod-iz-zip-failov/">Таинство стандартной библиотеки: zipimport - импортируем код из zip файлов</a></h2>
-
-                <div class="summary"><p>Еще в далеком Python 2.3 был добавлен модуль <code>zipimport</code>. 
-Этот модуль упростил возможность импорта из <code>zip</code> файлов: </p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">python</span>
-<span class="n">Python</span> <span class="mf">2.3</span> <span class="p">(</span><span class="c">#1, Aug 1 2003, 19:54:32) </span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;/tmp/example.zip&#39;</span><span class="p">)</span>  <span class="c"># Add .zip file to front of path</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">jwzthreading</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">jwzthreading</span><span class="o">.</span><span class="n">__file__</span>
-<span class="s">&#39;/tmp/example.zip/jwzthreading.py&#39;</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 
 
-<p>(больше примеров по см. по первой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/24/tainstvo-standartnoi-biblioteki-zipimport-importiruem-kod-iz-zip-failov/">more ...</a>
+<p>С одной стороны "прикольно", вместо 2 строк - одна, но сложные конструкции на <code>lambda</code> функциях не напишешь - плохо ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/30/sintaksis-python-lambda-funktsii/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Oct/23/uchebnye-materialy-chto-novogo-v-python-35/">Учебные материалы: Что нового в Python 3.5</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/29/python-proekty-russko-iazychnye-python-proekty/">Python-проекты: русско-язычные Python-проекты</a></h2>
 
-                <div class="summary"><p>Когда полезны аннотации типов? Станет ли асинхронное программирование обычной практикой с новыми async-await? Устроим обсуждение этих и других новинок Python 3.5.
-Все это вы сможете узнаете в докладе Андрея Власовских</p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/2GuTQwBYsgI?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Oct/23/uchebnye-materialy-chto-novogo-v-python-35/">more ...</a>
+                <div class="summary"><p>Хочется поделиться списком Python-проектов, которые популяризируют Python</p>
+<ul>
+<li><a href="http://pythondigest.ru/">http://pythondigest.ru/</a> - дайджест Python новостей, собирает в одном месте самые интересные ссылки на Python-контент. Наверное, самый живой проект, выпуски каждую неделю.</li>
+<li><a href="http://pythonz.net/">http://pythonz.net/</a> - сайт про Python. Постепенно развивается. Есть справочник по встроенным в стандартную библиотеку методам</li>
+<li><a href="http://djbook.ru/">http://djbook.ru/</a> - Django на русском, много справочного материала. Форум до сих пор жив - весьма ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/29/python-proekty-russko-iazychnye-python-proekty/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/29/tainstvo-standartnoi-biblioteki-sysplatform-opredeliaem-operatsionnuiu-sistemu/">Таинство стандартной библиотеки: sys.platform - определяем операционную систему</a></h2>
+
+                <div class="summary"><p>При написании софта для кого-то, а не только для себя, необходимо учитывать специфику рабочего окружения. </p>
+<p>Например, у разработчика стоит Linux, а у пользователя Windows. Или даже если у обоих стоит одна ОС, то на одном ПК может стоять необходимый модуль, а на другом нет. Все это накладывает отпечаток. Python со стандартной библиотекой предоставляет необходимый инструментарий для разрешения многих проблем. </p>
+<p>Рассмотрим ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/29/tainstvo-standartnoi-biblioteki-sysplatform-opredeliaem-operatsionnuiu-sistemu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/28/poleznye-biblioteki-bokeh-biblioteka-vizualizatsii-dannykh/">Полезные библиотеки: bokeh - библиотека визуализации данных</a></h2>
+
+                <div class="summary"><p>Bokeh- это библиотека для интерактивной визуализации адаптированная под отображение в браузере. В этом и суть этой библиотеки.</p>
+<p><img alt="Image" src="https://i1.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/08/Bokeh_Intro.png?resize=398%2C339" /></p>
+<p>bokeh имеет биндинги к самым различным языкам - R, Lua, Python, Julia.
+Вы пишите код визуализации на своем языке, а затем с помощью BokehJS отображаете в браузере. Возможности у инструмента огромные, прям как D3.js</p>
+<p><img alt="Image" src="https://i2.wp.com/www.analyticsvidhya.com/wp-content/uploads/2015/08/Bokeh_Introduction.png?resize=704%2C304" /></p>
+<p>Ссылки для изучения: </p>
+<ul>
+<li><a href="http://www.analyticsvidhya.com/blog/2015/08/interactive-data-visualization-library-python-bokeh/">http://www.analyticsvidhya.com/blog/2015 ...</a></li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/28/poleznye-biblioteki-bokeh-biblioteka-vizualizatsii-dannykh/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/27/opyt-razrabotchikov-sborniki-ssylok/">Опыт разработчиков: сборники ссылок</a></h2>
+
+                <div class="summary"><p>Наверняка вы встречались с awesome-LANGUAGE списками. Это набор ссылок на интересные библиотеки/статьи/книги/видео по языкам программирования.</p>
+<p>Таких списков настолько много, что даже сделали список - awesome-awesomeness (<a href="https://github.com/bayandin/awesome-awesomeness">https://github.com/bayandin/awesome-awesomeness</a>)</p>
+<p>Но даже в нем не все есть про Python, приведу список интересных списков:</p>
+<ul>
+<li><a href="https://github.com/vinta/awesome-python">https://github.com/vinta/awesome-python</a> - самый крупный awesome-список про Python (http://awesome-python.com/)</li>
+<li><a href="https://github.com/Friz-zy/awesome-europython2015">https://github ...</a></li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/27/opyt-razrabotchikov-sborniki-ssylok/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/">API всему голова: ВКонтакте - от начала до отправки сообщения другу</a></h2>
+
+                <div class="summary"><p>Работа с API сервисов это всегда история по типу "Ожидание...реальность". Ибо даже простое API может скушать день, а то и 2 дня рабочего времени. </p>
+<p>API Вконтакте не исключение. Уже есть очень много материалов на тему использования этого интерфейса:</p>
+<p><a href="http://habrahabr.ru/search/page2/?q=vk+api&amp;target_type=posts&amp;order_by=relevance">http://habrahabr.ru/search/page2/?q=vk+api&amp;target_type=posts&amp;order_by=relevance</a> </p>
+<p>Много практических задач решили с помощью API:</p>
+<ul>
+<li><a href="http://habrahabr.ru/post/266671/">Скачивание музыки ...</a></li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/26/poleznye-biblioteki-swig-zapuskaem-c-kod-iz-python/">Полезные библиотеки: swig - запускаем C-код из Python</a></h2>
+
+                <div class="summary"><p>Для работы с С-библиотеками есть несколько способов:
+- Писать программу на С/C++ и подключать DLL (.so) файлы
+- Попытаться напрямую запустить C код из нужного языка. </p>
+<p>Перед тем как продолжить - зачем нужно запускать C/C++ код?
+Все просто - например, работаем с железом, а значит и с драйверами (а их пишут на C). Вот здесь и появляется необходимость взаимодействовать с С кодом ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/26/poleznye-biblioteki-swig-zapuskaem-c-kod-iz-python/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-django-braces-nabor-miksin-na-vse-sluchai-zhizni/">Пишем web-проекты: django-braces - набор миксин на все случаи жизни</a></h2>
+
+                <div class="summary"><p>При разработке сколько-либо сложного django-проекта необходимо из раза в раз писать одинаковые куски кода - разграничивать доступ к контенту.</p>
+<p>Например. чтобы только администратор в меню сайта видел ссылку на "админку", или чтобы модератор имел какую-то внутреннюю страницу, которая не доступна простому пользователю.</p>
+<p>В случае с уровнем доступа, с авторизацией и прочими типовыми задачами есть набор готовых миксин - django-braces.
+Django-braces позволяет в ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-django-braces-nabor-miksin-na-vse-sluchai-zhizni/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-jinja2-shablonizator/">Пишем web-проекты: jinja2 - шаблонизатор</a></h2>
+
+                <div class="summary"><p>Jinja — это шаблонизатор для языка программирования Python. Он подобен шаблонизатору Django, но предоставляет Python-ические выражения, обеспечивая исполнение шаблонов в песочнице. Это текстовый язык шаблонов и, таким образом, может быть использован для создания какой-либо разметки, а также исходного кода.</p>
+<p>Шаблонизатор Jinja позволяет настраивать теги, фильтры, тесты и глобальные переменные. Также, в отличие от шаблонизатора Django, Jinja позволяет конструктору шаблонов вызывать функции ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/25/pishem-web-proekty-jinja2-shablonizator/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/">Практические задачи: Задача #001 - генерация псевдо-настоящих данных о пользователе</a></h2>
+
+                <div class="summary"><p>Много слов про новый раздел постов:</p>
+<p>Мы прекрасно понимаем, что новичкам сложно переступить через черту теории и начать использовать программирования для решения практических задач, поэтому запускаем новый раздел постов - "Практические задачи". В этом разделе будут публиковаться реальные задачи - какие-то будем брать из собственной работы, какие-то с блогов и адаптировать, какие-то с фриланс сайтов.</p>
+<p>Кто заинтересуется решением этих задач, просим помогать ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Nov/24/prakticheskie-zadachi-zadacha-001-generatsiia-psevdo-nastoiashchikh-dannykh-o-polzovatele/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -382,6 +394,10 @@ PyNSK - Новосибирское Python сообщество            </a>
                             href="http://pynsk.ru/index18.html">18</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/index19.html">19</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index20.html">20</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/index21.html">21</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/index5.html">&raquo;</a></li>
         </ul>
@@ -525,6 +541,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/video-bokeh-video-s-pycon.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Видео: bokeh (видео с Pycon)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/vnutrennosti-python.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Внутренности Python
                         </a>
@@ -550,19 +571,14 @@ PyNSK - Новосибирское Python сообщество            </a>
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/__all__.html">
-                            __all__
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/admin.html">
-                            admin
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/any.html">
+                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -591,13 +607,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bizli.html">
-                            Бизли
+                        <a href="http://pynsk.ru/tag/biblioteka.html">
+                            библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -606,18 +622,23 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/database.html">
-                            database
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/decode.html">
-                            decode
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/dublikat.html">
+                            дубликат
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -635,19 +656,24 @@ PyNSK - Новосибирское Python сообщество            </a>
                             functools
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/funcy.html">
+                            funcy
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
                             функциональное программирование
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gc.html">
+                            gc
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/generator.html">
                             генератор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -671,13 +697,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iazyk.html">
-                            язык
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/if.html">
-                            if
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -706,18 +732,28 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/itertools.html">
-                            itertools
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
+                            концепция
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/lambda.html">
+                            lambda
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/language.html">
+                            language
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -731,18 +767,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matplotlib.html">
-                            matplotlib
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/menedzher-konteksta.html">
-                            менеджер контекста
+                        <a href="http://pynsk.ru/tag/mechanize.html">
+                            mechanize
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -756,6 +782,21 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/modul.html">
+                            модуль
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nameko.html">
+                            nameko
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nauka.html">
+                            наука
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/numpy.html">
                             numpy
                         </a>
@@ -766,13 +807,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/oop.html">
+                            ооп
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/operatsionnaia-sistema.html">
-                            операционная система
+                        <a href="http://pynsk.ru/tag/operator.html">
+                            operator
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -785,14 +826,24 @@ PyNSK - Новосибирское Python сообщество            </a>
                             опыт
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/os.html">
-                            ОС
+                            os
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ospath.html">
+                            os.path
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -803,11 +854,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/patter.html">
-                            паттер
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -825,14 +871,19 @@ PyNSK - Новосибирское Python сообщество            </a>
                             pip
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika.html">
-                            практика
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/plot.html">
+                            plot
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/praktika.html">
+                            практика
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -841,8 +892,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pylint.html">
-                            pylint
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -865,11 +916,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             Qt
@@ -886,8 +932,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -896,8 +942,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sbornik.html">
-                            сборник
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -916,8 +962,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -930,11 +976,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                             справочник
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/standart.html">
-                            стандарт
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/standartnaia-biblioteka.html">
                             стандартная библиотека
@@ -943,26 +984,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
                             статическая типизация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
-                            статический анализатор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/svg.html">
-                            svg
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swig.html">
-                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -991,16 +1012,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tox.html">
-                            tox
+                        <a href="http://pynsk.ru/tag/type.html">
+                            type
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
                         </a>
@@ -1010,19 +1026,24 @@ PyNSK - Новосибирское Python сообщество            </a>
                             unittest
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-0">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/virtualenv.html">
+                            virtualenv
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/vizualizatsiia.html">
                             визуализация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/vodianoi-znak.html">
-                            водяной знак
+                        <a href="http://pynsk.ru/tag/vkontakte.html">
+                            вконтакте
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1036,8 +1057,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">

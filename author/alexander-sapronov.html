@@ -231,154 +231,138 @@ PyNSK - Новосибирское Python сообщество            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/">Таинство стандартной библиотеки: консольный GUI с помощью curses</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/">Таинство стандартной библиотеки: пути до файлов</a></h2>
 
-                <div class="summary"><p>Python отлично подходит для написания самых различных серверных утилит. Часто такие утилиты дополняют CLI (Command Line Interface), а иногда и целым GUI. </p>
-<p>Но как его сделать? На сервере часто нет X сервера. нет Qt и чего-то такого, а Python есть. 
-Возможно вы слышали про <code>ncurses</code> - библиотека для управления IO. Вот ее и можно использовать для такой задачи - стандартная библиотека содержит ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/">API всему голова: twitter API - пишем твит с изображением</a></h2>
-
-                <div class="summary"><p>О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
-Twitter имеет открытый API, который сегодня и освоим. Мы научимся публиковать пост с изображением через Twitter API</p>
-<h2>Начинаем работу с API - получаем APP_ID</h2>
-<p>Как и с другими API, первый шаг - почитать документацию - <a href="https://dev.twitter.com/overview/documentation">https://dev.twitter ...</a></p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/10/sintaksis-python-menedzher-konteksta-with-podborka-interesnykh-ssylok/">Синтаксис Python: менеджер контекста (with) - подборка интересных ссылок</a></h2>
-
-                <div class="summary"><p>Менеджеры контекста — это механизм стоящий за ключевым словом with.</p>
-<p>Ключевое слово with появилось еще в Python 2.5 (через <code>__future__</code>).  Такая конструкция пришла на смену концепту <code>setup..try..except..finally</code></p>
-<p>Если раньше писали</p>
-<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;text.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
-    <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">except</span> <span class="o">...</span>
+                <div class="summary"><p>Python прикладывает множество усилий чтобы скрыть все различия операционных систем.
+Если смотреть на файлы, а точнее на пути файлов, то легко можно заметить различия между Linux и Windows:</p>
+<div class="highlight"><pre>C:\Program Files (x86)
+/home/user/documents
 </pre></div>
 
 
-<p>То сейчас </p>
-<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;text.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fio</span><span class="p">:</span>
-    <span class="n">fio</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-
-
-<p>За этим изменением стоит много, но повторять ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/10/sintaksis-python-menedzher-konteksta-with-podborka-interesnykh-ssylok/">more ...</a>
+<p>Слэши в разные стороны.
+Чтобы не концентрировать внимание на таких отличиях стоит использовать модуль <code>os.path</code></p>
+<p><code>os.path</code> является вложенным модулем в модуль <code>os</code>, и ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/">Практические задачи: Задача #002 - собрать данные о погоде в одном месте</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/">Полезные инструменты: virtualenv + pip</a></h2>
 
-                <div class="summary"><p>Продолжаем предлагать различные задачи для практики.
-Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение.
-А также, чтобы читать код было удобно - публикуйте его на <a href="https://gist.github.com/">https://gist.github.com/</a> или какой-то подобный сервис.</p>
+                <div class="summary"><p>Опыт показывает, что каждый проект обладает своими зависимостями (библиотеками), а если и одинаковыми, то версии не совпадают.
+Чтобы упростить запуск и настройку проекта разработчики пишут <code>INSTALL.md</code>, <code>README.md</code>, <code>make-файлы</code> и что более важно - <code>requirements.txt</code>.</p>
+<p>Файл <code>requirements.txt</code> - это правило хорошего тона для Python проектов.
+Файл содержит список необходимых библиотек для запуска с указанием версий:</p>
+<div class="highlight"><pre># requrements.txt
+requests==2 ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/">Пишем web-проекты: исправляем битый HTML с помощью Tidy</a></h2>
+
+                <div class="summary"><p>При парсинге возникают совсем странные ошибки - одна из них - не валидный HTML. Т.е. с ошибками.
+Верстальщик забыл закрыть таблицу или body. Еще бывает что вставляют HTML из Word, а там тааккккооооой код.</p>
+<p>Чтобы очистить HTML от мусора можно применять инструмент <code>Tidy</code>.</p>
+<p>Данный инструмент позволяет исправить неверный HTML (добавит закрывающие теги, добавит недостающие теги), почистить форматирование (отступы, например).</p>
+<p>Скачать этот ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/">Практические задачи: Задача #003 - система генерации описаний</a></h2>
+
+                <div class="summary"><p>Продолжаем предлагать различные задачи для практики. Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение. А также, чтобы читать код было удобно - публикуйте его на https://gist.github.com/ или какой-то подобный сервис.</p>
 <p>Описание задачи:</p>
-<p>Каждый прогноз погоды врет по своему. Один источник хорошо предсказывает теплую погоду, другой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/">more ...</a>
+<p>Запускается новый интернет-магазин, который будет заниматься продажей одежды. Поставщики товаров предоставили характеристики. Но ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/">Синтаксис Python: strip, rstrip, lstrip</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-__slots__/">Синтаксис Python: __slots__</a></h2>
 
-                <div class="summary"><p>Не редко возникает задача убрать лишние пробелы с начала/конца строки.
-Например</p>
-<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;Доброе утро, Иван&#39;</span>
-<span class="n">message</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">)</span> 
-<span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="s">&#39; Иван&#39;</span> <span class="c"># (лишний пробел сначала строки)</span>
+                <div class="summary"><p>Python обладает широкими динамическими возможностями. Строгая динамическая неявная типизация позволяет не указывать типы, но при этом не бояться что в коде просуммируем строку и число.
+Однако за динамичность приходиться платить - памятью и скоростью.</p>
+<p>Но что если хочется максимально уменьшить размер объектов (а в python все объекты) и при этом не потерять в функциональности?
+Для примера возьмем плоскость. На плоскости, пускай ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-__slots__/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-all-i-any/">Синтаксис Python: all и any</a></h2>
+
+                <div class="summary"><p>Коротко: <code>all</code> и <code>any</code> - встроенные методы, которые позволяют проверять все элементов списка на выполнение условия.</p>
+<p>При валидации данных часто возникает задача проверить структуру на корректность.
+Например, пускай есть список словарей:</p>
+<div class="highlight"><pre>data = 
+[
+    {
+        &#39;title&#39;: &quot;Super page&quot;,
+        &#39;description&#39;: &quot;Super puper page&quot;,
+        &#39;id&#39;: &#39;page_super&#39;,
+        &#39;data&#39;: {}
+    },
+    {
+        &#39;title&#39;: &quot;Super super page&quot;,
+        &#39;description&#39;: &quot;Super puper page2&quot;,
+        &#39;id&#39;: &#39;page_super_super&#39;,
+        &#39;data&#39;: {}
+    },
+]
 </pre></div>
 
 
-<p>Что получить имя пользователя в чистом виде - хорошо бы убрать лишние символы (если они там есть). Лишними символами чаще всего являются - <code>\r</code> <code>\n</code> <code>пробелы</code>  - и все это в большом количестве
-Для этого в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-strip-rstrip-lstrip/">more ...</a>
+<p>И надо проверить что во всех внутренних словарях ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-all-i-any/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-args-kwargs/">Синтаксис Python: *args, **kwargs</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/">Полезные инструменты: clonedigger - поиск дубликатов кода</a></h2>
 
-                <div class="summary"><p>При написании кода не всегда хочется явно прописывать все аргументы.
-Например - на вход программы подается набор аргументов:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">run_program</span><span class="p">(</span><span class="n">config_folder</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">split_symbol</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-
-<p>Появляется новая опция - добавляй аргумент и явно указывай при вызове функции</p>
-<div class="highlight"><pre><span class="n">run_program</span><span class="p">(</span><span class="s">&#39;/tmp&#39;</span><span class="p">,</span> <span class="s">&#39;config_1.yaml&#39;</span><span class="p">,</span> <span class="s">&#39;#####&#39;</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-</pre></div>
-
-
-<p>Но в какой-то момент появляются опциональные аргументы. В этот момент приходит на помощь <code>*args</code> и <code>**kwargs</code>.</p>
-<p>Примечание: символы <em>, </em>* применяются ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/07/sintaksis-python-args-kwargs/">more ...</a>
+                <div class="summary"><p>Количество кода - это некоторый критерий для ПО. Практика показывает, что чем больше кода - тем сложнее поддерживать и развивать продукт.
+А если в этом коде много copy-past'ы, то совсем плохо.</p>
+<p>Для выявления повторяющихся кусков кода существуют различные инструменты. Один из них CloneDigger.
+Это старая разработка (еще в 2008 году автор выступал на EuroPython), однако, работает хорошо и на данный момент ...</p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/06/tainstvo-standartnoi-biblioteki-shelve-baza-dannykh-dlia-obektov/">Таинство стандартной библиотеки: shelve - база данных для объектов</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/18/video-bokeh-video-s-pycon/">Видео: bokeh (видео с Pycon)</a></h2>
 
-                <div class="summary"><p>Модуль <code>shelve</code> из стандартной библиотекой можно описать одной фразой - "pickle + anydbm".</p>
-<p>shelve позволяет сериализовать объект (прям как <code>pickle</code>), а потом сохранить его в виде похожем на БД (интерфейс <code>anydbm</code>).</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">shelve</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span> <span class="o">=</span> <span class="n">shelve</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="err">“</span><span class="n">filename</span><span class="err">”</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="p">[</span><span class="err">‘</span><span class="n">key</span><span class="err">’</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="err">‘</span><span class="n">key</span><span class="err">’</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-
-
-<p>Как видно из небольшого примера, БД предоставляет интерфейс словаря. Это позволяет нам сохранять различные сериализуемые объекты под ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/06/tainstvo-standartnoi-biblioteki-shelve-baza-dannykh-dlia-obektov/">more ...</a>
+                <div class="summary"><p>Предлагаю посмотреть видео с Pycon про библиотеку визуализации данных bokeh:</p>
+<iframe width="480" height="270" src="https://www.youtube.com/embed/O5OvOLK-xqQ?feature=oembed" frameborder="0" allowfullscreen></iframe>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/18/video-bokeh-video-s-pycon/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/">Python на службе народа: оповещения в Linux</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/17/uchebnye-materialy-kurs-avtomatizatsiia-skuchnykh-veshchei-na-python/">Учебные материалы: курс "Автоматизация скучных вещей на Python"</a></h2>
 
-                <div class="summary"><p>Оповещения - это зло для продуктивности, но без них тяжело. Сервер упал - как узнать об этом мгновенно? СМС, письмо на email,  оповещение на рабочем столе.</p>
-<p>К сожалению, без Qt, Wx и других фреймворков кроссплатформенные оповещения не сделать. Поэтому рассмотрим только Linux.
-Для linux есть библиотека <code>libnotify</code> и обязка для нее python-notify</p>
-<p>Установим:</p>
-<div class="highlight"><pre>sudo apt-get install python-notify
-</pre></div>
-
-
-<p>После чего можно использовать команду ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/04/python-na-sluzhbe-naroda-opoveshcheniia-v-linux/">more ...</a>
+                <div class="summary"><p>Automate the Boring Stuff with Python ( <a href="https://automatetheboringstuff.com/">https://automatetheboringstuff.com/</a> )- это англоязычный курс об использовании Python на практике.
+Курс обширный, покрывает множество частей Python. Изложение не скучное, а скорее игривое и практичное. Здесь нет ситуаций, когда 50 страниц читаешь про всестороннее использование списков, как у Лутца. Здесь практика.</p>
+<p>Курс стоит денег, однако по ссылке скидка 50% (смог найти такой промокод)</p>
+<ul>
+<li><a href="https://www.udemy.com/automate/?couponCode=HALF_OFF">https ...</a></li></ul>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/17/uchebnye-materialy-kurs-avtomatizatsiia-skuchnykh-veshchei-na-python/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/">Таинство стандартной библиотеки: asyncio в Python. Как устроено и зачем нужно?</a></h2>
+                <h2><a href="http://pynsk.ru/posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/">Таинство стандартной библиотеки: модуль __future__</a></h2>
 
-                <div class="summary"><p>Видео со свежего Moscow Python митапа.</p>
-<p>В python 3.4 появился asyncio. До сих пор многие разработчики не знают, что это такое, как реализуется асинхронность в Python и в чем её сильные и слабые места. Повторим пройденное и заглянем под капот.</p>
-<iframe width="480" height="270" src="https://www.youtube.com/embed/BhqeJGTji2I?feature=oembed" frameborder="0" allowfullscreen></iframe>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/04/tainstvo-standartnoi-biblioteki-asyncio-v-python-kak-ustroeno-i-zachem-nuzhno/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/">API всему голова: gitter api - пишем в чат от своего лица</a></h2>
-
-                <div class="summary"><p>Gitter - это система для создания чатов для пользователей Github. 
-Чаты бесплатны, есть интеграция с Github, есть API - что еще для небольшого чата надо?</p>
-<p>Сегодня мы научимся писать в чат с помощью API. В заголовке отметил, что будем писать от своего лица, поэтому будет все просто.</p>
-<p>Для начала стоит изучить возможность API -&gt; <a href="https://developer.gitter.im/docs/welcome">https://developer.gitter.im/docs/welcome</a></p>
-<p>После чего авторизуйтесь ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/">more ...</a>
+                <div class="summary"><p>Хорошей практикой является применение deprecated нотаций (помечать, что какой-то метод/функционал будет удален в такой-то версии)
+Можно пойти дальше и указывать какой функционал станет обязательным в следующих версиях.</p>
+<p>Если с deprecated еще все более-менее ясно, то как заставить компилятор понимать функционал из будущих версий?</p>
+<p>Для этого в Python есть модуль <code>__future__</code>.
+Этот небольшой по размеру модуль -&gt; <a href="https://hg.python.org/cpython/file/3.5/Lib/__future__.py">https://hg.python.org ...</a></p>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -423,6 +407,10 @@ Twitter имеет открытый API, который сегодня и осв
                             href="http://pynsk.ru/author/alexander-sapronov18.html">18</a></li>
                     <li class=""><a
                             href="http://pynsk.ru/author/alexander-sapronov19.html">19</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/author/alexander-sapronov20.html">20</a></li>
+                    <li class=""><a
+                            href="http://pynsk.ru/author/alexander-sapronov21.html">21</a></li>
                 <li class="next"><a
                         href="http://pynsk.ru/author/alexander-sapronov2.html">&raquo;</a></li>
         </ul>
@@ -566,6 +554,11 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/video-bokeh-video-s-pycon.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Видео: bokeh (видео с Pycon)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/vnutrennosti-python.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Внутренности Python
                         </a>
@@ -591,19 +584,14 @@ Twitter имеет открытый API, который сегодня и осв
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/__all__.html">
-                            __all__
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/admin.html">
-                            admin
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/any.html">
+                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -632,13 +620,13 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bizli.html">
-                            Бизли
+                        <a href="http://pynsk.ru/tag/biblioteka.html">
+                            библиотека
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bottle.html">
-                            bottle
+                        <a href="http://pynsk.ru/tag/celery.html">
+                            celery
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -647,18 +635,23 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/database.html">
-                            database
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/decode.html">
-                            decode
+                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
+                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/docstring.html">
+                            docstring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/dublikat.html">
+                            дубликат
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -676,19 +669,24 @@ Twitter имеет открытый API, который сегодня и осв
                             functools
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/funcy.html">
+                            funcy
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
                             функциональное программирование
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/gc.html">
+                            gc
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/generator.html">
                             генератор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/githook.html">
-                            githook
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -712,13 +710,13 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iazyk.html">
-                            язык
+                        <a href="http://pynsk.ru/tag/ide.html">
+                            ide
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/if.html">
-                            if
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -747,18 +745,28 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/itertools.html">
-                            itertools
+                        <a href="http://pynsk.ru/tag/json.html">
+                            json
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/kniga.html">
                             книга
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
+                            концепция
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/lambda.html">
+                            lambda
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/language.html">
+                            language
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -772,18 +780,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matan.html">
-                            матан
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/matplotlib.html">
-                            matplotlib
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/menedzher-konteksta.html">
-                            менеджер контекста
+                        <a href="http://pynsk.ru/tag/mechanize.html">
+                            mechanize
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -797,6 +795,21 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/modul.html">
+                            модуль
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nameko.html">
+                            nameko
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/nauka.html">
+                            наука
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/numpy.html">
                             numpy
                         </a>
@@ -807,13 +820,13 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/opencv.html">
-                            opencv
+                        <a href="http://pynsk.ru/tag/oop.html">
+                            ооп
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/operatsionnaia-sistema.html">
-                            операционная система
+                        <a href="http://pynsk.ru/tag/operator.html">
+                            operator
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -826,14 +839,24 @@ Twitter имеет открытый API, который сегодня и осв
                             опыт
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/os.html">
-                            ОС
+                            os
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/ospath.html">
+                            os.path
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/paket.html">
+                            пакет
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -844,11 +867,6 @@ Twitter имеет открытый API, который сегодня и осв
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/parsing.html">
                             парсинг
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/patter.html">
-                            паттер
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -866,14 +884,19 @@ Twitter имеет открытый API, который сегодня и осв
                             pip
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika.html">
-                            практика
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/plot.html">
+                            plot
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/primes.html">
-                            примесь
+                        <a href="http://pynsk.ru/tag/polza.html">
+                            польза
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/praktika.html">
+                            практика
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -882,8 +905,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pylint.html">
-                            pylint
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -906,11 +929,6 @@ Twitter имеет открытый API, который сегодня и осв
                             python
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/qt.html">
                             Qt
@@ -927,8 +945,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requirementstxt.html">
-                            requirements.txt
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -937,8 +955,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/sbornik.html">
-                            сборник
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -957,8 +975,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
+                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
+                            слабая ссылка
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -971,11 +989,6 @@ Twitter имеет открытый API, который сегодня и осв
                             справочник
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/standart.html">
-                            стандарт
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/standartnaia-biblioteka.html">
                             стандартная библиотека
@@ -984,26 +997,6 @@ Twitter имеет открытый API, который сегодня и осв
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
                             статическая типизация
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/staticheskii-analizator.html">
-                            статический анализатор
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/super.html">
-                            super
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/svg.html">
-                            svg
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/swig.html">
-                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1032,16 +1025,11 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/tox.html">
-                            tox
+                        <a href="http://pynsk.ru/tag/type.html">
+                            type
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/transdiuser.html">
-                            трансдьюсер
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
                         </a>
@@ -1051,19 +1039,24 @@ Twitter имеет открытый API, который сегодня и осв
                             unittest
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
+                    <li class="list-group-item tag-0">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/virtualenv.html">
+                            virtualenv
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/vizualizatsiia.html">
                             визуализация
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/vodianoi-znak.html">
-                            водяной знак
+                        <a href="http://pynsk.ru/tag/vkontakte.html">
+                            вконтакте
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1077,8 +1070,8 @@ Twitter имеет открытый API, который сегодня и осв
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">

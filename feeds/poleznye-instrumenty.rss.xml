@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/poleznye-instrumenty.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 30 Nov 2015 18:00:00 +0600</lastBuildDate><item><title>Полезные инструменты: sandman - админка над базой + REST за пару секунд</title><link>http://pynsk.ru/posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/</link><description>&lt;p&gt;Сейчас редкий проект обходится без базы данных. Это может быть реляционная БД, или NoSQL, да может просто текстовые файлы. И каждый раз возникает необходимость посмотреть данные в ней, а иногда и другим показать. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/poleznye-instrumenty.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Dec 2015 10:00:00 +0600</lastBuildDate><item><title>Полезные инструменты: virtualenv + pip</title><link>http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/</link><description>&lt;p&gt;Опыт показывает, что каждый проект обладает своими зависимостями (библиотеками), а если и одинаковыми, то версии не совпадают.
+Чтобы упростить запуск и настройку проекта разработчики пишут &lt;code&gt;INSTALL.md&lt;/code&gt;, &lt;code&gt;README.md&lt;/code&gt;, &lt;code&gt;make-файлы&lt;/code&gt; и что более важно - &lt;code&gt;requirements.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Файл &lt;code&gt;requirements.txt&lt;/code&gt; - это правило хорошего тона для Python проектов.
+Файл содержит список необходимых библиотек для запуска с указанием версий:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# requrements.txt
+requests==2.7.0
+Django==1.8.3
+jsonfield==1.0.3
+django-hstore==1.4
+django-filebrowser==3.5.7
+django-object-actions==0.5.1
+sorl-thumbnail==12.3
+django-ajax==0.2.0
+git+https://github.com/maraujop/django-crispy-forms.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Предположим, файл есть, инструкция по запуска есть. Да вот только таких проектов надо запускать много и у каждого свои зависимости.
+Причем не получится все установить в систему, версии же могут конфликтовать.&lt;/p&gt;
+&lt;p&gt;Для решения этой проблемы был придуман &lt;code&gt;virtualenv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;virtualenv&lt;/code&gt; - это инструмент, который позволяет установить отдельный Python, со своими модулями, зависимостями и пр.
+Что интересно, на одной машине может стоят несколько версий Python с разным набором библиотек.
+Такой инструмент позволяет устанавливать, изменять и удалять пакеты, и это не повлияет на другие ваши проекты или системное окружение.&lt;/p&gt;
+&lt;p&gt;Погружаемся в тему:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;И смотрим доклад на тему "Pip install — почему так медленно?"
+- &lt;a href="https://events.yandex.ru/lib/talks/3070/"&gt;https://events.yandex.ru/lib/talks/3070/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 25 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-25:posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/</guid><category>pip</category><category>virtualenv</category><category>модуль</category><category>установка</category><category>настройка</category><category>пакет</category></item><item><title>Полезные инструменты: clonedigger - поиск дубликатов кода</title><link>http://pynsk.ru/posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/</link><description>&lt;p&gt;Количество кода - это некоторый критерий для ПО. Практика показывает, что чем больше кода - тем сложнее поддерживать и развивать продукт.
+А если в этом коде много copy-past'ы, то совсем плохо.&lt;/p&gt;
+&lt;p&gt;Для выявления повторяющихся кусков кода существуют различные инструменты. Один из них CloneDigger.
+Это старая разработка (еще в 2008 году автор выступал на EuroPython), однако, работает хорошо и на данный момент.&lt;/p&gt;
+&lt;p&gt;CloneDigger принимает на вход набор файлов, или целую папку. С помощью алгоритма (&lt;a href="http://clonedigger.sourceforge.net/documentation.html"&gt;http://clonedigger.sourceforge.net/documentation.html&lt;/a&gt;) находит повторяющиеся куски кода и создает HTML отчет.&lt;/p&gt;
+&lt;p&gt;Пример отчета можно найти по ссылке - &lt;a href="http://clonedigger.sourceforge.net/examples/bio_python_selection.html"&gt;http://clonedigger.sourceforge.net/examples/bio_python_selection.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;А вы оцениваете свой код с помощью метрик?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 18 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-18:posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/</guid><category>clonedigger</category><category>дубликат</category><category>дубликат кода</category><category>copy paste</category></item><item><title>Полезные инструменты: sandman - админка над базой + REST за пару секунд</title><link>http://pynsk.ru/posts/2015/Nov/30/poleznye-instrumenty-sandman-adminka-nad-bazoi-rest-za-paru-sekund/</link><description>&lt;p&gt;Сейчас редкий проект обходится без базы данных. Это может быть реляционная БД, или NoSQL, да может просто текстовые файлы. И каждый раз возникает необходимость посмотреть данные в ней, а иногда и другим показать. &lt;/p&gt;
 &lt;p&gt;В этом случае подойдет инструмент - &lt;code&gt;sandman&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Sandman&lt;/code&gt; - позволяет за пару секунд сделать web-интерфейс для популярных БД. &lt;/p&gt;
 &lt;p&gt;Выполняем команду:&lt;/p&gt;

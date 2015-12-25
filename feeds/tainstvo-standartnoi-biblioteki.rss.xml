@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 11 Dec 2015 18:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: консольный GUI с помощью curses</title><link>http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/</link><description>&lt;p&gt;Python отлично подходит для написания самых различных серверных утилит. Часто такие утилиты дополняют CLI (Command Line Interface), а иногда и целым GUI. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/tainstvo-standartnoi-biblioteki.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 27 Dec 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: пути до файлов</title><link>http://pynsk.ru/posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/</link><description>&lt;p&gt;Python прикладывает множество усилий чтобы скрыть все различия операционных систем.
+Если смотреть на файлы, а точнее на пути файлов, то легко можно заметить различия между Linux и Windows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;C:\Program Files (x86)
+/home/user/documents
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Слэши в разные стороны.
+Чтобы не концентрировать внимание на таких отличиях стоит использовать модуль &lt;code&gt;os.path&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path&lt;/code&gt; является вложенным модулем в модуль &lt;code&gt;os&lt;/code&gt;, и реализует некоторые полезные функции на работы с путями.&lt;/p&gt;
+&lt;p&gt;В этом модуле много функций. Хочется обратить на:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.abspath(path)&lt;/code&gt; - возвращает нормализованный абсолютный путь.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.basename(path)&lt;/code&gt; - базовое имя пути (название файла)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.normpath(path)&lt;/code&gt; - нормализует путь, убирая избыточные разделители и ссылки на предыдущие директории. На Windows преобразует прямые слеши в обратные.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.realpath(path)&lt;/code&gt; - возвращает канонический путь, убирая все символические ссылки (если они поддерживаются).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.split(path)&lt;/code&gt; - разбивает путь на кортеж (голова, хвост), где хвост - последний компонент пути, а голова - всё остальное. Хвост никогда не начинается со слеша (если путь заканчивается слешем, то хвост пустой). Если слешей в пути нет, то пустой будет голова.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 27 Dec 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-27:posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/</guid><category>os</category><category>os.path</category><category>путь до файла</category><category>файл</category><category>путь</category></item><item><title>Таинство стандартной библиотеки: модуль __future__</title><link>http://pynsk.ru/posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/</link><description>&lt;p&gt;Хорошей практикой является применение deprecated нотаций (помечать, что какой-то метод/функционал будет удален в такой-то версии)
+Можно пойти дальше и указывать какой функционал станет обязательным в следующих версиях.&lt;/p&gt;
+&lt;p&gt;Если с deprecated еще все более-менее ясно, то как заставить компилятор понимать функционал из будущих версий?&lt;/p&gt;
+&lt;p&gt;Для этого в Python есть модуль &lt;code&gt;__future__&lt;/code&gt;.
+Этот небольшой по размеру модуль -&amp;gt; &lt;a href="https://hg.python.org/cpython/file/3.5/Lib/__future__.py"&gt;https://hg.python.org/cpython/file/3.5/Lib/&lt;strong&gt;future&lt;/strong&gt;.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;И работает он следующим образом: когда компилятор проходится по файлам с исходным кодом, анализатор выявляет импорты из &lt;code&gt;__future__&lt;/code&gt;. Если такой есть, то флаги компиляции дополняются этими импортами, это и позволяет собрать нужный байт-код.&lt;/p&gt;
+&lt;p&gt;От сюда и следует понятное требование к импортам из &lt;code&gt;__future__&lt;/code&gt; - они должны быть самыми первыми.&lt;/p&gt;
+&lt;p&gt;Рассмотрим пример, в 3.5 в модуле &lt;code&gt;__future__&lt;/code&gt; появился флаг generator_stop, который реализует логику PEP 0479. Этот PEP позволяет отлавливать исключение StopIteration внутри генератора. Этот функционал станет доступен только в 3.7, но уже в 3.5 можно его использовать.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generator_stop&lt;/span&gt;
+&lt;span class="c"&gt;# super code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;когда компилятор заметит первый импорт, то скомпилирует файл с учетом нового функционала.&lt;/p&gt;
+&lt;p&gt;По ссылке  &lt;a href="https://docs.python.org/3.5/library/__future__.html"&gt;https://docs.python.org/3.5/library/&lt;strong&gt;future&lt;/strong&gt;.html&lt;/a&gt;  вы найдете список флагов в модуле &lt;code&gt;__future__&lt;/code&gt;.
+Что интересно, генераторы появились в далекой 2.2 версии, да и деление (привычное по Python3) в тоже время.&lt;/p&gt;
+&lt;p&gt;Еще полезная ссылка:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/reference/simple_stmts.html#future"&gt;https://docs.python.org/3.5/reference/simple_stmts.html#future&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 17 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-17:posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/</guid><category>__future__</category><category>future</category><category>стандартная библиотека</category></item><item><title>Таинство стандартной библиотеки: консольный GUI с помощью curses</title><link>http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/</link><description>&lt;p&gt;Python отлично подходит для написания самых различных серверных утилит. Часто такие утилиты дополняют CLI (Command Line Interface), а иногда и целым GUI. &lt;/p&gt;
 &lt;p&gt;Но как его сделать? На сервере часто нет X сервера. нет Qt и чего-то такого, а Python есть. 
 Возможно вы слышали про &lt;code&gt;ncurses&lt;/code&gt; - библиотека для управления IO. Вот ее и можно использовать для такой задачи - стандартная библиотека содержит модуль &lt;code&gt;curses&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;В документации Python есть How To...есть про этот модуль: &lt;a href="https://docs.python.org/3/howto/curses.html"&gt;https://docs.python.org/3/howto/curses.html&lt;/a&gt;&lt;/p&gt;
@@ -343,6 +377,22 @@ multiprocessing позволяет работать с процессам как
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 30 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-30:posts/2015/Aug/30/tainstvo-standartnoi-biblioteki-abc/</guid><category>память</category></item><item><title>Таинство стандартной библиотеки: functools.singledispatch</title><link>http://pynsk.ru/posts/2015/Aug/23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</link><description>&lt;p&gt;Стандартная поставка Python полна возможностями. 
 Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.&lt;/p&gt;
 &lt;p&gt;Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nd"&gt;@fun.register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Strength in numbers, eh?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nd"&gt;@fun.register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Enumerate this:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Подробней о этом механизме по ссылке - &lt;a href="https://www.python.org/dev/peps/pep-0443/"&gt;https://www.python.org/dev/peps/pep-0443/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/Aug/23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</guid><category>functools</category></item><item><title>Таинство стандартной библиотеки: functools.partial</title><link>http://pynsk.ru/posts/2015/Aug/20/tainstvo-standartnoi-biblioteki-functoolspartial/</link><description>&lt;p&gt;Представим, написали мы функцию:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;super_function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="o"&gt;....&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;

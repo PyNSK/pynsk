@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/prakticheskie-zadachi.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-08T18:00:00+06:00</updated><entry><title>Практические задачи: Задача #002 - собрать данные о погоде в одном месте</title><link href="http://pynsk.ru/posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/" rel="alternate"></link><updated>2015-12-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-08:posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/</id><summary type="html">&lt;p&gt;Продолжаем предлагать различные задачи для практики.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/prakticheskie-zadachi.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-22T18:00:00+06:00</updated><entry><title>Практические задачи: Задача #003 - система генерации описаний</title><link href="http://pynsk.ru/posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/" rel="alternate"></link><updated>2015-12-22T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-22:posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/</id><summary type="html">&lt;p&gt;Продолжаем предлагать различные задачи для практики. Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение. А также, чтобы читать код было удобно - публикуйте его на https://gist.github.com/ или какой-то подобный сервис.&lt;/p&gt;
+&lt;p&gt;Описание задачи:&lt;/p&gt;
+&lt;p&gt;Запускается новый интернет-магазин, который будет заниматься продажей одежды. Поставщики товаров предоставили характеристики. Но для лучше поисковой оптимизации надо написать описание товаров. Как и всегда, товаров очень много (100 000), а контент-менеджеров только 2, которые могут писать только по 100 описаний в день. &lt;/p&gt;
+&lt;p&gt;Начальство предлагает автоматизировать процесс генерации описаний. Поэтому ставит задачу:&lt;/p&gt;
+&lt;p&gt;Необходимо разработать систему, которая будет формировать описания для товаров на основе характеристик.&lt;/p&gt;
+&lt;p&gt;Система должна содержать готовый список параметров (ниже он). На вход системе поступает список значений этих параметров, а на выходе описание.&lt;/p&gt;
+&lt;p&gt;Пример на входе:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Вид застежки: Пуговицы&lt;/li&gt;
+&lt;li&gt;Тип карманов: Втачные&lt;/li&gt;
+&lt;li&gt;Длина по внутреннему шву: 80 см&lt;/li&gt;
+&lt;li&gt;Крой по посадке: Slim&lt;/li&gt;
+&lt;li&gt;Дизайнерские эффекты: Эффект потертости&lt;/li&gt;
+&lt;li&gt;Конструктивные элементы: Шлевки&lt;/li&gt;
+&lt;li&gt;Декоративные элементы: Декоративные элементы&lt;/li&gt;
+&lt;li&gt;Сезон: демисезон&lt;/li&gt;
+&lt;li&gt;Пол: Мужской&lt;/li&gt;
+&lt;li&gt;Комплектация: джинсы&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Пример на выходе:&lt;/p&gt;
+&lt;p&gt;Мужские джинсы на пуговицах, декорированные втачными карманами. Длинные брючины 80 см. Крой типа «слим» позволяет подчеркнуть вашу фигуру, а эффект потертости создает небрежный образ. Модель оформлена различными декоративными элементами, а так же втачками. Подходит на любой сезон. &lt;/p&gt;</summary><category term="задача"></category><category term="практика"></category><category term="практика программирования"></category><category term="работа"></category></entry><entry><title>Практические задачи: Задача #002 - собрать данные о погоде в одном месте</title><link href="http://pynsk.ru/posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/" rel="alternate"></link><updated>2015-12-08T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-08:posts/2015/Dec/08/prakticheskie-zadachi-zadacha-002-sobrat-dannye-o-pogode-v-odnom-meste/</id><summary type="html">&lt;p&gt;Продолжаем предлагать различные задачи для практики.
 Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение.
 А также, чтобы читать код было удобно - публикуйте его на &lt;a href="https://gist.github.com/"&gt;https://gist.github.com/&lt;/a&gt; или какой-то подобный сервис.&lt;/p&gt;
 &lt;p&gt;Описание задачи:&lt;/p&gt;

@@ -1,5 +1,394 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 11 Dec 2015 18:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: консольный GUI с помощью curses</title><link>http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/</link><description>&lt;p&gt;Python отлично подходит для написания самых различных серверных утилит. Часто такие утилиты дополняют CLI (Command Line Interface), а иногда и целым GUI. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 27 Dec 2015 15:00:00 +0600</lastBuildDate><item><title>Таинство стандартной библиотеки: пути до файлов</title><link>http://pynsk.ru/posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/</link><description>&lt;p&gt;Python прикладывает множество усилий чтобы скрыть все различия операционных систем.
+Если смотреть на файлы, а точнее на пути файлов, то легко можно заметить различия между Linux и Windows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;C:\Program Files (x86)
+/home/user/documents
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Слэши в разные стороны.
+Чтобы не концентрировать внимание на таких отличиях стоит использовать модуль &lt;code&gt;os.path&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path&lt;/code&gt; является вложенным модулем в модуль &lt;code&gt;os&lt;/code&gt;, и реализует некоторые полезные функции на работы с путями.&lt;/p&gt;
+&lt;p&gt;В этом модуле много функций. Хочется обратить на:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.abspath(path)&lt;/code&gt; - возвращает нормализованный абсолютный путь.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.basename(path)&lt;/code&gt; - базовое имя пути (название файла)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.normpath(path)&lt;/code&gt; - нормализует путь, убирая избыточные разделители и ссылки на предыдущие директории. На Windows преобразует прямые слеши в обратные.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.realpath(path)&lt;/code&gt; - возвращает канонический путь, убирая все символические ссылки (если они поддерживаются).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;os.path.split(path)&lt;/code&gt; - разбивает путь на кортеж (голова, хвост), где хвост - последний компонент пути, а голова - всё остальное. Хвост никогда не начинается со слеша (если путь заканчивается слешем, то хвост пустой). Если слешей в пути нет, то пустой будет голова.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 27 Dec 2015 15:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-27:posts/2015/Dec/27/tainstvo-standartnoi-biblioteki-puti-do-failov/</guid><category>os</category><category>os.path</category><category>путь до файла</category><category>файл</category><category>путь</category></item><item><title>Полезные инструменты: virtualenv + pip</title><link>http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/</link><description>&lt;p&gt;Опыт показывает, что каждый проект обладает своими зависимостями (библиотеками), а если и одинаковыми, то версии не совпадают.
+Чтобы упростить запуск и настройку проекта разработчики пишут &lt;code&gt;INSTALL.md&lt;/code&gt;, &lt;code&gt;README.md&lt;/code&gt;, &lt;code&gt;make-файлы&lt;/code&gt; и что более важно - &lt;code&gt;requirements.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Файл &lt;code&gt;requirements.txt&lt;/code&gt; - это правило хорошего тона для Python проектов.
+Файл содержит список необходимых библиотек для запуска с указанием версий:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# requrements.txt
+requests==2.7.0
+Django==1.8.3
+jsonfield==1.0.3
+django-hstore==1.4
+django-filebrowser==3.5.7
+django-object-actions==0.5.1
+sorl-thumbnail==12.3
+django-ajax==0.2.0
+git+https://github.com/maraujop/django-crispy-forms.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Предположим, файл есть, инструкция по запуска есть. Да вот только таких проектов надо запускать много и у каждого свои зависимости.
+Причем не получится все установить в систему, версии же могут конфликтовать.&lt;/p&gt;
+&lt;p&gt;Для решения этой проблемы был придуман &lt;code&gt;virtualenv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;virtualenv&lt;/code&gt; - это инструмент, который позволяет установить отдельный Python, со своими модулями, зависимостями и пр.
+Что интересно, на одной машине может стоят несколько версий Python с разным набором библиотек.
+Такой инструмент позволяет устанавливать, изменять и удалять пакеты, и это не повлияет на другие ваши проекты или системное окружение.&lt;/p&gt;
+&lt;p&gt;Погружаемся в тему:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;И смотрим доклад на тему "Pip install — почему так медленно?"
+- &lt;a href="https://events.yandex.ru/lib/talks/3070/"&gt;https://events.yandex.ru/lib/talks/3070/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 25 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-25:posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/</guid><category>pip</category><category>virtualenv</category><category>модуль</category><category>установка</category><category>настройка</category><category>пакет</category></item><item><title>Пишем web-проекты: исправляем битый HTML с помощью Tidy</title><link>http://pynsk.ru/posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/</link><description>&lt;p&gt;При парсинге возникают совсем странные ошибки - одна из них - не валидный HTML. Т.е. с ошибками.
+Верстальщик забыл закрыть таблицу или body. Еще бывает что вставляют HTML из Word, а там тааккккооооой код.&lt;/p&gt;
+&lt;p&gt;Чтобы очистить HTML от мусора можно применять инструмент &lt;code&gt;Tidy&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Данный инструмент позволяет исправить неверный HTML (добавит закрывающие теги, добавит недостающие теги), почистить форматирование (отступы, например).&lt;/p&gt;
+&lt;p&gt;Скачать этот инструмент можно из репозитория - &lt;a href="http://tidy.sourceforge.net/"&gt;http://tidy.sourceforge.net/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Чтобы воспользоваться этим продуктом из Python требуется поставить модуль &lt;code&gt;PyTidyLib&lt;/code&gt; и пользоваться.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tidylib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;tidy_document&lt;/span&gt;
+&lt;span class="n"&gt;document&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;errors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tidy_document&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&amp;#39;&amp;lt;p&amp;gt;f&amp;amp;otilde;o &amp;lt;img src=&amp;quot;bar.jpg&amp;quot;&amp;gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;numeric-entities&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;document&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;errors&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Почитать про PyTidyLib можно по ссылке - &lt;a href="http://countergram.com/open-source/pytidylib/docs/index.html"&gt;http://countergram.com/open-source/pytidylib/docs/index.html&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 23 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-23:posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/</guid><category>html</category><category>парсинг</category></item><item><title>Практические задачи: Задача #003 - система генерации описаний</title><link>http://pynsk.ru/posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/</link><description>&lt;p&gt;Продолжаем предлагать различные задачи для практики. Кто заинтересуется решением этих задач, просим помогать друг-другу. Но при этом в течении недели не кидать ссылок на полностью готовое решение. А также, чтобы читать код было удобно - публикуйте его на https://gist.github.com/ или какой-то подобный сервис.&lt;/p&gt;
+&lt;p&gt;Описание задачи:&lt;/p&gt;
+&lt;p&gt;Запускается новый интернет-магазин, который будет заниматься продажей одежды. Поставщики товаров предоставили характеристики. Но для лучше поисковой оптимизации надо написать описание товаров. Как и всегда, товаров очень много (100 000), а контент-менеджеров только 2, которые могут писать только по 100 описаний в день. &lt;/p&gt;
+&lt;p&gt;Начальство предлагает автоматизировать процесс генерации описаний. Поэтому ставит задачу:&lt;/p&gt;
+&lt;p&gt;Необходимо разработать систему, которая будет формировать описания для товаров на основе характеристик.&lt;/p&gt;
+&lt;p&gt;Система должна содержать готовый список параметров (ниже он). На вход системе поступает список значений этих параметров, а на выходе описание.&lt;/p&gt;
+&lt;p&gt;Пример на входе:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Вид застежки: Пуговицы&lt;/li&gt;
+&lt;li&gt;Тип карманов: Втачные&lt;/li&gt;
+&lt;li&gt;Длина по внутреннему шву: 80 см&lt;/li&gt;
+&lt;li&gt;Крой по посадке: Slim&lt;/li&gt;
+&lt;li&gt;Дизайнерские эффекты: Эффект потертости&lt;/li&gt;
+&lt;li&gt;Конструктивные элементы: Шлевки&lt;/li&gt;
+&lt;li&gt;Декоративные элементы: Декоративные элементы&lt;/li&gt;
+&lt;li&gt;Сезон: демисезон&lt;/li&gt;
+&lt;li&gt;Пол: Мужской&lt;/li&gt;
+&lt;li&gt;Комплектация: джинсы&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Пример на выходе:&lt;/p&gt;
+&lt;p&gt;Мужские джинсы на пуговицах, декорированные втачными карманами. Длинные брючины 80 см. Крой типа «слим» позволяет подчеркнуть вашу фигуру, а эффект потертости создает небрежный образ. Модель оформлена различными декоративными элементами, а так же втачками. Подходит на любой сезон. &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 22 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-22:posts/2015/Dec/22/prakticheskie-zadachi-zadacha-003-sistema-generatsii-opisanii/</guid><category>задача</category><category>практика</category><category>практика программирования</category><category>работа</category></item><item><title>Синтаксис Python: __slots__</title><link>http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-__slots__/</link><description>&lt;p&gt;Python обладает широкими динамическими возможностями. Строгая динамическая неявная типизация позволяет не указывать типы, но при этом не бояться что в коде просуммируем строку и число.
+Однако за динамичность приходиться платить - памятью и скоростью.&lt;/p&gt;
+&lt;p&gt;Но что если хочется максимально уменьшить размер объектов (а в python все объекты) и при этом не потерять в функциональности?
+Для примера возьмем плоскость. На плоскости, пускай, надо разместить миллион точек (что не так много).
+При этом надо иметь возможность красить точку в разные цвета, расстояния подсчитывать и прочие действия.&lt;/p&gt;
+&lt;p&gt;Иными словами:&lt;/p&gt;
+&lt;p&gt;Надо иметь возможность создать миллион пар (x, y) + несколько методов для работы с ними.
+И требуется занять минимальное количество памяти.&lt;/p&gt;
+&lt;p&gt;Можно пойти по процедурному пути, сделать массив, отдельные функции для обработки точек.
+Но сделаем все в виде класса.
+Методы расписывать не буду, а вот побороться за минимальное потребление памяти стоит.
+В простом варианте можно написать код:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Test2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;__slots__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Можно заметить, что код почти одинаковый. Есть только какое-то магическое имя &lt;code&gt;__slots__&lt;/code&gt;. Именно оно и позволит уменьшить потребление памяти.
+Но перед тем как сказать сколько памяти было сэкономлено, расскажу про &lt;code&gt;__slots__&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;__slots__&lt;/code&gt; - одно из магических имен в Python. Наличие &lt;code&gt;__slots__&lt;/code&gt; ограничивает возможные имена атрибутов объекта теми, которые там указаны. В примере в слотах указаны a и b. Если вызвать переменную "c", то получим исключение. Тем самым можно явно ограничивать расширение функционала объектов в runtime.&lt;/p&gt;
+&lt;p&gt;Такое явно ограничение количества переменных позволяет экономить память.
+Для примера, если создать миллион объектов Test1 и Test2, то во втором случае получим экономию памяти в &lt;code&gt;5 раз&lt;/code&gt; (подтверждение этому можно найти по первой ссылке, там рассматривается Python2)&lt;/p&gt;
+&lt;p&gt;Почему эта экономия существует и почему так, смотри по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://dev.svetlyak.ru/using-slots-for-optimisation-in-python-en/"&gt;http://dev.svetlyak.ru/using-slots-for-optimisation-in-python-en/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/137415/"&gt;http://habrahabr.ru/post/137415/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/questions/472000/python-slots"&gt;https://stackoverflow.com/questions/472000/python-slots&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.elfsternberg.com/2009/07/06/python-what-the-hell-is-a-slot/"&gt;http://www.elfsternberg.com/2009/07/06/python-what-the-hell-is-a-slot/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ibm.com/developerworks/ru/library/l-python_part_7/"&gt;https://www.ibm.com/developerworks/ru/library/l-python_part_7/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://habrahabr.ru/post/193890/"&gt;http://habrahabr.ru/post/193890/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 21 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-21:posts/2015/Dec/21/sintaksis-python-__slots__/</guid><category>slots</category><category>память</category></item><item><title>Синтаксис Python: all и any</title><link>http://pynsk.ru/posts/2015/Dec/21/sintaksis-python-all-i-any/</link><description>&lt;p&gt;Коротко: &lt;code&gt;all&lt;/code&gt; и &lt;code&gt;any&lt;/code&gt; - встроенные методы, которые позволяют проверять все элементов списка на выполнение условия.&lt;/p&gt;
+&lt;p&gt;При валидации данных часто возникает задача проверить структуру на корректность.
+Например, пускай есть список словарей:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;data = 
+[
+    {
+        &amp;#39;title&amp;#39;: &amp;quot;Super page&amp;quot;,
+        &amp;#39;description&amp;#39;: &amp;quot;Super puper page&amp;quot;,
+        &amp;#39;id&amp;#39;: &amp;#39;page_super&amp;#39;,
+        &amp;#39;data&amp;#39;: {}
+    },
+    {
+        &amp;#39;title&amp;#39;: &amp;quot;Super super page&amp;quot;,
+        &amp;#39;description&amp;#39;: &amp;quot;Super puper page2&amp;quot;,
+        &amp;#39;id&amp;#39;: &amp;#39;page_super_super&amp;#39;,
+        &amp;#39;data&amp;#39;: {}
+    },
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;И надо проверить что во всех внутренних словарях есть все необходимые ключи.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Как решаете такую задачу вы?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Можно, конечно, сделать цикл, а то и двойной. Один пойдет по всем словарям, другой по внутренностям словарей, во втором цикле сделать if и проверять существование ключей. Что-то такое:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;description&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+              &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Not valid data&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Получается простой и понятный код, только вложенность большая.
+Можно сократить этот код и воспользоваться встроенными методами - &lt;code&gt;all&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Встроенная функция &lt;code&gt;all&lt;/code&gt; - идет по списку True/False (выражения которые сводятся к этим значениям) и прекращает проверку после первого элемента, не удовлетворяющего условию. 
+Тогда наш код, на проверку существования ключей можно записать с помощью списковых исключений&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;):&lt;/span&gt;
+         &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Not valid data&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Идейно ничего не поменялось, а вот вложенность уменьшилась.&lt;/p&gt;
+&lt;p&gt;А что если надо не "все", а "хотя бы один". Здесь на помощь приходит &lt;code&gt;any&lt;/code&gt;.
+Допустим, нам надо проверить, выполняется ли условие хотя бы для одного элемента&lt;/p&gt;
+&lt;p&gt;Без &lt;code&gt;any&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;numbers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;At least one element is over 10&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;с &lt;code&gt;any&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;numbers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;any&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Success&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;P.S. в примере с &lt;code&gt;all&lt;/code&gt; можно написать еще короче:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;ValueError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Not valid data&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 21 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-21:posts/2015/Dec/21/sintaksis-python-all-i-any/</guid><category>all</category><category>any</category></item><item><title>Полезные инструменты: clonedigger - поиск дубликатов кода</title><link>http://pynsk.ru/posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/</link><description>&lt;p&gt;Количество кода - это некоторый критерий для ПО. Практика показывает, что чем больше кода - тем сложнее поддерживать и развивать продукт.
+А если в этом коде много copy-past'ы, то совсем плохо.&lt;/p&gt;
+&lt;p&gt;Для выявления повторяющихся кусков кода существуют различные инструменты. Один из них CloneDigger.
+Это старая разработка (еще в 2008 году автор выступал на EuroPython), однако, работает хорошо и на данный момент.&lt;/p&gt;
+&lt;p&gt;CloneDigger принимает на вход набор файлов, или целую папку. С помощью алгоритма (&lt;a href="http://clonedigger.sourceforge.net/documentation.html"&gt;http://clonedigger.sourceforge.net/documentation.html&lt;/a&gt;) находит повторяющиеся куски кода и создает HTML отчет.&lt;/p&gt;
+&lt;p&gt;Пример отчета можно найти по ссылке - &lt;a href="http://clonedigger.sourceforge.net/examples/bio_python_selection.html"&gt;http://clonedigger.sourceforge.net/examples/bio_python_selection.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;А вы оцениваете свой код с помощью метрик?&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 18 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-18:posts/2015/Dec/18/poleznye-instrumenty-clonedigger-poisk-dublikatov-koda/</guid><category>clonedigger</category><category>дубликат</category><category>дубликат кода</category><category>copy paste</category></item><item><title>Видео: bokeh (видео с Pycon)</title><link>http://pynsk.ru/posts/2015/Dec/18/video-bokeh-video-s-pycon/</link><description>&lt;p&gt;Предлагаю посмотреть видео с Pycon про библиотеку визуализации данных bokeh:&lt;/p&gt;
+&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/O5OvOLK-xqQ?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 18 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-18:posts/2015/Dec/18/video-bokeh-video-s-pycon/</guid><category>видео</category><category>bokeh</category><category>график</category><category>plot</category><category>визуализация</category></item><item><title>Учебные материалы: курс "Автоматизация скучных вещей на Python"</title><link>http://pynsk.ru/posts/2015/Dec/17/uchebnye-materialy-kurs-avtomatizatsiia-skuchnykh-veshchei-na-python/</link><description>&lt;p&gt;Automate the Boring Stuff with Python ( &lt;a href="https://automatetheboringstuff.com/"&gt;https://automatetheboringstuff.com/&lt;/a&gt; )- это англоязычный курс об использовании Python на практике.
+Курс обширный, покрывает множество частей Python. Изложение не скучное, а скорее игривое и практичное. Здесь нет ситуаций, когда 50 страниц читаешь про всестороннее использование списков, как у Лутца. Здесь практика.&lt;/p&gt;
+&lt;p&gt;Курс стоит денег, однако по ссылке скидка 50% (смог найти такой промокод)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.udemy.com/automate/?couponCode=HALF_OFF"&gt;https://www.udemy.com/automate/?couponCode=HALF_OFF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994"&gt;http://www.amazon.com/Automate-Boring-Stuff-Python-Programming/dp/1593275994&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Но перед тем как бежать и покупать, стоит посмотреть и оценить курс самостоятельно.&lt;/p&gt;
+&lt;p&gt;Есть несколько видео:
+- &lt;a href="https://www.youtube.com/watch?v=1F_OgqRuSdI&amp;amp;list=PL0-84-yl1fUnRuXGFe_F7qSH1LEnn9LkW"&gt;https://www.youtube.com/watch?v=1F_OgqRuSdI&amp;amp;list=PL0-84-yl1fUnRuXGFe_F7qSH1LEnn9LkW&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;И множество глав:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://automatetheboringstuff.com/chapter0/"&gt;https://automatetheboringstuff.com/chapter0/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 17 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-17:posts/2015/Dec/17/uchebnye-materialy-kurs-avtomatizatsiia-skuchnykh-veshchei-na-python/</guid><category>курс</category><category>видео</category><category>учебник</category><category>практика</category></item><item><title>Таинство стандартной библиотеки: модуль __future__</title><link>http://pynsk.ru/posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/</link><description>&lt;p&gt;Хорошей практикой является применение deprecated нотаций (помечать, что какой-то метод/функционал будет удален в такой-то версии)
+Можно пойти дальше и указывать какой функционал станет обязательным в следующих версиях.&lt;/p&gt;
+&lt;p&gt;Если с deprecated еще все более-менее ясно, то как заставить компилятор понимать функционал из будущих версий?&lt;/p&gt;
+&lt;p&gt;Для этого в Python есть модуль &lt;code&gt;__future__&lt;/code&gt;.
+Этот небольшой по размеру модуль -&amp;gt; &lt;a href="https://hg.python.org/cpython/file/3.5/Lib/__future__.py"&gt;https://hg.python.org/cpython/file/3.5/Lib/&lt;strong&gt;future&lt;/strong&gt;.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;И работает он следующим образом: когда компилятор проходится по файлам с исходным кодом, анализатор выявляет импорты из &lt;code&gt;__future__&lt;/code&gt;. Если такой есть, то флаги компиляции дополняются этими импортами, это и позволяет собрать нужный байт-код.&lt;/p&gt;
+&lt;p&gt;От сюда и следует понятное требование к импортам из &lt;code&gt;__future__&lt;/code&gt; - они должны быть самыми первыми.&lt;/p&gt;
+&lt;p&gt;Рассмотрим пример, в 3.5 в модуле &lt;code&gt;__future__&lt;/code&gt; появился флаг generator_stop, который реализует логику PEP 0479. Этот PEP позволяет отлавливать исключение StopIteration внутри генератора. Этот функционал станет доступен только в 3.7, но уже в 3.5 можно его использовать.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;generator_stop&lt;/span&gt;
+&lt;span class="c"&gt;# super code&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;когда компилятор заметит первый импорт, то скомпилирует файл с учетом нового функционала.&lt;/p&gt;
+&lt;p&gt;По ссылке  &lt;a href="https://docs.python.org/3.5/library/__future__.html"&gt;https://docs.python.org/3.5/library/&lt;strong&gt;future&lt;/strong&gt;.html&lt;/a&gt;  вы найдете список флагов в модуле &lt;code&gt;__future__&lt;/code&gt;.
+Что интересно, генераторы появились в далекой 2.2 версии, да и деление (привычное по Python3) в тоже время.&lt;/p&gt;
+&lt;p&gt;Еще полезная ссылка:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/reference/simple_stmts.html#future"&gt;https://docs.python.org/3.5/reference/simple_stmts.html#future&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 17 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-17:posts/2015/Dec/17/tainstvo-standartnoi-biblioteki-modul-__future__/</guid><category>__future__</category><category>future</category><category>стандартная библиотека</category></item><item><title>Извлечение информации: парсинг больших объемов данных</title><link>http://pynsk.ru/posts/2015/Dec/16/izvlechenie-informatsii-parsing-bolshikh-obemov-dannykh/</link><description>&lt;p&gt;Парсинг частая задача на фриланс сайтах. Вот только парсят там 1-2 сайт и все. А что если надо спарсить целый Интернет?
+В этом видео Александр Сибиряков расскажет о фреймворке frontera, который позволяет это сделать.&lt;/p&gt;
+&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/Km7poOD8ybU?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 16 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-16:posts/2015/Dec/16/izvlechenie-informatsii-parsing-bolshikh-obemov-dannykh/</guid><category>видео</category><category>парсинг</category><category>fronteram scrapy</category><category>scrapinghub</category></item><item><title>Полезные библиотеки: RPC и nameko</title><link>http://pynsk.ru/posts/2015/Dec/16/poleznye-biblioteki-rpc-i-nameko/</link><description>&lt;p&gt;Всем привычно, когда управление и данные внутри программы перемещаются на одной машине. Все хорошо и ясно (в какой-то мере), но что делать если данных становится много и возникает желание распределить вычисления?&lt;/p&gt;
+&lt;p&gt;Берем 2 компьютера, а дальше... А дальше нам надо как-то из программы на одном компьютере запустить метод на другом, да еще и данные перекинуть.
+Вот здесь на помощь и приходит &lt;code&gt;RPC&lt;/code&gt; (Remote Procedure Call) вызов удалённых процедур.&lt;/p&gt;
+&lt;p&gt;Этот механизм берет на себя все проблемы соединения компьютеров, а таких много: адресные пространства компьютеров могут не совпадать, как передать данные, а если архитектуры различны? и этих "а если" очень много&lt;/p&gt;
+&lt;p&gt;Хорошо про RPC написано по ссылке -&amp;gt; &lt;a href="http://citforum.ru/operating_systems/sos/glava_12.shtml"&gt;http://citforum.ru/operating_systems/sos/glava_12.shtml&lt;/a&gt;
+Там вы найдете способ работы RPC, какие проблемы с RPC есть.&lt;/p&gt;
+&lt;p&gt;А мы продолжаем. У нас задача - запустить код на одной машине из кода на другой машине.&lt;/p&gt;
+&lt;p&gt;В Python есть несколько готовых инструментов для этой задачи. Один из них - nameko&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Nameko&lt;/code&gt; - это фреймворк, который направлен на создание различных микросервисов.
+Данный фреймворк обладает простым строением и позволяет работать в режимах RPC, Pub-Sub - чего достаточно для небольших проектов.&lt;/p&gt;
+&lt;p&gt;Создание микросервиса элементарное:&lt;/p&gt;
+&lt;p&gt;Немного кода:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;nameko.rpc&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;rpc&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;GreetingService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;greeting_service&amp;quot;&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@rpc&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello, {}!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Запуск:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;nameko run helloworld
+starting services: greeting_service
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Готово! Можно использовать (для примера, используем RPC из консоли):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;nameko shell
+&amp;gt;&amp;gt;&amp;gt; n.rpc.greeting_service.hello&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Matt&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+u&lt;span class="s1"&gt;&amp;#39;Hello, Matt!&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Таким образом можно реализовать распределенную систему.
+Пример задачи, где это может потребоваться - электронная библиотека. На одной машине клиент может выгружать и редактировать книги, а на второй машине данные хранятся и проводится их индексация.&lt;/p&gt;
+&lt;p&gt;Пара ссылок:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/onefinestay/nameko"&gt;https://github.com/onefinestay/nameko&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lucumr.pocoo.org/2015/4/8/microservices-with-nameko/"&gt;http://lucumr.pocoo.org/2015/4/8/microservices-with-nameko/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Wed, 16 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-16:posts/2015/Dec/16/poleznye-biblioteki-rpc-i-nameko/</guid><category>rpc</category><category>nameko</category><category>удаленный вызов процедур</category></item><item><title>Извлечение информации: XPath - язык для парсинга</title><link>http://pynsk.ru/posts/2015/Dec/15/izvlechenie-informatsii-xpath-iazyk-dlia-parsinga/</link><description>&lt;p&gt;XPath (XML Path Language) — язык запросов к элементам XML-документа.
+Но не спешите убегать, концепция XPath настолько получилась удачной что ее применяют при парсинге HTML&lt;/p&gt;
+&lt;p&gt;Ранее, для парсинга страниц использовали регулярные выражения. Регулярные выражения могли быть сложными и требовали постоянной настройки. При изменении дизайна сайт регулярное выражение изменялось кардинально, что замедляло написание парсеров.
+Однако были и плюсы - одни и те же регулярные выражения можно использовать для разных сайтов.&lt;/p&gt;
+&lt;p&gt;Сейчас же чаще всего для &lt;code&gt;_доступа_&lt;/code&gt; к данным используется &lt;code&gt;XPath&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;код&lt;/span&gt; &lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;go&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://vk.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;grab&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Response&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mh"&gt;0x1c9ae10&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;c96940&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;//title/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;Welcome&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;XPath реализует навигацию по &lt;code&gt;DOM&lt;/code&gt; в &lt;code&gt;XML/XHTML&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;В примере показано как получить элемент &lt;code&gt;title&lt;/code&gt; и достать из него текст.&lt;/p&gt;
+&lt;p&gt;Схожим образом можно обращаться к любому элементу.
+XPath позволяет искать элементы с определенным атрибутом, например:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;//div[@class=&amp;quot;Test&amp;quot;]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Данный язык запросов позволяет значительно упростить логику парсеров и тем самым ускорить разработку парсеров.&lt;/p&gt;
+&lt;p&gt;Синтаксис XPath -&amp;gt; &lt;a href="http://www.w3schools.com/xsl/xpath_syntax.asp"&gt;http://www.w3schools.com/xsl/xpath_syntax.asp&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;А в этом видео вы узнаете, как можно парсить без использования &lt;code&gt;XPath&lt;/code&gt;:&lt;/p&gt;
+&lt;iframe width="480" height="270" src="https://www.youtube.com/embed/hj-8l3AejNc?feature=oembed" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 15 Dec 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-15:posts/2015/Dec/15/izvlechenie-informatsii-xpath-iazyk-dlia-parsinga/</guid><category>xpath</category><category>парсинг</category></item><item><title>Python на службе народа: сохраняем список словарей в csv файл</title><link>http://pynsk.ru/posts/2015/Dec/15/python-na-sluzhbe-naroda-sokhraniaem-spisok-slovarei-v-csv-fail/</link><description>&lt;p&gt;При автоматизации процессов необходимо загружать/выгружать данные. Эти процессы напрямую завязаны на данные и их представление. Одно из самых простых представлений - это &lt;code&gt;csv&lt;/code&gt; (Comma-Separated Value) таблицы.&lt;/p&gt;
+&lt;p&gt;Это обычные текстовые файлы с определенным форматом записей - колонки разделены запятыми, а каждая новая строка - это строка в таблицы&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;1997,Ford,E350,&amp;quot;ac, abs, moon&amp;quot;,3000.00
+1999,Chevy,&amp;quot;Venture &amp;quot;&amp;quot;Extended Edition&amp;quot;&amp;quot;&amp;quot;,&amp;quot;&amp;quot;,4900.00
+1996,Jeep,Grand Cherokee,&amp;quot;MUST SELL! air, moon roof, loaded&amp;quot;,4799.00
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Данный формат можно назвать базовым для представления таблиц - из &lt;code&gt;csv&lt;/code&gt; легко конвертировать в другие форматы&lt;/p&gt;
+&lt;p&gt;В Python существует модуль для работы с &lt;code&gt;csv&lt;/code&gt;, он так и называется - &lt;code&gt;csv&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Возможности модуля описаны по ссылкам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3.5/library/csv.html"&gt;https://docs.python.org/3.5/library/csv.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pymotw.com/2/csv/"&gt;https://pymotw.com/2/csv/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Модуль позволяет импортировать/экспортировать данные в &lt;code&gt;csv&lt;/code&gt; формате.
+Например, запись &lt;code&gt;csv&lt;/code&gt; файла построчно.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;eggs.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;newline&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;csvfile&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;csvfile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;delimiter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="n"&gt;quotechar&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;|&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;quoting&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QUOTE_MINIMAL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Baked Beans&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="n"&gt;spamwriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Lovely Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Wonderful Spam&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Однако, не редка ситуация, когда данные таблицы представлены в виде списка словарей. Где каждый словарь это одна строчка в таблице&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[
+    {
+        &amp;#39;column1&amp;#39;: 1,
+        &amp;#39;column2&amp;#39;: 100,
+    },
+    {
+        &amp;#39;column1&amp;#39;: 100500,
+        &amp;#39;column2&amp;#39;: 27,
+    },
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Если у вас такая ситуация, то не спешите писать функцию, которая преобразует список словарей.
+csv модуль содержит класс &lt;code&gt;DictWritter&lt;/code&gt;, который позволяет в пару строк сохранить эти данные в таблицу. Применение выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
+&lt;span class="n"&gt;toCSV&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;bob&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+         &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;jim&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
+&lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;toCSV&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;people.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DictWriter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;output_file&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeheader&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;dict_writer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerows&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;toCSV&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;Хитрость:&lt;/p&gt;
+&lt;p&gt;Google docs/drive позволяет сохранять &lt;code&gt;csv&lt;/code&gt; файлы в &lt;code&gt;excel&lt;/code&gt;, &lt;code&gt;odt&lt;/code&gt; и других популярных форматах для Офисных Пакетов&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Tue, 15 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-15:posts/2015/Dec/15/python-na-sluzhbe-naroda-sokhraniaem-spisok-slovarei-v-csv-fail/</guid><category>csv</category><category>dictwriter</category><category>таблицы</category></item><item><title>Синтаксис Python: type, isinstance - определяем тип переменной</title><link>http://pynsk.ru/posts/2015/Dec/14/sintaksis-python-type-isinstance-opredeliaem-tip-peremennoi/</link><description>&lt;p&gt;С помощью функции &lt;code&gt;type()&lt;/code&gt; можно проверить, принадлежит ли данное тому или иному типу:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;float&lt;/span&gt;
+&lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;То же самое можно сделать с помощью функции &lt;code&gt;isinstance()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Однако &lt;code&gt;isinstance()&lt;/code&gt; по сравнению с &lt;code&gt;type()&lt;/code&gt; позволяет проверить данное на принадлежность хотя бы одному типу из кортежа, переданного в качестве второго аргумента:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,(&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;tuple&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Отмечают другое более важное преимущество &lt;code&gt;isinstance()&lt;/code&gt;. Эта функция поддерживает наследование. Для &lt;code&gt;isinstance()&lt;/code&gt; экземпляр производного класса есть экземпляр его базового класса:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;A&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;
+&lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Mon, 14 Dec 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-14:posts/2015/Dec/14/sintaksis-python-type-isinstance-opredeliaem-tip-peremennoi/</guid><category>type</category><category>isinstance</category></item><item><title>Таинство стандартной библиотеки: консольный GUI с помощью curses</title><link>http://pynsk.ru/posts/2015/Dec/11/tainstvo-standartnoi-biblioteki-konsolnyi-gui-s-pomoshchiu-curses/</link><description>&lt;p&gt;Python отлично подходит для написания самых различных серверных утилит. Часто такие утилиты дополняют CLI (Command Line Interface), а иногда и целым GUI. &lt;/p&gt;
 &lt;p&gt;Но как его сделать? На сервере часто нет X сервера. нет Qt и чего-то такого, а Python есть. 
 Возможно вы слышали про &lt;code&gt;ncurses&lt;/code&gt; - библиотека для управления IO. Вот ее и можно использовать для такой задачи - стандартная библиотека содержит модуль &lt;code&gt;curses&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;В документации Python есть How To...есть про этот модуль: &lt;a href="https://docs.python.org/3/howto/curses.html"&gt;https://docs.python.org/3/howto/curses.html&lt;/a&gt;&lt;/p&gt;
@@ -2104,6 +2493,22 @@ Yield - это ключевое слово которое используетс
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/Aug/23/hardcore-python-zapuskaem-s-kod-s-pomoshchiu-cffi/</guid><category>cffi</category></item><item><title>Таинство стандартной библиотеки: functools.singledispatch</title><link>http://pynsk.ru/posts/2015/Aug/23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</link><description>&lt;p&gt;Стандартная поставка Python полна возможностями. 
 Хочется упомянуть обобщенные функции. Если простыми словами, то это такие функции, где мы не думаем о типах аргументов, а просто пишем логику.  Например, (натянутый пример) оператор "+" - мы не думаем о аргументах, мы просто складывает два объекта.&lt;/p&gt;
 &lt;p&gt;Для реализации обобщенных функций в Python 3 (начиная с 3.4) появился метод singledispatch в модуле functools.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nd"&gt;@fun.register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Strength in numbers, eh?&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nd"&gt;@fun.register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Enumerate this:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;         &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;elem&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Подробней о этом механизме по ссылке - &lt;a href="https://www.python.org/dev/peps/pep-0443/"&gt;https://www.python.org/dev/peps/pep-0443/&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Sun, 23 Aug 2015 10:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-08-23:posts/2015/Aug/23/tainstvo-standartnoi-biblioteki-functoolssingledispatch/</guid><category>functools</category></item><item><title>Полезные библиотеки: plot.ly (plotly)</title><link>http://pynsk.ru/posts/2015/Aug/22/poleznye-biblioteki-plotly-plotly/</link><description>&lt;p&gt;Понятное представление информации - это вечная задача. Причем она свойственна всем.&lt;/p&gt;
 &lt;p&gt;Хочется упомянуть графики. Вот собрали мы данные, задача была не простая, а теперь надо их представить. Графики бывают разных типов, их очень много. Даже если какой-то график сделали, а как поделиться? Можно скинуть картинку, да только придется потом с "линейкой" вычислять значения, а можно пойти по другому пути - https://plot.ly/python/. &lt;/p&gt;
 &lt;p&gt;ploy.ly предоставляет возможно создать динамический график, например, &lt;a href="https://plot.ly/python/dashboard/"&gt;https://plot.ly/python/dashboard/&lt;/a&gt;&lt;br /&gt;
