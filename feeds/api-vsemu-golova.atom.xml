@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/api-vsemu-golova.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-10T04:00:00+06:00</updated><entry><title>API всему голова: twitter API - пишем твит с изображением</title><link href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/" rel="alternate"></link><updated>2015-12-10T04:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-10:posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</id><summary type="html">&lt;p&gt;О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/api-vsemu-golova.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2016-01-01T18:00:00+06:00</updated><entry><title>API всему голова: Feedly API - разбираемся с RSS сервисом</title><link href="http://pynsk.ru/posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/" rel="alternate"></link><updated>2016-01-01T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2016-01-01:posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/</id><summary type="html">&lt;p&gt;Сегодня хочу описать как работать с &lt;code&gt;Feedly&lt;/code&gt; через их API в языке Python.&lt;/p&gt;
+&lt;p&gt;Для начала ссылки, которые точно понадобятся:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Документация: &lt;a href="https://developer.feedly.com/"&gt;https://developer.feedly.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Рассылка: &lt;a href="https://groups.google.com/forum/#!forum/feedly-cloud"&gt;https://groups.google.com/forum/#!forum/feedly-cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Разработчики из Feedly довольно активно желают, чтобы сторонние разработчики участвовали в совершенствовании сервиса. 
+Поэтому если вам необходимы какие-то хитрые условия для работы вашего приложения - изменить ограничение по запросам, как пример, то Feedly могут пойти на встречу.&lt;/p&gt;
+&lt;p&gt;В Feedly есть 3 варианта API:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Работа в “&lt;code&gt;песочнице&lt;/code&gt;” - &lt;a href="https://sandbox.feedly.com/"&gt;https://sandbox.feedly.com/&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;Ссылка по которой можно получить ключ (&lt;code&gt;token&lt;/code&gt;): &lt;a href="https://sandbox.feedly.com/v3/auth/dev"&gt;https://sandbox.feedly.com/v3/auth/dev&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Работа с облаком - это &lt;a href="cloud.feedly.com"&gt;https://cloud.feedly.com&lt;/a&gt;, который является главным сервисом, все пользователи его видят&lt;ul&gt;
+&lt;li&gt;Ссылка по которой можно получить ключ (&lt;code&gt;token&lt;/code&gt;): &lt;a href="https://feedly.com/v3/auth/dev"&gt;https://feedly.com/v3/auth/dev&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;И &lt;code&gt;development sandbox&lt;/code&gt;. Отличие от первого варианта, что работаешь не через свой аккаунт. А через общий сервис&lt;ul&gt;
+&lt;li&gt;Раз в месяц в группе (рыссылке) размещают токен.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Интересен мне второй вариант, про него и будет рассказ.&lt;/p&gt;
+&lt;p&gt;Стоит обратить внимание что в документации можно найти готовые запросы с помощью &lt;code&gt;curl&lt;/code&gt;. Т.е. даже не трогая никакого языка программирования можно работать с API Feedly.&lt;/p&gt;
+&lt;p&gt;Я же буду работать в Python.&lt;/p&gt;
+&lt;p&gt;И буду использовать &lt;code&gt;python-feedly&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Устанавливаем спомощью pip:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install python-feedly&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;В &lt;a href="https://github.com/WarmongeR1/python-feedly/blob/master/README.rst"&gt;&lt;code&gt;README.md&lt;/code&gt;&lt;/a&gt; есть готовые примеры для использования. Их и заиспользуем:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;feedly&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FeedlyClient&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sandbox&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Где &lt;code&gt;token&lt;/code&gt;, это длинная строчка типа &lt;code&gt;AhQjf…...Q:feedlydev&lt;/code&gt;
+Объект есть, теперь можно возиться с ним.&lt;/p&gt;
+&lt;p&gt;Не стану разводить тут мысли и раздумья и покажу как получить список непрочитанных новостей. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;В документации используется понятие &lt;code&gt;stream_id&lt;/code&gt;. Это &lt;code&gt;id&lt;/code&gt; почти любого объекта, например, категория, feed и др.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Получим все категории:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;categories&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_info_type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;categories&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;А теперь получим все непрочитанные новости из этих категорий.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;articles&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;category&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;categories&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+       &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{} of {} category ({})&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;categories&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;label&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+       &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_feed_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;previous_time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+       &lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;items&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;
+       &lt;span class="n"&gt;articles&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;,где &lt;code&gt;token&lt;/code&gt; уже знаем что такое, 
+&lt;code&gt;previous_time&lt;/code&gt; это время начиная с которого хочется получить статьи, целое число, время в unix time.&lt;/p&gt;
+&lt;p&gt;Оп, теперь в &lt;code&gt;acticles&lt;/code&gt; есть список статей, которые не прочтены.&lt;/p&gt;
+&lt;p&gt;Заголовок, ссылку на новость и описание можно получить так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;articles&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+   &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;alternate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;href&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+   &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+   &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{})&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Теперь умеем получать категории, статьи, а у статей доставать описание, название, ссылку. 
+Этого уже достаточно, чтобы написать свой фильтр RSS. &lt;/p&gt;
+&lt;p&gt;В API Feedly есть еще много всяких возможностей. Пользуйтесь.&lt;/p&gt;</summary><category term="feedly"></category><category term="api"></category><category term="rss"></category><category term="фильтр"></category></entry><entry><title>API всему голова: twitter API - пишем твит с изображением</title><link href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/" rel="alternate"></link><updated>2015-12-10T04:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-10:posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</id><summary type="html">&lt;p&gt;О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
 Twitter имеет открытый API, который сегодня и освоим. Мы научимся публиковать пост с изображением через Twitter API&lt;/p&gt;
 &lt;h2&gt;Начинаем работу с API - получаем APP_ID&lt;/h2&gt;
 &lt;p&gt;Как и с другими API, первый шаг - почитать документацию - &lt;a href="https://dev.twitter.com/overview/documentation"&gt;https://dev.twitter.com/overview/documentation&lt;/a&gt;&lt;/p&gt;

@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>тест - PyNSK - Новосибирское Python сообщество</title>
+    <title>test - PyNSK - Новосибирское Python сообщество</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -168,7 +168,7 @@ init_mathjax();
 
 
     <meta name="author" content="Alexander Sapronov" />
-    <meta name="keywords" content="тест" />
+    <meta name="keywords" content="test" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="PyNSK - Новосибирское Python сообщество" />
@@ -231,6 +231,23 @@ PyNSK - Новосибирское Python сообщество            </a>
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="http://pynsk.ru/posts/2016/Jan/02/poleznye-biblioteki-freezegun-zamorazhivaem-vremia/">Полезные библиотеки: freezegun - замораживаем время</a></h2>
+
+                <div class="summary"><p>В модуле <code>datetime</code> есть <code>now()</code> - метод, который возвращает текущее время. Применяется метод часто, например, создаем новую запись в базе данных - в лог пишем запись от текущего времени.</p>
+<p>Вот только такой код оттестировать не всегда просто - иногда надо чтобы <code>now()</code> возвращал конкретное время.
+Для этого случая есть <code>freezegun</code>:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">freezegun</span> <span class="kn">import</span> <span class="n">freeze_time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="nd">@freeze_time</span><span class="p">(</span><span class="s">&quot;2012-01-14&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">assert ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2016/Jan/02/poleznye-biblioteki-freezegun-zamorazhivaem-vremia/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://pynsk.ru/posts/2015/Oct/13/interesnye-kontseptsii-fuzzy-testing-testirovanie-gruboi-siloi/">Интересные концепции: fuzzy-testing  - тестирование грубой силой</a></h2>
 
@@ -323,17 +340,6 @@ assert - это специальная конструкция, позволяю�
                 <div class="summary"><p>nose — это инструмент для прогона тестов посредством unittest (и doctest, с ключом --with-doctest). Имеет также собственное API, использовать которое необязательно. 
 nose автоматически собирает тесты из файлов вида test_*, достаточно умен, чтобы заглянуть в папочку tests при наличии таковой, умеет измерять покрытие кода (code coverage) при помощи coverage.py (--with-coverage). Также можно запустить только тесты, которые отвалились в последний прогон (--failed ...</p>
                     <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/18/testy-testy-testy-nose/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://pynsk.ru/posts/2015/Aug/11/testy-testy-testy-chto-takoe-fikstura-fixture/">Тесты тесты тесты: что такое фикстура (fixture)?</a></h2>
-
-                <div class="summary"><p>При написании тестов не редка ситуация, когда надо иметь фиксированное воспроизводимое много раз состояние программы. Например, такая-то кнопочка нажата, такой-то класс содержит такие-то значения.</p>
-<p>Чтобы не приходилось каждый раз вручную создавать подобное состояние программы используются fixture (фикстуры). 
-Фикстуры позволяют сохранить состояние системы в файл, а потом его от туда загрузить. </p>
-<p>По-мимо тестов, фикстуры применяются для создания начального состояния системы. Например ...</p>
-                    <a class="btn btn-default btn-xs" href="http://pynsk.ru/posts/2015/Aug/11/testy-testy-testy-chto-takoe-fikstura-fixture/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -442,6 +448,11 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://pynsk.ru/category/primery-koda.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Примеры кода
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://pynsk.ru/category/python-na-sluzhbe-naroda.html" style="font-size: 14px">
                             <i class="fa fa-folder-open fa-lg"></i> Python на службе народа
                         </a>
@@ -487,8 +498,8 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://pynsk.ru/category/video-bokeh-video-s-pycon.html" style="font-size: 14px">
-                            <i class="fa fa-folder-open fa-lg"></i> Видео: bokeh (видео с Pycon)
+                        <a href="http://pynsk.ru/category/video.html" style="font-size: 14px">
+                            <i class="fa fa-folder-open fa-lg"></i> Видео
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -517,14 +528,19 @@ nose автоматически собирает тесты из файлов в
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
-                    <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/aiohttp.html">
-                            aiohttp
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/__all__.html">
+                            __all__
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/any.html">
-                            any
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/aiohttp.html">
+                            aiohttp
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -542,6 +558,11 @@ nose автоматически собирает тесты из файлов в
                             автоматизация
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/awesome.html">
+                            awesome
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/bait-kod.html">
                             байт-код
@@ -553,23 +574,23 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/biblioteka.html">
-                            библиотека
+                        <a href="http://pynsk.ru/tag/bottle.html">
+                            bottle
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/celery.html">
-                            celery
+                        <a href="http://pynsk.ru/tag/corotine.html">
+                            corotine
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/coverage.html">
+                            coverage
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/cython.html">
                             cython
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -578,18 +599,18 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
+                        <a href="http://pynsk.ru/tag/dublikat-koda.html">
+                            дубликат кода
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/dublikat.html">
-                            дубликат
+                        <a href="http://pynsk.ru/tag/email.html">
+                            email
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/encoding.html">
-                            encoding
+                        <a href="http://pynsk.ru/tag/encode.html">
+                            encode
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -602,19 +623,9 @@ nose автоматически собирает тесты из файлов в
                             functools
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/funcy.html">
-                            funcy
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/funktsionalnoe-programmirovanie.html">
                             функциональное программирование
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/gc.html">
-                            gc
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -647,11 +658,6 @@ nose автоматически собирает тесты из файлов в
                             ide
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/igry.html">
-                            игры
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/import.html">
                             import
@@ -678,8 +684,18 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/json.html">
-                            json
+                        <a href="http://pynsk.ru/tag/isinstance.html">
+                            isinstance
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/itertools.html">
+                            itertools
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/jinja2.html">
+                            jinja2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -687,24 +703,9 @@ nose автоматически собирает тесты из файлов в
                             книга
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kontseptsiia.html">
-                            концепция
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lambda.html">
-                            lambda
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/language.html">
-                            language
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/liambda.html">
-                            лямбда
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/konsol.html">
+                            консоль
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -713,16 +714,11 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mechanize.html">
-                            mechanize
+                        <a href="http://pynsk.ru/tag/matritsa.html">
+                            матрица
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/mnogopotochnost.html">
-                            многопоточность
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
+                    <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/mock.html">
                             mock
                         </a>
@@ -738,8 +734,8 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nauka.html">
-                            наука
+                        <a href="http://pynsk.ru/tag/ng.html">
+                            нг
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -753,13 +749,18 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/oop.html">
-                            ооп
+                        <a href="http://pynsk.ru/tag/odnoplatnyi-kompiuter.html">
+                            одноплатный компьютер
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/operator.html">
-                            operator
+                        <a href="http://pynsk.ru/tag/operatsionnaia-sistema.html">
+                            операционная система
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/opoveshchenie.html">
+                            оповещение
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -780,11 +781,6 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/oshibka.html">
                             ошибка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/ospath.html">
-                            os.path
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -838,13 +834,8 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pycallgraph.html">
-                            pycallgraph
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/pypi.html">
-                            pypi
+                        <a href="http://pynsk.ru/tag/pylint.html">
+                            pylint
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -860,6 +851,11 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/python3.html">
+                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -878,8 +874,8 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/requests.html">
-                            requests
+                        <a href="http://pynsk.ru/tag/reiting.html">
+                            рейтинг
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -888,8 +884,8 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scandir.html">
-                            scandir
+                        <a href="http://pynsk.ru/tag/rstrip.html">
+                            rstrip
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -907,12 +903,12 @@ nose автоматически собирает тесты из файлов в
                             синтаксис
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
-                            слабая ссылка
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/slice.html">
+                            slice
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
+                    <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/spisok.html">
                             список
                         </a>
@@ -920,6 +916,16 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/spravochnik.html">
                             справочник
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/sqlalchemy.html">
+                            sqlalchemy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/srez.html">
+                            срез
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -930,6 +936,16 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/staticheskaia-tipizatsiia.html">
                             статическая типизация
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/super.html">
+                            super
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/swagger.html">
+                            swagger
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -944,7 +960,7 @@ nose автоматически собирает тесты из файлов в
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/test.html">
-                            тест
+                            test
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -953,13 +969,13 @@ nose автоматически собирает тесты из файлов в
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://pynsk.ru/tag/tipizatsiia.html">
-                            типизация
+                        <a href="http://pynsk.ru/tag/time.html">
+                            time
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/type.html">
-                            type
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/tipizatsiia.html">
+                            типизация
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -972,14 +988,9 @@ nose автоматически собирает тесты из файлов в
                             unittest
                         </a>
                     </li>
-                    <li class="list-group-item tag-0">
+                    <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/video.html">
                             видео
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/virtualenv.html">
-                            virtualenv
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -987,9 +998,9 @@ nose автоматически собирает тесты из файлов в
                             визуализация
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/vkontakte.html">
-                            вконтакте
+                    <li class="list-group-item tag-3">
+                        <a href="http://pynsk.ru/tag/vremia.html">
+                            время
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -1002,11 +1013,6 @@ nose автоматически собирает тесты из файлов в
                             with
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/xpath.html">
-                            xpath
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/yield.html">
                             yield
@@ -1015,6 +1021,11 @@ nose автоматически собирает тесты из файлов в
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/zadacha.html">
                             задача
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zamykanie.html">
+                            замыкание
                         </a>
                     </li>
                 </ul>
@@ -1029,7 +1040,7 @@ nose автоматически собирает тесты из файлов в
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Alexander Sapronov
+         <div class="col-xs-10">&copy; 2016 Alexander Sapronov
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
