@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/pishem-web-proekty.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 19 Jan 2016 08:00:00 +0600</lastBuildDate><item><title>Пишем простые проекты. Проект #1. Часть #1</title><link>http://pynsk.ru/posts/2016/Jan/19/pishem-prostye-proekty-proekt-1-chast-1/</link><description>&lt;p&gt;Нудное введение:&lt;/p&gt;
-&lt;p&gt;Замеченно, что новичкам трудно перейти от теории к практике - заставить себя писать, а не только читать. Чтобы помочь мы постоянно публикуем различный материал и указываем как применить эти знания на практике.&lt;/p&gt;
+&lt;p&gt;Замечено, что новичкам трудно перейти от теории к практике - заставить себя писать, а не только читать. Чтобы помочь мы постоянно публикуем различный материал и указываем как применить эти знания на практике.&lt;/p&gt;
 &lt;p&gt;В этот раз решили написать 2 небольших проекта:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Первый - страница со статистикой отжимания. Будет показано, как с помощью flask + google chart's сделать проект для сохранения и визуализации количества отжиманий. &lt;/li&gt;
