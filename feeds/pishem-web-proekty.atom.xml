@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/pishem-web-proekty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2015-12-23T18:00:00+06:00</updated><entry><title>Пишем web-проекты: исправляем битый HTML с помощью Tidy</title><link href="http://pynsk.ru/posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/" rel="alternate"></link><updated>2015-12-23T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-23:posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/</id><summary type="html">&lt;p&gt;При парсинге возникают совсем странные ошибки - одна из них - не валидный HTML. Т.е. с ошибками.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>PyNSK - Новосибирское Python сообщество</title><link href="http://pynsk.ru/" rel="alternate"></link><link href="http://pynsk.ru/feeds/pishem-web-proekty.atom.xml" rel="self"></link><id>http://pynsk.ru/</id><updated>2016-01-19T08:00:00+06:00</updated><entry><title>Пишем простые проекты. Проект #1. Часть #1</title><link href="http://pynsk.ru/posts/2016/Jan/19/pishem-prostye-proekty-proekt-1-chast-1/" rel="alternate"></link><updated>2016-01-19T08:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2016-01-19:posts/2016/Jan/19/pishem-prostye-proekty-proekt-1-chast-1/</id><summary type="html">&lt;p&gt;Нудное введение:&lt;/p&gt;
+&lt;p&gt;Замеченно, что новичкам трудно перейти от теории к практике - заставить себя писать, а не только читать. Чтобы помочь мы постоянно публикуем различный материал и указываем как применить эти знания на практике.&lt;/p&gt;
+&lt;p&gt;В этот раз решили написать 2 небольших проекта:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Первый - страница со статистикой отжимания. Будет показано, как с помощью flask + google chart's сделать проект для сохранения и визуализации количества отжиманий. &lt;/li&gt;
+&lt;li&gt;Второй - vk2rss - сервис для преобразования стен групп ВКонтакте в RSS. Будет рассмотрен парсинг, работа с VK API, создание простого GUI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Оба проекта будут описаны в виде текста. А следующие попробую записать в виде скринкаста (Это ведь интересней?)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Для справки: я придерживаюсь правила 80% практика / 20% теория. Поэтому не ожидайте глубокой теории. По тексту будут расставлены отсылки к необходимой теории. Смело задавайте вопросы в комментариях.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Повторяйте за мной!&lt;/p&gt;
+&lt;p&gt;Первый проект:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;flask&lt;/code&gt; - веб-фреймворк. Обладает высокой гибкостью, расширяется (добавляются возможности) за счет сторонних модулей. &lt;/p&gt;
+&lt;p&gt;Установить &lt;code&gt;flask&lt;/code&gt; можно как и другие пакеты - через &lt;code&gt;pip/easy_install&lt;/code&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Подсказка: проекты стоит разрабатывать в виртуальном окружении - virtualenv. &lt;/p&gt;
+&lt;p&gt;Подсказка: используйте pip для установки пакетов&lt;/p&gt;
+&lt;p&gt;Ссылки для изучения pip и virtualenv:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/"&gt;http://pynsk.ru/posts/2015/Dec/25/poleznye-instrumenty-virtualenv-pip/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/"&gt;http://proft.me/2010/04/3/python-i-okruzhenie-virtualenv/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Выполняем для установки:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install flask
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Сразу к коду. Традиционный &lt;code&gt;hello world&lt;/code&gt;, на flask:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- encoding: utf-8 -*-&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Данный код создает и запускает web-сервер. Пользователь зашедший на главную страницу (/) увидит &lt;code&gt;Hello World!&lt;/code&gt;.
+Запускаем скрипт и получаем:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Открываем браузер и вводим &lt;a href="http://127.0.0.1:5000/"&gt;http://127.0.0.1:5000/&lt;/a&gt;. 
+Если сделано все правильно, то увидите  &lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Поэксперементируйте с отображаемым текстом. Выводите разный текст, воспользуйтесь HTML-тегами&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;В описании проекта сказано - "страница". Добавим ее. Создаем папку &lt;code&gt;templates&lt;/code&gt;, а в папке файл 'index.html'. 
+В результате у нас получилась такая структура файлов и папок:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;.
+├── app.py
+├── requirements.txt
+└── templates
+    └── index.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;index.html, пришло твое время! Заменим &lt;code&gt;Hello world&lt;/code&gt; в Python коде на html страницу с таким же содержанием. Записываем в файл:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;html&lt;/span&gt; &lt;span class="na"&gt;lang=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;en&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;charset=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Title&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Hiiiiiiii&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Заготовка страницы есть. Теперь надо эту страницу показать пользователю. Возвращаемся в Python-код и переписываем функцию &lt;code&gt;index&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;render_template&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;index.html&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Не забудьте добавить импорт функции &lt;code&gt;render_template&lt;/code&gt; (ведь вы уже догадались что она делает?). Добавляем в начале &lt;code&gt;app.py&lt;/code&gt; файла:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;render_template&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Перезапустите flask-сервер, снова откройте главную страницу. Если сделали все правильно, то увидете &lt;code&gt;Hiiiiiiii&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Промежуточный итог: создали flask-проект с шаблоном. При заходе на главную страницу сервера нас приветствуют с помощью &lt;code&gt;Hiiiiiiii&lt;/code&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Продолжение следует.&lt;/p&gt;</summary><category term="pip"></category><category term="flask"></category></entry><entry><title>Пишем web-проекты: исправляем битый HTML с помощью Tidy</title><link href="http://pynsk.ru/posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/" rel="alternate"></link><updated>2015-12-23T18:00:00+06:00</updated><author><name>Alexander Sapronov</name></author><id>tag:pynsk.ru,2015-12-23:posts/2015/Dec/23/pishem-web-proekty-ispravliaem-bityi-html-s-pomoshchiu-tidy/</id><summary type="html">&lt;p&gt;При парсинге возникают совсем странные ошибки - одна из них - не валидный HTML. Т.е. с ошибками.
 Верстальщик забыл закрыть таблицу или body. Еще бывает что вставляют HTML из Word, а там тааккккооооой код.&lt;/p&gt;
 &lt;p&gt;Чтобы очистить HTML от мусора можно применять инструмент &lt;code&gt;Tidy&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Данный инструмент позволяет исправить неверный HTML (добавит закрывающие теги, добавит недостающие теги), почистить форматирование (отступы, например).&lt;/p&gt;
