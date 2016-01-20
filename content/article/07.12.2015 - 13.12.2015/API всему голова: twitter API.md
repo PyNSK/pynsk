@@ -18,16 +18,16 @@ Twitter имеет открытый API, который сегодня и осв
 
 Наблюдаем такую картину:
 
-![Image](http://pynsk.ru/images/posts/twitter_api_1.png)
+![Image](http://old.pynsk.ru/images/posts/twitter_api_1.png)
 
 Создаем приложение - вводим название, описание и ссылку на сайт. Эти данные толком не важны, поэтому вводим любые
 
-![Image](http://pynsk.ru/images/posts/twitter_api_2.png)
+![Image](http://old.pynsk.ru/images/posts/twitter_api_2.png)
 
 После того как будет создано приложение мы получим нужные данные:
 
-![Image](http://pynsk.ru/images/posts/twitter_api_3.png)
-![Image](http://pynsk.ru/images/posts/twitter_api_4.png)
+![Image](http://old.pynsk.ru/images/posts/twitter_api_3.png)
+![Image](http://old.pynsk.ru/images/posts/twitter_api_4.png)
 
 Жмем на кнопку `"Create my access token"` и получаем все самое важное:
 

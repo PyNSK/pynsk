@@ -37,7 +37,7 @@ Author: Владимир Костюнин
 
 ## Популярные модели
 ###  1. Raspberry Pi 2  
-![Raspberry Pi 2](http://pynsk.ru/images/posts/Raspberry_Pi_2.jpg)
+![Raspberry Pi 2](http://old.pynsk.ru/images/posts/Raspberry_Pi_2.jpg)
 
 `Raspberry Pi` (или «Малинка», как они известны среди энтузиастов) — устройство, положившее начало этой истории. Впервые компьютеры этого семейства появились `в 2012 году`, и тогда это многим казалось фантастикой. Компьютер `размером с кредитку`? За `25 долларов`? `Запускает Linux`? Тем не менее, уже в конце июля в производство была запущена альфа-версия платы, за ней в августе пришли первые готовые модели и люди начали потихоньку получать свои устройства. 
 
@@ -45,15 +45,15 @@ Author: Владимир Костюнин
 
 ### 2. Cubieboard 3
 
-![Cubieboard 3](http://pynsk.ru/images/posts/Cubieboard_3.jpg)  
+![Cubieboard 3](http://old.pynsk.ru/images/posts/Cubieboard_3.jpg)  
 `Cubieboard` — творение сумрачного инженерного гения из Китая. Появилась она в тестовых вариантах `в сентябре 2012`. Первый вариант был не слишком удачен, так что поговорим о третьей версии (благо, цена осталась та же). Как видно из картинки, портов больше, чем у Raspberry, к тому же на плате распаяны Wi-Fi, Bluetooth и инфракрасный port — это однозначный плюс. Машинка несёт в себе двуядерный процессор ARM Cortex-A7, 1/2 ГБ оперативной памяти, гигабитный Ethernet и вообще всячески набита интересностями. 
 
 ### 3.BeagleBone Black
 
-![BeagleBone Black](http://pynsk.ru/images/posts/BeagleBone_Black.jpg)  
+![BeagleBone Black](http://old.pynsk.ru/images/posts/BeagleBone_Black.jpg)  
 `BeagleBone Black` впервые появилась `в 2013 году` как наследник предыдущих BeagleBoard. Её по праву можно назвать самой стильной из всех. Разработчики делают упор на наличие большого количества универсальных портов. К тому же, для BeagleBone существуют неплохие наборы аксессуаров. Беспроводных модулей нет. Процессор — 1 ГГц Cortex-A8, 512 мб оперативной памяти. В общем, на фоне Raspberry Pi 2 выглядит уже достаточно бледно.
 
 ### 4.Orange Pi PC
 
-![Orange Pi PC](http://pynsk.ru/images/posts/Orang_Pi_PC.jpg)  
+![Orange Pi PC](http://old.pynsk.ru/images/posts/Orang_Pi_PC.jpg)  
 Ранее компания `Shenzhen Xunlong Software CO.` использовала процессоры Allwinner A20 и Allwinner A31s в отладочный платах `Orange Pi`. Но недавно компания представила модель `Orange Pi PC` на базе процессора Allwinner H3, которая стоит существенно дешевле предыдущих, и составляет `$15`. Низкая стоимость платы была достигнута, благодаря низкой цены самого процессора Allwinner H3. Allwinner H3 как и Broadcom BCM2836(Raspberry Pi 2) включает четыре ядра ARMv7 Cortex-A7. Но учитывая большую частоту 1,2 ГГц против 900 МГц(Raspberry Pi 2) и более производительный GPU.

@@ -15,7 +15,7 @@ def get_theme_path(theme_name):
 
 AUTHOR = 'Alexander Sapronov'
 SITENAME = 'PyNSK - Новосибирское Python сообщество'
-# SITEURL = 'http://pynsk.ru'
+# SITEURL = 'http://old.pynsk.ru'
 SITEURL = ''
 
 PATH = 'content'

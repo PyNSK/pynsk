@@ -10,7 +10,7 @@ Category: Пишем web-проекты
 Но что если нам надо сделать какие-то дополнительные возможности?
 Для примера такие действия есть в Python Дайджест:
 
-![Python Дайджест](http://pynsk.ru/images/posts/django_actions.png)
+![Python Дайджест](http://old.pynsk.ru/images/posts/django_actions.png)
 
 
 Такие возможности реализуются с помощью Django admin actions. 

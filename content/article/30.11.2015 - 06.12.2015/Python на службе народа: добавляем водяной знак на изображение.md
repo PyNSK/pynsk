@@ -55,4 +55,4 @@ if __name__ == "__main__":
 
 Результат
 
-![Image](http://pynsk.ru/images/posts/watermark_result.png)
+![Image](http://old.pynsk.ru/images/posts/watermark_result.png)

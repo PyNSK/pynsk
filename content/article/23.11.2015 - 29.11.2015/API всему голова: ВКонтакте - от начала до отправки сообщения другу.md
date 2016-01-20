@@ -34,21 +34,21 @@ API Вконтакте не исключение. Уже есть очень м�
 Для этого идем на страницу [https://vk.com/apps?act=manage](https://vk.com/apps?act=manage)
 Видим примерно такую картину:
 
-![vk](http://pynsk.ru/images/posts/vk_api_post_1.png)
+![vk](http://old.pynsk.ru/images/posts/vk_api_post_1.png)
 
 Создаем свое приложение:
 
-![vk](http://pynsk.ru/images/posts/vk_api_post_2.png)
+![vk](http://old.pynsk.ru/images/posts/vk_api_post_2.png)
 
 Выбираем "Standalone-приложение" - для нашего сайта это в самый раз
 
 В итоге получаем приложение:
 
-![vk](http://pynsk.ru/images/posts/vk_api_post_3.png)
+![vk](http://old.pynsk.ru/images/posts/vk_api_post_3.png)
 
 На странице "настройки" видим `ID приложения` и `Защищенный ключ`:
 
-![vk](http://pynsk.ru/images/posts/vk_api_post_4.png)
+![vk](http://old.pynsk.ru/images/posts/vk_api_post_4.png)
 
 Запишите их, они нам понадобятся. 
 А также не забудьте включить приложение.

@@ -12,11 +12,11 @@ Gitter - это система для создания чатов для пол�
 
 После чего авторизуйтесь:
 
-![Image](http://pynsk.ru/images/posts/gitter_1.png)
+![Image](http://old.pynsk.ru/images/posts/gitter_1.png)
 
 После авторизации вы попадете на страницу https://developer.gitter.im/apps с таким контентом
 
-![Image](http://pynsk.ru/images/posts/gitter_2.png)
+![Image](http://old.pynsk.ru/images/posts/gitter_2.png)
 
 
 Как вы заметили - access_token, вот он, сразу готовый. Для нашей задачи его достаточно.
