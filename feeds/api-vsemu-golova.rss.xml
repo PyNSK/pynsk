@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://pynsk.ru/</link><description></description><atom:link href="http://pynsk.ru/feeds/api-vsemu-golova.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 01 Jan 2016 18:00:00 +0600</lastBuildDate><item><title>API всему голова: Feedly API - разбираемся с RSS сервисом</title><link>http://pynsk.ru/posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/</link><description>&lt;p&gt;Сегодня хочу описать как работать с &lt;code&gt;Feedly&lt;/code&gt; через их API в языке Python.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyNSK - Новосибирское Python сообщество</title><link>http://old.pynsk.ru/</link><description></description><atom:link href="http://old.pynsk.ru/feeds/api-vsemu-golova.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 01 Jan 2016 18:00:00 +0600</lastBuildDate><item><title>API всему голова: Feedly API - разбираемся с RSS сервисом</title><link>http://old.pynsk.ru/posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/</link><description>&lt;p&gt;Сегодня хочу описать как работать с &lt;code&gt;Feedly&lt;/code&gt; через их API в языке Python.&lt;/p&gt;
 &lt;p&gt;Для начала ссылки, которые точно понадобятся:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Документация: &lt;a href="https://developer.feedly.com/"&gt;https://developer.feedly.com/&lt;/a&gt;&lt;/li&gt;
@@ -68,19 +68,19 @@
 
 &lt;p&gt;Теперь умеем получать категории, статьи, а у статей доставать описание, название, ссылку. 
 Этого уже достаточно, чтобы написать свой фильтр RSS. &lt;/p&gt;
-&lt;p&gt;В API Feedly есть еще много всяких возможностей. Пользуйтесь.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 01 Jan 2016 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2016-01-01:posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/</guid><category>feedly</category><category>api</category><category>rss</category><category>фильтр</category></item><item><title>API всему голова: twitter API - пишем твит с изображением</title><link>http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</link><description>&lt;p&gt;О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
+&lt;p&gt;В API Feedly есть еще много всяких возможностей. Пользуйтесь.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Fri, 01 Jan 2016 18:00:00 +0600</pubDate><guid>tag:old.pynsk.ru,2016-01-01:posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/</guid><category>feedly</category><category>api</category><category>rss</category><category>фильтр</category></item><item><title>API всему голова: twitter API - пишем твит с изображением</title><link>http://old.pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</link><description>&lt;p&gt;О Twitter нечего писать, проект уже взрослый и известный. Через Твиттер продают, покупают, разыгрывают призы, консультируют, оказывают поддержку проектов, да даже используют как сервис оповещений.
 Twitter имеет открытый API, который сегодня и освоим. Мы научимся публиковать пост с изображением через Twitter API&lt;/p&gt;
 &lt;h2&gt;Начинаем работу с API - получаем APP_ID&lt;/h2&gt;
 &lt;p&gt;Как и с другими API, первый шаг - почитать документацию - &lt;a href="https://dev.twitter.com/overview/documentation"&gt;https://dev.twitter.com/overview/documentation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;А второй шаг - авторизоваться. Чтобы авторизоваться надо получить API Key, API Secret и access token. 
 Для этого идем по ссылке &lt;a href="https://apps.twitter.com/"&gt;https://apps.twitter.com/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Наблюдаем такую картину:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/twitter_api_1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Создаем приложение - вводим название, описание и ссылку на сайт. Эти данные толком не важны, поэтому вводим любые&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/twitter_api_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;После того как будет создано приложение мы получим нужные данные:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_3.png" /&gt;
-&lt;img alt="Image" src="http://pynsk.ru/images/posts/twitter_api_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/twitter_api_3.png" /&gt;
+&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/twitter_api_4.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Жмем на кнопку &lt;code&gt;"Create my access token"&lt;/code&gt; и получаем все самое важное:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;API key (&lt;code&gt;TWITTER_CONSUMER_KEY&lt;/code&gt;)&lt;/li&gt;
@@ -152,14 +152,14 @@ Twitter имеет открытый API, который сегодня и осв
 &lt;span class="n"&gt;image&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://pp.vk.me/c624516/v624516517/31b6b/6kViWNZI6n4.jpg&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;twitter_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;init_auth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;consumer_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consumer_secret&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;send_tweet_with_media&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;twitter_api&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;twitter_text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 10 Dec 2015 04:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-10:posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</guid><category>twitter</category><category>api</category><category>автоматизация</category></item><item><title>API всему голова: gitter api - пишем в чат от своего лица</title><link>http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</link><description>&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 10 Dec 2015 04:00:00 +0600</pubDate><guid>tag:old.pynsk.ru,2015-12-10:posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/</guid><category>twitter</category><category>api</category><category>автоматизация</category></item><item><title>API всему голова: gitter api - пишем в чат от своего лица</title><link>http://old.pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</link><description>&lt;p&gt;Gitter - это система для создания чатов для пользователей Github. 
 Чаты бесплатны, есть интеграция с Github, есть API - что еще для небольшого чата надо?&lt;/p&gt;
 &lt;p&gt;Сегодня мы научимся писать в чат с помощью API. В заголовке отметил, что будем писать от своего лица, поэтому будет все просто.&lt;/p&gt;
 &lt;p&gt;Для начала стоит изучить возможность API -&amp;gt; &lt;a href="https://developer.gitter.im/docs/welcome"&gt;https://developer.gitter.im/docs/welcome&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;После чего авторизуйтесь:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/gitter_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/gitter_1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;После авторизации вы попадете на страницу https://developer.gitter.im/apps с таким контентом&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Image" src="http://pynsk.ru/images/posts/gitter_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Image" src="http://old.pynsk.ru/images/posts/gitter_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Как вы заметили - access_token, вот он, сразу готовый. Для нашей задачи его достаточно.
 Сохраняем и пишем следующий код:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
@@ -235,7 +235,7 @@ Twitter имеет открытый API, который сегодня и осв
 
 &lt;p&gt;В коде видно, что при создании объекта Gitter мы получаем список доступных комнат и сохраняем себе. Внутренний словарь запоминает соответствие id'шников каналов и человеко-понятных названий. 
 И с помощью метода send_message отправляем сообщение в канал.&lt;/p&gt;
-&lt;p&gt;Вот и все.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 03 Dec 2015 12:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</guid><category>api</category><category>gitter</category><category>channel</category></item><item><title>API всему голова: ВКонтакте - от начала до отправки сообщения другу</title><link>http://pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/</link><description>&lt;p&gt;Работа с API сервисов это всегда история по типу "Ожидание...реальность". Ибо даже простое API может скушать день, а то и 2 дня рабочего времени. &lt;/p&gt;
+&lt;p&gt;Вот и все.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 03 Dec 2015 12:00:00 +0600</pubDate><guid>tag:old.pynsk.ru,2015-12-03:posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/</guid><category>api</category><category>gitter</category><category>channel</category></item><item><title>API всему голова: ВКонтакте - от начала до отправки сообщения другу</title><link>http://old.pynsk.ru/posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/</link><description>&lt;p&gt;Работа с API сервисов это всегда история по типу "Ожидание...реальность". Ибо даже простое API может скушать день, а то и 2 дня рабочего времени. &lt;/p&gt;
 &lt;p&gt;API Вконтакте не исключение. Уже есть очень много материалов на тему использования этого интерфейса:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://habrahabr.ru/search/page2/?q=vk+api&amp;amp;target_type=posts&amp;amp;order_by=relevance"&gt;http://habrahabr.ru/search/page2/?q=vk+api&amp;amp;target_type=posts&amp;amp;order_by=relevance&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;Много практических задач решили с помощью API:&lt;/p&gt;
@@ -258,14 +258,14 @@ Twitter имеет открытый API, который сегодня и осв
 &lt;p&gt;Для того чтобы начать делать запросы в API необходимо получить APP_ID и SECRET_KEY - это свойственно почти всем современным сервисам.
 Для этого идем на страницу &lt;a href="https://vk.com/apps?act=manage"&gt;https://vk.com/apps?act=manage&lt;/a&gt;
 Видим примерно такую картину:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="vk" src="http://pynsk.ru/images/posts/vk_api_post_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="vk" src="http://old.pynsk.ru/images/posts/vk_api_post_1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Создаем свое приложение:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="vk" src="http://pynsk.ru/images/posts/vk_api_post_2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="vk" src="http://old.pynsk.ru/images/posts/vk_api_post_2.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Выбираем "Standalone-приложение" - для нашего сайта это в самый раз&lt;/p&gt;
 &lt;p&gt;В итоге получаем приложение:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="vk" src="http://pynsk.ru/images/posts/vk_api_post_3.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="vk" src="http://old.pynsk.ru/images/posts/vk_api_post_3.png" /&gt;&lt;/p&gt;
 &lt;p&gt;На странице "настройки" видим &lt;code&gt;ID приложения&lt;/code&gt; и &lt;code&gt;Защищенный ключ&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="vk" src="http://pynsk.ru/images/posts/vk_api_post_4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="vk" src="http://old.pynsk.ru/images/posts/vk_api_post_4.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Запишите их, они нам понадобятся. 
 А также не забудьте включить приложение.
 А еще в &lt;code&gt;Права доступа&lt;/code&gt; укажите необходимые доступы - можно указать все, пока не разобрались что к чему.&lt;/p&gt;
@@ -386,4 +386,4 @@ Twitter имеет открытый API, который сегодня и осв
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Объедините эти два исходника и сможете отправить другу сообщение с помощью VK API&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 26 Nov 2015 18:00:00 +0600</pubDate><guid>tag:pynsk.ru,2015-11-26:posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/</guid><category>api</category><category>vk.com</category><category>вконтакте</category></item></channel></rss>
+&lt;p&gt;Объедините эти два исходника и сможете отправить другу сообщение с помощью VK API&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Sapronov</dc:creator><pubDate>Thu, 26 Nov 2015 18:00:00 +0600</pubDate><guid>tag:old.pynsk.ru,2015-11-26:posts/2015/Nov/26/api-vsemu-golova-vkontakte-ot-nachala-do-otpravki-soobshcheniia-drugu/</guid><category>api</category><category>vk.com</category><category>вконтакте</category></item></channel></rss>
