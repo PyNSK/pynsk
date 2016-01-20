@@ -278,9 +278,9 @@ multiprocessing позволяет работать с процессам как
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">Queue</span>
 <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
-    <span class="n">proc</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span> <span class="s">&quot;python ./dsTest.py&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span> <span class="p">)</span>
-    <span class="n">proc</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="c"># дождаться выполнения</span>
-    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="c">## получить то, что вернул подпроцесс</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span> <span class="s2">&quot;python ./dsTest.py&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span> <span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="c1"># дождаться выполнения</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">## получить то, что вернул подпроцесс</span>
 
 <span class="n">allProcesses</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
@@ -524,14 +524,14 @@ multiprocessing позволяет работать с процессам как
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/any.html">
-                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -560,18 +560,18 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bokeh.html">
-                            bokeh
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/c.html">
-                            c
+                        <a href="http://pynsk.ru/tag/cli.html">
+                            CLI
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/copy-paste.html">
-                            copy paste
+                        <a href="http://pynsk.ru/tag/click.html">
+                            click
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -580,23 +580,28 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
+                        <a href="http://pynsk.ru/tag/database.html">
+                            database
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/datetime.html">
+                            datetime
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/filtr.html">
-                            фильтр
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -607,11 +612,6 @@ multiprocessing позволяет работать с процессам как
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/funcy.html">
-                            funcy
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -650,8 +650,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/image.html">
-                            image
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -680,8 +680,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
+                        <a href="http://pynsk.ru/tag/kesh.html">
+                            кэш
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -694,29 +694,24 @@ multiprocessing позволяет работать с процессам как
                             консоль
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kontekst.html">
-                            контекст
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lambda.html">
-                            lambda
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/list.html">
                             list
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lstrip.html">
-                            lstrip
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
-                            магическая переменная
+                        <a href="http://pynsk.ru/tag/matritsa.html">
+                            матрица
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/micropython.html">
+                            micropython
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -730,8 +725,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nameko.html">
-                            nameko
+                        <a href="http://pynsk.ru/tag/notify.html">
+                            notify
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -799,19 +794,29 @@ multiprocessing позволяет работать с процессам как
                             plot
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
+                            поиск ошибок
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/praktika.html">
                             практика
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika-programmirovaniia.html">
-                            практика программирования
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
+                            производительность
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -824,14 +829,14 @@ multiprocessing позволяет работать с процессам как
                             pyqt
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -850,8 +855,13 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regexp.html">
-                            regexp
+                        <a href="http://pynsk.ru/tag/regex.html">
+                            regex
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -860,8 +870,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/rstrip.html">
-                            rstrip
+                        <a href="http://pynsk.ru/tag/rpc.html">
+                            rpc
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -870,8 +880,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scrapinghub.html">
-                            scrapinghub
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -892,11 +902,6 @@ multiprocessing позволяет работать с процессам как
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
                             слабая ссылка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -930,8 +935,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/strip.html">
-                            strip
+                        <a href="http://pynsk.ru/tag/swig.html">
+                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -964,11 +969,6 @@ multiprocessing позволяет работать с процессам как
                             типизация
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/type.html">
-                            type
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
@@ -977,11 +977,6 @@ multiprocessing позволяет работать с процессам как
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/urok.html">
-                            урок
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1010,8 +1005,8 @@ multiprocessing позволяет работать с процессам как
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1022,6 +1017,11 @@ multiprocessing позволяет работать с процессам как
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/zadacha.html">
                             задача
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zelenyi-potok.html">
+                            зеленый поток
                         </a>
                     </li>
                 </ul>

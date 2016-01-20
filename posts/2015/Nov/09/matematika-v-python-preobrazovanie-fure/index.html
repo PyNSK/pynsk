@@ -329,44 +329,44 @@ ifftshift(x, axes=None) — делает обратную операцию.
 
 
 <p>Приведём такой пример. Допустим, записали мы микрофоном какой-то шум, и надо определить, есть ли там какой-нибудь тон.</p>
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
-<span class="c">#coding=utf8</span>
+<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#coding=utf8</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">arange</span><span class="p">,</span> <span class="nb">abs</span> <span class="k">as</span> <span class="n">np_abs</span>
 <span class="kn">from</span> <span class="nn">numpy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">rfftfreq</span>
 <span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">uniform</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="c"># а можно импортировать numpy и писать: numpy.fft.rfft</span>
-<span class="n">FD</span> <span class="o">=</span> <span class="mi">22050</span> <span class="c"># частота дискретизации, отсчётов в секунду</span>
-<span class="c"># а это значит, что в дискретном сигнале представлены частоты от нуля до 11025 Гц (это и есть теорема Котельникова)</span>
-<span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c"># длина входного массива, 0.091 секунд при такой частоте дискретизации</span>
-<span class="c"># сгенерируем сигнал с частотой 440 Гц длиной N</span>
+<span class="c1"># а можно импортировать numpy и писать: numpy.fft.rfft</span>
+<span class="n">FD</span> <span class="o">=</span> <span class="mi">22050</span> <span class="c1"># частота дискретизации, отсчётов в секунду</span>
+<span class="c1"># а это значит, что в дискретном сигнале представлены частоты от нуля до 11025 Гц (это и есть теорема Котельникова)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2000</span> <span class="c1"># длина входного массива, 0.091 секунд при такой частоте дискретизации</span>
+<span class="c1"># сгенерируем сигнал с частотой 440 Гц длиной N</span>
 <span class="n">pure_sig</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mf">6.</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mf">440.0</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="n">FD</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)])</span>
-<span class="c"># сгенерируем шум, тоже длиной N (это важно!)</span>
+<span class="c1"># сгенерируем шум, тоже длиной N (это важно!)</span>
 <span class="n">noise</span> <span class="o">=</span> <span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">50.</span><span class="p">,</span><span class="mf">50.</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-<span class="c"># суммируем их и добавим постоянную составляющую 2 мВ (допустим, не очень хороший микрофон попался. Или звуковая карта или АЦП)</span>
-<span class="n">sig</span> <span class="o">=</span> <span class="n">pure_sig</span> <span class="o">+</span> <span class="n">noise</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="c"># в numpy так перегружена функция сложения</span>
-<span class="c"># вычисляем преобразование Фурье. Сигнал действительный, поэтому надо использовать rfft, это быстрее, чем fft</span>
+<span class="c1"># суммируем их и добавим постоянную составляющую 2 мВ (допустим, не очень хороший микрофон попался. Или звуковая карта или АЦП)</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">pure_sig</span> <span class="o">+</span> <span class="n">noise</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="c1"># в numpy так перегружена функция сложения</span>
+<span class="c1"># вычисляем преобразование Фурье. Сигнал действительный, поэтому надо использовать rfft, это быстрее, чем fft</span>
 <span class="n">spectrum</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>
 
-<span class="c"># нарисуем всё это, используя matplotlib</span>
-<span class="c"># Сначала сигнал зашумлённый и тон отдельно</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">FD</span><span class="p">),</span> <span class="n">sig</span><span class="p">)</span> <span class="c"># по оси времени секунды!</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">FD</span><span class="p">),</span> <span class="n">pure_sig</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="c"># чистый сигнал будет нарисован красным</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Время, c&#39;</span><span class="p">)</span> <span class="c"># это всё запускалось в Python 2.7, поэтому юникодовские строки</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Напряжение, мВ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Зашумлённый сигнал и тон 440 Гц&#39;</span><span class="p">)</span>
+<span class="c1"># нарисуем всё это, используя matplotlib</span>
+<span class="c1"># Сначала сигнал зашумлённый и тон отдельно</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">FD</span><span class="p">),</span> <span class="n">sig</span><span class="p">)</span> <span class="c1"># по оси времени секунды!</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">FD</span><span class="p">),</span> <span class="n">pure_sig</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># чистый сигнал будет нарисован красным</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">u&#39;Время, c&#39;</span><span class="p">)</span> <span class="c1"># это всё запускалось в Python 2.7, поэтому юникодовские строки</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">u&#39;Напряжение, мВ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">u&#39;Зашумлённый сигнал и тон 440 Гц&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="c"># когда закроется этот график, откроется следующий</span>
-<span class="c"># Потом спектр</span>
+<span class="c1"># когда закроется этот график, откроется следующий</span>
+<span class="c1"># Потом спектр</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">FD</span><span class="p">),</span> <span class="n">np_abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span><span class="o">/</span><span class="n">N</span><span class="p">)</span>
-<span class="c"># rfftfreq сделает всю работу по преобразованию номеров элементов массива в герцы</span>
-<span class="c"># нас интересует только спектр амплитуд, поэтому используем abs из numpy (действует на массивы поэлементно)</span>
-<span class="c"># делим на число элементов, чтобы амплитуды были в милливольтах, а не в суммах Фурье. Проверить просто — постоянные составляющие должны совпадать в сгенерированном сигнале и в спектре</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">u&#39;Частота, Гц&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">u&#39;Напряжение, мВ&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">u&#39;Спектр&#39;</span><span class="p">)</span>
+<span class="c1"># rfftfreq сделает всю работу по преобразованию номеров элементов массива в герцы</span>
+<span class="c1"># нас интересует только спектр амплитуд, поэтому используем abs из numpy (действует на массивы поэлементно)</span>
+<span class="c1"># делим на число элементов, чтобы амплитуды были в милливольтах, а не в суммах Фурье. Проверить просто — постоянные составляющие должны совпадать в сгенерированном сигнале и в спектре</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">u&#39;Частота, Гц&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">u&#39;Напряжение, мВ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">u&#39;Спектр&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -601,14 +601,14 @@ ifftshift(x, axes=None) — делает обратную операцию.
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/any.html">
-                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -637,18 +637,18 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bokeh.html">
-                            bokeh
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/c.html">
-                            c
+                        <a href="http://pynsk.ru/tag/cli.html">
+                            CLI
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/copy-paste.html">
-                            copy paste
+                        <a href="http://pynsk.ru/tag/click.html">
+                            click
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -657,23 +657,28 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
+                        <a href="http://pynsk.ru/tag/database.html">
+                            database
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/datetime.html">
+                            datetime
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/filtr.html">
-                            фильтр
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -684,11 +689,6 @@ ifftshift(x, axes=None) — делает обратную операцию.
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/funcy.html">
-                            funcy
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -727,8 +727,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/image.html">
-                            image
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -757,8 +757,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
+                        <a href="http://pynsk.ru/tag/kesh.html">
+                            кэш
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -771,29 +771,24 @@ ifftshift(x, axes=None) — делает обратную операцию.
                             консоль
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kontekst.html">
-                            контекст
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lambda.html">
-                            lambda
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/list.html">
                             list
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lstrip.html">
-                            lstrip
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
-                            магическая переменная
+                        <a href="http://pynsk.ru/tag/matritsa.html">
+                            матрица
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/micropython.html">
+                            micropython
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -807,8 +802,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nameko.html">
-                            nameko
+                        <a href="http://pynsk.ru/tag/notify.html">
+                            notify
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -876,19 +871,29 @@ ifftshift(x, axes=None) — делает обратную операцию.
                             plot
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
+                            поиск ошибок
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/praktika.html">
                             практика
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika-programmirovaniia.html">
-                            практика программирования
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
+                            производительность
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -901,14 +906,14 @@ ifftshift(x, axes=None) — делает обратную операцию.
                             pyqt
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -927,8 +932,13 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regexp.html">
-                            regexp
+                        <a href="http://pynsk.ru/tag/regex.html">
+                            regex
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -937,8 +947,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/rstrip.html">
-                            rstrip
+                        <a href="http://pynsk.ru/tag/rpc.html">
+                            rpc
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -947,8 +957,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scrapinghub.html">
-                            scrapinghub
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -969,11 +979,6 @@ ifftshift(x, axes=None) — делает обратную операцию.
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
                             слабая ссылка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1007,8 +1012,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/strip.html">
-                            strip
+                        <a href="http://pynsk.ru/tag/swig.html">
+                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1041,11 +1046,6 @@ ifftshift(x, axes=None) — делает обратную операцию.
                             типизация
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/type.html">
-                            type
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
@@ -1054,11 +1054,6 @@ ifftshift(x, axes=None) — делает обратную операцию.
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/urok.html">
-                            урок
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1087,8 +1082,8 @@ ifftshift(x, axes=None) — делает обратную операцию.
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1099,6 +1094,11 @@ ifftshift(x, axes=None) — делает обратную операцию.
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/zadacha.html">
                             задача
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zelenyi-potok.html">
+                            зеленый поток
                         </a>
                     </li>
                 </ul>

@@ -320,7 +320,7 @@ PyNSK - Новосибирское Python сообщество            </a>
 
 <p>А затем возьмем готовый код (<code>все написано за нас</code>).
 Для примера возьмем возьмем <a href="https://gist.github.com/st4lk/4708673">готовый кусок кода</a> и немного преобразуем по Python3:</p>
-<div class="highlight"><pre><span class="c"># -*- encoding: utf-8 -*-</span>
+<div class="highlight"><pre><span class="c1"># -*- encoding: utf-8 -*-</span>
 
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
@@ -331,18 +331,18 @@ PyNSK - Новосибирское Python сообщество            </a>
 <span class="kn">import</span> <span class="nn">vk</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="c"># id of vk.com application</span>
+<span class="c1"># id of vk.com application</span>
 <span class="n">APP_ID</span> <span class="o">=</span> <span class="o">&lt;</span><span class="err">ВСТАВИТЬ</span> <span class="err">ТВОЙ</span> <span class="n">APP_ID</span><span class="o">&gt;</span>
-<span class="c"># file, where auth data is saved</span>
-<span class="n">AUTH_FILE</span> <span class="o">=</span> <span class="s">&#39;.auth_data&#39;</span>
-<span class="c"># chars to exclude from filename</span>
-<span class="n">FORBIDDEN_CHARS</span> <span class="o">=</span> <span class="s">&#39;/</span><span class="se">\\</span><span class="s">\?%*:|&quot;&lt;&gt;!&#39;</span>
+<span class="c1"># file, where auth data is saved</span>
+<span class="n">AUTH_FILE</span> <span class="o">=</span> <span class="s1">&#39;.auth_data&#39;</span>
+<span class="c1"># chars to exclude from filename</span>
+<span class="n">FORBIDDEN_CHARS</span> <span class="o">=</span> <span class="s1">&#39;/</span><span class="se">\\</span><span class="s1">\?%*:|&quot;&lt;&gt;!&#39;</span>
 
 <span class="k">def</span> <span class="nf">get_saved_auth_params</span><span class="p">():</span>
     <span class="n">access_token</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">user_id</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUTH_FILE</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pkl_file</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUTH_FILE</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pkl_file</span><span class="p">:</span>
             <span class="n">token</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pkl_file</span><span class="p">)</span>
             <span class="n">expires</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pkl_file</span><span class="p">)</span>
             <span class="n">uid</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pkl_file</span><span class="p">)</span>
@@ -356,24 +356,24 @@ PyNSK - Новосибирское Python сообщество            </a>
 
 <span class="k">def</span> <span class="nf">save_auth_params</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">expires_in</span><span class="p">,</span> <span class="n">user_id</span><span class="p">):</span>
     <span class="n">expires</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expires_in</span><span class="p">))</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUTH_FILE</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">AUTH_FILE</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
         <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
         <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">expires</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
         <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">get_auth_params</span><span class="p">():</span>
-    <span class="n">auth_url</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;https://oauth.vk.com/authorize?client_id={app_id}&quot;</span>
-                <span class="s">&quot;&amp;scope=wall,messages&amp;redirect_uri=http://oauth.vk.com/blank.html&quot;</span>
-                <span class="s">&quot;&amp;display=page&amp;response_type=token&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">app_id</span><span class="o">=</span><span class="n">APP_ID</span><span class="p">))</span>
+    <span class="n">auth_url</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https://oauth.vk.com/authorize?client_id={app_id}&quot;</span>
+                <span class="s2">&quot;&amp;scope=wall,messages&amp;redirect_uri=http://oauth.vk.com/blank.html&quot;</span>
+                <span class="s2">&quot;&amp;display=page&amp;response_type=token&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">app_id</span><span class="o">=</span><span class="n">APP_ID</span><span class="p">))</span>
     <span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">auth_url</span><span class="p">)</span>
-    <span class="n">redirected_url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Paste here url you were redirected:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">redirected_url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Paste here url you were redirected:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">aup</span> <span class="o">=</span> <span class="n">parse_qs</span><span class="p">(</span><span class="n">redirected_url</span><span class="p">)</span>
-    <span class="n">aup</span><span class="p">[</span><span class="s">&#39;access_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aup</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
-        <span class="s">&#39;https://oauth.vk.com/blank.html#access_token&#39;</span><span class="p">)</span>
-    <span class="n">save_auth_params</span><span class="p">(</span><span class="n">aup</span><span class="p">[</span><span class="s">&#39;access_token&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">aup</span><span class="p">[</span><span class="s">&#39;expires_in&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-                     <span class="n">aup</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">aup</span><span class="p">[</span><span class="s">&#39;access_token&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">aup</span><span class="p">[</span><span class="s">&#39;user_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">aup</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aup</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span>
+        <span class="s1">&#39;https://oauth.vk.com/blank.html#access_token&#39;</span><span class="p">)</span>
+    <span class="n">save_auth_params</span><span class="p">(</span><span class="n">aup</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">aup</span><span class="p">[</span><span class="s1">&#39;expires_in&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                     <span class="n">aup</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">aup</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">aup</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">get_api</span><span class="p">(</span><span class="n">access_token</span><span class="p">):</span>
@@ -404,8 +404,8 @@ PyNSK - Новосибирское Python сообщество            </a>
 <p>Модифицируем функцию main, а также добавим функцию <code>send_message</code> (угадайте что она делает):</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span>
-        <span class="s">&#39;message&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span>
+        <span class="s1">&#39;user_id&#39;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="n">data_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">api</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="o">**</span><span class="n">data_dict</span><span class="p">)</span>
@@ -416,10 +416,10 @@ PyNSK - Новосибирское Python сообщество            </a>
         <span class="n">access_token</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_auth_params</span><span class="p">()</span>
     <span class="n">api</span> <span class="o">=</span> <span class="n">get_api</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
 
-    <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="o">&lt;</span><span class="err">СПИСОК</span> <span class="n">ID</span><span class="s">&#39;шников пользователей&gt;]</span>
-    <span class="n">user_text</span> <span class="o">=</span> <span class="s">&quot;Привет. Я научился с помощью API писать сообщение&quot;</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="o">&lt;</span><span class="err">СПИСОК</span> <span class="n">ID</span><span class="s1">&#39;шников пользователей&gt;]</span>
+    <span class="n">user_text</span> <span class="o">=</span> <span class="s2">&quot;Привет. Я научился с помощью API писать сообщение&quot;</span>
     <span class="k">for</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;User &quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;User &quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">send_message</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">user_text</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -432,12 +432,12 @@ PyNSK - Новосибирское Python сообщество            </a>
 <section class="well" id="related-posts">
     <h4>Новости по теме:</h4>
     <ul>
-        <li><a href="http://pynsk.ru/posts/2015/Jul/29/django-rest-api/">Django REST API</a></li>
-        <li><a href="http://pynsk.ru/posts/2015/Dec/30/primery-koda-skript-pozdravleniia-vsekh-druzei-s-ng-v-vkcom/">Примеры кода: скрипт поздравления всех друзей с НГ в vk.com</a></li>
-        <li><a href="http://pynsk.ru/posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/">API всему голова: Feedly API - разбираемся с RSS сервисом</a></li>
-        <li><a href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/">API всему голова: twitter API - пишем твит с изображением</a></li>
         <li><a href="http://pynsk.ru/posts/2015/Aug/25/pishem-web-proekty-obzor-i-sravnenie-metodov-realizatsii-rest-api-v-django/">Пишем web-проекты: обзор и сравнение методов реализации REST API в Django</a></li>
         <li><a href="http://pynsk.ru/posts/2015/Dec/03/api-vsemu-golova-gitter-api-pishem-v-chat-ot-svoego-litsa/">API всему голова: gitter api - пишем в чат от своего лица</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/Jul/29/django-rest-api/">Django REST API</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/Dec/10/api-vsemu-golova-twitter-api-pishem-tvit-s-izobrazheniem/">API всему голова: twitter API - пишем твит с изображением</a></li>
+        <li><a href="http://pynsk.ru/posts/2016/Jan/01/api-vsemu-golova-feedly-api-razbiraemsia-s-rss-servisom/">API всему голова: Feedly API - разбираемся с RSS сервисом</a></li>
+        <li><a href="http://pynsk.ru/posts/2015/Dec/30/primery-koda-skript-pozdravleniia-vsekh-druzei-s-ng-v-vkcom/">Примеры кода: скрипт поздравления всех друзей с НГ в vk.com</a></li>
     </ul>
 </section>
     <hr />
@@ -656,14 +656,14 @@ PyNSK - Новосибирское Python сообщество            </a>
                     </h4>
                 </a>
                 <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/action.html">
+                            action
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/aiohttp.html">
                             aiohttp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/any.html">
-                            any
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -692,18 +692,18 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/bokeh.html">
-                            bokeh
+                        <a href="http://pynsk.ru/tag/cffi.html">
+                            cffi
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/c.html">
-                            c
+                        <a href="http://pynsk.ru/tag/cli.html">
+                            CLI
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/copy-paste.html">
-                            copy paste
+                        <a href="http://pynsk.ru/tag/click.html">
+                            click
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -712,23 +712,28 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/deklarativnyi-iazyk.html">
-                            декларативный язык
+                        <a href="http://pynsk.ru/tag/database.html">
+                            database
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/datetime.html">
+                            datetime
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/db.html">
+                            db
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/debug.html">
+                            debug
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
                         <a href="http://pynsk.ru/tag/django.html">
                             django
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/docstring.html">
-                            docstring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/filtr.html">
-                            фильтр
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -739,11 +744,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/functools.html">
                             functools
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/funcy.html">
-                            funcy
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -782,8 +782,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/image.html">
-                            image
+                        <a href="http://pynsk.ru/tag/igry.html">
+                            игры
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -812,8 +812,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/iskliuchenie.html">
-                            исключение
+                        <a href="http://pynsk.ru/tag/kesh.html">
+                            кэш
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -826,29 +826,24 @@ PyNSK - Новосибирское Python сообщество            </a>
                             консоль
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/kontekst.html">
-                            контекст
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lambda.html">
-                            lambda
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/list.html">
                             list
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/lstrip.html">
-                            lstrip
+                        <a href="http://pynsk.ru/tag/mail.html">
+                            mail
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/magicheskaia-peremennaia.html">
-                            магическая переменная
+                        <a href="http://pynsk.ru/tag/matritsa.html">
+                            матрица
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/micropython.html">
+                            micropython
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -862,8 +857,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/nameko.html">
-                            nameko
+                        <a href="http://pynsk.ru/tag/notify.html">
+                            notify
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -931,19 +926,29 @@ PyNSK - Новосибирское Python сообщество            </a>
                             plot
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/poisk-oshibok.html">
+                            поиск ошибок
+                        </a>
+                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/praktika.html">
                             практика
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/praktika-programmirovaniia.html">
-                            практика программирования
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/proekt.html">
                             проект
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/proizvoditelnost.html">
+                            производительность
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pycallgraph.html">
+                            pycallgraph
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -956,14 +961,14 @@ PyNSK - Новосибирское Python сообщество            </a>
                             pyqt
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/pytest.html">
+                            pytest
+                        </a>
+                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/python.html">
                             python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/python3.html">
-                            python3
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -982,8 +987,13 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/regexp.html">
-                            regexp
+                        <a href="http://pynsk.ru/tag/regex.html">
+                            regex
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/requests.html">
+                            requests
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -992,8 +1002,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/rstrip.html">
-                            rstrip
+                        <a href="http://pynsk.ru/tag/rpc.html">
+                            rpc
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -1002,8 +1012,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/scrapinghub.html">
-                            scrapinghub
+                        <a href="http://pynsk.ru/tag/scandir.html">
+                            scandir
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1024,11 +1034,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-4">
                         <a href="http://pynsk.ru/tag/slabaia-ssylka.html">
                             слабая ссылка
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/slais.html">
-                            слайс
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1062,8 +1067,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/strip.html">
-                            strip
+                        <a href="http://pynsk.ru/tag/swig.html">
+                            swig
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1096,11 +1101,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                             типизация
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/type.html">
-                            type
-                        </a>
-                    </li>
                     <li class="list-group-item tag-2">
                         <a href="http://pynsk.ru/tag/uchebnik.html">
                             учебник
@@ -1109,11 +1109,6 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/unittest.html">
                             unittest
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/urok.html">
-                            урок
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -1142,8 +1137,8 @@ PyNSK - Новосибирское Python сообщество            </a>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://pynsk.ru/tag/wx.html">
-                            Wx
+                        <a href="http://pynsk.ru/tag/xpath.html">
+                            xpath
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -1154,6 +1149,11 @@ PyNSK - Новосибирское Python сообщество            </a>
                     <li class="list-group-item tag-3">
                         <a href="http://pynsk.ru/tag/zadacha.html">
                             задача
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://pynsk.ru/tag/zelenyi-potok.html">
+                            зеленый поток
                         </a>
                     </li>
                 </ul>
